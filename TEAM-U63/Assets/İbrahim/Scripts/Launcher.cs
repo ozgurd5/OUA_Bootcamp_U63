@@ -44,6 +44,8 @@ namespace U63
         [SerializeField]
         private GameObject progressLabel;
 
+        private GameManager _gameManager;
+
         #endregion
 
         #region MonoBehaviour CallBacks
@@ -141,9 +143,29 @@ namespace U63
                 // #Critical
                 // Load the Room Level.
                 PhotonNetwork.LoadLevel("Room for 1");
+                //Debug.Log("Joined a Room.");
+        //
+                //if (PhotonNetwork.IsMasterClient)
+                //{
+                //    StartCoroutine(LevelLoader());
+                //}
             }
             Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
         }
+        //Enumerator LevelLoader()
+        //
+        //   //PhotonNetwork.LoadLevel(1);
+        //   PhotonNetwork.LoadLevel("Room for 1");
+        //           
+        //   while (PhotonNetwork.LevelLoadingProgress < 1)
+        //   {
+        //       yield return new WaitForEndOfFrame();
+        //   }
+        //           
+        //   PhotonNetwork.Instantiate(_gameManager.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+        //}
+        
+        
 
         #endregion
 

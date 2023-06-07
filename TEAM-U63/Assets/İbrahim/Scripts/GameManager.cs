@@ -16,6 +16,8 @@ namespace U63
         [Tooltip("The prefab to use for representing the player")]
         public GameObject playerPrefab;
 
+        private Launcher _launcher;
+
         #endregion
         
         #region Photon Callbacks
@@ -73,13 +75,15 @@ namespace U63
             }
             else
             {
-                Debug.LogFormat("We are Instantiating LocalPlayer from {0}", Application.loadedLevelName);
+                
                 // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
                 if (PlayerManager.LocalPlayerInstance == null)
                 {
                     Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
                     // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
                     PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+                    //_launcher = gameObject.AddComponent<Launcher>();
+                    //_launcher.OnJoinedRoom();
                 }
                 else
                 {

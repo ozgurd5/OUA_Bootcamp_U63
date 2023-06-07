@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviourPunCallbacks
+
+namespace U63
+{
+    public class PlayerManager : MonoBehaviourPunCallbacks
 {
 
     #region Private Methods
@@ -61,6 +64,22 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        CameraWork _cameraWork = this.gameObject.GetComponent<CameraWork>();
+
+        if (_cameraWork != null)
+        {
+            if (photonView.IsMine)
+            {
+                _cameraWork.OnStartFollowing();
+            }
+        }
+        else
+        {
+            Debug.LogError("<Color=Red><a>Missing</a></Color> CameraWork Component on playerPrefab.", this);
+        }
+          
+
+
           #if UNITY_5_4_OR_NEWER
           // Unity 5.4 has a new scene management. register a method to call CalledOnLevelWasLoaded.
                   UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
@@ -74,3 +93,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         
     }
 }
+}
+
+
