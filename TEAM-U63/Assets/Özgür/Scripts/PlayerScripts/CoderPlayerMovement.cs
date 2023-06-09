@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : NetworkBehaviour
+public class CoderPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed;
     
@@ -9,15 +9,16 @@ public class PlayerMovement : NetworkBehaviour
     private float verticalMove;
     
     private Rigidbody rb;
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false; //Weird bug fix
     }
     
     private void Update()
     {
-        if (!IsOwner) return;
+        if (!IsHost) return;
         
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
