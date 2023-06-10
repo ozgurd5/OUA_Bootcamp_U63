@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//Client controls artist
+//SERVER SIDE
 
 //This script takes input from client and controls artist in server side
 

@@ -323,6 +323,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1423173765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6145826288219868491, guid: e43cca1332e0e4b4a93a03819fe1d556, type: 3}
+  m_PrefabInstance: {fileID: 2123289169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1672660131
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +428,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1931225697242547091, guid: ec8515696c1bceb4cac249053a8fc9f9, type: 3}
+      propertyPath: Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7591641000553156266, guid: ec8515696c1bceb4cac249053a8fc9f9, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 654877263
@@ -556,6 +565,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1931225697242547091, guid: e43cca1332e0e4b4a93a03819fe1d556, type: 3}
+      propertyPath: Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7591641000553156266, guid: e43cca1332e0e4b4a93a03819fe1d556, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 192820073
@@ -670,8 +683,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6852295514154343271, guid: 6dd0303090213314d92496abce08829c, type: 3}
-      propertyPath: NetworkConfig.PlayerPrefab
-      value: 
+      propertyPath: NetworkConfig.TickRate
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -778,6 +791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6670951150631324802, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
+      propertyPath: client
+      value: 
+      objectReference: {fileID: 1423173765}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -843,8 +860,11 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1862290389
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5390051573272734954, guid: 97a6d433670ffb14097befeaa9ee8e60, type: 3}
+    - target: {fileID: 9044875122075863392, guid: 97a6d433670ffb14097befeaa9ee8e60, type: 3}
+      propertyPath: Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

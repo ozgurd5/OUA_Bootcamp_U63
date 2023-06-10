@@ -2,17 +2,19 @@ using System;
 using Unity.Netcode;
 using UnityEngine;
 
+//CLIENT SIDE
+
 //Takes input from client and sends it to server
 
-public class ClientPlayerHandler : NetworkBehaviour
+public class ClientInput : NetworkBehaviour
 {
     private ArtistPlayerMovement apm;
-
+    
     private void Start()
     {
         apm = GetComponent<ArtistPlayerMovement>();
     }
-
+    
     private void Update()
     {
         if (IsHost) return;

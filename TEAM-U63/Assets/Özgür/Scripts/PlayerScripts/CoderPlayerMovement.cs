@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//Host controls coder
+//SERVER SIDE
 
 //This script controls coder in server side
 
@@ -13,7 +13,7 @@ public class CoderPlayerMovement : NetworkBehaviour
     private float verticalMove;
     
     private Rigidbody rb;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
