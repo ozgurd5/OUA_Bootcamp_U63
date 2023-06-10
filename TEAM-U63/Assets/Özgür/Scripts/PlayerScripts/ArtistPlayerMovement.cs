@@ -1,21 +1,26 @@
 using Unity.Netcode;
 using UnityEngine;
 
+//Client controls artist
+
+//This script takes input from client and controls artist in server side
+
 public class ArtistPlayerMovement : NetworkBehaviour
 {
-    public NetworkVariable<float> horizontalMove;
-    public NetworkVariable<float> verticalMove;
+    [SerializeField] private float speed = 12f;
+    public float horizontalInput;
+    public float verticalInput;
+    
+    private Rigidbody rb;
+    
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     
     private void Update()
     {
-        if (IsHost) return;
-        SendInputServerRpc(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void SendInputServerRpc(float horizontal, float vertical)
-    {
-        horizontalMove.Value = horizontal;
-        verticalMove.Value = vertical;
+        if (!IsHost) return;
+        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
     }
 }

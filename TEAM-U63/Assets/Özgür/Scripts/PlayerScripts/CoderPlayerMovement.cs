@@ -1,9 +1,13 @@
 using Unity.Netcode;
 using UnityEngine;
 
+//Host controls coder
+
+//This script controls coder in server side
+
 public class CoderPlayerMovement : NetworkBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 12f;
     
     private float horizontalMove;
     private float verticalMove;
@@ -13,7 +17,6 @@ public class CoderPlayerMovement : NetworkBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = false; //Weird bug fix
     }
     
     private void Update()
