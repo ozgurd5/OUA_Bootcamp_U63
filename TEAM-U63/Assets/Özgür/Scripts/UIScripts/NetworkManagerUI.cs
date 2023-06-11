@@ -53,8 +53,6 @@ public class NetworkManagerUI : NetworkBehaviour
     
     private void Update()
     {
-        if (!IsHost) return;
-        
         infoText.text = "IsServer: " + IsServer + "\n" + "IsHost: " + IsHost + "\n" + "IsClient: " + IsClient;
         
         clientInter.text = "Client interpolation: " + client.GetComponent<NetworkTransform>().Interpolate;
@@ -67,8 +65,5 @@ public class NetworkManagerUI : NetworkBehaviour
             isOwnerText.text = "IsOwner: " + isOwnerCheck.IsOwner;
         else
             isOwnerText.text = "Assign a NetworkObject script from Unity Inspector";
-        
-        //
-        Debug.Log("cube: " + cube.transform.position);
     }
 }

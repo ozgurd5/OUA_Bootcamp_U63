@@ -23,8 +23,5 @@ public class ArtistPlayerMovement : NetworkBehaviour
     {
         if (!IsHost) return;
         rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
-        
-        //
-        Debug.Log("artist: " + transform.position);
     }
 }
