@@ -27,5 +27,8 @@ public class CoderPlayerMovement : NetworkBehaviour
         verticalMove = Input.GetAxisRaw("Vertical");
         
         rb.velocity = new Vector3(horizontalMove * speed, rb.velocity.y, verticalMove * speed);
+        
+        //
+        Debug.Log("coder: " + transform.position);
     }
 }

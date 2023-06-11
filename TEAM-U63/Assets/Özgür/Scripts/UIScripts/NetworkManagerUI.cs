@@ -7,21 +7,23 @@ using UnityEngine.UI;
 public class NetworkManagerUI : NetworkBehaviour
 {
     [Header("Assign Manually")]
+    [SerializeField] private GameObject host;
     [SerializeField] private GameObject client;
+    [SerializeField] private GameObject cube;
     
     [Header("Buttons")]
     [SerializeField] private Button serverButton;
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;
-    [SerializeField] private Button increaseTickButton;
-    [SerializeField] private Button decreaseTickButton;
     [SerializeField] private Button toggleClientInterButton;
     
     [Header("Info Text")]
     [SerializeField] private TextMeshProUGUI infoText;
     [SerializeField] private TextMeshProUGUI isOwnerText;
-    [SerializeField] private TextMeshProUGUI tickRate;
     [SerializeField] private TextMeshProUGUI clientInter;
+    [SerializeField] private TextMeshProUGUI hostPosition;
+    [SerializeField] private TextMeshProUGUI clientPosition;
+    [SerializeField] private TextMeshProUGUI cubePosition;
     
     [Header("IsOwnerCheck")]
     [SerializeField] private NetworkObject isOwnerCheck;
@@ -42,17 +44,7 @@ public class NetworkManagerUI : NetworkBehaviour
         {
             NetworkManager.Singleton.StartClient();
         });
-        
-        increaseTickButton.onClick.AddListener(() =>
-        {
-            NetworkManager.NetworkConfig.TickRate += 10;
-        });
-        
-        decreaseTickButton.onClick.AddListener(() =>
-        {
-            NetworkManager.NetworkConfig.TickRate -= 10;
-        });
-        
+
         toggleClientInterButton.onClick.AddListener(() =>
         {
             client.GetComponent<NetworkTransform>().Interpolate = !client.GetComponent<NetworkTransform>().Interpolate;
@@ -61,15 +53,22 @@ public class NetworkManagerUI : NetworkBehaviour
     
     private void Update()
     {
+        if (!IsHost) return;
+        
         infoText.text = "IsServer: " + IsServer + "\n" + "IsHost: " + IsHost + "\n" + "IsClient: " + IsClient;
         
-        tickRate.text = "Tick rate: " + NetworkManager.NetworkConfig.TickRate;
-        
         clientInter.text = "Client interpolation: " + client.GetComponent<NetworkTransform>().Interpolate;
+
+        hostPosition.text = "Host position: " + host.transform.position;
+        clientPosition.text = "Client position: " + client.transform.position;
+        cubePosition.text = "Cube position: " + cube.transform.position;
         
         if (isOwnerCheck != null)
             isOwnerText.text = "IsOwner: " + isOwnerCheck.IsOwner;
         else
             isOwnerText.text = "Assign a NetworkObject script from Unity Inspector";
+        
+        //
+        Debug.Log("cube: " + cube.transform.position);
     }
 }
