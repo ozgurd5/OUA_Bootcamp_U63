@@ -17,7 +17,8 @@ Takım Unity 63
 
 ## Product Backlog URL
 
-[Flutter Team 52 Miro Backlog Board](https://miro.com/app/board/uXjVO4kRs2w=/)
+[Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
+
 
 ## Ürün Açıklaması
 
@@ -26,8 +27,9 @@ Oyunumuz, gelecek zamanda hayal edilen kurgusal bir hikayeyi ve o hikayenin evre
 - Karakter 2: İşi yapay zeka tarafından alınan bir Yazılımcı, maveramızda daha çok kodları bozulmuş yaratıklar ile savaşma ağırlıklı bulmacalarla karşılaşıyor.
 Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları oluyor, iletişim halinde bir takım çalışması yapmaları gerekiyor.
 
-- **Konsept bildirimi**
+**Konsept bildirimi**
 - Bulmacaları çözmek için bir ekip olarak çalışırken, hayal gücünüzün sınırlarını zorlayan hikayesiyle fantastik bir evrende derin bir yolculuğa çıkın!
+---
 
 - **Oyunun birincil fonksiyonu**: Oyuncular birbirleriyle bağlantı kurarak oyunun hikayesini öğrenirler ve beraber görevleri yapmaya başlarlar. Bu görevlerin aşama aşama olacak şekilde ilerleme gösterir. Her aşamada farklı bir meydan okuma bizi beklemektedir ve her aşama yapay zekanın bir katmanını temsil eder.
 
