@@ -8,11 +8,13 @@ using UnityEngine;
 public class ArtistPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
+    public float interpolationValue = 0.5f;
     
     public float horizontalInput;
     public float verticalInput;
     
     private Rigidbody rb;
+    private Vector3 smoothDampVelocity;
     
     private void Start()
     {
@@ -21,20 +23,15 @@ public class ArtistPlayerMovement : NetworkBehaviour
     
     private void Update()
     {
-        //Comment for client authoritative control and comment ClientInput.cs
         if (!IsHost) return;
-        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
         
-        //Uncomment for client authoritative control
-        // if (IsHost) return;
-        // rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y, Input.GetAxisRaw("Vertical") * speed);
-        // SendServerRpc(transform.position.x, transform.position.z);
+        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
+        ClientInterpolationClientRPC(transform.position);
     }
     
-    //Uncomment for client authoritative control
-    // [ServerRpc(RequireOwnership = false)]
-    // private void SendServerRpc(float x, float z)
-    // {
-    //     transform.position = new Vector3(x, transform.position.y, z);
-    // }
+    [ClientRpc]
+    private void ClientInterpolationClientRPC(Vector3 targetPosition)
+    {
+        transform.position = Vector3.Lerp(transform.position, targetPosition, interpolationValue);
+    }
 }

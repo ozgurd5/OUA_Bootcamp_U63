@@ -720,6 +720,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3670908486013564582, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 567164076}
+    - target: {fileID: 3670908486013564582, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
+      propertyPath: host
+      value: 
+      objectReference: {fileID: 860716026}
+    - target: {fileID: 3670908486013564582, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
+      propertyPath: client
+      value: 
+      objectReference: {fileID: 1423173765}
     - target: {fileID: 4086508952835164039, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3040103579
@@ -728,18 +740,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6670951150631324802, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
-      propertyPath: cube
-      value: 
-      objectReference: {fileID: 567164076}
-    - target: {fileID: 6670951150631324802, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
-      propertyPath: host
-      value: 
-      objectReference: {fileID: 860716026}
-    - target: {fileID: 6670951150631324802, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
-      propertyPath: client
-      value: 
-      objectReference: {fileID: 1423173765}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
