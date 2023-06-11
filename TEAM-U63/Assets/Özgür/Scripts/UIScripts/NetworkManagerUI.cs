@@ -16,6 +16,8 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;
     [SerializeField] private Button toggleClientInterButton;
+    [SerializeField] private Button increaseTickButton;
+    [SerializeField] private Button decreaseTickButton;
     
     [Header("Info Text")]
     [SerializeField] private TextMeshProUGUI infoText;
@@ -24,6 +26,7 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] private TextMeshProUGUI hostPosition;
     [SerializeField] private TextMeshProUGUI clientPosition;
     [SerializeField] private TextMeshProUGUI cubePosition;
+    [SerializeField] private TextMeshProUGUI tickRate;
     
     [Header("IsOwnerCheck")]
     [SerializeField] private NetworkObject isOwnerCheck;
@@ -49,6 +52,18 @@ public class NetworkManagerUI : NetworkBehaviour
         {
             client.GetComponent<NetworkTransform>().Interpolate = !client.GetComponent<NetworkTransform>().Interpolate;
         });
+        
+        increaseTickButton.onClick.AddListener(() =>
+        {
+            if (IsHost)
+                NetworkManager.Singleton.NetworkConfig.TickRate += 10;
+        });
+        
+        decreaseTickButton.onClick.AddListener(() =>
+        {
+            if (IsHost)
+                NetworkManager.Singleton.NetworkConfig.TickRate -= 10;
+        });
     }
     
     private void Update()
@@ -60,6 +75,8 @@ public class NetworkManagerUI : NetworkBehaviour
         hostPosition.text = "Host position: " + host.transform.position;
         clientPosition.text = "Client position: " + client.transform.position;
         cubePosition.text = "Cube position: " + cube.transform.position;
+
+        tickRate.text = "Tick rate: " + NetworkManager.Singleton.NetworkConfig.TickRate;
         
         if (isOwnerCheck != null)
             isOwnerText.text = "IsOwner: " + isOwnerCheck.IsOwner;
