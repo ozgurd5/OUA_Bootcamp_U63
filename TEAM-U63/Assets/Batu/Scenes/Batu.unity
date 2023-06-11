@@ -370,7 +370,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ae857993e0fa924a847694198c0d4d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -427,6 +427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolyMan
       objectReference: {fileID: 0}
+    - target: {fileID: 688798418594607743, guid: 001695695674573408a5a0df71eed832, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4242168895128045739, guid: 001695695674573408a5a0df71eed832, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -441,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4242168895128045739, guid: 001695695674573408a5a0df71eed832, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.976
       objectReference: {fileID: 0}
     - target: {fileID: 4242168895128045739, guid: 001695695674573408a5a0df71eed832, type: 3}
       propertyPath: m_LocalRotation.w
