@@ -16,8 +16,6 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;
     [SerializeField] private Button toggleClientInterButton;
-    [SerializeField] private Button increaseTickButton;
-    [SerializeField] private Button decreaseTickButton;
     
     [Header("Info Text")]
     [SerializeField] private TextMeshProUGUI infoText;
@@ -30,6 +28,8 @@ public class NetworkManagerUI : NetworkBehaviour
     
     [Header("IsOwnerCheck")]
     [SerializeField] private NetworkObject isOwnerCheck;
+
+    private NetworkTransform clientNetworkTransform;
     
     private void Awake()
     {
@@ -50,19 +50,10 @@ public class NetworkManagerUI : NetworkBehaviour
 
         toggleClientInterButton.onClick.AddListener(() =>
         {
-            client.GetComponent<NetworkTransform>().Interpolate = !client.GetComponent<NetworkTransform>().Interpolate;
-        });
-        
-        increaseTickButton.onClick.AddListener(() =>
-        {
-            if (IsHost)
-                NetworkManager.Singleton.NetworkConfig.TickRate += 10;
-        });
-        
-        decreaseTickButton.onClick.AddListener(() =>
-        {
-            if (IsHost)
-                NetworkManager.Singleton.NetworkConfig.TickRate -= 10;
+            clientNetworkTransform = client.GetComponent<NetworkTransform>();
+            
+            if (clientNetworkTransform != null)
+                clientNetworkTransform.Interpolate = !client.GetComponent<NetworkTransform>().Interpolate;
         });
     }
     
@@ -70,8 +61,9 @@ public class NetworkManagerUI : NetworkBehaviour
     {
         infoText.text = "IsServer: " + IsServer + "\n" + "IsHost: " + IsHost + "\n" + "IsClient: " + IsClient;
         
-        clientInter.text = "Client interpolation: " + client.GetComponent<NetworkTransform>().Interpolate;
-
+        if (clientNetworkTransform != null)
+            clientInter.text = "Client interpolation: " + clientNetworkTransform.Interpolate;
+        
         hostPosition.text = "Host position: " + host.transform.position;
         clientPosition.text = "Client position: " + client.transform.position;
         cubePosition.text = "Cube position: " + cube.transform.position;
