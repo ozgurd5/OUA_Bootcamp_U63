@@ -17,7 +17,16 @@ Takım Unity 63
 
 ## Ürün İsmi
 
+<<<<<<< HEAD
+--Henüz isime karar vermedik--
+
+## Product Backlog URL
+
+[Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
+
+=======
 --Henüz isme karar vermedik--
+>>>>>>> batu
 
 ## Ürün Açıklaması
 
@@ -73,11 +82,7 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
   ![Screenshot 2](.)
   ![Screenshot 3](.)
 
----
-
-## Product Backlog URL
-
-[Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
+- Sprint review ve retrospective, sprint sonunda eklenecektir...
 
 ---
 
