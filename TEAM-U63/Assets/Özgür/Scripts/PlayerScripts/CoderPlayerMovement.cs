@@ -1,10 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//SERVER SIDE
-
-//This script controls coder in server side
-
 public class CoderPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
