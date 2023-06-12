@@ -21,20 +21,7 @@ public class ArtistPlayerMovement : NetworkBehaviour
     
     private void Update()
     {
-        //Comment for client authoritative control and comment ClientInput.cs
         if (!IsHost) return;
         rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
-        
-        //Uncomment for client authoritative control
-        // if (IsHost) return;
-        // rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y, Input.GetAxisRaw("Vertical") * speed);
-        // SendServerRpc(transform.position.x, transform.position.z);
     }
-    
-    //Uncomment for client authoritative control
-    // [ServerRpc(RequireOwnership = false)]
-    // private void SendServerRpc(float x, float z)
-    // {
-    //     transform.position = new Vector3(x, transform.position.y, z);
-    // }
 }
