@@ -23,7 +23,6 @@ public class ClientInput : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void SendClientInputServerRpc(float horizontal, float vertical)
     {
-        Debug.Log("test");
         horizontalInput = horizontal;
         verticalInput = vertical;
     }

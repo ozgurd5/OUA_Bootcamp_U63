@@ -4,7 +4,10 @@ using UnityEngine;
 public class ArtistPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
-
+    
+    private float horizontalInput;
+    private float verticalInput;
+    
     private Rigidbody rb;
     
     private void Start()
@@ -14,8 +17,18 @@ public class ArtistPlayerMovement : NetworkBehaviour
     
     private void Update()
     {
-        if (!IsHost) return;
+        if (!PlayerSelection.isHostCoder)
+        {
+            horizontalInput = HostInput.horizontalInput;
+            verticalInput = HostInput.verticalInput;
+        }
         
-        rb.velocity = new Vector3(ClientInput.horizontalInput * speed, rb.velocity.y, ClientInput.verticalInput * speed);
+        else
+        {
+            horizontalInput = ClientInput.horizontalInput;
+            verticalInput = ClientInput.verticalInput;
+        }
+        
+        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
     }
 }

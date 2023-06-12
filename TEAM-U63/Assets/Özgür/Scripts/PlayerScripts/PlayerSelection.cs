@@ -1,7 +1,5 @@
 using UnityEngine;
 
-//TODO: continue
-
 public class PlayerSelection : MonoBehaviour
 {
     public static bool isHostCoder;
