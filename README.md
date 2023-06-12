@@ -1,12 +1,7 @@
+---
 # **Takım İsmi**
 
 Takım Unity 63
-
-## Product Backlog URL
-
-**[Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)**
-
-# Ürün İle İlgili Bilgiler
 
 ## Takım Elemanları
 - Elifnur Tekin: Product Owner / Developer
@@ -15,29 +10,27 @@ Takım Unity 63
 - İbrahim Sacid Sezer: Developer
 - Şeyda Arslan: Developer
 
+---
+
+# Ürün İle İlgili Bilgiler
+
 ## Ürün İsmi
 
-<<<<<<< HEAD
---Henüz isime karar vermedik--
+--Henüz ürün ismine karar vermedik--
 
-## Product Backlog URL
+# Product Backlog URL
 
 [Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
 
-=======
---Henüz isme karar vermedik--
->>>>>>> batu
-
 ## Ürün Açıklaması
+
+**Konsept Bildirimi**
+- Bulmacaları çözmek için bir ekip olarak çalışırken, hayal gücünüzün sınırlarını zorlayan hikayesiyle birklikte fantastik bir evrende derin bir yolculuğa çıkın!
 
 Oyunumuz, gelecek zamanda hayal edilen kurgusal bir hikayeyi ve o hikayenin evrenini anlatır. Yapay zekanın yanlış gelişmesi sonucu oluşmuş bir alan vardır. Bu alan, sonu belirsiz kara deliğe benzeyen bir oluşumdur. Bu oluşumun insanlara faydası olması beklenirken işler öyle planlandığı gibi gitmemiş ve insanların toplumdaki sosyal rollerini ve mesleklerini ellerinden almaya başlamıştır. Dünya daha fakir bir yer haline gelmiştir ve popülasyon azalmıştır. Doğa insanlara verdiği borç arazileri geri almaya başlamıştır. Ana karakterlerimiz de yapay zekanın mağdurları olarak o alana girip yapay zekayı alt etmeye karar verirler. Yapay zekanın katmanlarından yukarılara doğru çıkarken, karşılarına çıkan bulmacaları birbirlerinden destek alarak çözmeye çalışırlar ve yolun sonuna doğru ilerlerler.
 - Karakter 1: İşi elinden alınan bir ressam, maceramızda daha çok görsel ağırlıklı bulmacalarla ve labirentlerle karşılaşıyor.
 - Karakter 2: İşi yapay zeka tarafından alınan bir Yazılımcı, maveramızda daha çok kodları bozulmuş yaratıklar ile savaşma ağırlıklı bulmacalarla karşılaşıyor.
 Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları oluyor, iletişim halinde bir takım çalışması yapmaları gerekiyor.
-
-**Konsept bildirimi**
-- Bulmacaları çözmek için bir ekip olarak çalışırken, hayal gücünüzün sınırlarını zorlayan hikayesiyle fantastik bir evrende derin bir yolculuğa çıkın!
----
 
 - **Oyunun birincil fonksiyonu**: Oyuncular birbirleriyle bağlantı kurarak oyunun hikayesini öğrenirler ve beraber görevleri yapmaya başlarlar. Bu görevlerin aşama aşama olacak şekilde ilerleme gösterir. Her aşamada farklı bir meydan okuma bizi beklemektedir ve her aşama yapay zekanın bir katmanını temsil eder.
 
@@ -47,7 +40,7 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 
 ## Ürün Özellikleri
 
-- Üç boyutlu evrenine ve arkadaşızla atılacağınız bir maceraya sizi davet etmesi
+- Üç boyutlu evrenine ve arkadaşınızla atılacağınız bir maceraya sizi davet etmesi
 - Görsel tasarımıyla oyuncuların hayal gücünde yeni kapılar aralaması
 - "Serious Game" janrasına hitap etmesi (Ciddi oyunların amacı oyuncuyu eğitmektir. Bu oyunlar "eğitim, bilim, "sosyal değişim" gibi konularda oyuncuyu teşvik eder.) Bulmacalarımızla oyuncuların yaratıcı düşünce becerilerini geliştirmeyi hedefliyoruz. Bununla beraber yapay zekanın toplumu etkileyen yanlış kullanım alanlarına değiniyoruz.
 - Oyun içi satın alma seçenekleriyle dileyen kullanıcıların karakterlerini kişisel zevklerine göre değiştirmesi
@@ -58,7 +51,7 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 - Bilgisayar oyunlarına ilgi duyan 13 yaş ve üstü kişiler (Teen ESRB)
 - Bulmacalarla ilgilenen kullanıcılar
 - Hikaye tabanlı oyunlarlara ilgilenen kullanıcılar
-- Multiplayer Oyun denemiyimi yaşamak isteyen kullanıcılar
+- Multiplayer oyun denemiyimi yaşamak isteyen kullanıcılar
 - Fantastik bir evreni deneyimlemek isteyen kullanıcılar
 - Türk yapımcıların oyunlarına merak duyan kullanıcılar
 
@@ -82,7 +75,7 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
   ![Screenshot 2](.)
   ![Screenshot 3](.)
 
-- Sprint review ve retrospective, sprint sonunda eklenecektir...
+- **Sprint review, sprint retrospective ve screenshot dosyaları, sprint sonunda eklenecektir...**
 
 ---
 
