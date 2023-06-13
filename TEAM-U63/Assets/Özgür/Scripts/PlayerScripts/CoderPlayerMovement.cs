@@ -17,7 +17,7 @@ public class CoderPlayerMovement : NetworkBehaviour
     
     private void Update()
     {
-        if (PlayerSelection.isHostCoder.Value)
+        if (NetworkData.isHostCoder.Value)
         {
             horizontalInput = HostInput.horizontalInput;
             verticalInput = HostInput.verticalInput;
