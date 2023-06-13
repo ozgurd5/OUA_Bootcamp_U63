@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Attach to  Main Camera,
+/// Create an empty Gameobject and name it HoldArea,
+/// Attach HoldArea as child to Main Camera
+/// </summary>
+
 public class PickUpController2 : MonoBehaviour
 {
     [SerializeField] private Transform holdArea;
@@ -11,15 +17,19 @@ public class PickUpController2 : MonoBehaviour
 
     [SerializeField] private float pickupRange = 5.0f;
     [SerializeField] private float pickupForce = 150.0f;
+    
+    
 
+    
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             if (heldObj == null)
             {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit,
+                if (Physics.Raycast(ray, out hit,
                         pickupRange))
                 {
                     PickUpObject(hit.transform.gameObject);
