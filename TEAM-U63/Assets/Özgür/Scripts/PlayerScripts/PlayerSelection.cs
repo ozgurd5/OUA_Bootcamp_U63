@@ -1,16 +1,27 @@
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerSelection : MonoBehaviour
+public class PlayerSelection : NetworkBehaviour
 {
-    public static bool isHostCoder;
+    [Header("Assign - Buttons")]
+    [SerializeField] private Button selectCoderButton;
+    [SerializeField] private Button selectArtistButton;
 
-    public static void HostSelectCoder()
-    {
-        isHostCoder = true;
-    }
+    public static NetworkVariable<bool> isHostCoder;
 
-    public static void HostSelectArtist()
+    private void Awake()
     {
-        isHostCoder = false;
+        isHostCoder = new NetworkVariable<bool>(true);
+
+        selectCoderButton.onClick.AddListener(() =>
+        {
+            isHostCoder.Value = IsHost;
+        });
+        
+        selectArtistButton.onClick.AddListener(() =>
+        {
+            isHostCoder.Value = !IsHost;
+        });
     }
 }

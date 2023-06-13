@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NetworkManagerUI : NetworkBehaviour
 {
-    [Header("Buttons")]
+    [Header("Assign - Buttons")]
     [SerializeField] private Button serverButton;
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;
