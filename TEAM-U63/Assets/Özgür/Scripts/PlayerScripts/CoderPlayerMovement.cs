@@ -3,26 +3,32 @@ using UnityEngine;
 
 public class CoderPlayerMovement : NetworkBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 12f;
     
-    private float horizontalMove;
-    private float verticalMove;
+    private float horizontalInput;
+    private float verticalInput;
     
     private Rigidbody rb;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = false; //Weird bug fix
     }
     
     private void Update()
     {
-        if (!IsHost) return;
+        if (PlayerSelection.isHostCoder)
+        {
+            horizontalInput = HostInput.horizontalInput;
+            verticalInput = HostInput.verticalInput;
+        }
         
-        horizontalMove = Input.GetAxisRaw("Horizontal");
-        verticalMove = Input.GetAxisRaw("Vertical");
+        else
+        {
+            horizontalInput = ClientInput.horizontalInput;
+            verticalInput = ClientInput.verticalInput;
+        }
         
-        rb.velocity = new Vector3(horizontalMove * speed, rb.velocity.y, verticalMove * speed);
+        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
     }
 }
