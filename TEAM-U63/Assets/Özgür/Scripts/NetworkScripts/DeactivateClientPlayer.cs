@@ -6,21 +6,21 @@ public class DeactivateClientPlayer : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private GameObject coderPlayer;
     [SerializeField] private GameObject artistPlayer;
-
+    
     private void Update()
     {
         if (!IsHost) return;
         
-        NetworkData.isClientInGame = NetworkManager.Singleton.ConnectedClientsList.Count != 1;
-        
-        if (NetworkData.isHostCoder.Value)
+        if (NetworkData.isClientInGame)
         {
-            artistPlayer.SetActive(NetworkData.isClientInGame);
+            coderPlayer.SetActive(true);
+            artistPlayer.SetActive(true);
         }
-
+        
         else
         {
-            coderPlayer.SetActive(NetworkData.isClientInGame);
+            coderPlayer.SetActive(NetworkData.isHostCoder.Value);
+            artistPlayer.SetActive(!NetworkData.isHostCoder.Value);
         }
     }
 }

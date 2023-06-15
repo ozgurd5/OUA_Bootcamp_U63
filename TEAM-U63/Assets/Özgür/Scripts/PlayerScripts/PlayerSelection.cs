@@ -12,33 +12,27 @@ public class PlayerSelection : NetworkBehaviour
     {
         selectCoderButton.onClick.AddListener(() =>
         {
-            if (NetworkData.isClientInGame)
-            {
-                if (IsHost)
-                    NetworkData.isHostCoder.Value = IsHost;
-                else
-                    ChangeClientPlayerServerRpc(true);
-            }
+            if (!IsHost)
+                MakeClientCoderServerRpc(true);
+            else
+                NetworkData.isHostCoder.Value = true;
         });
         
         selectArtistButton.onClick.AddListener(() =>
         {
-            if (NetworkData.isClientInGame)
-            {
-                if (IsHost)
-                    NetworkData.isHostCoder.Value = !IsHost;
-                else
-                    ChangeClientPlayerServerRpc(false);
-            }
+            if (!IsHost)
+                MakeClientCoderServerRpc(false);
+            else
+                NetworkData.isHostCoder.Value = false;
         });
     }
     
     /// <summary>
-    /// <para>Changes character that clients control</para>
+    /// <para>Makes client controlled character coder</para>
     /// </summary>
     /// <param name="isClientSelectedCoder">True if client is selected coder</param>
     [ServerRpc(RequireOwnership = false)]
-    private void ChangeClientPlayerServerRpc(bool isClientSelectedCoder)
+    private void MakeClientCoderServerRpc(bool isClientSelectedCoder)
     {
         NetworkData.isHostCoder.Value = !isClientSelectedCoder;
     }
