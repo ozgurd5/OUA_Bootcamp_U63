@@ -2,6 +2,9 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// <para>Allows players to change their character</para>
+/// </summary>
 public class PlayerSelection : NetworkBehaviour
 {
     [Header("Assign - Buttons")]

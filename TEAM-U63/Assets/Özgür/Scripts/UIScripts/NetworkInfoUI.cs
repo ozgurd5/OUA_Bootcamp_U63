@@ -2,6 +2,9 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
+/// <summary>
+/// <para>Debugger</para>
+/// </summary>
 public class NetworkInfoUI : NetworkBehaviour
 {
     [Header("Assign")]

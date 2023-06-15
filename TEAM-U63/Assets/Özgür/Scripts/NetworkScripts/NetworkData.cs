@@ -1,5 +1,8 @@
 using Unity.Netcode;
 
+/// <summary>
+/// <para>Variables and actions necessary for the network</para>
+/// </summary>
 public class NetworkData : NetworkBehaviour
 {
     public static bool isClientInGame;

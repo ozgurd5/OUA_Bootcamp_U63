@@ -7,6 +7,7 @@ public class ArtistPlayerMovement : NetworkBehaviour
     
     private float horizontalInput;
     private float verticalInput;
+    private bool isRotateKey;
     
     private Rigidbody rb;
     
@@ -21,14 +22,21 @@ public class ArtistPlayerMovement : NetworkBehaviour
         {
             horizontalInput = HostInput.horizontalInput;
             verticalInput = HostInput.verticalInput;
+            isRotateKey = HostInput.isRotateKey;
         }
         
         else
         {
             horizontalInput = ClientInput.horizontalInput;
             verticalInput = ClientInput.verticalInput;
+            isRotateKey = ClientInput.isRotateKey;
         }
         
         rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
+
+        if (isRotateKey)
+        {
+            transform.Rotate(0f, 360f * Time.deltaTime, 0f);
+        }
     }
 }
