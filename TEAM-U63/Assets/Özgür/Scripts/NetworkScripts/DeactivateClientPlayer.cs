@@ -1,6 +1,9 @@
 using Unity.Netcode;
 using UnityEngine;
 
+/// <summary>
+/// <para>Deactivates character controlled by client when client disconnects</para>
+/// </summary>
 public class DeactivateClientPlayer : NetworkBehaviour
 {
     [Header("Assign")]

@@ -1,5 +1,8 @@
 using Unity.Netcode;
 
+/// <summary>
+/// <para>Auto kicks third player</para>
+/// </summary>
 public class AutoKickThirdPlayer : NetworkBehaviour
 {
     private void Update()

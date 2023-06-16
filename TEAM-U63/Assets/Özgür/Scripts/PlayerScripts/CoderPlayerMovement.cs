@@ -5,8 +5,7 @@ public class CoderPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
     
-    private float horizontalInput;
-    private float verticalInput;
+    private NetworkInputManager.InputData currentInput;
     
     private Rigidbody rb;
     
@@ -17,18 +16,18 @@ public class CoderPlayerMovement : NetworkBehaviour
     
     private void Update()
     {
+        if (!IsHost) return;
+        
         if (NetworkData.isHostCoder.Value)
-        {
-            horizontalInput = HostInput.horizontalInput;
-            verticalInput = HostInput.verticalInput;
-        }
-        
+            currentInput = NetworkInputManager.hostInput;
         else
-        {
-            horizontalInput = ClientInput.horizontalInput;
-            verticalInput = ClientInput.verticalInput;
-        }
+            currentInput = NetworkInputManager.clientInput;
         
-        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
+        rb.velocity = new Vector3(currentInput.moveInput.x * speed, rb.velocity.y, currentInput.moveInput.y * speed);
+
+        if (currentInput.isRotatingKey)
+        {
+            transform.Rotate(0f, 360f * Time.deltaTime, 0f);
+        }
     }
 }
