@@ -26,7 +26,7 @@ public class NetworkSyncPosition : NetworkBehaviour
     private void SyncClientPositionWithInterpolationClientRpc(Vector3 hostPosition)
     {
         //transform.position in this line is the position in the client side + host side
-        //so this method also provide host side interpolation because host is also a client
+        //So this method also provide host side interpolation because host is also a client
         transform.position = Vector3.Lerp(transform.position , hostPosition, interpolationValue);
     }
 }

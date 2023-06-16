@@ -1,6 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class CubeMovement : MonoBehaviour
+public class CubeMovement : NetworkBehaviour
 {
     [SerializeField] private float speed;
     
@@ -14,6 +15,8 @@ public class CubeMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!IsHost) return;
+        
         if (isGoingRight)
             rb.velocity = Vector3.right * speed;
         else
@@ -22,6 +25,8 @@ public class CubeMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (!IsHost) return;
+        
         if (collision.collider.CompareTag("Wall"))
             isGoingRight = !isGoingRight;
     }
