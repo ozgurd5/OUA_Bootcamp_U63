@@ -2,17 +2,20 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
+/// <summary>
+/// <para>Debugger</para>
+/// </summary>
 public class NetworkInfoUI : NetworkBehaviour
 {
-    [Header("Assign Manually")]
+    [Header("Assign")]
     [SerializeField] private GameObject host;
     [SerializeField] private GameObject client;
     [SerializeField] private GameObject cube;
     
-    [Header("Assign Ownership")]
+    [Header("Assign - Ownership")]
     [SerializeField] private NetworkObject isOwnerCheck;
     
-    [Header("Assign Info Text")]
+    [Header("Assign - Texts")]
     [SerializeField] private TextMeshProUGUI infoText;
     [SerializeField] private TextMeshProUGUI hostPosition;
     [SerializeField] private TextMeshProUGUI clientPosition;

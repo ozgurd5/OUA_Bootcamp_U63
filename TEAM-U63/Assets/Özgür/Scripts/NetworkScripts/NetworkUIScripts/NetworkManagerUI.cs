@@ -2,9 +2,12 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// <para>Starts server, host and client</para>
+/// </summary>
 public class NetworkManagerUI : NetworkBehaviour
 {
-    [Header("Buttons")]
+    [Header("Assign - Buttons")]
     [SerializeField] private Button serverButton;
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;

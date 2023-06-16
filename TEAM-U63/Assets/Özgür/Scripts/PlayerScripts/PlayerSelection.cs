@@ -1,16 +1,42 @@
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerSelection : MonoBehaviour
+/// <summary>
+/// <para>Allows players to change their character</para>
+/// </summary>
+public class PlayerSelection : NetworkBehaviour
 {
-    public static bool isHostCoder;
+    [Header("Assign - Buttons")]
+    [SerializeField] private Button selectCoderButton;
+    [SerializeField] private Button selectArtistButton;
 
-    public static void HostSelectCoder()
+    private void Awake()
     {
-        isHostCoder = true;
+        selectCoderButton.onClick.AddListener(() =>
+        {
+            if (!IsHost)
+                MakeClientCoderServerRpc(true);
+            else
+                NetworkData.isHostCoder.Value = true;
+        });
+        
+        selectArtistButton.onClick.AddListener(() =>
+        {
+            if (!IsHost)
+                MakeClientCoderServerRpc(false);
+            else
+                NetworkData.isHostCoder.Value = false;
+        });
     }
-
-    public static void HostSelectArtist()
+    
+    /// <summary>
+    /// <para>Makes client controlled character coder</para>
+    /// </summary>
+    /// <param name="isClientSelectedCoder">True if client is selected coder</param>
+    [ServerRpc(RequireOwnership = false)]
+    private void MakeClientCoderServerRpc(bool isClientSelectedCoder)
     {
-        isHostCoder = false;
+        NetworkData.isHostCoder.Value = !isClientSelectedCoder;
     }
 }
