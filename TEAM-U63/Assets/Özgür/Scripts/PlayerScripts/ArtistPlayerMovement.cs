@@ -5,9 +5,7 @@ public class ArtistPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
     
-    private float horizontalInput;
-    private float verticalInput;
-    private bool isRotateKey;
+    private NetworkInputManager.InputData currentInput;
     
     private Rigidbody rb;
     
@@ -18,23 +16,16 @@ public class ArtistPlayerMovement : NetworkBehaviour
     
     private void Update()
     {
+        if (!IsHost) return;
+        
         if (!NetworkData.isHostCoder.Value)
-        {
-            horizontalInput = HostInput.horizontalInput;
-            verticalInput = HostInput.verticalInput;
-            isRotateKey = HostInput.isRotateKey;
-        }
-        
+            currentInput = NetworkInputManager.hostInput;
         else
-        {
-            horizontalInput = ClientInput.horizontalInput;
-            verticalInput = ClientInput.verticalInput;
-            isRotateKey = ClientInput.isRotateKey;
-        }
+            currentInput = NetworkInputManager.clientInput;
         
-        rb.velocity = new Vector3(horizontalInput * speed, rb.velocity.y, verticalInput * speed);
+        rb.velocity = new Vector3(currentInput.moveInput.x * speed, rb.velocity.y, currentInput.moveInput.y * speed);
 
-        if (isRotateKey)
+        if (currentInput.isRotatingKey)
         {
             transform.Rotate(0f, 360f * Time.deltaTime, 0f);
         }

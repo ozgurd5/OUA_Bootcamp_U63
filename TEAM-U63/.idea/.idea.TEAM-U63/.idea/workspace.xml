@@ -2,19 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Animations/BridgeAscending.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Animations/BridgeAscending.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Animations/BridgeDescending.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Animations/BridgeDescending.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Animations/bridge.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Animations/bridge.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Materials/Blue.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Materials/Blue.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Scenes/IbrahimLvlTest.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Scenes/IbrahimLvlTest.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInputManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NoTouch.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NoTouch/NetworkInputActions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NoTouch/NetworkInputActions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NoTouch/NetworkInputActions.inputactions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NoTouch/NetworkInputActions.inputactions.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/CustomNetworkManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/CustomNetworkManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/Özgür.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/Özgür.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/ClientInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/ClientInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/HostInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/HostInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInputManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistPlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderPlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +30,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2e5fd3a83e4c48e6b136968d0a8de9a81fe00/6c/ef076c34/RigidbodyInterpolation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2e5fd3a83e4c48e6b136968d0a8de9a81fe00/74/522035d6/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c5/295fc748/Void.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6c9b376c3fca40b787e8c1a2133bf243171a00/69/4cc32f04/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6c9b376c3fca40b787e8c1a2133bf243171a00/a9/5c057f65/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7fd7f5c505b40a1b114d5ca9e31194e53200/40/d4576291/ClientRpcAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Batu/InputSystem/input generated/PlayerControls.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/CubeMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/AutoKickThirdPlayer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -34,6 +49,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Components/NetworkRigidbody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Components/NetworkTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Core/NetworkBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Core/NetworkManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Core/NetworkObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Logging/NetworkLog.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Messaging/RpcAttributes.cs" root0="SKIP_HIGHLIGHTING" />
@@ -138,6 +154,7 @@
       <workItem from="1686768079935" duration="8860000" />
       <workItem from="1686787859999" duration="11393000" />
       <workItem from="1686852326267" duration="14365000" />
+      <workItem from="1686883924585" duration="6591000" />
     </task>
     <servers />
   </component>
