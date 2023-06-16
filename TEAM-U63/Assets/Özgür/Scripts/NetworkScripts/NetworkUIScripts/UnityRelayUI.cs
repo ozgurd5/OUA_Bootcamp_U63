@@ -14,21 +14,22 @@ public class UnityRelayUI : MonoBehaviour
     [SerializeField] private Button joinLobbyButton;
     [SerializeField] private TextMeshProUGUI createdLobbyJoinCodeText;
     [SerializeField] private TextMeshProUGUI enterLobbyJoinCodeText;
-
+    
     private string joinCode;
-
+    
     private void Awake()
     {
         createLobbyButton.onClick.AddListener(UnityRelayServiceManager.CreateRelay);
         joinLobbyButton.onClick.AddListener(() => UnityRelayServiceManager.JoinRelay(joinCode));
     }
-
+    
     private void Update()
     {
-        //joinCode comes from TMP Input Field with an empty character in the end of the string, idk why
-        //to prevent that just took first 6 character
-        joinCode = enterLobbyJoinCodeText.text.Substring(0, 6);
-        
+        //joinCode comes from TMP Input Field with an empty character " ​ " in the end of the string, idk why
+        //To prevent that just took first 6 character
+        if (enterLobbyJoinCodeText.text != "​")
+            joinCode = enterLobbyJoinCodeText.text.Substring(0, 6);
+
         createdLobbyJoinCodeText.text = UnityRelayServiceManager.joinCode;
     }
 }
