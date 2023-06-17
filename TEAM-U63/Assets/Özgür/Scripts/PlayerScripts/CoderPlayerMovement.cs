@@ -5,27 +5,23 @@ public class CoderPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
     
-    private NetworkInputManager.InputData currentInput;
+    private NetworkInputManager.InputData input;
     
     private Rigidbody rb;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        input = NetworkInputManager.coderInput;
     }
     
     private void Update()
     {
         if (!IsHost) return;
-        
-        if (NetworkData.isHostCoder.Value)
-            currentInput = NetworkInputManager.hostInput;
-        else
-            currentInput = NetworkInputManager.clientInput;
-        
-        rb.velocity = new Vector3(currentInput.moveInput.x * speed, rb.velocity.y, currentInput.moveInput.y * speed);
 
-        if (currentInput.isRotatingKey)
+        rb.velocity = new Vector3(input.moveInput.x * speed, rb.velocity.y, input.moveInput.y * speed);
+
+        if (input.isRotatingKey)
         {
             transform.Rotate(0f, 360f * Time.deltaTime, 0f);
         }
