@@ -1,12 +1,13 @@
 using Unity.Netcode;
 using UnityEngine;
 
+//This line is the reason why we can use coderInput without referencing NetworkInputManager
+using static NetworkInputManager;
+
 public class CoderPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
-    
-    private NetworkInputManager.InputData currentInput;
-    
+
     private Rigidbody rb;
     
     private void Start()
@@ -17,15 +18,9 @@ public class CoderPlayerMovement : NetworkBehaviour
     private void Update()
     {
         if (!IsHost) return;
+        rb.velocity = new Vector3(coderInput.moveInput.x * speed, rb.velocity.y, coderInput.moveInput.y * speed);
         
-        if (NetworkData.isHostCoder.Value)
-            currentInput = NetworkInputManager.hostInput;
-        else
-            currentInput = NetworkInputManager.clientInput;
-        
-        rb.velocity = new Vector3(currentInput.moveInput.x * speed, rb.velocity.y, currentInput.moveInput.y * speed);
-
-        if (currentInput.isRotatingKey)
+        if (coderInput.isRotatingKey)
         {
             transform.Rotate(0f, 360f * Time.deltaTime, 0f);
         }
