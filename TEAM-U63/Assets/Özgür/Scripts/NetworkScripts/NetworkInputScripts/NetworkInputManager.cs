@@ -15,10 +15,11 @@ public class NetworkInputManager : NetworkBehaviour
     /// </summary>
     public class InputData : INetworkSerializable
     {
-        public Vector2 moveInput;
+        public Vector2 moveInput = new Vector2(1,1);
         public bool isRotatingKey;
         public bool isJumpKeyDown;
         
+        //We must teach Unity how to serialize InputData objects in order to transfer data in the network
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref moveInput);
@@ -35,7 +36,13 @@ public class NetworkInputManager : NetworkBehaviour
     
     private void Awake()
     {
-        //Initialize Unity Input System
+        //Initializing
+        hostInput = new InputData();
+        clientInput = new InputData();
+        coderInput = new InputData();
+        artistInput = new InputData();;
+        
+        //Initializing Unity Input System
         nia = new NetworkInputActions();
         nia.Player.Enable();
     }
@@ -56,7 +63,6 @@ public class NetworkInputManager : NetworkBehaviour
     private void GetInputFromHost()
     {
         if (!IsHost) return;
-        
         hostInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
         hostInput.isRotatingKey = nia.Player.Rotate.IsPressed();
         hostInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
@@ -68,7 +74,6 @@ public class NetworkInputManager : NetworkBehaviour
     private void GetInputFromClient()
     {
         if (IsHost) return;
-        
         clientInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
         clientInput.isRotatingKey = nia.Player.Rotate.IsPressed();
         clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();

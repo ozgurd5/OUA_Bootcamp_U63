@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// </summary>
 public class UnityRelayUI : MonoBehaviour
 {
+    [Header("Assign")]
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button joinLobbyButton;
     [SerializeField] private TextMeshProUGUI createdLobbyJoinCodeText;
