@@ -4,7 +4,7 @@ using UnityEngine;
 //TODO but not necessary: custom rotation sync
 
 /// <summary>
-/// <para>Handles synchronization of position with interpolation because Network Transform is bad in position</para>
+/// <para>Handles synchronization of position with interpolation because Network Transform is bad at interpolation</para>
 /// </summary>
 public class NetworkSyncPosition : NetworkBehaviour
 {

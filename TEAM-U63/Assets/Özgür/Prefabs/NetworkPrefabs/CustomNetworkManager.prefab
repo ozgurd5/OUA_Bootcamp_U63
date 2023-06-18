@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 579899437633950075}
   - component: {fileID: 7516497737698616894}
   - component: {fileID: 4296224257815542101}
-  - component: {fileID: 5275198903499244985}
   - component: {fileID: 3731161790677741586}
   - component: {fileID: 2130712209972539559}
+  - component: {fileID: 2000186376079111392}
   m_Layer: 0
   m_Name: CustomNetworkManager
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6574374389306438568
 MonoBehaviour:
@@ -95,27 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd27652e6d2f0e46859b44b28f701f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5275198903499244985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6602530422569516025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17737e0516da2445b9b0077ae2bd9b4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Visible: 1
-  m_MaxRefreshRate: 30
-  <CustomStyleSheet>k__BackingField: {fileID: 0}
-  <PanelSettingsOverride>k__BackingField: {fileID: 0}
-  <Position>k__BackingField:
-    <OverridePosition>k__BackingField: 1
-    m_PositionLeftToRight: 0
-    m_PositionTopToBottom: 0
-  <Configuration>k__BackingField: {fileID: 11400000, guid: 8f1b4e3792d8446399527749cfb591a2, type: 2}
 --- !u!114 &3731161790677741586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,5 +117,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b01940725f830e4281a0b399d6a454e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2000186376079111392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602530422569516025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b70f9ae5478734da3d42330b6dda21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

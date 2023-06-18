@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4110574970992767236}
   - component: {fileID: 114425020633678348}
   - component: {fileID: 7185632066385962162}
+  - component: {fileID: 7561689126394009291}
   m_Layer: 0
   m_Name: CoderPlayer
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_Children:
   - {fileID: 1627933672161810964}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2018335593694442001
 MeshFilter:
@@ -214,6 +215,18 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 0
   SlerpPosition: 0
+--- !u!114 &7561689126394009291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684542317523591154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b70f9ae5478734da3d42330b6dda21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6310189273352867577
 GameObject:
   m_ObjectHideFlags: 0

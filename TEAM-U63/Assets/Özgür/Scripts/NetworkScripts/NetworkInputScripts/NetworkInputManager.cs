@@ -101,7 +101,7 @@ public class NetworkInputManager : NetworkBehaviour
     /// <para>Sends input from the client side to host side</para>
     /// <param name="inputFromClient">Input from client side that will be send to server side</param>
     /// </summary>
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void GetInputFromClientServerRpc(InputData inputFromClient)
     {
         clientInput = inputFromClient;
