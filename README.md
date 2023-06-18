@@ -29,20 +29,20 @@ Takım Unity 63
 
 Oyunumuz, gelecek zamanda hayal edilen kurgusal bir hikayeyi ve o hikayenin evrenini anlatıyor. Yapay zekanın yanlış gelişmesi sonucu oluşmuş bir alan vardır. Bu alan, sonu belirsiz kara deliğe benzeyen bir oluşumdur. Bu oluşumun insanlara faydası olması beklenirken işler öyle planlandığı gibi gitmemiş ve insanların toplumdaki sosyal rollerini ve mesleklerini ellerinden almaya başlamıştır. Dünya daha fakir bir yer haline gelmiştir ve popülasyon azalmıştır. Doğa insanlara verdiği borç arazileri geri almaya başlamıştır. Ana karakterlerimiz de yapay zekanın mağdurları olarak o alana girip yapay zekayı alt etmeye karar verirler. Yapay zekanın katmanlarından yukarılara doğru çıkarken, karşılarına çıkan bulmacaları birbirlerinden destek alarak çözmeye çalışırlar ve yolun sonuna doğru ilerlerler.
 - Karakter 1: İşi elinden alınan bir ressam, maceramızda daha çok görsel ağırlıklı bulmacalarla ve labirentlerle karşılaşıyor.
-- Karakter 2: İşi yapay zeka tarafından alınan bir Yazılımcı, maveramızda daha çok kodları bozulmuş yaratıklar ile savaşma ağırlıklı bulmacalarla karşılaşıyor.
+- Karakter 2: İşi yapay zeka tarafından alınan bir Yazılımcı, maceramızda daha çok kodları bozulmuş yaratıklar ile savaşma ağırlıklı bulmacalarla karşılaşıyor.
 Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları oluyor, iletişim halinde bir takım çalışması yapmaları gerekiyor.
 
 - **Oyunun birincil fonksiyonu**: Oyuncular birbirleriyle bağlantı kurarak oyunun hikayesini öğrenirler ve beraber görevleri yapmaya başlarlar. Bu görevlerin aşama aşama olacak şekilde ilerleme gösterir. Her aşamada farklı bir meydan okuma bizi beklemektedir ve her aşama yapay zekanın bir katmanını temsil eder.
 
-- **Oyunun ikincil fonksiyonu**: İlerleme devam ederken oyuncular kendilerine yönelik oyun mekaniklerini keşfederler bununla beraber hikaye de ara sahneler ve dialoglarla giderek daha da derinleşir. Oyunun sonuna doğru oyuncular beklemedikleri bir şeyle karşılaşacaklardır. Bu son ile beraber oyunun kullanıcılara verdiği mesaj da oyunculara aktarılır. 
+- **Oyunun ikincil fonksiyonu**: İlerleme devam ederken oyuncular kendilerine yönelik oyun mekaniklerini keşfederler. Bununla beraber hikayemiz de ara sahneler ve diyaloglarla giderek daha da derinleşir. Oyunun sonuna doğru oyuncular beklemedikleri bir şeyle karşılaşacaklardır. Bu son ile beraber oyunun kullanıcılara verdiği mesaj da oyunculara aktarılır. 
 
-- (! Spoiler Alert ! Oyunun sonuna geldiğimiz alanda oyuncular bir yapay zeka beklerken insanlarla karşılaşır ve aslında suçun yapay zekada değil onu yanlış ve etik olmayan çıkarları için değiştiren insanlarda olduğunu anlarlar.)
+- (! Spoiler Alert ! Oyunun sonuna geldiğimiz alanda oyuncular bir yapay zeka beklerken insanlarla karşılaşır ve aslında suçun yapay zekada değil de onu yanlış ve etik olmayan çıkarları için değiştiren insanlarda olduğunu anlarlar.)
 
 ## Ürün Özellikleri
 
 - Üç boyutlu evrenine ve arkadaşınızla atılacağınız bir maceraya sizi davet etmesi
 - Görsel tasarımıyla oyuncuların hayal gücünde yeni kapılar aralaması
-- "Serious Game" janrasına hitap etmesi (Ciddi oyunların amacı oyuncuyu eğitmektir. Bu oyunlar "eğitim, bilim, "sosyal değişim" gibi konularda oyuncuyu teşvik eder.) Bulmacalarımızla oyuncuların yaratıcı düşünce becerilerini geliştirmeyi hedefliyoruz. Bununla beraber yapay zekanın toplumu etkileyen yanlış kullanım alanlarına değiniyoruz.
+- "Serious Game" oyun türüne hitap etmesi (Ciddi oyunların amacı oyuncuyu eğitmektir. Bu oyunlar "eğitim, bilim, "sosyal değişim" gibi konularda oyuncuyu teşvik eder.) Bulmacalarımızla oyuncuların yaratıcı düşünce becerilerini geliştirmeyi hedefliyoruz. Bununla beraber yapay zekanın toplumu etkileyen yanlış kullanım alanlarına değiniyoruz.
 - Oyun içi satın alma seçenekleriyle dileyen kullanıcıların karakterlerini kişisel zevklerine göre değiştirmesi
 - Hikayesiyle oyuncunun merak duygusunu tetikleyerek oynama isteği yaratması
 
@@ -59,10 +59,13 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 
 # Sprint 1
 
+- **Sprint Notları**: Sprint Board Screenshot'larını görüntülerken sorun yaşıyorsanız lütfen **Miro Backlog Board**'u  kullanınız. Miro Backlog Board üzerinde, Discord sunucumuzdan örnekler, Game Design dökümanının giriş kısmı, SMART hedeflerimiz, To Do List Kanban listesi ve Game Road Map yer almaktadır.
+
+
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
 
 
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 300 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 100 ile başlaması gerektiğine karar verilmiştir. Yani 17 tane görevin tamamlanması gerekmektedir. Yapılacaklar listesinde bütün görevler yer almaktadır. Sağda bulunan sütuna "Done" kısmına alınan görevler tamamlanmış görevlerdir. (Sprint Board Screenshotlarını görüntülerken sorun yaşıyorsanız lütfen **Miro Backlog Board**'u  kullanınız.)
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 300 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 100 ile başlaması gerektiğine karar verilmiştir. Yani 17 tane görevin tamamlanması gerekmektedir. Yapılacaklar listesinde bütün görevler yer almaktadır. Sağda bulunan sütuna "Done" kısmına alınan görevler tamamlanmış görevlerdir. 
 
 
 - **Daily Scrum**: Daily Scrum toplantılarının, kullanım kolaylığından dolayı Discord üzerinden sesli şekilde yapılmasına karar verilmiştir. Daily Scrum toplantı özetleri **Miro Backlog Board** linkinde de yer almaktadır.
@@ -103,13 +106,28 @@ https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/9065a451-3
 
 
 - **Sprint Review**: 
-Alınan kararlar: Multiplayer(Co-Op) temelleri oluşturulmuş, ui temelleri oluşturulmuş butonlar kodlanmıştır. Karakterin hem klavye hem de game pad ile konrol edilmesi için input system eklenmiştir. Karakter modelinin örnekleri üretilmiştir. Bulmaca mekanikleri test edilmiştir. Oyunun hikayesinin temelinde ortak karara varılmıştır. 2. Sprint için hedefler belirlenmiştir. Bu hedefler: giriş seviyesi levelin ve 1. levelin basit sistemlerinin tamamlanması. Oyuncu mekaniklerinin üretilmesi ve test edilmesidir. 
+Alınan kararlar: 
+    - Multiplayer (Co-Op) temelleri oluşturulmuş, 
+    - UI temelleri oluşturulmuş butonlar kodlanmıştır. 
+    - Karakterin hem klavye, hem de game pad ile konrol edilmesi için input system eklenmiştir.
+    - Karakter modelinin örnekleri üretilmiştir.
+    - Bulmaca mekanikleri test edilmiştir.
+    - Oyunun hikayesinin temelinde ortak karara varılmıştır.
+    - İkinci sprint için hedefler belirlenmiştir.
 
-Sprint Review katılımcıları: Bütün ekip sprint review sürecindeki kararlara katılmış, saygı duymuş ve fikri birliği sağlamıştır.
+
+- Bu hedefler: 
+    - Giriş seviyesi ve 1. seviyenin basit sistemlerinin tamamlanması.
+    - Oyuncu mekaniklerinin üretilmesi ve test edilmesi. 
+
+
+Sprint Review katılımcıları: Bütün ekip sprint review sürecindeki kararlara katılmıştır ve fikir birliği sağlanmıştır.
+
+
 
 - **Sprint Retrospective:**
 
   - Multiplayer sisteminin yapılıp yapılmaması konusunda ortak karara varılmıştır.
-  - Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır. Görevi biten arkadaşalrımız yeni görevlerini almışlardır.
+  - Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır. Görevi biten arkadaşlarımız yeni görevlerini almışlardır.
   - Takım üyelerinin gelecek sprintlerde aktif olması sınavları biten takım üyelerinin projeye daha çok odaklanmasına vurgu yapılmıştır.
  
