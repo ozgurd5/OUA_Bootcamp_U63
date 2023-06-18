@@ -59,7 +59,7 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 
 # Sprint 1
 
-- **Sprint Notları**: Sprint Board Screenshot'larını görüntülerken sorun yaşıyorsanız lütfen **Miro Backlog Board**'u  kullanınız. Miro Backlog Board üzerinde, Discord sunucumuzdan örnekler, Game Design dökümanının giriş kısmı, SMART hedeflerimiz, To Do List Kanban listesi ve Game Road Map yer almaktadır.
+- **Sprint Notları**: Sprint Board Screenshot'larını görüntülerken sorun yaşıyorsanız lütfen **Miro Backlog Board**'u  kullanınız. Miro Backlog Board üzerinde, Discord sunucumuzdan örnekler, Game Design dökümanı, SMART hedeflerimiz, To Do List Kanban listesi ve Game Road Map yer almaktadır. User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında hikayelerin detaylarını inceleyebilirsiniz.
 
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
