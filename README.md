@@ -65,7 +65,8 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
 
 
-- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 300 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 100 ile başlaması gerektiğine karar verilmiştir. Yani 17 tane görevin tamamlanması gerekmektedir. Yapılacaklar listesinde bütün görevler yer almaktadır. Sağda bulunan sütuna "Done" kısmına alınan görevler tamamlanmış görevlerdir. 
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 300 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 100 ile başlaması gerektiğine karar verilmiştir. Yani 17 tane görevin tamamlanması gerekmektedir. Yapılacaklar listesinde bütün görevler yer almaktadır. Sağda bulunan sütuna "Done" kısmına alınan görevler tamamlanmış görevlerdir. İlk tabloda 5, ikinci tabloda güncelleme ile 12 ve son tabloda ise güncelleme ile 17 görev tamamlanmış gözükmektedir.
+
 
 
 - **Daily Scrum**: Daily Scrum toplantılarının, kullanım kolaylığından dolayı Discord üzerinden sesli şekilde yapılmasına karar verilmiştir. Daily Scrum toplantı özetleri **Miro Backlog Board** linkinde de yer almaktadır.
@@ -74,9 +75,13 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 ![Daily Scrum Örneği](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/2064a5b2-adb0-40c2-a20d-48de09be8b73)
 
 
+- Sprint Update screenshotları: [Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
+![SPRİNT1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/d8c19230-40d9-494a-a1b5-f63537945643)
+![SPRINT 1 UPDATE 1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/a1ef3181-7df7-459f-ac3a-c6d8405e1584)
+![SPRINT1 UPDATE 2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/a6415b09-64da-4271-bc1d-db3530e5bb94)
+
 
 - Sprint board screenshotları: [Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
-![Sprint Board](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/1e1a35a3-eae1-4e5a-9653-b7fc015c68f2)
 ![İdea Chart](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/236f5d20-10ee-4779-b33d-49dc13016060)
 ![Discord Sunucumuz](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/af34f004-9de7-48b1-a1e7-16a2bb900e9a)
 ![Level Planlaması](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/31bfb800-d128-4d7c-a268-73c831c54555)
