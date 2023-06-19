@@ -76,9 +76,9 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 
 
 - Sprint Update screenshotları: [Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
-![SPRİNT1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/d8c19230-40d9-494a-a1b5-f63537945643)
-![SPRINT 1 UPDATE 1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/a1ef3181-7df7-459f-ac3a-c6d8405e1584)
-![SPRINT1 UPDATE 2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/a6415b09-64da-4271-bc1d-db3530e5bb94)
+![sprint 1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/86b6de88-148a-4f8b-ae36-6e842c0fbc38)
+![sprint 1 update](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/76389542-1166-493b-9c1d-feb34f5bf73f)
+![sprint 1 update 2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/a1871de8-7182-4758-9468-c63ce620fca4)
 
 
 - Sprint board screenshotları: [Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
