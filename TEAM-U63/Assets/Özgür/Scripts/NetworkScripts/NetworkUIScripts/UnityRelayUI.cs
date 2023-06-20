@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// <para>Handles creating and joining a lobby</para>
+/// <para>Transport in network manager must be Relay Unity Transport</para>
 /// </summary>
 public class UnityRelayUI : NetworkBehaviour
 {

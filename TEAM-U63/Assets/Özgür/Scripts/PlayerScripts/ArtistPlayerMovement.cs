@@ -1,17 +1,16 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//This line is the reason why we can use artistInput without referencing NetworkInputManager
-using static NetworkInputManager;
-
 public class ArtistPlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 12f;
 
+    private NetworkInputManager nim;
     private Rigidbody rb;
-    
+
     private void Start()
     {
+        nim = NetworkInputManager.Singleton;
         rb = GetComponent<Rigidbody>();
     }
     
@@ -19,9 +18,9 @@ public class ArtistPlayerMovement : NetworkBehaviour
     {
         if (!IsHost) return;
 
-        rb.velocity = new Vector3(artistInput.moveInput.x * speed, rb.velocity.y, artistInput.moveInput.y * speed);
+        rb.velocity = new Vector3(nim.artistInput.moveInput.x * speed, rb.velocity.y, nim.artistInput.moveInput.y * speed);
 
-        if (artistInput.isRotatingKey)
+        if (nim.artistInput.isRotatingKey)
         {
             transform.Rotate(0f, 360f * Time.deltaTime, 0f);
         }

@@ -3,9 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// <para>Starts server, host and client</para>
+/// <para>Starts server, host and client locally</para>
+/// <para>Transport in network manager must be Unity Transport</para>
 /// </summary>
-public class NetworkManagerUI : NetworkBehaviour
+public class LocalNetworkUI : NetworkBehaviour
 {
     [Header("Assign - Buttons")]
     [SerializeField] private Button serverButton;
