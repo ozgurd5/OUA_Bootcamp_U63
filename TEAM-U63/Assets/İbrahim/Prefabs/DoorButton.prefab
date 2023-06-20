@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 4553587086595128463}
   - component: {fileID: 4093486496394204004}
   - component: {fileID: 3333588766702952791}
+  - component: {fileID: 5620080201763393009}
   m_Layer: 0
   m_Name: DoorButton
-  m_TagString: Untagged
+  m_TagString: DoorButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2138570932910928313
 Transform:
   m_ObjectHideFlags: 0
@@ -142,3 +143,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 0}
+--- !u!114 &5620080201763393009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793842918845810786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10530f410fe9ad740b4009ed3c9ce639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coderVision: {fileID: 0}
