@@ -973,14 +973,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3670908486013564582, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
-      propertyPath: host
-      value: 
-      objectReference: {fileID: 6145826286680889625}
-    - target: {fileID: 3670908486013564582, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
-      propertyPath: client
-      value: 
-      objectReference: {fileID: 6145826286298504986}
     - target: {fileID: 4086508952835164039, guid: 80647e14083427f47be180c2c9c3b8c8, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1401285487
@@ -1077,6 +1069,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 140197484168480057, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_ProtocolType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2115399574457327219, guid: 6dd0303090213314d92496abce08829c, type: 3}
       propertyPath: m_Name
       value: NetworkManager

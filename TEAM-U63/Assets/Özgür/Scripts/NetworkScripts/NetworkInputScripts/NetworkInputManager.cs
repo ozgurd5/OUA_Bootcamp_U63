@@ -1,8 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//TODO: embrace 3rd option in "server akıl yürütmesi 2"
-
 /// <summary>
 /// <para>Gets host and client input. Decides for coder and artist input</para>
 /// </summary>
@@ -15,7 +13,7 @@ public class NetworkInputManager : NetworkBehaviour
     /// </summary>
     public class InputData : INetworkSerializable
     {
-        public Vector2 moveInput = new Vector2(1,1);
+        public Vector2 moveInput;
         public bool isRotatingKey;
         public bool isJumpKeyDown;
         
@@ -58,22 +56,26 @@ public class NetworkInputManager : NetworkBehaviour
     }
     
     /// <summary>
-    /// <para>Gets input from the host side, works only in host side</para>
+    /// <para>Gets input from the host side</para>
+    /// <para>Works only in host side</para>
     /// </summary>
     private void GetInputFromHost()
     {
         if (!IsHost) return;
+        
         hostInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
         hostInput.isRotatingKey = nia.Player.Rotate.IsPressed();
         hostInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
     }
     
     /// <summary>
-    /// <para>Gets input from the client side, works only in client side</para>
+    /// <para>Gets input from the client side</para>
+    /// <para>Doesn't work in host side</para>
     /// </summary>
     private void GetInputFromClient()
     {
         if (IsHost) return;
+        
         clientInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
         clientInput.isRotatingKey = nia.Player.Rotate.IsPressed();
         clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
@@ -81,6 +83,7 @@ public class NetworkInputManager : NetworkBehaviour
     
     /// <summary>
     /// <para>Decides coder and artist input in order to which one is host and which one is client</para>
+    /// <para>Works and should work both in host side and client side</para>
     /// </summary>
     private void DecideForInputSource()
     {
@@ -98,6 +101,7 @@ public class NetworkInputManager : NetworkBehaviour
     }
     
     /// <summary>
+    /// <para>Shouldn't work in host side</para>
     /// <para>Sends input from the client side to host side</para>
     /// <param name="inputFromClient">Input from client side that will be send to server side</param>
     /// </summary>

@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
@@ -15,15 +16,16 @@ using UnityEngine;
 /// </summary>
 public class UnityRelayServiceManager : MonoBehaviour
 {
-    public static string joinCode;
+    public static string lobbyJoinCode;
+    
+    public static event Action OnLobbyJoinCodeCreated;
     
     private async void Start()
     {
         await UnityServices.InitializeAsync();
-        
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
-    
+
     /// <summary>
     /// <para>Host creates server and sets the static joinCode variable</para>
     /// </summary>
@@ -35,7 +37,8 @@ public class UnityRelayServiceManager : MonoBehaviour
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(1);
             
             //Creates a join code for the allocation, so the client can join the game with it
-            joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+            lobbyJoinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
+            OnLobbyJoinCodeCreated?.Invoke();
             
             //Sets the network information about the allocation to relayServerData variable
             RelayServerData relayServerData = new RelayServerData(allocation, "dtls");

@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Batu/InputSystem/animCodes.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Batu/InputSystem/animCodes/1. Animations.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Batu/newinputsystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Batu/newinputsystem/Animations.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Batu/newinputsystem/Animations/anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Batu/newinputsystem/Animator.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Batu/newinputsystem/Movement.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/LobbyUICanvas.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/LobbyUICanvas.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/ArtistPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/ArtistPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/CoderPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/CoderPlayer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/CustomNetworkManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/CustomNetworkManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/LobbyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/AutoKickThirdPlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/AutoKickThirdPlayer.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerSelection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/SceneScripts/LobbySceneManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/SceneScripts/LobbySceneManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/SceneScripts/LobbyUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/SceneScripts/LobbyUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/NetworkInfoUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/NetworkInfoUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/UnityRelayServiceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/UnityRelayServiceManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +30,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Batu/InputSystem/input generated/PlayerControls.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/CubeMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/DontDestroyOnLoad.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/AutoKickThirdPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/DeactivateClientPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/UnityRelayServiceManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -56,11 +43,13 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Core/NetworkManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Core/NetworkObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Logging/NetworkLog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Messaging/MessagingSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Messaging/RpcAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/NetworkVariable/NetworkVariable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/NetworkVariable/NetworkVariableBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Serialization/IReaderWriter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.relay@1.0.5/Runtime/SDK/IRelayService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.relay@1.0.5/Runtime/SDK/WrappedRelayService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -165,6 +154,7 @@
       <workItem from="1686951425149" duration="15223000" />
       <workItem from="1687047450225" duration="596000" />
       <workItem from="1687059473782" duration="7053000" />
+      <workItem from="1687213567046" duration="9293000" />
     </task>
     <servers />
   </component>
