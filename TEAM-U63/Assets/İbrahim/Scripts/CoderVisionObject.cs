@@ -4,15 +4,15 @@ public class CoderVisionObject : MonoBehaviour
 {
     public CoderVision coderVision;
 
-    private MeshRenderer mr;
+    private MeshRenderer meshRenderer;
 
     private void Awake()
     {
-        mr = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private void Update()
     {
-        mr.enabled = coderVision.isCoderVisionActive;
+        meshRenderer.enabled = coderVision.isCoderVisionActive;
     }
 }
