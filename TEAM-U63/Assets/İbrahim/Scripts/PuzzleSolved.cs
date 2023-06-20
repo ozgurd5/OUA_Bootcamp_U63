@@ -6,20 +6,24 @@ using UnityEngine.Serialization;
 
 public class PuzzleSolved : MonoBehaviour
 {
-    public int redPieceNumber;
-    public int greenPieceNumber;
-    public int bluePieceNumber;
+    public int requiredRedPieces;
+    public int requiredGreenPieces;
+    public int requiredBluePieces;
+        
+    private int redPieceNumber;
+    private int greenPieceNumber;
+    private int bluePieceNumber;
     
     
     
     
     public GameObject targetObject;
 
-    private Animator _animator;
+    private Animator animator;
 
     private void Start()
     {
-        //_animator = targetObject.GetComponent<Animator>();
+        animator = targetObject.GetComponent<Animator>();
 
         
 
@@ -27,6 +31,10 @@ public class PuzzleSolved : MonoBehaviour
 
     private void Update()
     {
+        if (requiredRedPieces == redPieceNumber && requiredBluePieces == bluePieceNumber && requiredGreenPieces == greenPieceNumber)
+        {
+            animator.SetBool("ButtonPressed", true);
+        }
         
     }
 
@@ -35,7 +43,7 @@ public class PuzzleSolved : MonoBehaviour
         if (other.CompareTag("RedPuzzle"))
         {
             redPieceNumber++;
-            Debug.Log(redPieceNumber);
+            
         }
         if (other.CompareTag("BluePuzzle"))
         {
