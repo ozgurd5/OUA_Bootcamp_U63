@@ -13,13 +13,14 @@ public class UnityRelayUI : NetworkBehaviour
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button joinLobbyButton;
     [SerializeField] private TextMeshProUGUI lobbyJoinCodeText;
-    [SerializeField] private TextMeshProUGUI enterLobbyJoinCodeText;
+    [SerializeField] private TMP_InputField enterLobbyJoinCodeText;
     
     private string joinCodeComingFromClient;
     
     private void Awake()
     {
         createLobbyButton.onClick.AddListener(UnityRelayServiceManager.CreateRelay);
+        enterLobbyJoinCodeText.onValueChanged.AddListener((clientInput) => joinCodeComingFromClient = clientInput);
         joinLobbyButton.onClick.AddListener(() => UnityRelayServiceManager.JoinRelay(joinCodeComingFromClient));
         
         //Creation of the lobby join code is async. We have to wait Unity Relay Service to create a code for us
@@ -33,18 +34,8 @@ public class UnityRelayUI : NetworkBehaviour
         
         createLobbyButton.gameObject.SetActive(false);
         joinLobbyButton.gameObject.SetActive(false);
-        enterLobbyJoinCodeText.transform.parent.parent.gameObject.SetActive(false);
+        enterLobbyJoinCodeText.gameObject.SetActive(false);
         if (!IsHost) lobbyJoinCodeText.gameObject.SetActive(false);
-    }
-    
-    private void Update()
-    {
-        if (IsHost) return;
-        
-        //joinCode comes from TMPro Input Field with an empty character " ​ " in the end of the string, idk why
-        //To prevent that we have to take first 6 character.
-        if (enterLobbyJoinCodeText.text.Length > 6)
-            joinCodeComingFromClient = enterLobbyJoinCodeText.text.Substring(0, 6);
     }
     
     /// <summary>
