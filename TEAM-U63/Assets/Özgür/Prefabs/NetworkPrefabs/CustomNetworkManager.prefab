@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3994077093484018443}
   - component: {fileID: 4812854910938412501}
   - component: {fileID: 4499742613172508543}
+  - component: {fileID: 660548440170074131}
   m_Layer: 0
   m_Name: CustomNetworkManager
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6585980057058618177
 MonoBehaviour:
@@ -63,7 +64,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7747426050092489636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f32a7e2fd5d77d543a2c2cd518fb9b23, type: 3}
   m_Name: 
@@ -116,5 +117,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5b70f9ae5478734da3d42330b6dda21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &660548440170074131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747426050092489636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ec8300ba1c1124ba5361c560473580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
