@@ -1220,7 +1220,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865327246119029332, guid: a1664687905ed534b8c9c5d81f316ee1, type: 3}
       propertyPath: m_Name
-      value: LobbyUICanvas
+      value: LobbyCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5893540707884284417, guid: a1664687905ed534b8c9c5d81f316ee1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5893540707884284417, guid: a1664687905ed534b8c9c5d81f316ee1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5893540707884284417, guid: a1664687905ed534b8c9c5d81f316ee1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

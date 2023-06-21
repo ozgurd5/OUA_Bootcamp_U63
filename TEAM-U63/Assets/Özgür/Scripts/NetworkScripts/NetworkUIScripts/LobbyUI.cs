@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// <para>Responsible of player selection and starting of the game</para>
 /// </summary>
-public class LobbyUIManager : NetworkBehaviour
+public class LobbyUI : NetworkBehaviour
 {
     [Header("Assign")]
     [SerializeField] private Button startGameButton;

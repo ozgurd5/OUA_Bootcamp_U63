@@ -2,25 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkPlayerData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkPlayerNameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkPlayerNameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/UIScripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/UIScripts/PlayerNameUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/UIScripts/PlayerNameUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/NetworkManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/LobbyUICanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/LobbyUICanvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/LobbyScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/DeactivateClientPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/DeactivateClientPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LobbyUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LobbyUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkPlayerData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkInputScripts/NetworkInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/NetworkManagerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/LocalNetworkUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/NetworkManagerUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/LocalNetworkUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistPlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderPlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderPlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerSelection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerSelection.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LobbyUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LobbyUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LobbyUIManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LobbyUI.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +32,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/DeactivateClientPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/UnityRelayServiceManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkPlayerNameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/İbrahim/Scripts/ButtonPress.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Plugins/PlayerInput/PlayerInputManager.cs" root0="SKIP_HIGHLIGHTING" />

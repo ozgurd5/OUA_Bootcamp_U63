@@ -1,4 +1,6 @@
+using System;
 using Unity.Netcode;
+using UnityEngine;
 
 /// <summary>
 /// <para>Variables and actions necessary for the network</para>
@@ -6,16 +8,19 @@ using Unity.Netcode;
 public class NetworkPlayerData : NetworkBehaviour
 {
     public static NetworkPlayerData Singleton;
-    
+
+    public event Action<bool> OnIsHostCoderChanged;
+
     public bool isHostCoder { get; private set; }
     
     private void Awake()
     {
         Singleton = GetComponent<NetworkPlayerData>();
     }
-
+    
     /// <summary>
     /// <para>Updates current state of the selected players through the network</para>
+    /// <para>Works and must work both in host side and client side</para>
     /// </summary>
     /// <param name="newIsHostCoder">Will host control coder after this action?</param>
     public void UpdateIsHostCoder(bool newIsHostCoder)
@@ -23,6 +28,8 @@ public class NetworkPlayerData : NetworkBehaviour
         isHostCoder = newIsHostCoder;
         if (!IsHost) UpdateIsHostCoderServerRpc(newIsHostCoder);
         UpdateIsHostCoderClientRpc(newIsHostCoder);
+        
+        OnIsHostCoderChanged?.Invoke(newIsHostCoder);
     }
     
     /// <summary>

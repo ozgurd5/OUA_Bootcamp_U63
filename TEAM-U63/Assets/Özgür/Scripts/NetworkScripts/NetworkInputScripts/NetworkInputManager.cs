@@ -34,7 +34,7 @@ public class NetworkInputManager : NetworkBehaviour
     
     public InputData coderInput;
     public InputData artistInput;
-    
+
     private void Start()
     {
         Singleton = GetComponent<NetworkInputManager>();
@@ -57,7 +57,7 @@ public class NetworkInputManager : NetworkBehaviour
         DecideForInputSource();
         
         //clientInput parameter in this method is the input coming from the client side
-        if (!IsHost) GetInputFromClientServerRpc(clientInput);
+        if (!IsHost) SendInputFromClientServerRpc(clientInput);
     }
     
     /// <summary>
@@ -111,7 +111,7 @@ public class NetworkInputManager : NetworkBehaviour
     /// <param name="inputFromClient">Input from client side that will be send to server side</param>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
-    private void GetInputFromClientServerRpc(InputData inputFromClient)
+    private void SendInputFromClientServerRpc(InputData inputFromClient)
     {
         clientInput = inputFromClient;
     }
