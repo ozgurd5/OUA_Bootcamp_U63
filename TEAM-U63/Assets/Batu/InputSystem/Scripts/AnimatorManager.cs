@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,21 @@ public class AnimatorManager : MonoBehaviour
     int horizontal;
     int vertical;
 
+    //OZGUR EDİT
+    private Rigidbody rb;
+    private static readonly int VerticalVelocity = Animator.StringToHash("verticalVelocity");
+
+    private void Update()
+    {
+        animator.SetFloat(VerticalVelocity, rb.velocity.y);
+    }
+    //OZGUR EDİT
+
     private void Awake()
     {
+        //
+        rb = GetComponent<Rigidbody>();
+        
         animator = GetComponent<Animator>();
         horizontal = Animator.StringToHash("Horizontal");
         vertical = Animator.StringToHash("Vertical");
