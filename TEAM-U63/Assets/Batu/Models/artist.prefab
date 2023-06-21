@@ -2061,6 +2061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f7b7bb3bbc1684bb04c347bbf69212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &7159870051121041733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,8 +2078,11 @@ MonoBehaviour:
   cameraInput: {x: 0, y: 0}
   cameraInputX: 0
   cameraInputY: 0
+  moveAmount: 0
   verticalInput: 0
   horizontalInput: 0
+  b_Input: 0
+  jump_Input: 0
 --- !u!114 &6006753453222435649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,6 +2095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ddccc4b55b2ad42a89375dafef3c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteracting: 0
 --- !u!114 &5497652987050671030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2103,8 +2108,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da0eaac9bdfa2d418e785ea4dd8d4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 7
+  inAirTimer: 0
+  leapingVelocity: 3
+  fallingVelocity: 33
+  rayCastHeightOffSet: 0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  isSprinting: 0
+  isGrounded: 1
+  isJumping: 0
+  walkingSpeed: 1.5
+  runningSpeed: 5
+  sprintingSpeed: 7
   rotationSpeed: 15
+  jumpHeight: 1
+  gravityIntensity: -15
 --- !u!1 &1044816398789329443
 GameObject:
   m_ObjectHideFlags: 0
