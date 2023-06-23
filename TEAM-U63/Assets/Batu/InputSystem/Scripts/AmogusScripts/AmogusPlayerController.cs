@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class AmogusPlayerController: MonoBehaviour
 {
@@ -17,4 +17,4 @@ public class AmogusPlayerController: MonoBehaviour
     {
         rb.velocity = new Vector3(im.movementInput.x * speed, rb.velocity.y, im.movementInput.y * speed);
     }
-}
+}*/
