@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyToPress: {fileID: 1003407690}
-  timeToPressKey: 2
+  timeToPressKey: 10
   artistLullabyCanvas: {fileID: 1209007096}
 --- !u!4 &463701676
 Transform:
@@ -673,7 +673,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 43bd719a200b54e4f852079c79feb8bb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
