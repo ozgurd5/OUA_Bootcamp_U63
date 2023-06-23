@@ -1,10 +1,8 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//TODO but not necessary: custom rotation sync
-
 /// <summary>
-/// <para>Handles synchronization of position with interpolation because Network Transform is bad in position</para>
+/// <para>Handles synchronization of position with interpolation because Network Transform is bad at interpolation</para>
 /// </summary>
 public class NetworkSyncPosition : NetworkBehaviour
 {
@@ -13,6 +11,7 @@ public class NetworkSyncPosition : NetworkBehaviour
     private void Update()
     {
         if (!IsHost) return;
+        
         //transform.position in this line is the position in the host side
         SyncClientPositionWithInterpolationClientRpc(transform.position);
     }

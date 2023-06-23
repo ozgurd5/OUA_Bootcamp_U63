@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 4150156426439231572}
   - component: {fileID: 2198866034115936372}
   - component: {fileID: 664369940734064101}
+  - component: {fileID: 2156211079486201959}
   m_Layer: 0
   m_Name: ArtistPlayer
   m_TagString: Untagged
@@ -321,3 +322,15 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 0
   SlerpPosition: 0
+--- !u!114 &2156211079486201959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634426573111947792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b70f9ae5478734da3d42330b6dda21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,21 +1,22 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//TODO: embrace 3rd option in "server akıl yürütmesi 2"
-
 /// <summary>
 /// <para>Gets host and client input. Decides for coder and artist input</para>
 /// </summary>
 public class NetworkInputManager : NetworkBehaviour
 {
-    private NetworkInputActions nia;
+    public static NetworkInputManager Singleton;
     
+    private NetworkInputActions nia;
+    private NetworkPlayerData npd;
+
     /// <summary>
     /// <para>Holds input data</para>
     /// </summary>
     public class InputData : INetworkSerializable
     {
-        public Vector2 moveInput = new Vector2(1,1);
+        public Vector2 moveInput;
         public bool isRotatingKey;
         public bool isJumpKeyDown;
         
@@ -28,23 +29,25 @@ public class NetworkInputManager : NetworkBehaviour
         }
     }
     
-    private static InputData hostInput;
-    private static InputData clientInput;
+    private InputData hostInput;
+    private InputData clientInput;
     
-    public static InputData coderInput;
-    public static InputData artistInput;
-    
-    private void Awake()
+    public InputData coderInput;
+    public InputData artistInput;
+
+    private void Start()
     {
-        //Initializing
+        Singleton = GetComponent<NetworkInputManager>();
+        
         hostInput = new InputData();
         clientInput = new InputData();
         coderInput = new InputData();
         artistInput = new InputData();;
         
-        //Initializing Unity Input System
         nia = new NetworkInputActions();
         nia.Player.Enable();
+
+        npd = NetworkPlayerData.Singleton;
     }
     
     private void Update()
@@ -54,26 +57,30 @@ public class NetworkInputManager : NetworkBehaviour
         DecideForInputSource();
         
         //clientInput parameter in this method is the input coming from the client side
-        if (!IsHost) GetInputFromClientServerRpc(clientInput);
+        if (!IsHost) SendInputFromClientServerRpc(clientInput);
     }
     
     /// <summary>
-    /// <para>Gets input from the host side, works only in host side</para>
+    /// <para>Gets input from the host side</para>
+    /// <para>Works only in host side</para>
     /// </summary>
     private void GetInputFromHost()
     {
         if (!IsHost) return;
+        
         hostInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
         hostInput.isRotatingKey = nia.Player.Rotate.IsPressed();
         hostInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
     }
     
     /// <summary>
-    /// <para>Gets input from the client side, works only in client side</para>
+    /// <para>Gets input from the client side</para>
+    /// <para>Works only in client side</para>
     /// </summary>
     private void GetInputFromClient()
     {
         if (IsHost) return;
+        
         clientInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
         clientInput.isRotatingKey = nia.Player.Rotate.IsPressed();
         clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
@@ -81,10 +88,11 @@ public class NetworkInputManager : NetworkBehaviour
     
     /// <summary>
     /// <para>Decides coder and artist input in order to which one is host and which one is client</para>
+    /// <para>Works and must work both in host side and client side</para>
     /// </summary>
     private void DecideForInputSource()
     {
-        if (NetworkData.isHostCoder.Value)
+        if (npd.isHostCoder)
         {
             coderInput = hostInput;
             artistInput = clientInput;
@@ -99,10 +107,11 @@ public class NetworkInputManager : NetworkBehaviour
     
     /// <summary>
     /// <para>Sends input from the client side to host side</para>
+    /// <para>Must not be called from the host side. Since host is also a client, it can call this method, be careful</para>
     /// <param name="inputFromClient">Input from client side that will be send to server side</param>
     /// </summary>
-    [ServerRpc]
-    private void GetInputFromClientServerRpc(InputData inputFromClient)
+    [ServerRpc(RequireOwnership = false)]
+    private void SendInputFromClientServerRpc(InputData inputFromClient)
     {
         clientInput = inputFromClient;
     }
