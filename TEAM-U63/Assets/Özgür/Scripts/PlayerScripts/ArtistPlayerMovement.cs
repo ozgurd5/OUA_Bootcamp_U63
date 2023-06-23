@@ -8,7 +8,7 @@ public class ArtistPlayerMovement : NetworkBehaviour
     private NetworkInputManager nim;
     private Rigidbody rb;
 
-    private void Start()
+    private void Awake()
     {
         nim = NetworkInputManager.Singleton;
         rb = GetComponent<Rigidbody>();

@@ -16,12 +16,12 @@ public class PlayerNameUI : NetworkBehaviour
 
     private NetworkPlayerData npd;
 
-    private void Start()
+    private void Awake()
     {
         npd = NetworkPlayerData.Singleton;
         
         //Works locally
-        playerNameInputField.onValueChanged.AddListener((enteredName) => localPlayerName = enteredName);
+        playerNameInputField.onValueChanged.AddListener(enteredName => localPlayerName = enteredName);
 
         npd.OnIsHostCoderChanged += UpdatePlayerNames;
         NetworkManager.Singleton.OnClientConnectedCallback += obj => SetPlayerNames();

@@ -30,9 +30,10 @@ public class DeactivateClientPlayer : NetworkBehaviour
             artistPlayer.SetActive(true);
         };
 
+        //Disconnection of the host not important since it will disconnect the client automatically because server is gone
         NetworkManager.Singleton.OnClientDisconnectCallback += obj =>
         {
-            //Disconnection of the host not important since it will disconnect the client
+            //Simply deactivates the player controlled by client
             coderPlayer.SetActive(npd.isHostCoder);
             artistPlayer.SetActive(!npd.isHostCoder);
         };

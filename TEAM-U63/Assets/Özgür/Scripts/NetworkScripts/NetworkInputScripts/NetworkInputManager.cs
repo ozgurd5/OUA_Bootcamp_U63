@@ -35,7 +35,7 @@ public class NetworkInputManager : NetworkBehaviour
     public InputData coderInput;
     public InputData artistInput;
 
-    private void Start()
+    private void Awake()
     {
         Singleton = GetComponent<NetworkInputManager>();
         

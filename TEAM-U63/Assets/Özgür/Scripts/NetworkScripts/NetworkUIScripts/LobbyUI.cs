@@ -15,7 +15,7 @@ public class LobbyUI : NetworkBehaviour
 
     private NetworkPlayerData npd;
 
-    private void Start()
+    private void Awake()
     {
         npd = NetworkPlayerData.Singleton;
         
