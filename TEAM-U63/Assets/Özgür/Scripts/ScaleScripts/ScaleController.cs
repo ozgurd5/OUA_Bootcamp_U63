@@ -24,8 +24,11 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private int greenNumber;
     [SerializeField] private int blueNumber;
 
-    [Header("Distance from ceiling")]
-    [SerializeField] private float distanceFromCeiling;
+    [Header("Completion variables")]
+    [SerializeField] private float completionLenght = 12f;
+    [SerializeField] private bool isCompleted;
+    private static int completedScaleNumber;
+    public static bool isAllScalesCompleted;
     
     private LineRenderer lr;
     private Vector3 fixedPosition;
@@ -34,7 +37,7 @@ public class ScaleController : MonoBehaviour
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
-        
+
         //Scales are weightless in the beginning
         weightlessPosition = transform.position;
         
@@ -74,15 +77,35 @@ public class ScaleController : MonoBehaviour
         float duration = distance / moveSpeed;
         
         transform.DOMoveY(targetPositionY, duration).SetEase(Ease.Linear);
-
-        //Normally, we should use transform.position.y instead of targetPositionY, but DOMoveY is a coroutine
-        //It's not finished by the end of this method. Eventually transform.position.y will be targetPositionY
-        distanceFromCeiling = fixedPosition.y - targetPositionY;
+        
+        //DOMoveY is a coroutine, we need do check after it is done because we are comparing transform.position.y
+        //Since DOMoveY is a coroutine, transform.position.y will change during "duration"
+        Invoke(nameof(CheckCompletion), duration + 0.1f);
     }
 
-    private static void CheckCompletion()
+    private void CheckCompletion()
     {
+        if (transform.localPosition.y == -1 * completionLenght)
+        {
+            isCompleted = true;
+            completedScaleNumber++;
+        }
         
+        else if (transform.localPosition.y != completionLenght && isCompleted)
+        {
+            isCompleted = false;
+            completedScaleNumber--;
+        }
+
+        else
+        {
+            isCompleted = false;
+        }
+        
+        isAllScalesCompleted = completedScaleNumber == 3;
+        Debug.Log(gameObject.name + ": " + isCompleted);
+        Debug.Log("how many completed: " + completedScaleNumber);
+        Debug.Log("all completed: " + isAllScalesCompleted);
     }
 
     private void OnTriggerEnter(Collider col)
