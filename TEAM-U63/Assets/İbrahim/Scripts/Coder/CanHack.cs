@@ -26,18 +26,20 @@ public class CanHack : MonoBehaviour
 
     private void Start()
     {
-        robotCollider = GetComponent<BoxCollider>();
+        //robotCollider = GetComponent<BoxCollider>();
         rng = new System.Random();
         GenerateRandomSequence();
-        DisableImages();
+        
     }
 
     private void Update()
     {
-        while (artistLullabyCanvas.activeSelf)
+        if (artistLullabyCanvas.activeSelf)
         {
+            ;
             if (Input.GetKeyDown("c"))
             {
+                
                 canHack = true;
 
                 if (currentTimer > 0f)
@@ -47,6 +49,11 @@ public class CanHack : MonoBehaviour
                 }
                 
                 
+            }
+            if (!canHack)
+            {
+                DisableImages();
+                return;
             }
 
             if (Input.anyKeyDown)
@@ -79,6 +86,7 @@ public class CanHack : MonoBehaviour
     {
         sequence = new List<KeyCode>(arrowKeys);
         ShuffleSequence();
+        //currentIndex = 0;
         canHack = true;
         currentTimer = timeToHack;
     
@@ -92,6 +100,8 @@ public class CanHack : MonoBehaviour
                 {
                     images[i].sprite = arrowKeySprites[arrowIndex];
                     images[i].gameObject.SetActive(true);
+                    
+                    Debug.Log("Press " + arrowKeys[arrowIndex] + " key.");
                 }
             }
             else
