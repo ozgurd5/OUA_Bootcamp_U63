@@ -17,15 +17,28 @@ public class NetworkInputManager : NetworkBehaviour
     public class InputData : INetworkSerializable
     {
         public Vector2 moveInput;
-        public bool isRotatingKey;
         public bool isJumpKeyDown;
-        
+        public bool isRunKeyDown;
+        public bool isRunKeyUp;
+        public bool isGrabKeyDown;
+        public bool isPrimaryAbilityKeyDown;
+        public bool isSecondaryAbilityKeyDown;
+
+        public bool robotIsAscendKeyDown;
+        public bool robotIsDescendKeyDown;
+
         //We must teach Unity how to serialize InputData objects in order to transfer data in the network
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref moveInput);
-            serializer.SerializeValue(ref isRotatingKey);
             serializer.SerializeValue(ref isJumpKeyDown);
+            serializer.SerializeValue(ref isRunKeyDown);
+            serializer.SerializeValue(ref isRunKeyUp);
+            serializer.SerializeValue(ref isGrabKeyDown);
+            serializer.SerializeValue(ref isPrimaryAbilityKeyDown);
+            serializer.SerializeValue(ref isSecondaryAbilityKeyDown);
+            serializer.SerializeValue(ref robotIsAscendKeyDown);
+            serializer.SerializeValue(ref robotIsDescendKeyDown);
         }
     }
     
@@ -34,6 +47,7 @@ public class NetworkInputManager : NetworkBehaviour
     
     public InputData coderInput;
     public InputData artistInput;
+    public InputData robotInput;
 
     private void Awake()
     {
@@ -42,7 +56,8 @@ public class NetworkInputManager : NetworkBehaviour
         hostInput = new InputData();
         clientInput = new InputData();
         coderInput = new InputData();
-        artistInput = new InputData();;
+        artistInput = new InputData();
+        robotInput = new InputData();
         
         nia = new NetworkInputActions();
         nia.Player.Enable();
@@ -68,9 +83,15 @@ public class NetworkInputManager : NetworkBehaviour
     {
         if (!IsHost) return;
         
-        hostInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
-        hostInput.isRotatingKey = nia.Player.Rotate.IsPressed();
+        hostInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
         hostInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
+        hostInput.isRunKeyDown = nia.Player.Run.WasPressedThisFrame();
+        hostInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
+        hostInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
+        hostInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
+
+        hostInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
+        hostInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();
     }
     
     /// <summary>
@@ -81,9 +102,15 @@ public class NetworkInputManager : NetworkBehaviour
     {
         if (IsHost) return;
         
-        clientInput.moveInput = nia.Player.Move.ReadValue<Vector2>();
-        clientInput.isRotatingKey = nia.Player.Rotate.IsPressed();
+        clientInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
         clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
+        clientInput.isRunKeyDown = nia.Player.Run.WasPressedThisFrame();
+        clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
+        clientInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
+        clientInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
+        
+        clientInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
+        clientInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();
     }
     
     /// <summary>
