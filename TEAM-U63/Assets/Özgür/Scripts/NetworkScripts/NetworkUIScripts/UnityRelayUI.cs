@@ -43,6 +43,6 @@ public class UnityRelayUI : NetworkBehaviour
     /// </summary>
     private void WriteLobbyJoinCodeToUI()
     {
-        lobbyJoinCodeText.text = $"Lobby Join Code\n{UnityRelayServiceManager.lobbyJoinCode}";
+        lobbyJoinCodeText.text = UnityRelayServiceManager.lobbyJoinCode;
     }
 }
