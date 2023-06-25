@@ -9,9 +9,13 @@ using UnityEngine;
 /// </summary>
 public class ScaleController : MonoBehaviour
 {
+    private static int completedScaleNumber;
+    public static bool isAllScalesCompleted;
+    
     [Header("Assign")]
     [SerializeField] private float moveSpeed = 2f;
-    //
+    [SerializeField] private float completionLenght = 12f;
+    //Remove after tests are done
     [SerializeField] private bool debugRunScale;
     
     [Header("Assign - Color multipliers")]
@@ -23,12 +27,8 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private int redNumber;
     [SerializeField] private int greenNumber;
     [SerializeField] private int blueNumber;
-
-    [Header("Completion variables")]
-    [SerializeField] private float completionLenght = 12f;
+    
     [SerializeField] private bool isCompleted;
-    private static int completedScaleNumber;
-    public static bool isAllScalesCompleted;
     
     private LineRenderer lr;
     private Vector3 fixedPosition;
@@ -52,7 +52,7 @@ public class ScaleController : MonoBehaviour
 
     private void Update()
     {
-        //Remove this when tests are done
+        //Remove after tests are done
         if (debugRunScale)
         {
             UpdateScalePosition();
@@ -65,7 +65,6 @@ public class ScaleController : MonoBehaviour
 
     /// <summary>
     /// <para>Updates scale's position when the weights changes</para>
-    /// <para>Calculates the distance from the ceiling</para>
     /// </summary>
     private void UpdateScalePosition()
     {
@@ -82,16 +81,21 @@ public class ScaleController : MonoBehaviour
         //Since DOMoveY is a coroutine, transform.position.y will change during "duration"
         Invoke(nameof(CheckCompletion), duration + 0.1f);
     }
-
+    
+    /// <summary>
+    /// <para>Checks if the scale reached the lenght needed for completion</para>
+    /// </summary>
     private void CheckCompletion()
     {
-        if (transform.localPosition.y == -1 * completionLenght)
+        float currentLenght = transform.localPosition.y;
+        
+        if (currentLenght == -1 * completionLenght)
         {
             isCompleted = true;
             completedScaleNumber++;
         }
         
-        else if (transform.localPosition.y != completionLenght && isCompleted)
+        else if (currentLenght != completionLenght && isCompleted)
         {
             isCompleted = false;
             completedScaleNumber--;
@@ -103,6 +107,8 @@ public class ScaleController : MonoBehaviour
         }
         
         isAllScalesCompleted = completedScaleNumber == 3;
+        
+        //Remove after tests are done
         Debug.Log(gameObject.name + ": " + isCompleted);
         Debug.Log("how many completed: " + completedScaleNumber);
         Debug.Log("all completed: " + isAllScalesCompleted);
