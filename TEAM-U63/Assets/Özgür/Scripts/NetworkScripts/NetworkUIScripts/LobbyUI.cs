@@ -10,8 +10,8 @@ public class LobbyUI : NetworkBehaviour
 {
     [Header("Assign")]
     [SerializeField] private Button startGameButton;
-    [SerializeField] private Button selectCoderButton;
-    [SerializeField] private Button selectArtistButton;
+
+    [SerializeField] private Button switchPlayerButton;
 
     private NetworkPlayerData npd;
 
@@ -24,9 +24,7 @@ public class LobbyUI : NetworkBehaviour
             NetworkManager.Singleton.SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
         });
         
-        selectCoderButton.onClick.AddListener(() => { npd.UpdateIsHostCoder(IsHost); });
-        
-        selectArtistButton.onClick.AddListener(() => { npd.UpdateIsHostCoder(!IsHost); });
+        switchPlayerButton.onClick.AddListener(() => { npd.UpdateIsHostCoder(!npd.isHostCoder); });
     }
     
     public override void OnNetworkSpawn()
@@ -34,6 +32,6 @@ public class LobbyUI : NetworkBehaviour
         base.OnNetworkSpawn();
         
         //Client shouldn't start the game
-        if (!IsHost) startGameButton.gameObject.SetActive(false);
+        if (IsHost) startGameButton.gameObject.SetActive(true);
     }
 }
