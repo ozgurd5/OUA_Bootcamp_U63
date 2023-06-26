@@ -20,6 +20,9 @@ public class PlayerController : NetworkBehaviour
     private CinemachineFreeLook cam;
     private Rigidbody rb;
 
+    private Vector3 lookingDirectionForward;
+    private Vector3 lookingDirectionRight;
+
     private void Awake()
     {
         //TEST ONLY
@@ -47,15 +50,22 @@ public class PlayerController : NetworkBehaviour
             input = nim.artistInput;
     }
 
-    private Vector3 CalculateTheForward()
+    private void CalculateLookingDirections()
     {
-        Vector3 theForward = (transform.position - cam.transform.position).normalized;
-        theForward.y = 0f;
-        return theForward;
+        lookingDirectionForward = (transform.position - cam.transform.position).normalized;
+        lookingDirectionForward.y = 0f;
+
+        lookingDirectionRight = Vector3.Cross(Vector3.up, lookingDirectionForward);
+        lookingDirectionRight.y = 0f;
+        
+        Debug.Log(lookingDirectionForward);
+        Debug.Log(lookingDirectionRight);
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector3(input.moveInput.x, rb.velocity.y, input.moveInput.y) * moveSpeed;
+        
+        CalculateLookingDirections();
     }
 }
