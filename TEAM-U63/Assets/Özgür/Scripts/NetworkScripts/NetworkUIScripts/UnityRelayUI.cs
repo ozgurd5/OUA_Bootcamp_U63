@@ -20,8 +20,8 @@ public class UnityRelayUI : NetworkBehaviour
     private void Awake()
     {
         createLobbyButton.onClick.AddListener(UnityRelayServiceManager.CreateRelay);
-        enterLobbyJoinCodeText.onValueChanged.AddListener((clientInput) => joinCodeComingFromClient = clientInput);
-        joinLobbyButton.onClick.AddListener(() => UnityRelayServiceManager.JoinRelay(joinCodeComingFromClient));
+        enterLobbyJoinCodeText.onValueChanged.AddListener(clientInput => joinCodeComingFromClient = clientInput);
+        joinLobbyButton.onClick.AddListener(() => UnityRelayServiceManager.JoinRelay(joinCodeComingFromClient)); 
         
         //Creation of the lobby join code is async. We have to wait Unity Relay Service to create a code for us
         //That means we can't write lobby join code to UI until it's created
@@ -43,6 +43,6 @@ public class UnityRelayUI : NetworkBehaviour
     /// </summary>
     private void WriteLobbyJoinCodeToUI()
     {
-        lobbyJoinCodeText.text = $"Lobby Join Code\n{UnityRelayServiceManager.lobbyJoinCode}";
+        lobbyJoinCodeText.text = UnityRelayServiceManager.lobbyJoinCode;
     }
 }

@@ -19,6 +19,8 @@ public class UnityRelayServiceManager : MonoBehaviour
     public static string lobbyJoinCode;
     
     public static event Action OnLobbyJoinCodeCreated;
+    public static event Action OnLobbyJoinCodeWrong;
+    public static event Action OnLobbyJoinCodeCorrect;
     
     private async void Start()
     {
@@ -75,11 +77,15 @@ public class UnityRelayServiceManager : MonoBehaviour
             
            //Starts the client in client computer which is connected to Unity side
            NetworkManager.Singleton.StartClient();
+           
+           OnLobbyJoinCodeCorrect?.Invoke();
         }
         
         catch (RelayServiceException exception)
         {
             Debug.Log(exception);
+            
+            OnLobbyJoinCodeWrong?.Invoke();
         }
     }
 }
