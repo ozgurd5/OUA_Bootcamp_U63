@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -16,8 +17,9 @@ public class PlayerController : NetworkBehaviour
     private NetworkInputManager nim;
     private NetworkInputManager.InputData input;
 
+    private CinemachineFreeLook cam;
     private Rigidbody rb;
-    
+
     private void Awake()
     {
         //TEST ONLY
@@ -28,6 +30,7 @@ public class PlayerController : NetworkBehaviour
         nim = NetworkInputManager.Singleton;
         
         rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<CinemachineFreeLook>();
         
         DecideForInputSource();
         npd.OnIsHostCoderChanged += obj => DecideForInputSource();
@@ -42,6 +45,13 @@ public class PlayerController : NetworkBehaviour
             input = nim.coderInput;
         else
             input = nim.artistInput;
+    }
+
+    private Vector3 CalculateTheForward()
+    {
+        Vector3 theForward = (transform.position - cam.transform.position).normalized;
+        theForward.y = 0f;
+        return theForward;
     }
 
     private void FixedUpdate()
