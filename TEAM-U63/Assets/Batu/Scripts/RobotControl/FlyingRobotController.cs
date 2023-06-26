@@ -54,4 +54,10 @@ public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotCont
     {
         ascendInput = context.ReadValue<float>() * ascendSpeed;
     }
+
+    public void OnThirdPersonLook(InputAction.CallbackContext context)
+    {
+        // Implement the logic for handling the third-person look input here
+        // For example, you can read the input value and rotate the robot accordingly
+    }
 }

@@ -10,7 +10,7 @@ public class LaserSource : MonoBehaviour
     private GameObject LastRobot;
     void Update()
     {
-        Vector3 direction = laserStartPoint.forward; // Update the direction based on the current rotation of the laserStartPoint
+        Vector3 direction = laserStartPoint.forward;
 
         RaycastHit hit;
         if (Physics.Raycast(laserStartPoint.position, direction, out hit, Mathf.Infinity))

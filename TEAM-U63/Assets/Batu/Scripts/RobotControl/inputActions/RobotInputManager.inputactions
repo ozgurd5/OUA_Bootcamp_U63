@@ -1,5 +1,5 @@
 {
-    "name": "RobotMap",
+    "name": "RobotInputManager",
     "maps": [
         {
             "name": "RobotControl",
@@ -27,6 +27,15 @@
                     "name": "Ascend",
                     "type": "Value",
                     "id": "dc7938f4-b9be-4e3a-a40e-c977a629fb32",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ThirdPersonLook",
+                    "type": "Value",
+                    "id": "c1f7d7f8-ac7d-4202-90d4-f9a5ea65b569",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -185,6 +194,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Ascend",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37909551-492d-4c76-87f8-98259fcae662",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThirdPersonLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0fa52411-5090-4032-b7f3-95c50a32eeee",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThirdPersonLook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
