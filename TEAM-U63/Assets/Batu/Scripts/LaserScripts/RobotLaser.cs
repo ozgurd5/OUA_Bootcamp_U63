@@ -6,13 +6,13 @@ public class RobotLaser : MonoBehaviour
 {
     [SerializeField] Transform laserStartPoint;
     [SerializeField] public LineRenderer lineRenderer;
-    private MeshRenderer mr;
+    private MeshRenderer meshRenderer;
     private bool isGettingLaser;
     private GameObject LastRobot;
 
     void Start()
     {
-        mr = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponent<MeshRenderer>();
         lineRenderer.positionCount = 2;
         CloseLaser();
     }
@@ -31,7 +31,7 @@ public class RobotLaser : MonoBehaviour
     void Update() //robottan çıkan laser
     {
         Vector3 direction = laserStartPoint.forward;
-        lineRenderer.material = mr.material;
+        lineRenderer.material = meshRenderer.material;
         lineRenderer.SetPosition(0, laserStartPoint.position);
 
         if (!isGettingLaser)
