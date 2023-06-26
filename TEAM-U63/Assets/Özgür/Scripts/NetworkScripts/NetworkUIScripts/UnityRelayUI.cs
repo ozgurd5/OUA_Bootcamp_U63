@@ -31,10 +31,6 @@ public class UnityRelayUI : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        
-        createLobbyButton.gameObject.SetActive(false);
-        joinLobbyButton.gameObject.SetActive(false);
-        enterLobbyJoinCodeText.gameObject.SetActive(false);
         if (!IsHost) lobbyJoinCodeText.gameObject.SetActive(false);
     }
     

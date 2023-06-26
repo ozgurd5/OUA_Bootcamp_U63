@@ -10,8 +10,8 @@ public class LobbyUI : NetworkBehaviour
 {
     [Header("Assign")]
     [SerializeField] private Button startGameButton;
-
     [SerializeField] private Button switchPlayerButton;
+    [SerializeField] private Button copyCodeButton;
 
     private NetworkPlayerData npd;
 
@@ -31,7 +31,11 @@ public class LobbyUI : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         
-        //Client shouldn't start the game
-        if (IsHost) startGameButton.gameObject.SetActive(true);
+        //Client shouldn't start the game. Also client can't see the join code, so doesn't need copyCodeButton
+        if (IsHost)
+        {
+            startGameButton.gameObject.SetActive(true);
+            copyCodeButton.gameObject.SetActive(true);
+        }
     }
 }

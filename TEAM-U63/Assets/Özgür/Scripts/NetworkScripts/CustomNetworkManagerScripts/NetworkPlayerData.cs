@@ -1,9 +1,8 @@
 using System;
 using Unity.Netcode;
-using UnityEngine;
 
 /// <summary>
-/// <para>Variables and actions necessary for the network</para>
+/// <para>Responsible of deciding which user controls which player</para>
 /// </summary>
 public class NetworkPlayerData : NetworkBehaviour
 {

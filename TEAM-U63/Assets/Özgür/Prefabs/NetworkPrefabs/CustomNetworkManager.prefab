@@ -37,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6585980057058618177
 MonoBehaviour:
@@ -139,8 +139,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7747426050092489636}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dc31bc74451db042b1712d4a63b67d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstIslandFirstLevelPlayTime: 0
+  firstIslandSecondLevelPlayTime: 0
+  secondIslandFirstLevelPlayTime: 0
+  secondIslandSecondLevelPlayTime: 0
+  secondIslandThirdLevelPlayTime: 0
+  thirdIslandFirstLevelPlayTime: 0
+  thirdIslandSecondLevelPlayTime: 0
+  thirdIslandThirdLevelPlayTime: 0
+  hackNumber: 0
+  paintNumber: 0
+  testPlayTime: 0

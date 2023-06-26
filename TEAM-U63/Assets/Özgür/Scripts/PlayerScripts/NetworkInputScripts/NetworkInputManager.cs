@@ -1,6 +1,8 @@
 using Unity.Netcode;
 using UnityEngine;
 
+//TODO: fix OnNetworkSpawn before build
+
 /// <summary>
 /// <para>Gets host and client input. Decides for coder and artist input</para>
 /// </summary>
@@ -63,14 +65,23 @@ public class NetworkInputManager : NetworkBehaviour
         nia.Player.Enable();
 
         npd = NetworkPlayerData.Singleton;
+        
+        DecideForInputSource();
+        npd.OnIsHostCoderChanged += obj => DecideForInputSource();
     }
-    
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        
+        //DecideForInputSource();
+    }
+
     private void Update()
     {
         GetInputFromHost();
         GetInputFromClient();
-        DecideForInputSource();
-        
+
         //clientInput parameter in this method is the input coming from the client side
         if (!IsHost) SendInputFromClientServerRpc(clientInput);
     }

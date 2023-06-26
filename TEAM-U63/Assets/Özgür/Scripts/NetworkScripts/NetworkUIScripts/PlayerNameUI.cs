@@ -15,7 +15,7 @@ public class PlayerNameUI : NetworkBehaviour
     private string clientName;
 
     private NetworkPlayerData npd;
-
+    
     private void Awake()
     {
         npd = NetworkPlayerData.Singleton;
@@ -38,7 +38,7 @@ public class PlayerNameUI : NetworkBehaviour
             hostName = localPlayerName;
             SendHostNameClientRpc(hostName);
         }
-        
+
         else
         {
             clientName = localPlayerName;
