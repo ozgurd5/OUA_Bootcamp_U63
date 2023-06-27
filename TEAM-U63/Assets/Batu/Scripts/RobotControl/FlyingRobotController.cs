@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotControlActions
 {
-    [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private float ascendSpeed = 1f;
-    [SerializeField] private float descendSpeed = 1f;
+    [SerializeField] private float movementSpeed = 8f;
+    [SerializeField] private float liftSpeed = 4f;
+    
+    [SerializeField] private float rotationSpeed = 4f; // Added rotationSpeed variable
+
 
     private RobotInputManager robotInputManager;
     private Rigidbody rb;
+    private Transform characterTransform;
+    private Transform cameraTransform;
+
+    private Vector3 lookingDirectionForward;
+    private Vector3 lookingDirectionRight;
 
     private Vector2 movementInput;
     private float ascendInput;
@@ -20,6 +28,10 @@ public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotCont
     {
         robotInputManager = new RobotInputManager();
         rb = GetComponent<Rigidbody>();
+        characterTransform = transform;
+
+        cameraTransform = Camera.main.transform;
+
     }
 
     private void OnEnable()
@@ -36,8 +48,22 @@ public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotCont
 
     private void Update()
     {
-        Vector3 movement = new Vector3(movementInput.x, ascendInput - descendInput, movementInput.y) * movementSpeed;
-        rb.velocity = movement;
+        lookingDirectionForward = cameraTransform.forward;
+        lookingDirectionForward.y = 0f;
+
+        lookingDirectionRight = cameraTransform.right;
+        lookingDirectionRight.y = 0f;
+
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 movement = movementInput.x * lookingDirectionRight + lookingDirectionForward * movementInput.y;
+        rb.velocity = movement * movementSpeed;
+
+        characterTransform.forward = Vector3.Slerp(cameraTransform.forward, lookingDirectionForward, Time.fixedDeltaTime * rotationSpeed);
+
+        rb.velocity += new Vector3(0f, (ascendInput - descendInput) * liftSpeed, 0f);
     }
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -47,12 +73,12 @@ public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotCont
 
     public void OnDescend(InputAction.CallbackContext context)
     {
-        descendInput = context.ReadValue<float>() * descendSpeed;
+        descendInput = context.ReadValue<float>();
     }
 
     public void OnAscend(InputAction.CallbackContext context)
     {
-        ascendInput = context.ReadValue<float>() * ascendSpeed;
+        ascendInput = context.ReadValue<float>();
     }
 
     public void OnThirdPersonLook(InputAction.CallbackContext context)

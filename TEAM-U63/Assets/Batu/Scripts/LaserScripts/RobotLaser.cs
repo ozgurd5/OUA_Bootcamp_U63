@@ -47,7 +47,7 @@ public class RobotLaser : MonoBehaviour
                 LastRobot = hit.collider.gameObject;
                 hit.collider.gameObject.GetComponent<RobotLaser>().OpenLaser();
             }
-            else
+            else if(LastRobot != null)
             {
                 LastRobot?.GetComponent<RobotLaser>().CloseLaser();
             }
@@ -57,6 +57,11 @@ public class RobotLaser : MonoBehaviour
         }
         else
         {
+            if(LastRobot != null)
+            {
+                LastRobot?.GetComponent<RobotLaser>().CloseLaser();
+            }
+
             lineRenderer.SetPosition(0, laserStartPoint.position);
             lineRenderer.SetPosition(1, laserStartPoint.position + direction * 100);
             
