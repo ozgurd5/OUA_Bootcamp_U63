@@ -150,9 +150,7 @@ public class PlayerController : NetworkBehaviour
     private void CheckJumpCondition()
     {
         if (jumpBufferTimer > 0f && psd.isGrounded)
-        {
             jumpCondition = true;
-        }
     }
     
     /// <summary>
@@ -163,10 +161,12 @@ public class PlayerController : NetworkBehaviour
     {
         if (jumpCondition)
         {
-            Debug.Log("jumbo karides");
             rb.velocity += new Vector3(0f, jumpSpeed, 0f);
             psd.isJumping = true;
+            
+            //Must reset these variables to ensure that HandleJump is called once, not repeatedly
             jumpCondition = false;
+            jumpBufferTimer = 0f;
         }
     }
 
@@ -185,7 +185,6 @@ public class PlayerController : NetworkBehaviour
     {
         CalculateLookingDirection();
         SyncLookingDirection();
-        Debug.Log(rb.velocity.y);
         HandleMovement();
         HandleJump();
     }
