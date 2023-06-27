@@ -1,5 +1,3 @@
-using System;
-using Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -11,23 +9,28 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private bool isCoder;
 
     [Header("Assign")]
-    [SerializeField] private float walkingSpeed;
-    [SerializeField] private float runningSpeed;
+    [SerializeField] private float walkingSpeed = 10f;
+    [SerializeField] private float runningSpeed = 16f;
+    [SerializeField] private float jumpSpeed = 10f;
 
     private NetworkPlayerData npd;
     private NetworkInputManager nim;
     private NetworkInputManager.InputData input;
     private PlayerStateData psd;
 
-    private CinemachineFreeLook cam;
+    private Transform cameraTransform;
     private Rigidbody rb;
-    
+
     private Vector3 lookingDirectionForward;
     private Vector3 lookingDirectionRight;
     private Vector3 movingDirection;
-    private float movingSpeed = 10f;
+    private float movingSpeed = 10f;    //Default moving speed is walking speed
 
-    private void Awake()
+    private bool jumpCondition;
+    [SerializeField] private float jumpBufferLimit = 0.2f;
+    [SerializeField] private float jumpBufferTimer;
+
+    private void Start()
     {
         //TEST ONLY
         NetworkManager.Singleton.StartHost();
@@ -38,7 +41,7 @@ public class PlayerController : NetworkBehaviour
         psd = GetComponent<PlayerStateData>();
         
         rb = GetComponent<Rigidbody>();
-        cam = GetComponentInChildren<CinemachineFreeLook>();
+        cameraTransform = Camera.main.transform;
 
         DecideForInputSource();
         npd.OnIsHostCoderChanged += obj => DecideForInputSource();
@@ -57,40 +60,41 @@ public class PlayerController : NetworkBehaviour
 
     /// <summary>
     /// <para>Calculates looking direction</para>
-    /// <para>Should be called in FixedUpdate</para>
+    /// <para>Must work in FixedUpdate, idk why but Update stutters</para>
     /// </summary>
-    private void CalculateLookingDirections()
+    private void CalculateLookingDirection()
     {
-        lookingDirectionForward = (transform.position - cam.transform.position).normalized;
+        lookingDirectionForward = cameraTransform.forward;
         lookingDirectionForward.y = 0f;
 
-        lookingDirectionRight = Vector3.Cross(Vector3.up, lookingDirectionForward).normalized;
+        lookingDirectionRight = cameraTransform.right;
         lookingDirectionRight.y = 0f;
     }
     
     /// <summary>
     /// <para>Turns the player to looking direction</para>
+    /// <para>Must work in FixedUpdate, idk why but Update stutters</para>
     /// </summary>
     private void SyncLookingDirection()
     {
         if (!psd.isMoving) return;
         
-        transform.forward = lookingDirectionForward;
+        transform.forward = Vector3.Slerp(transform.forward, lookingDirectionForward, 5f * Time.fixedTime);
     }
 
     /// <summary>
     /// <para>Decide if the player is moving or not</para>
-    /// <para>Must be decided before DecideWalkingOrRunningStates, so must be called in Update</para>
+    /// <para>Must work in Update because must be decided before DecideWalkingOrRunningStates</para>
     /// </summary>
     private void DecideMovingState()
     {
         //It's never 0f, idk why
-        psd.isMoving = rb.velocity.magnitude > 0.2f;
+        psd.isMoving = rb.velocity.magnitude > 0.01f;
     }
     
     /// <summary>
     /// <para>Switches walking and running state via input, sets speed according to it</para>
-    /// <para>Must be called in Update since it has input check</para>
+    /// <para>Must work Update since it has input check</para>
     /// </summary>
     private void DecideWalkingOrRunningStates()
     {
@@ -111,18 +115,78 @@ public class PlayerController : NetworkBehaviour
         else
             movingSpeed = walkingSpeed;
     }
+    
+    /// <summary>
+    /// <para>Makes player move</para>
+    /// <para>Must work in FixedUpdate</para>
+    /// </summary>
+    private void HandleMovement()
+    {
+        movingDirection = lookingDirectionRight * input.moveInput.x + lookingDirectionForward * input.moveInput.y;
+        movingDirection *= movingSpeed;
+        rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
+    }
+    
+    /// <summary>
+    /// <para>Handles jump buffer time for smooth gameplay</para>
+    /// <para>When user press the space, player has jumpBufferLimit time to touch the ground.</para>
+    /// <para>For example when player is falling down, user doesn't have to press the jump button in the perfect time
+    /// to jump right again. User press the button when player is in the air, if player touch ground within the
+    /// buffer time, it jumps</para>
+    /// <para>Must work in Update since it has input check</para>
+    /// </summary>
+    private void HandleJumpBufferTime()
+    {
+        if (input.isJumpKeyDown)
+            jumpBufferTimer = jumpBufferLimit;
+        else
+            jumpBufferTimer -= Time.deltaTime;
+    }
+    
+    /// <summary>
+    /// <para>Checks if conditions for jump are set</para>
+    /// <para>Should work in Update</para>
+    /// </summary>
+    private void CheckJumpCondition()
+    {
+        if (jumpBufferTimer > 0f && psd.isGrounded)
+        {
+            jumpCondition = true;
+        }
+    }
+    
+    /// <summary>
+    /// <para>Makes the player jump if conditions are set</para>
+    /// <para>Must work in FixedUpdate</para>
+    /// </summary>
+    private void HandleJump()
+    {
+        if (jumpCondition)
+        {
+            Debug.Log("jumbo karides");
+            rb.velocity += new Vector3(0f, jumpSpeed, 0f);
+            psd.isJumping = true;
+            jumpCondition = false;
+        }
+    }
 
     private void Update()
     {
+        
+        
         DecideMovingState();
         DecideWalkingOrRunningStates();
+
+        HandleJumpBufferTime();
+        CheckJumpCondition();
     }
 
     private void FixedUpdate()
     {
-        CalculateLookingDirections();
+        CalculateLookingDirection();
         SyncLookingDirection();
-        movingDirection = lookingDirectionRight * input.moveInput.x + lookingDirectionForward * input.moveInput.y;
-        rb.velocity = movingDirection * movingSpeed;
-    }                                                        
+        Debug.Log(rb.velocity.y);
+        HandleMovement();
+        HandleJump();
+    }
 }
