@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
     private bool isRunning;
-    private bool isJumping;
+    //private bool isJumping;
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(new Vector3(0f, jumpForce, 0f), ForceMode.Impulse);
-            isJumping = true;
+            //isJumping = true;
         }
     }
 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            isJumping = false;
+            //isJumping = false;
         }
     }
 

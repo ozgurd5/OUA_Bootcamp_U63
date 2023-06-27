@@ -6,10 +6,11 @@ public class LaserSource : MonoBehaviour
 {
     [SerializeField] Transform laserStartPoint;
     [SerializeField] public LineRenderer lineRenderer;
+    [SerializeField] private GameObject LastRobot;
 
-    private GameObject LastRobot;
     void Update()
     {
+        
         Vector3 direction = laserStartPoint.forward;
 
         RaycastHit hit;
@@ -20,7 +21,7 @@ public class LaserSource : MonoBehaviour
                 LastRobot = hit.collider.gameObject;
                 hit.collider.gameObject.GetComponent<RobotLaser>().OpenLaser();
             }
-            else
+            else if(LastRobot != null)
             {
                 LastRobot?.GetComponent<RobotLaser>().CloseLaser();
             }
@@ -30,10 +31,14 @@ public class LaserSource : MonoBehaviour
         }
         else
         {
+            if(LastRobot != null)
+            {
+                LastRobot?.GetComponent<RobotLaser>().CloseLaser();
+            }
+
             lineRenderer.SetPosition(0, laserStartPoint.position);
             lineRenderer.SetPosition(1, laserStartPoint.position + direction * 100);
 
-            
         }
 
     }
