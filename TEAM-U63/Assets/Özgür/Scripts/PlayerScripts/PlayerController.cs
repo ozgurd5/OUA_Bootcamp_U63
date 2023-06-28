@@ -3,15 +3,20 @@ using UnityEngine;
 
 //TODO: remove test only line in awake before build
 
+/// <summary>
+/// <para>Controls player movement, rotation, jump</para>
+/// <para>Works only in "Normal State"</para>
+/// </summary>
 public class PlayerController : NetworkBehaviour
 {
-    [Header("IMPORTANT - SELECT")]
+    [Header("IMPORTANT - SELECT OR NOT")]
     [SerializeField] private bool isCoder;
 
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 10f;
     [SerializeField] private float runningSpeed = 16f;
     [SerializeField] private float jumpSpeed = 10f;
+    [SerializeField] private float rotatingSpeed = 6f;
 
     private NetworkPlayerData npd;
     private NetworkInputManager nim;
@@ -27,8 +32,8 @@ public class PlayerController : NetworkBehaviour
     private float movingSpeed = 10f;    //Default moving speed is walking speed
 
     private bool jumpCondition;
-    [SerializeField] private float jumpBufferLimit = 0.2f;
-    [SerializeField] private float jumpBufferTimer;
+    private float jumpBufferLimit = 0.2f;
+    private float jumpBufferTimer;
 
     private void Start()
     {
@@ -72,14 +77,24 @@ public class PlayerController : NetworkBehaviour
     }
     
     /// <summary>
+    /// <para>Calculates moving direction</para>
+    /// <para>Should work in FixedUpdate</para>
+    /// </summary>
+    private void CalculateMovingDirection()
+    {
+        movingDirection = lookingDirectionRight * input.moveInput.x + lookingDirectionForward * input.moveInput.y;
+        movingDirection.y = 0f;
+    }
+    
+    /// <summary>
     /// <para>Turns the player to looking direction</para>
-    /// <para>Must work in FixedUpdate, idk why but Update stutters</para>
+    /// <para>Must work in FixedUpdate, because Update stutters, idk why</para>
     /// </summary>
     private void SyncLookingDirection()
     {
         if (!psd.isMoving) return;
         
-        transform.forward = Vector3.Slerp(transform.forward, lookingDirectionForward, 5f * Time.fixedTime);
+        transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed * Time.fixedDeltaTime);
     }
 
     /// <summary>
@@ -122,7 +137,6 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void HandleMovement()
     {
-        movingDirection = lookingDirectionRight * input.moveInput.x + lookingDirectionForward * input.moveInput.y;
         movingDirection *= movingSpeed;
         rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
     }
@@ -172,7 +186,7 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
-        
+        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
         
         DecideMovingState();
         DecideWalkingOrRunningStates();
@@ -183,8 +197,12 @@ public class PlayerController : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        
         CalculateLookingDirection();
+        CalculateMovingDirection();
         SyncLookingDirection();
+        
         HandleMovement();
         HandleJump();
     }
