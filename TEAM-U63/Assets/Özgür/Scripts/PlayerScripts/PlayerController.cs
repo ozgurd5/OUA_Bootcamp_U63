@@ -13,10 +13,10 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private bool isCoder;
 
     [Header("Assign")]
-    [SerializeField] private float walkingSpeed = 10f;
-    [SerializeField] private float runningSpeed = 16f;
-    [SerializeField] private float jumpSpeed = 10f;
-    [SerializeField] private float rotatingSpeed = 6f;
+    [SerializeField] private float walkingSpeed = 6f;
+    [SerializeField] private float runningSpeed = 10f;
+    [SerializeField] private float jumpSpeed = 5f;
+    [SerializeField] private float rotatingSpeed = 5f;
 
     private NetworkPlayerData npd;
     private NetworkInputManager nim;
@@ -98,17 +98,17 @@ public class PlayerController : NetworkBehaviour
     }
 
     /// <summary>
-    /// <para>Decide if the player is moving or not</para>
-    /// <para>Must work in Update because must be decided before DecideWalkingOrRunningStates</para>
+    /// <para>Switches between idle and moving via rigidbody velocity</para>
+    /// <para>Must work in Update since it must work before DecideWalkingOrRunningStates</para>
     /// </summary>
-    private void DecideMovingState()
+    private void DecideIdleOrMovingStates()
     {
-        //It's never 0f, idk why
-        psd.isMoving = rb.velocity.magnitude > 0.01f;
+        psd.isMoving = rb.velocity.magnitude > 0.01f;   //It's never 0f, idk why
+        psd.isIdle = !psd.isMoving;
     }
     
     /// <summary>
-    /// <para>Switches walking and running state via input, sets speed according to it</para>
+    /// <para>Switches between walking and running state via input, sets speed according to it</para>
     /// <para>Must work Update since it has input check</para>
     /// </summary>
     private void DecideWalkingOrRunningStates()
@@ -120,10 +120,8 @@ public class PlayerController : NetworkBehaviour
             return;
         }
         
-        if (input.isRunKeyDown)
-            psd.isRunning = true;
-        else if (input.isRunKeyUp)
-            psd.isRunning = false;
+        psd.isRunning = input.isRunKey;
+        psd.isWalking = !psd.isRunning;
 
         if (psd.isRunning)
             movingSpeed = runningSpeed;
@@ -187,8 +185,8 @@ public class PlayerController : NetworkBehaviour
     private void Update()
     {
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
-        
-        DecideMovingState();
+
+        DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
 
         HandleJumpBufferTime();
