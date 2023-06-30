@@ -143,6 +143,8 @@ GameObject:
   - component: {fileID: 5328793912145820459}
   - component: {fileID: 4293624304598761993}
   - component: {fileID: 8472633499655834703}
+  - component: {fileID: 6749040510035442493}
+  - component: {fileID: 2163347537655871216}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -293,12 +295,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  isMoving: 0
+  isIdle: 0
   isWalking: 0
   isRunning: 0
   isJumping: 0
-  isGrabbing: 0
+  isMoving: 0
   isGrounded: 0
+  isGrabbing: 0
 --- !u!114 &8472633499655834703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,10 +315,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCoder: 0
-  walkingSpeed: 10
-  runningSpeed: 16
-  jumpSpeed: 10
-  rotatingSpeed: 6
+  walkingSpeed: 6
+  runningSpeed: 10
+  jumpSpeed: 5
+  rotatingSpeed: 5
+--- !u!95 &6749040510035442493
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826967964384490765}
+  m_Enabled: 1
+  m_Avatar: {fileID: -7015762578403652589, guid: 41b24840654b1ef4a80eda9f44da0fe6, type: 3}
+  m_Controller: {fileID: 9100000, guid: 5a828d1efbf98d74097bc7abe7cd4f9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2163347537655871216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826967964384490765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8b9905fc2e458439cb5f0dfbab142a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3556086607243346278
 GameObject:
   m_ObjectHideFlags: 3
@@ -340,7 +376,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3556086607243346278}
-  m_LocalRotation: {x: 0.005237647, y: 0.0000000010753841, z: -5.63256e-12, w: 0.9999863}
+  m_LocalRotation: {x: 0.005237647, y: -0.0000000010753841, z: 5.63256e-12, w: 0.9999863}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

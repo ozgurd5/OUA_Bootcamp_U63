@@ -20,8 +20,7 @@ public class NetworkInputManager : NetworkBehaviour
     {
         public Vector2 moveInput;
         public bool isJumpKeyDown;
-        public bool isRunKeyDown;
-        public bool isRunKeyUp;
+        public bool isRunKey;
         public bool isGrabKeyDown;
         public bool isPrimaryAbilityKeyDown;
         public bool isSecondaryAbilityKeyDown;
@@ -34,8 +33,7 @@ public class NetworkInputManager : NetworkBehaviour
         {
             serializer.SerializeValue(ref moveInput);
             serializer.SerializeValue(ref isJumpKeyDown);
-            serializer.SerializeValue(ref isRunKeyDown);
-            serializer.SerializeValue(ref isRunKeyUp);
+            serializer.SerializeValue(ref isRunKey);
             serializer.SerializeValue(ref isGrabKeyDown);
             serializer.SerializeValue(ref isPrimaryAbilityKeyDown);
             serializer.SerializeValue(ref isSecondaryAbilityKeyDown);
@@ -96,7 +94,7 @@ public class NetworkInputManager : NetworkBehaviour
         
         hostInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
         hostInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
-        hostInput.isRunKeyDown = nia.Player.Run.WasPressedThisFrame();
+        hostInput.isRunKey = nia.Player.Run.IsPressed();
         hostInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
         hostInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
         hostInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
@@ -115,7 +113,7 @@ public class NetworkInputManager : NetworkBehaviour
         
         clientInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
         clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
-        clientInput.isRunKeyDown = nia.Player.Run.WasPressedThisFrame();
+        clientInput.isRunKey = nia.Player.Run.IsPressed();
         clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
         clientInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
         clientInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
