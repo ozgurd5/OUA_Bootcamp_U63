@@ -678,6 +678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot
       objectReference: {fileID: 0}
+    - target: {fileID: 3851217440079625548, guid: 778aea6ee56fa2b43afe99bc24e905ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5541398697695696596, guid: 778aea6ee56fa2b43afe99bc24e905ab, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 474458168
@@ -761,7 +765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e819e63ee912f84194cdfb1af257aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzlePiece: {fileID: 191611344}
   materialChangeRange: 10
   puzzleMaterials:
   - {fileID: 2100000, guid: 4abc4344946a7ab46b9b3c1d7c565194, type: 2}
@@ -779,7 +782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bff1e84867d5f46992e045fbdd2f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robot: {fileID: 2145465167}
   paintRange: 10
   robotMaterials:
   - {fileID: 2100000, guid: 4abc4344946a7ab46b9b3c1d7c565194, type: 2}
@@ -2756,11 +2758,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055606310}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2145465167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3851217440079625548, guid: 778aea6ee56fa2b43afe99bc24e905ab, type: 3}
-  m_PrefabInstance: {fileID: 318955893}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3725272130097151137
 PrefabInstance:
   m_ObjectHideFlags: 0
