@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MaterialChanger : MonoBehaviour
 {
-    public GameObject puzzlePiece;
+    
 
     public float materialChangeRange = 10f;
 
@@ -15,12 +15,12 @@ public class MaterialChanger : MonoBehaviour
     private string[] puzzlesTag = new string[] { "RedPuzzle", "GreenPuzzle", "BluePuzzle" };
 
     public List<Material> puzzleMaterials;
-    private LayerMask puzzlePieceLayerMask;
+    //private LayerMask puzzlePieceLayerMask;
 
-    private void Start()
-    {
-        puzzlePieceLayerMask = LayerMask.GetMask("puzzlePieceLayerMask");
-    }
+    //private void Start()
+    //{
+    //    puzzlePieceLayerMask = LayerMask.GetMask("puzzlePieceLayerMask");
+    //}
 
     private void Update()
     {
@@ -28,27 +28,27 @@ public class MaterialChanger : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, materialChangeRange, puzzlePieceLayerMask))
+            if (Physics.Raycast(ray, out hit, materialChangeRange))
             {
                 GameObject hitObject = hit.collider.gameObject;
 
-                // Change the material of the puzzle piece
-                MeshRenderer puzzleMeshRenderer = puzzlePiece.GetComponent<MeshRenderer>();
-                if (puzzleMeshRenderer != null)
+                if (hitObject.CompareTag("RedPuzzle") || hitObject.CompareTag("GreenPuzzle") || hitObject.CompareTag("BluePuzzle"))
                 {
-                    currentMaterialIndex = (currentMaterialIndex + 1) % puzzleMaterials.Count;
-                    Material[] materials = puzzleMeshRenderer.materials;
-                    materials[0] = puzzleMaterials[currentMaterialIndex];
-                    puzzleMeshRenderer.materials = materials;
-                }
-                else
-                {
-                    Debug.LogWarning("Missing MeshRenderer component on puzzlePiece GameObject.");
-                }
+                    // Change the material of the puzzle piece
+                    MeshRenderer puzzleMeshRenderer = hitObject.GetComponent<MeshRenderer>();
+                    if (puzzleMeshRenderer != null)
+                    {
+                        currentMaterialIndex = (currentMaterialIndex + 1) % puzzleMaterials.Count;
+                        Material[] materials = puzzleMeshRenderer.materials;
+                        materials[0] = puzzleMaterials[currentMaterialIndex];
+                        puzzleMeshRenderer.materials = materials;
+                    }
+                
 
-                // Change the tag of the hit object
-                currentTagIndex = (currentTagIndex + 1) % puzzlesTag.Length;
-                hitObject.tag = puzzlesTag[currentTagIndex];
+                    // Change the tag of the hit object
+                    currentTagIndex = (currentTagIndex + 1) % puzzlesTag.Length;
+                    hitObject.tag = puzzlesTag[currentTagIndex];
+                }
             }
         }
     }
