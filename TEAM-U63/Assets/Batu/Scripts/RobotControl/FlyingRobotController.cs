@@ -8,7 +8,7 @@ public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotCont
 {
     [SerializeField] private float movementSpeed = 8f;
     [SerializeField] private float liftSpeed = 4f;
-    
+
     [SerializeField] private float rotationSpeed = 4f; // Added rotationSpeed variable
 
 
