@@ -17,16 +17,13 @@ public class PlayerAnimationManager : MonoBehaviour
         //When that happens, jump animation must play, not the walking or running.
         if (psd.isJumping)
         {
-            an.Play("PlayerJumping");
+            if (psd.isMoving)
+                an.Play("PlayerMovingJumping");
+            else
+                an.Play("PlayerNotMovingJumping");
             return;
         }
-        
-        if (Input.GetKey(KeyCode.O))
-        {
-            an.Play("SpinMeRightRound");
-            return;
-        }
-        
+
         //After this point, only one state can be true at the same time, so no problem.
         if (psd.isIdle)
             an.Play("PlayerIdle");

@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -13,10 +14,11 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private bool isCoder;
 
     [Header("Assign")]
-    [SerializeField] private float walkingSpeed = 6f;
+    [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 10f;
     [SerializeField] private float jumpSpeed = 5f;
-    [SerializeField] private float rotatingSpeed = 5f;
+    [SerializeField] private float walkingRotatingSpeed = 5f;
+    [SerializeField] private float runningRotatingSpeed = 10f;
 
     private NetworkPlayerData npd;
     private NetworkInputManager nim;
@@ -29,7 +31,8 @@ public class PlayerController : NetworkBehaviour
     private Vector3 lookingDirectionForward;
     private Vector3 lookingDirectionRight;
     private Vector3 movingDirection;
-    private float movingSpeed = 10f;    //Default moving speed is walking speed
+    private float movingSpeed;
+    private float rotatingSpeed;
 
     private bool jumpCondition;
     private float jumpBufferLimit = 0.2f;
@@ -41,6 +44,10 @@ public class PlayerController : NetworkBehaviour
         NetworkManager.Singleton.StartHost();
         //TEST ONLY
 
+        //Moving and rotating speed defaults must be walking speeds
+        movingSpeed = walkingSpeed;
+        rotatingSpeed = walkingRotatingSpeed;
+        
         npd = NetworkPlayerData.Singleton;
         nim = NetworkInputManager.Singleton;
         psd = GetComponent<PlayerStateData>();
@@ -98,17 +105,19 @@ public class PlayerController : NetworkBehaviour
     }
 
     /// <summary>
-    /// <para>Switches between idle and moving via rigidbody velocity</para>
+    /// <para>Switches between idle and moving via rigidbody velocity x and z</para>
     /// <para>Must work in Update since it must work before DecideWalkingOrRunningStates</para>
     /// </summary>
     private void DecideIdleOrMovingStates()
     {
-        psd.isMoving = rb.velocity.magnitude > 0.01f;   //It's never 0f, idk why
+        Vector2 velocityXZ = new Vector2(rb.velocity.x, rb.velocity.z);
+        
+        psd.isMoving = math.abs(velocityXZ.magnitude) > 0.01f;  //It's never 0, idk why
         psd.isIdle = !psd.isMoving;
     }
     
     /// <summary>
-    /// <para>Switches between walking and running state via input, sets speed according to it</para>
+    /// <para>Switches between walking and running state via input, sets moving and rotating speeds according to it</para>
     /// <para>Must work Update since it has input check</para>
     /// </summary>
     private void DecideWalkingOrRunningStates()
@@ -124,9 +133,15 @@ public class PlayerController : NetworkBehaviour
         psd.isWalking = !psd.isRunning;
 
         if (psd.isRunning)
+        {
             movingSpeed = runningSpeed;
+            rotatingSpeed = runningRotatingSpeed;
+        }
         else
+        {
             movingSpeed = walkingSpeed;
+            rotatingSpeed = walkingRotatingSpeed;
+        }
     }
     
     /// <summary>
@@ -157,7 +172,7 @@ public class PlayerController : NetworkBehaviour
     
     /// <summary>
     /// <para>Checks if conditions for jump are set</para>
-    /// <para>Should work in Update</para>
+    /// <para>Must work in Update, since checks time based on deltaTime</para>
     /// </summary>
     private void CheckJumpCondition()
     {

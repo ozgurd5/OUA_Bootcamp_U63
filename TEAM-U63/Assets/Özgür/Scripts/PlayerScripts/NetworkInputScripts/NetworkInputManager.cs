@@ -144,7 +144,7 @@ public class NetworkInputManager : NetworkBehaviour
     /// <summary>
     /// <para>Sends input from the client side to host side</para>
     /// <para>Must not be called from the host side. Since host is also a client, it can call this method, be careful</para>
-    /// <param name="inputFromClient">Input from client side that will be send to server side</param>
+    /// <param name="inputFromClient">Input from client side that will be send to host side</param>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
     private void SendInputFromClientServerRpc(InputData inputFromClient)
