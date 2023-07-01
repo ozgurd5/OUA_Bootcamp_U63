@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 191611346}
   - component: {fileID: 191611345}
   - component: {fileID: 191611349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColorChangingCube
   m_TagString: RedPuzzle
   m_Icon: {fileID: 0}
@@ -678,12 +678,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582596908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed79b5e37ed2ed246a6e1700f651332d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colorChangeRange: 15
+--- !u!114 &582596923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582596908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e819e63ee912f84194cdfb1af257aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePiece: {fileID: 191611344}
+  materialChangeRange: 10
+  puzzleMaterials:
+  - {fileID: 2100000, guid: 4abc4344946a7ab46b9b3c1d7c565194, type: 2}
+  - {fileID: 2100000, guid: 8ed25229faf3f484aac33876fcea5555, type: 2}
+  - {fileID: 2100000, guid: 4590163a66d3a0e44ba1a48734019996, type: 2}
 --- !u!1 &669477271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,6 +2249,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6866071853348572534, guid: bc50599fb328468438ea149a2f4d7961, type: 3}
       insertIndex: -1
       addedObject: {fileID: 582596915}
+    - targetCorrespondingSourceObject: {fileID: 6866071853348572534, guid: bc50599fb328468438ea149a2f4d7961, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 582596923}
   m_SourcePrefab: {fileID: 100100000, guid: bc50599fb328468438ea149a2f4d7961, type: 3}
 --- !u!1 &1888254617
 GameObject:
