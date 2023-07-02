@@ -8,13 +8,13 @@ public class PlayerStateData : MonoBehaviour
     public enum PlayerState
     {
         NormalState,
-        AbilityState
+        AbilityState,
+        EasterEggState
     }
 
     [Header("State")]
     public PlayerState currentState = PlayerState.NormalState;
 
-    
     [Header("Sub-states")]
     public bool isIdle;     //PlayerController.cs
     public bool isWalking;  //PlayerController.cs

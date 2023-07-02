@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
@@ -37,6 +38,9 @@ public class PlayerController : NetworkBehaviour
     private bool jumpCondition;
     private float jumpBufferLimit = 0.2f;
     private float jumpBufferTimer;
+
+    public event Action OnEasterEggEnter;
+    public event Action OnEasterEggExit;
 
     private void Start()
     {
@@ -199,6 +203,8 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
+        HandleEasterEgg();
+        
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
 
         DecideIdleOrMovingStates();
@@ -218,5 +224,20 @@ public class PlayerController : NetworkBehaviour
         
         HandleMovement();
         HandleJump();
+    }
+    
+    /// <summary>
+    /// <para>Invokes events that controls entering and exiting easter egg state</para>
+    /// <para>Don't and must not work in ability state</para>
+    /// <para>Must work in Update since it has input check</para>
+    /// </summary>
+    private void HandleEasterEgg()
+    {
+        if (psd.currentState == PlayerStateData.PlayerState.AbilityState) return;
+        
+        if (input.isEasterEggKeyDown)
+            OnEasterEggEnter?.Invoke();
+        else if (input.isEasterEggKeyUp)
+            OnEasterEggExit?.Invoke();
     }
 }
