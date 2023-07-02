@@ -24,6 +24,8 @@ public class NetworkInputManager : NetworkBehaviour
         public bool isGrabKeyDown;
         public bool isPrimaryAbilityKeyDown;
         public bool isSecondaryAbilityKeyDown;
+        public bool isEasterEggKeyDown;
+        public bool isEasterEggKeyUp;
 
         public bool robotIsAscendKeyDown;
         public bool robotIsDescendKeyDown;
@@ -37,6 +39,9 @@ public class NetworkInputManager : NetworkBehaviour
             serializer.SerializeValue(ref isGrabKeyDown);
             serializer.SerializeValue(ref isPrimaryAbilityKeyDown);
             serializer.SerializeValue(ref isSecondaryAbilityKeyDown);
+            serializer.SerializeValue(ref isEasterEggKeyDown);
+            serializer.SerializeValue(ref isEasterEggKeyUp);
+            
             serializer.SerializeValue(ref robotIsAscendKeyDown);
             serializer.SerializeValue(ref robotIsDescendKeyDown);
         }
@@ -98,6 +103,8 @@ public class NetworkInputManager : NetworkBehaviour
         hostInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
         hostInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
         hostInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
+        hostInput.isEasterEggKeyDown = nia.Player.EasterEgg.WasPressedThisFrame();
+        hostInput.isEasterEggKeyUp = nia.Player.EasterEgg.WasReleasedThisFrame();
 
         hostInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
         hostInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();
@@ -114,9 +121,11 @@ public class NetworkInputManager : NetworkBehaviour
         clientInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
         clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
         clientInput.isRunKey = nia.Player.Run.IsPressed();
-        clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
+        clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();  
         clientInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
         clientInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
+        clientInput.isEasterEggKeyDown = nia.Player.EasterEgg.WasPressedThisFrame();
+        clientInput.isEasterEggKeyUp = nia.Player.EasterEgg.WasReleasedThisFrame();
         
         clientInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
         clientInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();

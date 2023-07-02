@@ -80,6 +80,15 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EasterEgg"",
+                    ""type"": ""Button"",
+                    ""id"": ""ede93c93-064e-41fd-8ae1-9910e13332e5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -302,6 +311,28 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""SecondaryAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e76a8da-38c3-4915-9c72-60451c850505"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EasterEgg"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be3f60a2-8615-401e-8c34-2c0633ed43b1"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EasterEgg"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -505,6 +536,7 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
         m_Player_Grab = m_Player.FindAction("Grab", throwIfNotFound: true);
         m_Player_PrimaryAbility = m_Player.FindAction("PrimaryAbility", throwIfNotFound: true);
         m_Player_SecondaryAbility = m_Player.FindAction("SecondaryAbility", throwIfNotFound: true);
+        m_Player_EasterEgg = m_Player.FindAction("EasterEgg", throwIfNotFound: true);
         // Robot
         m_Robot = asset.FindActionMap("Robot", throwIfNotFound: true);
         m_Robot_Movement = m_Robot.FindAction("Movement", throwIfNotFound: true);
@@ -577,6 +609,7 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Grab;
     private readonly InputAction m_Player_PrimaryAbility;
     private readonly InputAction m_Player_SecondaryAbility;
+    private readonly InputAction m_Player_EasterEgg;
     public struct PlayerActions
     {
         private @NetworkInputActions m_Wrapper;
@@ -587,6 +620,7 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
         public InputAction @Grab => m_Wrapper.m_Player_Grab;
         public InputAction @PrimaryAbility => m_Wrapper.m_Player_PrimaryAbility;
         public InputAction @SecondaryAbility => m_Wrapper.m_Player_SecondaryAbility;
+        public InputAction @EasterEgg => m_Wrapper.m_Player_EasterEgg;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -614,6 +648,9 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
             @SecondaryAbility.started += instance.OnSecondaryAbility;
             @SecondaryAbility.performed += instance.OnSecondaryAbility;
             @SecondaryAbility.canceled += instance.OnSecondaryAbility;
+            @EasterEgg.started += instance.OnEasterEgg;
+            @EasterEgg.performed += instance.OnEasterEgg;
+            @EasterEgg.canceled += instance.OnEasterEgg;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -636,6 +673,9 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
             @SecondaryAbility.started -= instance.OnSecondaryAbility;
             @SecondaryAbility.performed -= instance.OnSecondaryAbility;
             @SecondaryAbility.canceled -= instance.OnSecondaryAbility;
+            @EasterEgg.started -= instance.OnEasterEgg;
+            @EasterEgg.performed -= instance.OnEasterEgg;
+            @EasterEgg.canceled -= instance.OnEasterEgg;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -723,6 +763,7 @@ public partial class @NetworkInputActions: IInputActionCollection2, IDisposable
         void OnGrab(InputAction.CallbackContext context);
         void OnPrimaryAbility(InputAction.CallbackContext context);
         void OnSecondaryAbility(InputAction.CallbackContext context);
+        void OnEasterEgg(InputAction.CallbackContext context);
     }
     public interface IRobotActions
     {
