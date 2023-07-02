@@ -8,7 +8,7 @@ public class DoublePressurePoint : MonoBehaviour
     public GameObject puzzlePiece;
     public GameObject player;
     public GameObject targetObject;
-    public string animationName;
+    
 
     private Animator animator;
     [SerializeField] private static bool isPuzzlePlaced = false;
@@ -36,8 +36,7 @@ public class DoublePressurePoint : MonoBehaviour
         }
         
         
-        Debug.Log(PlacedObjects);
-        Debug.Log(isPuzzlePlaced);
+        
     }
 
     private void OnTriggerEnter(Collider other)
