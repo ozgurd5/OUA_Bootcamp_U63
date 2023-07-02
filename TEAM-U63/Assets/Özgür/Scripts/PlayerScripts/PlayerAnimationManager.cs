@@ -13,6 +13,11 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private void Update()
     {
+        if (psd.currentState == PlayerStateData.PlayerState.EasterEggState)
+            an.Play("EasterEgg");
+        
+        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        
         //isJumping and 'isWalking/isRunning' can be true at the same time. Player can move and jump.
         //When that happens, jump animation must play, not the walking or running.
         if (psd.isJumping)
