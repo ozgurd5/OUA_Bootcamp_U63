@@ -2,20 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/EasterEggController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/EasterEggController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerAnimtorController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerAnimtorController.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerNotMovingJumping.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerNotMovingJumping.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerMovingJumping.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerMovingJumping.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerRunning.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerRunning.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerRunning.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerRunning.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerWalking.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerWalking.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerWalking.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Animations/PlayerWalking.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerRunning.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerRunning.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerRunning.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerRunning.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerWalking.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerWalking.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerWalking.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/FBX/PlayerWalking.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/FBX/SpinMeRightRaoun.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/FBX/SpinMeRightRaoun.fbx.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/PlayerControllerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/PlayerControllerScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NetworkInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NetworkInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NoTouch/NetworkInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NoTouch/NetworkInputActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NoTouch/NetworkInputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NoTouch/NetworkInputActions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NoFriction.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NoFriction.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NoFriction.physicMaterial.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NoFriction.physicMaterial.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerAnimationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerAnimationManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerGroundChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerGroundChecker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerStateData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerStateData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +169,8 @@
       <workItem from="1687875694938" duration="6413000" />
       <workItem from="1688156003760" duration="2663000" />
       <workItem from="1688173449031" duration="7281000" />
-      <workItem from="1688230226525" duration="16085000" />
+      <workItem from="1688230226525" duration="21048000" />
+      <workItem from="1688299446052" duration="1932000" />
     </task>
     <servers />
   </component>

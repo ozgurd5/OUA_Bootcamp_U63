@@ -9,7 +9,7 @@ public class PlayerGroundChecker : MonoBehaviour
         psd = GetComponentInParent<PlayerStateData>();
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
         psd.isGrounded = true;
         psd.isJumping = false;
@@ -18,5 +18,6 @@ public class PlayerGroundChecker : MonoBehaviour
     private void OnTriggerExit(Collider col)
     {
         psd.isGrounded = false;
+        psd.isJumping = true;
     }
 }

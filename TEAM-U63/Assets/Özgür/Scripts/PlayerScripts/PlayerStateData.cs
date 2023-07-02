@@ -19,7 +19,7 @@ public class PlayerStateData : MonoBehaviour
     public bool isIdle;     //PlayerController.cs
     public bool isWalking;  //PlayerController.cs
     public bool isRunning;  //PlayerController.cs
-    public bool isJumping;  //PlayerController.cs   //PlayerGroundCheck.cs
+    public bool isJumping;  //PlayerGroundCheck.cs
 
     [Header("Logic Only Sub-states")]
     public bool isMoving;   //PlayerController.cs

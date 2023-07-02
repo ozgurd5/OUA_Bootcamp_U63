@@ -19,7 +19,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float runningSpeed = 10f;
     [SerializeField] private float jumpSpeed = 5f;
     [SerializeField] private float walkingRotatingSpeed = 5f;
-    [SerializeField] private float runningRotatingSpeed = 10f;
+    [SerializeField] private float runningRotatingSpeed = 20f;
 
     private NetworkPlayerData npd;
     private NetworkInputManager nim;
@@ -193,7 +193,6 @@ public class PlayerController : NetworkBehaviour
         if (jumpCondition)
         {
             rb.velocity += new Vector3(0f, jumpSpeed, 0f);
-            psd.isJumping = true;
             
             //Must reset these variables to ensure that HandleJump is called once, not repeatedly
             jumpCondition = false;

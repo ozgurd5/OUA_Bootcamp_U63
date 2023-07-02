@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2163347537655871216}
   - component: {fileID: 7778040805805687023}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   runningSpeed: 10
   jumpSpeed: 5
   walkingRotatingSpeed: 5
-  runningRotatingSpeed: 10
+  runningRotatingSpeed: 15
 --- !u!95 &6749040510035442493
 Animator:
   serializedVersion: 5
@@ -801,7 +801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6406015045718342596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -3}
+  m_LocalPosition: {x: 0, y: 1.5000002, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1266,6 +1266,10 @@ PrefabInstance:
     - target: {fileID: 2953604236389334553, guid: 41b24840654b1ef4a80eda9f44da0fe6, type: 3}
       propertyPath: m_AABB.m_Extent.z
       value: 0.18120642
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870552773557632513, guid: 41b24840654b1ef4a80eda9f44da0fe6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159078012444724336, guid: 41b24840654b1ef4a80eda9f44da0fe6, type: 3}
       propertyPath: m_RootOrder
