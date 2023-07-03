@@ -25,10 +25,15 @@ public class MapEnabler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(map);
-        mapCollected = true;
-        isMapActive = true;
-        mapImage.SetActive(true);
-        Debug.Log("image enabled");
+        if (other.gameObject == map)
+        {
+            Destroy(map);
+            mapCollected = true;
+            isMapActive = true;
+            mapImage.SetActive(true);
+            Debug.Log("image enabled");
+        }
+
     }
+
 }
