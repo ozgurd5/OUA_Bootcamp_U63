@@ -19,6 +19,8 @@ public class ScaleController : MonoBehaviour
     //Remove after tests are done
     [SerializeField] private bool debugRunScale;
 
+    //Materials should be static but we can't assign static variables in inspector, assign the same for every scale
+    //Ceiling mesh renderer is object specific though
     [Header("Assign - Materials")]
     [SerializeField] private Material completedMaterial;
     [SerializeField] private Material notCompletedMaterial;
@@ -34,6 +36,7 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private int greenNumber;
     [SerializeField] private int blueNumber;
     
+    [Header("isCompleted")]
     [SerializeField] private bool isCompleted;
 
     private LineRenderer lr;
