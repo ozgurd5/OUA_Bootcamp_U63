@@ -122,9 +122,9 @@ public class ScaleController : MonoBehaviour
         isAllScalesCompleted = completedScaleNumber == 3;
         
         //Remove after tests are done
-        Debug.Log(gameObject.name + ": " + isCompleted);
-        Debug.Log("how many completed: " + completedScaleNumber);
-        Debug.Log("all completed: " + isAllScalesCompleted);
+        //Debug.Log(gameObject.name + ": " + isCompleted);
+        //Debug.Log("how many completed: " + completedScaleNumber);
+        //Debug.Log("all completed: " + isAllScalesCompleted);
     }
 
     /// <summary>
@@ -134,20 +134,25 @@ public class ScaleController : MonoBehaviour
     {
         if (isCompleted)
         {
-            ceilingMeshRenderer.materials[1] = completedMaterial;
+            ceilingMeshRenderer.material = completedMaterial;
             lr.material = completedMaterial;
         }
         else
         {
-            ceilingMeshRenderer.materials[1] = notCompletedMaterial;
+            ceilingMeshRenderer.material = notCompletedMaterial;
             lr.material = notCompletedMaterial;
         }
     }
     
     private void OnTriggerEnter(Collider col)
     {
+        if ((bool)col.gameObject?.GetComponent<IsGrabbed>().isGrabbed) return;
+
+        col.gameObject.GetComponent<IsGrabbed>().isEntered = true;
+
+        Debug.Log("enter");
         //Set the cube child of the scale for smooth movement
-        col.transform.SetParent(transform);
+        //col.transform.SetParent(transform);
         
         if (col.CompareTag("RedPuzzle"))
             redNumber++;
@@ -161,8 +166,13 @@ public class ScaleController : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
+        if (!(bool)col.gameObject?.GetComponent<IsGrabbed>().isEntered) return;
+
+        col.gameObject.GetComponent<IsGrabbed>().isEntered = false;
+        
+        Debug.Log("exit");
         //Release the cube if it's taken back
-        col.transform.SetParent(null);
+        //col.transform.SetParent(null);
         
         if (col.CompareTag("RedPuzzle"))
             redNumber--;
