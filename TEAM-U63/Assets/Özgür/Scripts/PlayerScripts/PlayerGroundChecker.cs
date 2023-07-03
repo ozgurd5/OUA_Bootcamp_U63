@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// <para>Checks ground with a buffer time, manages isGrounded and isJumping states</para>
+/// <para>Buffer time is important because when player run over multiple-collider surfaces,
+/// it sets it's isGrounded false sometimes and that causes random jumps</para>
+/// </summary>
 public class PlayerGroundChecker : MonoBehaviour
 {
     private PlayerStateData psd;
@@ -27,10 +32,7 @@ public class PlayerGroundChecker : MonoBehaviour
             groundCheckBufferTimer -= Time.deltaTime;
 
             if (groundCheckBufferTimer <= 0f)
-            {
                 psd.isGrounded = false;
-                Debug.Log("hop");
-            }
         }
 
         psd.isJumping = !psd.isGrounded;

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// <para>Switches if the player can jump or not</para>
+/// </summary>
 public class PlayerJumpAbilitySwitch : MonoBehaviour
 {
     private PlayerStateData psd;
@@ -9,11 +12,17 @@ public class PlayerJumpAbilitySwitch : MonoBehaviour
         psd = GetComponent<PlayerStateData>();
     }
 
+    /// <summary>
+    /// <para>Makes the player can jump</para>
+    /// </summary>
     private void MakePlayerCanJump()
     {
         psd.canJump = true;
     }
 
+    /// <summary>
+    /// <para>Makes the player can not jump</para>
+    /// </summary>
     private void MakePlayerCanNotJump()
     {
         psd.canJump = false;

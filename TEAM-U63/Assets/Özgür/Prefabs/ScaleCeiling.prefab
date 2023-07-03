@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2407499994323140695}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -11, z: 0}
+  m_LocalPosition: {x: 0, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 0.050000004, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -69,11 +69,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  completionLenght: 12
+  completionLenght: 14
   debugRunScale: 0
-  redMultiplier: 0.2
-  greenMultiplier: 0.1
-  blueMultiplier: 0.3
+  completedMaterial: {fileID: 2100000, guid: dff89c479c1035e46ac9c726d68d9b97, type: 2}
+  notCompletedMaterial: {fileID: 2100000, guid: cf297c9cd9a3eef4fb6b2a8936083df5, type: 2}
+  redMultiplier: 0.4
+  greenMultiplier: 0.3
+  blueMultiplier: 0.5
   redNumber: 0
   greenNumber: 0
   blueNumber: 0
@@ -247,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -317,7 +319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3562093176271683630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -9, z: -0.35}
+  m_LocalPosition: {x: 0, y: -7, z: -0.35}
   m_LocalScale: {x: 1, y: 0.050000004, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -359,11 +361,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  completionLenght: 12
+  completionLenght: 14
   debugRunScale: 0
-  redMultiplier: 0.2
-  greenMultiplier: 0.1
-  blueMultiplier: 0.3
+  completedMaterial: {fileID: 2100000, guid: dff89c479c1035e46ac9c726d68d9b97, type: 2}
+  notCompletedMaterial: {fileID: 2100000, guid: cf297c9cd9a3eef4fb6b2a8936083df5, type: 2}
+  redMultiplier: 0.4
+  greenMultiplier: 0.3
+  blueMultiplier: 0.5
   redNumber: 0
   greenNumber: 0
   blueNumber: 0
@@ -499,7 +503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5850771309274032324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -7, z: 0.35}
+  m_LocalPosition: {x: 0, y: -5, z: 0.35}
   m_LocalScale: {x: 1, y: 0.050000004, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -541,11 +545,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  completionLenght: 12
+  completionLenght: 14
   debugRunScale: 0
-  redMultiplier: 0.2
-  greenMultiplier: 0.1
-  blueMultiplier: 0.3
+  completedMaterial: {fileID: 2100000, guid: dff89c479c1035e46ac9c726d68d9b97, type: 2}
+  notCompletedMaterial: {fileID: 2100000, guid: cf297c9cd9a3eef4fb6b2a8936083df5, type: 2}
+  redMultiplier: 0.4
+  greenMultiplier: 0.3
+  blueMultiplier: 0.5
   redNumber: 0
   greenNumber: 0
   blueNumber: 0

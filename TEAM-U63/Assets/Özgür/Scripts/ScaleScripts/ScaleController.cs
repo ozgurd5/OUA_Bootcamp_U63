@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
@@ -11,17 +12,22 @@ public class ScaleController : MonoBehaviour
 {
     private static int completedScaleNumber;
     public static bool isAllScalesCompleted;
-    
+
     [Header("Assign")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float completionLenght = 12f;
+    [SerializeField] private float completionLenght = 14f;
     //Remove after tests are done
     [SerializeField] private bool debugRunScale;
+
+    [Header("Assign - Materials")]
+    [SerializeField] private Material completedMaterial;
+    [SerializeField] private Material notCompletedMaterial;
+    [SerializeField] private MeshRenderer ceilingMeshRenderer;
     
     [Header("Assign - Color multipliers")]
-    [SerializeField] private float redMultiplier = 0.2f;
-    [SerializeField] private float greenMultiplier = 0.1f;
-    [SerializeField] private float blueMultiplier = 0.3f;
+    [SerializeField] private float redMultiplier = 0.4f;
+    [SerializeField] private float greenMultiplier = 0.3f;
+    [SerializeField] private float blueMultiplier = 0.5f;
     
     [Header("Number of cubes")]
     [SerializeField] private int redNumber;
@@ -29,7 +35,7 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private int blueNumber;
     
     [SerializeField] private bool isCompleted;
-    
+
     private LineRenderer lr;
     private Vector3 fixedPosition;
     private Vector3 weightlessPosition;
@@ -48,6 +54,9 @@ public class ScaleController : MonoBehaviour
         lr.enabled = true;
         lr.SetPosition(0, fixedPosition);
         lr.SetPosition(1, weightlessPosition);
+
+        //Assign materials in the beginning
+        UpdateCompletionMaterial();
     }
 
     private void Update()
@@ -80,6 +89,7 @@ public class ScaleController : MonoBehaviour
         //DOMoveY is a coroutine, we need do check after it is done because we are comparing transform.position.y
         //Since DOMoveY is a coroutine, transform.position.y will change during "duration"
         Invoke(nameof(CheckCompletion), duration + 0.1f);
+        Invoke(nameof(UpdateCompletionMaterial), duration + 0.1f);
     }
     
     /// <summary>
@@ -89,13 +99,13 @@ public class ScaleController : MonoBehaviour
     {
         float currentLenght = transform.localPosition.y;
         
-        if (currentLenght == -1 * completionLenght)
+        if (math.abs(currentLenght * -1 - completionLenght) < 0.01f)    //Float comparison is not precise
         {
             isCompleted = true;
             completedScaleNumber++;
         }
         
-        else if (currentLenght != completionLenght && isCompleted)
+        else if (Math.Abs(currentLenght - completionLenght) > 0.01f && isCompleted) //Float comparison is not precise
         {
             isCompleted = false;
             completedScaleNumber--;
@@ -114,6 +124,23 @@ public class ScaleController : MonoBehaviour
         Debug.Log("all completed: " + isAllScalesCompleted);
     }
 
+    /// <summary>
+    /// <para>Updates the material of the ceiling according to completion</para>
+    /// </summary>
+    private void UpdateCompletionMaterial()
+    {
+        if (isCompleted)
+        {
+            ceilingMeshRenderer.materials[1] = completedMaterial;
+            lr.material = completedMaterial;
+        }
+        else
+        {
+            ceilingMeshRenderer.materials[1] = notCompletedMaterial;
+            lr.material = notCompletedMaterial;
+        }
+    }
+    
     private void OnTriggerEnter(Collider col)
     {
         //Set the cube child of the scale for smooth movement
