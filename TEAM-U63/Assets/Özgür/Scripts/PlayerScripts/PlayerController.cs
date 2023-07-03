@@ -180,7 +180,7 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void CheckJumpCondition()
     {
-        if (jumpBufferTimer > 0f && psd.isGrounded)
+        if (jumpBufferTimer > 0f && psd.isGrounded && psd.canJump)
             jumpCondition = true;
     }
     
