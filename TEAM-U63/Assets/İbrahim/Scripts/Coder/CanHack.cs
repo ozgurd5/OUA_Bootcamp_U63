@@ -57,11 +57,7 @@ public class CanHack : MonoBehaviour
 
             }
 
-            if (!canHack)
-            {
-                DisableImages();
-                return;
-            }
+            
 
             bool corectKeyPressed = false;
             
@@ -91,7 +87,7 @@ public class CanHack : MonoBehaviour
                     Debug.Log("success trigger");
                 }
 
-                if (currentTimer == 0 || !corectKeyPressed)
+                if (currentTimer <= 0 || !corectKeyPressed)
                 {
                     
                         // Wrong key pressed, trigger failure
@@ -153,14 +149,15 @@ public class CanHack : MonoBehaviour
         isHacked = true;
         hackCanvas.SetActive(false);
         currentIndex = 0;
+        GenerateRandomSequence();
     }
 
     private void TriggerFailure()
     {
         
         hackCanvas.SetActive(false);
-        DisableImages();
-
+        currentIndex = 0;
+        GenerateRandomSequence();
         StartCoroutine(DelayBeforeReset());
     }
 
@@ -176,7 +173,8 @@ public class CanHack : MonoBehaviour
     {
         canHack = false;
         yield return new WaitForSeconds(delayBetweenAttempts);
-        GenerateRandomSequence();
+        
+        
     }
 }
     
