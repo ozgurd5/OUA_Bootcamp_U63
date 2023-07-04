@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class CanHack : MonoBehaviour
 {
+    public GameObject hackCanvas;
     public GameObject artistLullabyCanvas;
     public BoxCollider robotCollider;
-    
+
     [SerializeField] List<Image> images;
     [SerializeField] List<Sprite> arrowKeySprites;
-    
+
     private bool canHack;
+    private bool isHacked;
 
     public float timeToHack = 10f;
     private float currentTimer;
@@ -29,17 +31,21 @@ public class CanHack : MonoBehaviour
         //robotCollider = GetComponent<BoxCollider>();
         rng = new System.Random();
         GenerateRandomSequence();
-        
+
     }
 
     private void Update()
     {
+
+
         if (artistLullabyCanvas.activeSelf)
         {
             ;
             if (Input.GetKeyDown("c"))
             {
-                
+
+                currentTimer = timeToHack;
+                hackCanvas.SetActive(true);
                 canHack = true;
 
                 if (currentTimer > 0f)
@@ -47,15 +53,18 @@ public class CanHack : MonoBehaviour
                     currentTimer -= Time.deltaTime;
                     return;
                 }
-                
-                
+
+
             }
+
             if (!canHack)
             {
                 DisableImages();
                 return;
             }
 
+            bool corectKeyPressed = false;
+            
             if (Input.anyKeyDown)
             {
                 foreach (KeyCode key in arrowKeys)
@@ -66,22 +75,36 @@ public class CanHack : MonoBehaviour
                         {
                             // Correct key pressed, move to the next arrow key
                             currentIndex++;
-                            currentTimer = timeToHack;
+                            corectKeyPressed = true;
+                            
+
                             break;
                         }
-                        else
-                        {
-                            // Wrong key pressed, trigger failure
-                            TriggerFailure();
-                            StartCoroutine(DelayBeforeReset());
-                            return;
-                        }
+
+
+                        
                     }
+                }
+                if (currentIndex == sequence.Count)
+                {
+                    TriggerSuccess();
+                    Debug.Log("success trigger");
+                }
+
+                if (currentTimer == 0 || !corectKeyPressed)
+                {
+                    
+                        // Wrong key pressed, trigger failure
+                        TriggerFailure();
+                        Debug.Log("fail trigger");
+
+                        
+                    
                 }
             }
         }
     }
-    
+
     private void GenerateRandomSequence()
     {
         sequence = new List<KeyCode>(arrowKeys);
@@ -89,7 +112,7 @@ public class CanHack : MonoBehaviour
         //currentIndex = 0;
         canHack = true;
         currentTimer = timeToHack;
-    
+
         // Assign arrow key sprites to images
         for (int i = 0; i < images.Count; i++)
         {
@@ -100,7 +123,7 @@ public class CanHack : MonoBehaviour
                 {
                     images[i].sprite = arrowKeySprites[arrowIndex];
                     images[i].gameObject.SetActive(true);
-                    
+
                     Debug.Log("Press " + arrowKeys[arrowIndex] + " key.");
                 }
             }
@@ -110,7 +133,7 @@ public class CanHack : MonoBehaviour
             }
         }
     }
-    
+
     private void ShuffleSequence()
     {
         int n = sequence.Count;
@@ -124,11 +147,23 @@ public class CanHack : MonoBehaviour
         }
     }
 
+
+    private void TriggerSuccess()
+    {
+        isHacked = true;
+        hackCanvas.SetActive(false);
+        currentIndex = 0;
+    }
+
     private void TriggerFailure()
     {
         
+        hackCanvas.SetActive(false);
+        DisableImages();
+
+        StartCoroutine(DelayBeforeReset());
     }
-    
+
     private void DisableImages()
     {
         foreach (Image image in images)
@@ -136,12 +171,13 @@ public class CanHack : MonoBehaviour
             image.gameObject.SetActive(false);
         }
     }
-    
+
     private IEnumerator DelayBeforeReset()
     {
         canHack = false;
         yield return new WaitForSeconds(delayBetweenAttempts);
         GenerateRandomSequence();
     }
-    
 }
+    
+
