@@ -16,7 +16,7 @@ public class PortalCheck : MonoBehaviour
             Debug.Log("both players are in");
 
         }
-        Debug.Log(numberOfPlayers);
+        //Debug.Log(numberOfPlayers);
     }
 
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
@@ -13,9 +14,11 @@ public class ScaleController : MonoBehaviour
     private static int completedScaleNumber;
     public static bool isAllScalesCompleted;
 
+    //moveSpeed and completionLenght should be static
     [Header("Assign")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float completionLenght = 14f;
+    [SerializeField] private float completionLenght = 4.5f;
+    [SerializeField] private Transform ceilingTransform;
     //Remove after tests are done
     [SerializeField] private bool debugRunScale;
 
@@ -26,10 +29,11 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private Material notCompletedMaterial;
     [SerializeField] private MeshRenderer ceilingMeshRenderer;
     
+    //These should be static
     [Header("Assign - Color multipliers")]
-    [SerializeField] private float redMultiplier = 0.4f;
-    [SerializeField] private float greenMultiplier = 0.3f;
-    [SerializeField] private float blueMultiplier = 0.5f;
+    [SerializeField] private float redMultiplier = 0.5f;
+    [SerializeField] private float greenMultiplier = 0.4f;
+    [SerializeField] private float blueMultiplier = 0.8f;
     
     [Header("Number of cubes")]
     [SerializeField] private int redNumber;
@@ -51,7 +55,7 @@ public class ScaleController : MonoBehaviour
         weightlessPosition = transform.position;
         
         //Fixed and never changing position of the line's beginning in the ceiling
-        fixedPosition = new Vector3(weightlessPosition.x, transform.parent.position.y, weightlessPosition.z);
+        fixedPosition = new Vector3(weightlessPosition.x, ceilingTransform.position.y, weightlessPosition.z);
         
         //Line renderer's default positions are 0 in the beginning
         lr.enabled = true;
@@ -72,7 +76,7 @@ public class ScaleController : MonoBehaviour
         }
         
         //Not the best way :p
-        lr.SetPosition(1, transform.position);
+        lr.SetPosition(1, transform.position - new Vector3(0f, 0.5f, 0f));
     }
 
     /// <summary>
@@ -102,7 +106,7 @@ public class ScaleController : MonoBehaviour
     {
         float currentLenght = transform.localPosition.y;
         
-        if (math.abs(currentLenght * -1 - completionLenght) < 0.01f)    //Float comparison is not precise
+        if (math.abs(currentLenght - completionLenght) < 0.01f)    //Float comparison is not precise
         {
             isCompleted = true;
             completedScaleNumber++;
@@ -132,23 +136,30 @@ public class ScaleController : MonoBehaviour
     /// </summary>
     private void UpdateCompletionMaterial()
     {
+        Material[] newCeilingMeshRenderermaterials = ceilingMeshRenderer.materials;
+
         if (isCompleted)
         {
-            ceilingMeshRenderer.material = completedMaterial;
+            newCeilingMeshRenderermaterials[1] = completedMaterial;
             lr.material = completedMaterial;
         }
         else
         {
-            ceilingMeshRenderer.material = notCompletedMaterial;
+            newCeilingMeshRenderermaterials[1] = notCompletedMaterial;
             lr.material = notCompletedMaterial;
         }
+
+        ceilingMeshRenderer.materials = newCeilingMeshRenderermaterials;
     }
     
     private void OnTriggerEnter(Collider col)
     {
-        if ((bool)col.gameObject?.GetComponent<IsGrabbed>().isGrabbed) return;
+        IsGrabbed isGrabbed = col.gameObject.GetComponent<IsGrabbed>();
+        
+        if (isGrabbed == null) return;
+        if (isGrabbed.isGrabbed) return;
 
-        col.gameObject.GetComponent<IsGrabbed>().isEntered = true;
+        isGrabbed.isEntered = true;
 
         Debug.Log("enter");
         //Set the cube child of the scale for smooth movement
@@ -166,9 +177,11 @@ public class ScaleController : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (!(bool)col.gameObject?.GetComponent<IsGrabbed>().isEntered) return;
+        IsGrabbed isGrabbed = col.gameObject.GetComponent<IsGrabbed>();
+        if (isGrabbed == null) return;
+        if (!isGrabbed.isEntered) return;
 
-        col.gameObject.GetComponent<IsGrabbed>().isEntered = false;
+        isGrabbed.isEntered = false;
         
         Debug.Log("exit");
         //Release the cube if it's taken back
