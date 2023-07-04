@@ -8,7 +8,8 @@ public class CanHack : MonoBehaviour
 {
     public GameObject hackCanvas;
     public GameObject artistLullabyCanvas;
-    public BoxCollider robotCollider;
+    public FlyingRobotController _flyingRobotController;
+    
 
     [SerializeField] List<Image> images;
     [SerializeField] List<Sprite> arrowKeySprites;
@@ -19,6 +20,7 @@ public class CanHack : MonoBehaviour
     public float timeToHack = 10f;
     public float currentTimer;
     public float delayBetweenAttempts = 3f;
+    public int robotControlDuration = 15;
     private int currentIndex;
 
     public KeyCode[] arrowKeys = { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
@@ -28,7 +30,7 @@ public class CanHack : MonoBehaviour
 
     private void Start()
     {
-        //robotCollider = GetComponent<BoxCollider>();
+        
         rng = new System.Random();
         GenerateRandomSequence();
 
@@ -41,11 +43,10 @@ public class CanHack : MonoBehaviour
         if (artistLullabyCanvas.activeSelf)
         {
             ;
-            if (Input.GetKeyDown("c"))
+            if (Input.GetKeyDown("c")) //&& canHack)
             {
                 
                 hackCanvas.SetActive(true);
-                canHack = true;
                 currentTimer = timeToHack;
 
 
@@ -108,12 +109,20 @@ public class CanHack : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("robot"))
+        {
+            canHack = true;
+        }
+    }
+
     private void GenerateRandomSequence()
     {
         sequence = new List<KeyCode>(arrowKeys);
         ShuffleSequence();
         //currentIndex = 0;
-        canHack = true;
+        //canHack = true;
         currentTimer = timeToHack;
 
         // Assign arrow key sprites to images
@@ -157,6 +166,8 @@ public class CanHack : MonoBehaviour
         hackCanvas.SetActive(false);
         currentIndex = 0;
         GenerateRandomSequence();
+
+        _flyingRobotController.enabled = isHacked;
     }
 
     private void TriggerFailure()
@@ -184,6 +195,15 @@ public class CanHack : MonoBehaviour
         
         
     }
+
+    //private IEnumerator ControlRobot()
+    //{
+    //    _flyingRobotController.enabled = isHacked;
+    //    yield return new WaitForSeconds(robotControlDuration);
+    //    
+    //    _flyingRobotController.enabled = false;
+    //    
+    //}
 }
     
 
