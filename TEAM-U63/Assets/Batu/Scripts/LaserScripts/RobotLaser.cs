@@ -12,7 +12,7 @@ public class RobotLaser : MonoBehaviour
 
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
         lineRenderer.positionCount = 2;
         CloseLaser();
     }

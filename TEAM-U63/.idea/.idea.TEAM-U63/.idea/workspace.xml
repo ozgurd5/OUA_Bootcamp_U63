@@ -2,25 +2,424 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/DoorController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/DoorController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerJumpAbilitySwitch.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerJumpAbilitySwitch.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/Blink.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/Blink.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/BlinkController.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/BlinkController.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/HynotizedRight.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/HynotizedRight.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/HypnotizedLeft.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/HypnotizedLeft.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/hypnotizedLeft.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/hypnotizedLeft.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/hypnotizedRight.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Animations/RobotEYESAnim/hypnotizedRight.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/LASER MAT.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/LASER MAT/Laser.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/LASER MAT/Laser.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/BODY.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/BODY.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/LED EKRAN4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/LED EKRAN4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/LED4.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/LED4.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/SCREEN.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Materials/ROBOT MAT/SCREEN.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Avatar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Avatar/VrmAvatar.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Avatar/VrmAvatar.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.AvatarDescription.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.AvatarDescription/AvatarDescription.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.AvatarDescription/AvatarDescription.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.A.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.A.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Angry.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Angry.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Blink.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Blink.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Blink_L.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Blink_L.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Blink_R.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Blink_R.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.E.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.E.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Fun.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Fun.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.I.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.I.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Joy.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Joy.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Neutral.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Neutral.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.O.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.O.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Sorrow.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Sorrow.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Surprised.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.Surprised.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.U.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.U.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/BlendShape.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookDown.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookDown.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookLeft.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookLeft.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookRight.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookRight.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookUp.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.BlendShapes/LookUp.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_Body_00_SKIN (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_Body_00_SKIN (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_EyeHighlight_00_EYE (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_EyeHighlight_00_EYE (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_EyeIris_00_EYE (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_EyeIris_00_EYE (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_EyeWhite_00_EYE (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_EyeWhite_00_EYE (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceBrow_00_FACE (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceBrow_00_FACE (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceEyelash_00_FACE (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceEyelash_00_FACE (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceEyeline_00_FACE (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceEyeline_00_FACE (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceMouth_00_FACE (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_FaceMouth_00_FACE (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_Face_00_SKIN (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_Face_00_SKIN (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_HairBack_00_HAIR (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_00_HairBack_00_HAIR (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_Hair_00_HAIR (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_000_Hair_00_HAIR (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_001_01_Bottoms_01_CLOTH_01 (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_001_01_Bottoms_01_CLOTH_01 (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_001_01_Bottoms_01_CLOTH_02 (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_001_01_Bottoms_01_CLOTH_02 (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_001_02_Bottoms_01_CLOTH (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_001_02_Bottoms_01_CLOTH (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_002_03_Tops_01_CLOTH_01 (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_002_03_Tops_01_CLOTH_01 (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_002_03_Tops_01_CLOTH_02 (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_002_03_Tops_01_CLOTH_02 (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_002_03_Tops_01_CLOTH_03 (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_002_03_Tops_01_CLOTH_03 (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_007_01_Tops_01_CLOTH_01 (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_007_01_Tops_01_CLOTH_01 (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_007_01_Tops_01_CLOTH_02 (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_007_01_Tops_01_CLOTH_02 (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_008_01_Shoes_01_CLOTH (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_008_01_Shoes_01_CLOTH (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_010_01_Onepiece_00_CLOTH (Instance).asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Materials/N00_010_01_Onepiece_00_CLOTH (Instance).asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Meshes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Meshes/Body (merged).baked.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Meshes/Body (merged).baked.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Meshes/Face (merged).baked.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Meshes/Face (merged).baked.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Meshes/Hair001 (merged).baked.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Meshes/Hair001 (merged).baked.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.MetaObject.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.MetaObject/Meta.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.MetaObject/Meta.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/MatcapWarp_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/MatcapWarp_01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/MatcapWarp_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/MatcapWarp_02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/N00_000_00_Face_00_out.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/N00_000_00_Face_00_out.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/N00_000_00_HairBack_00_nml.normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/N00_000_00_HairBack_00_nml.normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/N00_000_Hair_00_nml.normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/N00_000_Hair_00_nml.normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/Shader_NoneBlack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/Shader_NoneBlack.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/Shader_NoneNormal.normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/Shader_NoneNormal.normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/Thumbnail.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/Thumbnail.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_03.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_04.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_05.normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_05.normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_06.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_07.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_08.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_09.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_11.normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_11.normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_12.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_13.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_14.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_15.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_16.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_17.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_18.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_19.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_20.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_21.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_22.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_23.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.Textures/_24.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/artist.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/fbx file.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/fbx file/artist.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/Models/ARTİST/fbx file/artist.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/ROBOT/FBX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/ROBOT/FBX/BlinkROBOT.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/ROBOT/FBX/BlinkROBOT.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/ROBOT/FBX/hynotized.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/ROBOT/FBX/hynotized.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/ROBOT/FBX/hynotizedGOZ.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Batu/ROBOT/FBX/hynotizedGOZ.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/PlayerControllerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/PlayerControllerScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/ScaleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/ScaleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerAnimationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerAnimationManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerGroundChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerGroundChecker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerStateData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerStateData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Animations/Robot.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Animations/Robot.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Animations/robotidle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Animations/robotidle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Animations/robotrun.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Animations/robotrun.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Materials/Laser.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Materials/Laser.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Materials/robot.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Batu/Materials/robot.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Avatar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Avatar/VrmAvatar.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Avatar/VrmAvatar.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.AvatarDescription.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.AvatarDescription/AvatarDescription.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.AvatarDescription/AvatarDescription.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.A.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.A.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Angry.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Angry.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Blink.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Blink.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Blink_L.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Blink_L.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Blink_R.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Blink_R.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.E.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.E.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Fun.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Fun.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.I.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.I.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Joy.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Joy.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Neutral.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Neutral.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.O.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.O.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Sorrow.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Sorrow.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Surprised.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.Surprised.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.U.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.U.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/BlendShape.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookDown.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookDown.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookLeft.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookLeft.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookRight.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookRight.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookUp.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.BlendShapes/LookUp.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_Body_00_SKIN (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_Body_00_SKIN (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_EyeHighlight_00_EYE (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_EyeHighlight_00_EYE (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_EyeIris_00_EYE (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_EyeIris_00_EYE (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_EyeWhite_00_EYE (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_EyeWhite_00_EYE (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceBrow_00_FACE (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceBrow_00_FACE (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceEyelash_00_FACE (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceEyelash_00_FACE (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceEyeline_00_FACE (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceEyeline_00_FACE (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceMouth_00_FACE (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_FaceMouth_00_FACE (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_Face_00_SKIN (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_Face_00_SKIN (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_HairBack_00_HAIR (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_00_HairBack_00_HAIR (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_Hair_00_HAIR (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_000_Hair_00_HAIR (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_001_01_Bottoms_01_CLOTH_01 (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_001_01_Bottoms_01_CLOTH_01 (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_001_01_Bottoms_01_CLOTH_02 (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_001_01_Bottoms_01_CLOTH_02 (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_001_02_Bottoms_01_CLOTH (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_001_02_Bottoms_01_CLOTH (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_002_03_Tops_01_CLOTH_01 (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_002_03_Tops_01_CLOTH_01 (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_002_03_Tops_01_CLOTH_02 (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_002_03_Tops_01_CLOTH_02 (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_002_03_Tops_01_CLOTH_03 (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_002_03_Tops_01_CLOTH_03 (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_007_01_Tops_01_CLOTH_01 (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_007_01_Tops_01_CLOTH_01 (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_007_01_Tops_01_CLOTH_02 (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_007_01_Tops_01_CLOTH_02 (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_008_01_Shoes_01_CLOTH (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_008_01_Shoes_01_CLOTH (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_010_01_Onepiece_00_CLOTH (Instance).asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Materials/N00_010_01_Onepiece_00_CLOTH (Instance).asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Meshes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Meshes/Body (merged).baked.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Meshes/Body (merged).baked.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Meshes/Face (merged).baked.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Meshes/Face (merged).baked.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Meshes/Hair001 (merged).baked.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Meshes/Hair001 (merged).baked.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.MetaObject.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.MetaObject/Meta.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.MetaObject/Meta.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/MatcapWarp_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/MatcapWarp_01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/MatcapWarp_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/MatcapWarp_02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/N00_000_00_Face_00_out.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/N00_000_00_Face_00_out.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/N00_000_00_HairBack_00_nml.normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/N00_000_00_HairBack_00_nml.normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/N00_000_Hair_00_nml.normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/N00_000_Hair_00_nml.normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/Shader_NoneBlack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/Shader_NoneBlack.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/Shader_NoneNormal.normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/Shader_NoneNormal.normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/Thumbnail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/Thumbnail.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_01.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_02.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_03.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_04.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_05.normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_05.normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_06.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_07.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_08.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_09.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_10.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_11.normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_11.normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_12.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_13.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_14.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_15.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_16.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_17.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_18.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_19.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_20.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_21.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_22.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_23.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.Textures/_24.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/artist.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/fbx file.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/fbx file/artist.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Models/fbx file/artist.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Prefabs/LaserSource.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Batu/Prefabs/LaserSource.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Prefabs/Robot.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Prefabs/Robot.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Scenes/RobotControl.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Batu/Scenes/RobotControl.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Batu/Scripts/LaserScripts/RobotLaser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Batu/Scripts/LaserScripts/RobotLaser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Assets/Butterfly (Animated)/FBX/Materials/stones.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Assets/Butterfly (Animated)/FBX/Materials/stones.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Assets/FantasyEnvironments/Environments/Materials/Plant.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Assets/FantasyEnvironments/Environments/Materials/Plant.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Assets/Santuary/EnvironmentModels/SanctuaryModels/Materials/Plants.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Assets/Santuary/EnvironmentModels/SanctuaryModels/Materials/Plants.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Assets/SineVFX/TranslucentCrystals/_SRP/TranslucentCrystals_HDRP_Patch.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imported Assets/SineVFX/TranslucentCrystals/_SRP/TranslucentCrystals_URP_Patch.unitypackage.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp-Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp-Editor.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp-firstpass.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp-firstpass.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FastSpringBone10.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FastSpringBone10.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/MToon.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MToon.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/MToon.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/MToon.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/UniGLTF.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/UniGLTF.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/UniGLTF.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/UniGLTF.Tests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/UniGLTF.Utils.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/UniGLTF.Utils.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/UniGLTF.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/UniGLTF.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/UniHumanoid.Editor.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/UniHumanoid.Editor.Tests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/UniHumanoid.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/UniHumanoid.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/UniHumanoid.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/UniHumanoid.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRM10.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRM10.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRM10.Tests.PlayMode.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRM10.Tests.PlayMode.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRM10.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRM10.Tests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRM10.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRM10.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.IO.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.IO.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.IO.Runtime.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.IO.Runtime.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.IO.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.IO.Tests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.UniUnlit.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.UniUnlit.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.UniUnlit.Runtime.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.GLTF.UniUnlit.Runtime.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM.IO.Runtime.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM.IO.Runtime.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.Format.Runtime.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.Format.Runtime.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.MToon10.Editor.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.MToon10.Editor.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.MToon10.Runtime.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.MToon10.Runtime.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.MToon10.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VRMShaders.VRM10.MToon10.Tests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VrmLib.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VrmLib.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/VrmLibTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/VrmLibTests.csproj.AssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +427,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c5/295fc748/Void.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/45/a9410b60/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Batu/InputSystem/input generated/PlayerControls.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/DoorController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -57,6 +454,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Serialization/IReaderWriter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.7/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.relay@1.0.5/Runtime/SDK/IRelayService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph@14.0.7/Editor/GraphView/VFXViewWindow.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -81,9 +479,9 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\ACER\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\ACER\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\ACER\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\metba\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\metba\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\metba\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
@@ -174,6 +572,8 @@
       <workItem from="1688230226525" duration="21048000" />
       <workItem from="1688299446052" duration="3499000" />
       <workItem from="1688323578720" duration="21886000" />
+      <workItem from="1688409590022" duration="1773000" />
+      <workItem from="1688432223690" duration="2408000" />
     </task>
     <servers />
   </component>
