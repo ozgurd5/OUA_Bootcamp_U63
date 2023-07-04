@@ -17,7 +17,7 @@ public class CanHack : MonoBehaviour
     private bool isHacked;
 
     public float timeToHack = 10f;
-    private float currentTimer;
+    public float currentTimer;
     public float delayBetweenAttempts = 3f;
     private int currentIndex;
 
@@ -43,52 +43,53 @@ public class CanHack : MonoBehaviour
             ;
             if (Input.GetKeyDown("c"))
             {
-
-                currentTimer = timeToHack;
+                
                 hackCanvas.SetActive(true);
                 canHack = true;
-
-                if (currentTimer > 0f)
-                {
-                    currentTimer -= Time.deltaTime;
-                    return;
-                }
+                currentTimer = timeToHack;
 
 
             }
-
             
-
-            bool corectKeyPressed = false;
-            
-            if (Input.anyKeyDown)
+            if (currentTimer > 0f)
             {
-                foreach (KeyCode key in arrowKeys)
+                currentTimer -= Time.deltaTime;
+                
+                bool corectKeyPressed = false;
+
+                if (currentTimer <= 0)
                 {
-                    if (Input.GetKeyDown(key))
+                    TriggerFailure();
+                }
+                
+                if (Input.anyKeyDown && Input.GetKeyDown("c") == false)
+                {
+                    foreach (KeyCode key in arrowKeys)
                     {
-                        if (key == sequence[currentIndex])
+                        if (Input.GetKeyDown(key))
                         {
-                            // Correct key pressed, move to the next arrow key
-                            currentIndex++;
-                            corectKeyPressed = true;
+                            if (key == sequence[currentIndex])
+                            {
+                                // Correct key pressed, move to the next arrow key
+                                currentIndex++;
+                                corectKeyPressed = true;
                             
 
-                            break;
-                        }
+                                break;
+                            }
 
 
                         
+                        }
                     }
-                }
-                if (currentIndex == sequence.Count)
-                {
-                    TriggerSuccess();
-                    Debug.Log("success trigger");
-                }
+                    if (currentIndex == sequence.Count)
+                    {
+                        TriggerSuccess();
+                        Debug.Log("success trigger");
+                    }
 
-                if (currentTimer <= 0 || !corectKeyPressed)
-                {
+                    if (!corectKeyPressed)
+                    {
                     
                         // Wrong key pressed, trigger failure
                         TriggerFailure();
@@ -96,8 +97,14 @@ public class CanHack : MonoBehaviour
 
                         
                     
+                    }
                 }
+                    
             }
+
+            
+
+            
         }
     }
 
@@ -173,6 +180,7 @@ public class CanHack : MonoBehaviour
     {
         canHack = false;
         yield return new WaitForSeconds(delayBetweenAttempts);
+        
         
         
     }
