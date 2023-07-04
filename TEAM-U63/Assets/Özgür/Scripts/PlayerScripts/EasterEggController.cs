@@ -13,6 +13,7 @@ public class EasterEggController : MonoBehaviour
     
     public Rigidbody rb;
     public Transform cameraPivot;
+    public float defaultCameraPivotLocalYPosition;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class EasterEggController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         cameraPivot = transform.Find("CameraPivot").GetComponent<Transform>();
+        defaultCameraPivotLocalYPosition = cameraPivot.localPosition.y;
 
         pc.OnEasterEggEnter += EnterEasterEggState;
         pc.OnEasterEggExit += ExitEasterEggState;
@@ -54,8 +56,8 @@ public class EasterEggController : MonoBehaviour
     private void PositionCamera()
     {
         if (psd.currentState == PlayerStateData.PlayerState.NormalState)
-            cameraPivot.DOMoveY(cameraPivot.position.y + 1f, 1f);
+            cameraPivot.DOLocalMoveY(defaultCameraPivotLocalYPosition, 1f);
         else if (psd.currentState == PlayerStateData.PlayerState.EasterEggState)
-            cameraPivot.DOMoveY(cameraPivot.position.y - 1f, 1f);
+            cameraPivot.DOLocalMoveY(defaultCameraPivotLocalYPosition - 1f, 1f);
     }
 }

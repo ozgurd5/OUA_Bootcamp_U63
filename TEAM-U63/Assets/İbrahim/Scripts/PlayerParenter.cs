@@ -13,7 +13,7 @@ public class PlayerParenter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("RedPuzzle") || other.CompareTag("GreenPuzzle") || other.CompareTag("BluePuzzle"))
         {
             other.transform.SetParent(elevator);
         }
@@ -21,7 +21,7 @@ public class PlayerParenter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("RedPuzzle") || other.CompareTag("GreenPuzzle") || other.CompareTag("BluePuzzle"))
         {
             other.transform.SetParent(null);
         }
