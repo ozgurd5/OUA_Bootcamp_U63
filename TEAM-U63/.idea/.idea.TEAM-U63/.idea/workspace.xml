@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/SCALES.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/SCALES.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeStates.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerAbilityScripts.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Materials/ScaleWrongMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Materials/ScaleWrongMaterial.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Materials/bluePuzzleMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Materials/bluePuzzleMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Materials/scaleRightMaterial.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Materials/scaleRightMaterial.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/SCALES.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/SCALES.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scenes/Island 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scenes/Island 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imported Assets/Butterfly (Animated)/FBX/Materials/stones.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Assets/Butterfly (Animated)/FBX/Materials/stones.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Imported Assets/Santuary/EnvironmentModels/SanctuaryModels/Materials/Plants.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imported Assets/Santuary/EnvironmentModels/SanctuaryModels/Materials/Plants.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scenes/ScaleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scenes/ScaleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/IsGrabbed.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/IsGrabbed.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeStates.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerGrab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerGrab.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/ScaleScripts/ScaleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/ScaleScripts/ScaleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Scripts/PortalCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/İbrahim/Scripts/PortalCheck.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +22,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c5/295fc748/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ddb5fa70dfe40d2818192400111b9ec2aa00/45/a9410b60/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Batu/InputSystem/input generated/PlayerControls.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/CubeStates.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/DoorController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/IboPLayerGrab.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/IsGrabbed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkUIScripts/UnityRelayUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerGrab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/EasterEggController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -88,7 +83,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Build\TEAM-U63.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../build\TEAM-U63.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\ACER\Desktop\test" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -96,7 +91,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\ACER\Desktop\GameDev\Team.U63-Bootcamp.Project\TEAM-U63 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\ACER\Desktop\GameDev\Team.U63-Bootcamp.Project\TEAM-U63" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -104,7 +99,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\ACER\Desktop\GameDev\Team.U63-Bootcamp.Project\TEAM-U63 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\ACER\Desktop\GameDev\Team.U63-Bootcamp.Project\TEAM-U63" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -173,7 +168,9 @@
       <workItem from="1688230226525" duration="21048000" />
       <workItem from="1688299446052" duration="3499000" />
       <workItem from="1688323578720" duration="21886000" />
-      <workItem from="1688397851014" duration="29357000" />
+      <workItem from="1688397851014" duration="29693000" />
+      <workItem from="1688441668672" duration="639000" />
+      <workItem from="1688479876306" duration="23400000" />
     </task>
     <servers />
   </component>

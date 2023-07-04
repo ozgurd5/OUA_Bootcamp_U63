@@ -20,7 +20,7 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private float completionLenght = 4.5f;
     [SerializeField] private Transform ceilingTransform;
     //Remove after tests are done
-    [SerializeField] private bool debugRunScale;
+    [SerializeField] private bool testRunScale;
 
     //Materials should be static but we can't assign static variables in inspector, assign the same for every scale
     //Ceiling mesh renderer is object specific though
@@ -46,6 +46,9 @@ public class ScaleController : MonoBehaviour
     private LineRenderer lr;
     private Vector3 fixedPosition;
     private Vector3 weightlessPosition;
+    
+    private CubeStates enteredCubeStates;           //Explanation is in further down where it's being used
+    private bool isEnteredCubeStatesNull = true;    //Comparison to null is expensive
 
     private void Awake()
     {
@@ -57,7 +60,7 @@ public class ScaleController : MonoBehaviour
         //Fixed and never changing position of the line's beginning in the ceiling
         fixedPosition = new Vector3(weightlessPosition.x, ceilingTransform.position.y, weightlessPosition.z);
         
-        //Line renderer's default positions are 0 in the beginning
+        //Line renderer is disabled and it's default positions are (0,0,0) before we start the game
         lr.enabled = true;
         lr.SetPosition(0, fixedPosition);
         lr.SetPosition(1, weightlessPosition);
@@ -69,10 +72,10 @@ public class ScaleController : MonoBehaviour
     private void Update()
     {
         //Remove after tests are done
-        if (debugRunScale)
+        if (testRunScale)
         {
             UpdateScalePosition();
-            debugRunScale = false;
+            testRunScale = false;
         }
         
         //Not the best way :p
@@ -93,10 +96,9 @@ public class ScaleController : MonoBehaviour
         
         transform.DOMoveY(targetPositionY, duration).SetEase(Ease.Linear);
         
-        //DOMoveY is a coroutine, we need do check after it is done because we are comparing transform.position.y
-        //Since DOMoveY is a coroutine, transform.position.y will change during "duration"
+        //We need to check completion after DOMoveY is done because we are comparing transform.position.y..
+        //..in that method. Since DOMoveY is a coroutine, transform.position.y will change during "duration"
         Invoke(nameof(CheckCompletion), duration + 0.1f);
-        Invoke(nameof(UpdateCompletionMaterial), duration + 0.1f);
     }
     
     /// <summary>
@@ -112,7 +114,7 @@ public class ScaleController : MonoBehaviour
             completedScaleNumber++;
         }
         
-        else if (Math.Abs(currentLenght - completionLenght) > 0.01f && isCompleted) //Float comparison is not precise
+        else if (math.abs(currentLenght - completionLenght) > 0.01f && isCompleted) //Float comparison is not precise
         {
             isCompleted = false;
             completedScaleNumber--;
@@ -125,6 +127,8 @@ public class ScaleController : MonoBehaviour
         
         isAllScalesCompleted = completedScaleNumber == 3;
         
+        UpdateCompletionMaterial();
+
         //Remove after tests are done
         //Debug.Log(gameObject.name + ": " + isCompleted);
         //Debug.Log("how many completed: " + completedScaleNumber);
@@ -136,64 +140,75 @@ public class ScaleController : MonoBehaviour
     /// </summary>
     private void UpdateCompletionMaterial()
     {
-        Material[] newCeilingMeshRenderermaterials = ceilingMeshRenderer.materials;
+        //Updating mesh renderer materials in Unity is ultra protected for several long reasons
+        //Long story short: We can not change a single element of the mesh renderer's materials array
+        //We can only change the complete array by assign an array to it
+        //So we must make our changes in a copy array and assign it to mesh renderer material
+
+        Material[] newCeilingMeshRendererMaterials = ceilingMeshRenderer.materials;
 
         if (isCompleted)
         {
-            newCeilingMeshRenderermaterials[1] = completedMaterial;
+            newCeilingMeshRendererMaterials[1] = completedMaterial;
             lr.material = completedMaterial;
         }
         else
         {
-            newCeilingMeshRenderermaterials[1] = notCompletedMaterial;
+            newCeilingMeshRendererMaterials[1] = notCompletedMaterial;
             lr.material = notCompletedMaterial;
         }
 
-        ceilingMeshRenderer.materials = newCeilingMeshRenderermaterials;
+        ceilingMeshRenderer.materials = newCeilingMeshRendererMaterials;
     }
     
     private void OnTriggerEnter(Collider col)
     {
-        IsGrabbed isGrabbed = col.gameObject.GetComponent<IsGrabbed>();
-        
-        if (isGrabbed == null) return;
-        if (isGrabbed.isGrabbed) return;
-
-        isGrabbed.isEntered = true;
-
-        Debug.Log("enter");
-        //Set the cube child of the scale for smooth movement
-        //col.transform.SetParent(transform);
-        
         if (col.CompareTag("RedPuzzle"))
             redNumber++;
         else if (col.CompareTag("GreenPuzzle"))
             greenNumber++;
         else if (col.CompareTag("BluePuzzle"))
             blueNumber++;
+        else
+            return;
+        
+        //Parenting is needed for smooth movement and good looking motion
+        col.transform.SetParent(transform);
+        
+        //Updating scale position is not smooth and looks very bad while player is holding the cube
+        
+        //We can not check if player is holding the cube in OnTriggerEnter method. Player can drop..
+        //..the cube after it's entry to the collider. So we must check it dynamically in FixedUpdate
+        //To do that, we need the data of the cube that has entered the collider if it's currently..
+        //..held by player or not
+        enteredCubeStates = col.GetComponent<CubeStates>();
+        isEnteredCubeStatesNull = false;    //Comparison to null is expensive
+    }
 
+    private void FixedUpdate()
+    {
+        if (isEnteredCubeStatesNull) return; 
+        if (enteredCubeStates.isGrabbed) return;
+        
+        //enteredCubeStates.transform.SetParent(transform);
         UpdateScalePosition();
+        enteredCubeStates = null;
+        isEnteredCubeStatesNull = true; //Comparison to null is expensive
     }
 
     private void OnTriggerExit(Collider col)
     {
-        IsGrabbed isGrabbed = col.gameObject.GetComponent<IsGrabbed>();
-        if (isGrabbed == null) return;
-        if (!isGrabbed.isEntered) return;
-
-        isGrabbed.isEntered = false;
-        
-        Debug.Log("exit");
-        //Release the cube if it's taken back
-        //col.transform.SetParent(null);
-        
         if (col.CompareTag("RedPuzzle"))
             redNumber--;
         else if (col.CompareTag("GreenPuzzle"))
             greenNumber--;
         else if (col.CompareTag("BluePuzzle"))
             blueNumber--;
-
+        else
+            return;
+        
+        //Release the cube when it's taken back by player
+        col.transform.SetParent(null);
         UpdateScalePosition();
     }
 }

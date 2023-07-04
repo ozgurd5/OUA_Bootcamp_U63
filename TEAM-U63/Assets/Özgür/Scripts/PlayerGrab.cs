@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,16 +7,13 @@ public class PlayerGrab : MonoBehaviour
     [Header("Assign")]
     [SerializeField] private Image crosshairImage;
     [SerializeField] private float grabRange = 5f;
-    
-    //1
     [SerializeField] private Transform holdArea;
-    private GameObject heldObj;
-    private Rigidbody heldObjRB;
-    [SerializeField] private float pickupForce = 150.0f;
-    //1
+    [SerializeField] private float pickupForce = 150.0f;    //
 
     private Camera cam;
     
+    private GameObject grabbedObject;
+    private Rigidbody grabbedObjectRb;
     private Ray crosshairRay;
     private RaycastHit crosshairHit;
 
@@ -27,61 +25,54 @@ public class PlayerGrab : MonoBehaviour
     private void Update()
     {
         crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);
-
+        
         if (Physics.Raycast(crosshairRay, out crosshairHit, grabRange) && Input.GetKeyDown(KeyCode.E))
         {
-            //2
             if (crosshairHit.collider.CompareTag("RedPuzzle") || crosshairHit.collider.CompareTag("GreenPuzzle") || crosshairHit.collider.CompareTag("BluePuzzle"))
-            {
                 PickUpObject(crosshairHit.collider.gameObject);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.R) && heldObj != null)
-        {
-            DropObject();
         }
         
-        if (heldObj != null)
-            MoveObject();
-        //2
+        if (Input.GetKeyDown(KeyCode.R) && grabbedObject != null)
+            DropObject();
+        
+        if (grabbedObject != null)
+            MoveObjectToHoldArea();
     }
     
-    //3
-    void MoveObject()
+    void MoveObjectToHoldArea()
     {
-        if (Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f)
+        if (Vector3.Distance(grabbedObject.transform.position, holdArea.position) > 0.1f)
         {
-            Vector3 moveDirection = holdArea.position - heldObj.transform.position;
-            heldObjRB.AddForce(moveDirection * pickupForce);
+            Vector3 moveDirection = holdArea.position - grabbedObject.transform.position;
+            grabbedObjectRb.AddForce(moveDirection * pickupForce);
         }
+        
+        //grabbedObject.transform.DOMove(holdArea.transform.position, 1f)
     }
     
     void PickUpObject(GameObject pickObj)
     {
-        heldObj = pickObj;
-        heldObjRB = pickObj.GetComponent<Rigidbody>();
+        grabbedObject = pickObj;
+        grabbedObjectRb = pickObj.GetComponent<Rigidbody>();
 
-        heldObj.GetComponent<IsGrabbed>().isGrabbed = true;
+        grabbedObject.GetComponent<CubeStates>().isGrabbed = true;
 
-        heldObj.transform.parent = holdArea;
+        //grabbedObject.transform.parent = holdArea;
         
-        heldObjRB.useGravity = false;
-        heldObjRB.drag = 10;
-        heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+        grabbedObjectRb.useGravity = false;
+        grabbedObjectRb.drag = 10;
+        grabbedObjectRb.constraints = RigidbodyConstraints.FreezeRotation;
     }
     
     void DropObject()
     {
-        heldObjRB.useGravity = true; 
-        heldObjRB.drag = 1;
-        heldObjRB.constraints = RigidbodyConstraints.None;
+        grabbedObjectRb.useGravity = true; 
+        grabbedObjectRb.drag = 1;
+        grabbedObjectRb.constraints = RigidbodyConstraints.None;
         
-        heldObj.GetComponent<IsGrabbed>().isGrabbed = false;
+        grabbedObject.GetComponent<CubeStates>().isGrabbed = false;
         
-        heldObjRB.transform.parent = null;
-        heldObj = null;
+        grabbedObject = null;
         
     }
-    //3
 }
