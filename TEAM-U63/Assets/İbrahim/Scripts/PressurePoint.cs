@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PressurePoint : MonoBehaviour
 {
     public GameObject puzzlePiece;
     public GameObject targetObject;
-   
 
     private Animator animator;
     //private Animation _animation;
@@ -16,24 +12,18 @@ public class PressurePoint : MonoBehaviour
 
     private void Start()
     {
-        
         animator = targetObject.GetComponent<Animator>();
         animator.SetBool("IsPuzzlePlaced", false);
-        
     }
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == puzzlePiece && !isPuzzlePlaced)
         {
-            
-
             // Enable the Animator component on the target object
             
             if (animator != null)
             {
-                
-
                 // Set the bool parameter in the Animator controller
                 animator.SetBool("IsPuzzlePlaced", true);
 
@@ -43,8 +33,6 @@ public class PressurePoint : MonoBehaviour
         }
     }
     
- 
-
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject == puzzlePiece)
@@ -52,14 +40,7 @@ public class PressurePoint : MonoBehaviour
             // Reset the bool parameter in the Animator controller
             animator.SetBool("IsPuzzlePlaced", false);
             
-
-            
-            
-            
-
-            
             isPuzzlePlaced = false;
         }
     }
 }
-

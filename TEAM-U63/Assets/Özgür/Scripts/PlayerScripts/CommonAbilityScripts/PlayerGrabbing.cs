@@ -42,7 +42,7 @@ public class PlayerGrabbing : MonoBehaviour
         bool wasRayHit = Physics.Raycast(crosshairRay, out crosshairHit, grabRange);
 
         if (!wasRayHit) return false;
-        
+
         Collider col = crosshairHit.collider; //Shorter return statement :p
         return col.CompareTag("RedPuzzle") || col.CompareTag("GreenPuzzle") || col.CompareTag("BluePuzzle");
     }
@@ -106,8 +106,6 @@ public class PlayerGrabbing : MonoBehaviour
             Vector3 moveDirection = (grabPoint.position -  grabbedCube.transform.position).normalized;
             grabbedCubeRb.AddForce(moveDirection * movingForce);
         }
-
-        //grabbedCubeRb.MovePosition(grabPoint.position);
     }
 
     private void Update()
