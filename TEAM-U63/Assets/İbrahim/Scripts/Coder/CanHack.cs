@@ -6,17 +6,21 @@ using UnityEngine.UI;
 
 public class CanHack : MonoBehaviour
 {
+    public GameObject hackCanvas;
     public GameObject artistLullabyCanvas;
-    public BoxCollider robotCollider;
+    public FlyingRobotController _flyingRobotController;
     
+
     [SerializeField] List<Image> images;
     [SerializeField] List<Sprite> arrowKeySprites;
-    
+
     private bool canHack;
+    private bool isHacked;
 
     public float timeToHack = 10f;
-    private float currentTimer;
+    public float currentTimer;
     public float delayBetweenAttempts = 3f;
+    public int robotControlDuration = 15;
     private int currentIndex;
 
     public KeyCode[] arrowKeys = { KeyCode.UpArrow, KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow };
@@ -26,70 +30,101 @@ public class CanHack : MonoBehaviour
 
     private void Start()
     {
-        //robotCollider = GetComponent<BoxCollider>();
+        
         rng = new System.Random();
         GenerateRandomSequence();
-        
+
     }
 
     private void Update()
     {
+
+
         if (artistLullabyCanvas.activeSelf)
         {
             ;
-            if (Input.GetKeyDown("c"))
+            if (Input.GetKeyDown("c")) //&& canHack)
             {
                 
-                canHack = true;
+                hackCanvas.SetActive(true);
+                currentTimer = timeToHack;
 
-                if (currentTimer > 0f)
+
+            }
+            
+            if (currentTimer > 0f)
+            {
+                currentTimer -= Time.deltaTime;
+                
+                bool corectKeyPressed = false;
+
+                if (currentTimer <= 0)
                 {
-                    currentTimer -= Time.deltaTime;
-                    return;
+                    TriggerFailure();
                 }
                 
-                
-            }
-            if (!canHack)
-            {
-                DisableImages();
-                return;
-            }
-
-            if (Input.anyKeyDown)
-            {
-                foreach (KeyCode key in arrowKeys)
+                if (Input.anyKeyDown && Input.GetKeyDown("c") == false)
                 {
-                    if (Input.GetKeyDown(key))
+                    foreach (KeyCode key in arrowKeys)
                     {
-                        if (key == sequence[currentIndex])
+                        if (Input.GetKeyDown(key))
                         {
-                            // Correct key pressed, move to the next arrow key
-                            currentIndex++;
-                            currentTimer = timeToHack;
-                            break;
-                        }
-                        else
-                        {
-                            // Wrong key pressed, trigger failure
-                            TriggerFailure();
-                            StartCoroutine(DelayBeforeReset());
-                            return;
+                            if (key == sequence[currentIndex])
+                            {
+                                // Correct key pressed, move to the next arrow key
+                                currentIndex++;
+                                corectKeyPressed = true;
+                            
+
+                                break;
+                            }
+
+
+                        
                         }
                     }
+                    if (currentIndex == sequence.Count)
+                    {
+                        TriggerSuccess();
+                        Debug.Log("success trigger");
+                    }
+
+                    if (!corectKeyPressed)
+                    {
+                    
+                        // Wrong key pressed, trigger failure
+                        TriggerFailure();
+                        Debug.Log("fail trigger");
+
+                        
+                    
+                    }
                 }
+                    
             }
+
+            
+
+            
         }
     }
-    
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("robot"))
+        {
+            canHack = true;
+        }
+    }
+
     private void GenerateRandomSequence()
     {
         sequence = new List<KeyCode>(arrowKeys);
         ShuffleSequence();
         //currentIndex = 0;
-        canHack = true;
+        //canHack = true;
         currentTimer = timeToHack;
-    
+
         // Assign arrow key sprites to images
         for (int i = 0; i < images.Count; i++)
         {
@@ -100,7 +135,7 @@ public class CanHack : MonoBehaviour
                 {
                     images[i].sprite = arrowKeySprites[arrowIndex];
                     images[i].gameObject.SetActive(true);
-                    
+
                     Debug.Log("Press " + arrowKeys[arrowIndex] + " key.");
                 }
             }
@@ -110,7 +145,7 @@ public class CanHack : MonoBehaviour
             }
         }
     }
-    
+
     private void ShuffleSequence()
     {
         int n = sequence.Count;
@@ -124,11 +159,26 @@ public class CanHack : MonoBehaviour
         }
     }
 
+
+    private void TriggerSuccess()
+    {
+        isHacked = true;
+        hackCanvas.SetActive(false);
+        currentIndex = 0;
+        GenerateRandomSequence();
+
+        _flyingRobotController.enabled = isHacked;
+    }
+
     private void TriggerFailure()
     {
         
+        hackCanvas.SetActive(false);
+        currentIndex = 0;
+        GenerateRandomSequence();
+        StartCoroutine(DelayBeforeReset());
     }
-    
+
     private void DisableImages()
     {
         foreach (Image image in images)
@@ -136,12 +186,24 @@ public class CanHack : MonoBehaviour
             image.gameObject.SetActive(false);
         }
     }
-    
+
     private IEnumerator DelayBeforeReset()
     {
         canHack = false;
         yield return new WaitForSeconds(delayBetweenAttempts);
-        GenerateRandomSequence();
+        
+        
+        
     }
-    
+
+    //private IEnumerator ControlRobot()
+    //{
+    //    _flyingRobotController.enabled = isHacked;
+    //    yield return new WaitForSeconds(robotControlDuration);
+    //    
+    //    _flyingRobotController.enabled = false;
+    //    
+    //}
 }
+    
+
