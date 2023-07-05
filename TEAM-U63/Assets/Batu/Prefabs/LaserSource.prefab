@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserStartPoint: {fileID: 6381131291144220151}
   lineRenderer: {fileID: 7215857576228049106}
+  LastRobot: {fileID: 0}
 --- !u!120 &7215857576228049106
 LineRenderer:
   serializedVersion: 2
@@ -287,7 +288,7 @@ LineRenderer:
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0

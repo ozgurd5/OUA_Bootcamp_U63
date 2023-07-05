@@ -12,7 +12,7 @@ public class RobotLaser : MonoBehaviour
 
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
         lineRenderer.positionCount = 2;
         CloseLaser();
     }
@@ -42,6 +42,7 @@ public class RobotLaser : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(laserStartPoint.position, direction, out hit, Mathf.Infinity))
         {
+            //Debug.Log(hit.collider.name);
             if (hit.collider.CompareTag("robot"))
             {
                 LastRobot = hit.collider.gameObject;
@@ -53,6 +54,22 @@ public class RobotLaser : MonoBehaviour
             }
             lineRenderer.SetPosition(0, laserStartPoint.position);
             lineRenderer.SetPosition(1, hit.point);
+            
+            if (hit.collider.CompareTag("LaserTarget"))
+            {
+                
+                LaserTarget laserTarget = hit.collider.gameObject.GetComponent<LaserTarget>();
+                Material targetMaterial = laserTarget.targetMaterial;
+                
+                //Debug.Log(targetMaterial.name + " target");
+                //Debug.Log(meshRenderer.material.name + " meshRenderer");
+
+                if (targetMaterial.Equals(meshRenderer.material))
+                {
+                    laserTarget.isArrived = true;
+                }
+
+            }
             
         }
         else
