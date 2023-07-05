@@ -11,8 +11,6 @@ public class PlayerAnimationManager : MonoBehaviour
     public enum Animation
     {
         Idle,
-        MovingJumping,
-        NotMovingJumping,
         Walking,
         Running,
         EasterEgg
@@ -32,26 +30,6 @@ public class PlayerAnimationManager : MonoBehaviour
         
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
         
-        //isJumping and 'isWalking/isRunning' can be true at the same time. Player can move and jump.
-        //When that happens, jump animation must play, not the walking or running.
-        if (psd.isJumping)
-        {
-            if (psd.isMoving && currentAnimation != Animation.MovingJumping && currentAnimation != Animation.NotMovingJumping)
-            {
-                an.Play("PlayerMovingJumping");
-                currentAnimation = Animation.MovingJumping;
-            }
-            
-            else if (currentAnimation != Animation.MovingJumping && currentAnimation != Animation.NotMovingJumping)
-            {
-                an.Play("PlayerNotMovingJumping");
-                currentAnimation = Animation.NotMovingJumping;
-            }
-            
-            return;
-        }
-        
-        //After this point, only one state can be true at the same time, so no problem.
         if (psd.isIdle && currentAnimation != Animation.Idle)
         {
             an.Play("PlayerIdle");
@@ -73,10 +51,10 @@ public class PlayerAnimationManager : MonoBehaviour
 
     private void HandleEasterEgg()
     {
-        if (psd.currentState == PlayerStateData.PlayerState.EasterEggState && currentAnimation != Animation.EasterEgg)
-        {
-            an.Play("EasterEgg");
-            currentAnimation = Animation.EasterEgg;
-        }
+        if (psd.currentState != PlayerStateData.PlayerState.EasterEggState) return;
+        if (currentAnimation == Animation.EasterEgg) return;
+        
+        an.Play("EasterEgg");
+        currentAnimation = Animation.EasterEgg;
     }
 }
