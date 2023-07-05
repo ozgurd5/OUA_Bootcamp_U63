@@ -13,12 +13,12 @@ public class PlayerGrabbing : MonoBehaviour
     private PlayerController pc;
     private Camera cam;
     
+    private Ray crosshairRay;
+    private RaycastHit crosshairHit;
+    
     private GameObject grabbedCube;
     private CubeStateManager grabbedCubeStateManager;
     private Rigidbody grabbedCubeRb;
-    
-    private Ray crosshairRay;
-    private RaycastHit crosshairHit;
 
     private void Awake()
     {

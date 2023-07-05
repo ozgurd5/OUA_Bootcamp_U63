@@ -25,6 +25,7 @@ public class NetworkInputManager : NetworkBehaviour
         public bool isSecondaryAbilityKeyDown;
         public bool isEasterEggKeyDown;
         public bool isEasterEggKeyUp;
+        public bool isMapKeyDown;
 
         public bool robotIsAscendKeyDown;
         public bool robotIsDescendKeyDown;
@@ -39,6 +40,7 @@ public class NetworkInputManager : NetworkBehaviour
             serializer.SerializeValue(ref isSecondaryAbilityKeyDown);
             serializer.SerializeValue(ref isEasterEggKeyDown);
             serializer.SerializeValue(ref isEasterEggKeyUp);
+            serializer.SerializeValue(ref isMapKeyDown);
             
             serializer.SerializeValue(ref robotIsAscendKeyDown);
             serializer.SerializeValue(ref robotIsDescendKeyDown);
@@ -102,6 +104,7 @@ public class NetworkInputManager : NetworkBehaviour
         hostInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
         hostInput.isEasterEggKeyDown = nia.Player.EasterEgg.WasPressedThisFrame();
         hostInput.isEasterEggKeyUp = nia.Player.EasterEgg.WasReleasedThisFrame();
+        hostInput.isMapKeyDown = nia.Player.MapKey.WasPressedThisFrame();
 
         hostInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
         hostInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();
@@ -122,6 +125,7 @@ public class NetworkInputManager : NetworkBehaviour
         clientInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
         clientInput.isEasterEggKeyDown = nia.Player.EasterEgg.WasPressedThisFrame();
         clientInput.isEasterEggKeyUp = nia.Player.EasterEgg.WasReleasedThisFrame();
+        clientInput.isMapKeyDown = nia.Player.MapKey.WasPressedThisFrame();
         
         clientInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
         clientInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();

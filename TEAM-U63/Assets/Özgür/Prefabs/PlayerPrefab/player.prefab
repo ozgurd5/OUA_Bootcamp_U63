@@ -250,8 +250,9 @@ GameObject:
   - component: {fileID: 2163347537655871216}
   - component: {fileID: 7778040805805687023}
   - component: {fileID: 3354253361380611976}
-  - component: {fileID: 2278140208749324800}
-  - component: {fileID: 7508814396886893872}
+  - component: {fileID: 7735654454462798843}
+  - component: {fileID: 3199028612831568258}
+  - component: {fileID: 6630141529473353950}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -491,7 +492,7 @@ MonoBehaviour:
   grabRange: 5
   movingForce: 150
   grabPoint: {fileID: 0}
---- !u!114 &2278140208749324800
+--- !u!114 &7735654454462798843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -500,12 +501,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826967964384490765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ba5d43c1b70044ea5618efb6cb3c4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e86f14cde71929409dcf56d1c32c17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 0}
-  mapImage: {fileID: 0}
---- !u!114 &7508814396886893872
+  mapCollectible: {fileID: 0}
+  mapCanvas: {fileID: 0}
+--- !u!114 &3199028612831568258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,11 +515,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1826967964384490765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e883ed0eb71b2f94baf747085a027759, type: 3}
+  m_Script: {fileID: 11500000, guid: c3fd8182397e80f409fe84129a6b202f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCoderVisionActive: 0
-  coderVisionOverlay: {fileID: 0}
+  coderVisionCanvas: {fileID: 0}
+--- !u!114 &6630141529473353950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826967964384490765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6b99aab08e52b4ba8d74aa42c17ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshairImage: {fileID: 3633622301284064038}
+  paintRange: 5
+  puzzleMaterials:
+  - {fileID: 2100000, guid: 1d716cf66d16f2743a8425e8d0bf7170, type: 2}
+  - {fileID: 2100000, guid: 8ea5569540eb72d49b9e3da286a1e8ff, type: 2}
+  - {fileID: 2100000, guid: 82cde8e0b358ad84381811ee25157e38, type: 2}
 --- !u!1 &3236093143829074495
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +637,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3556086607243346278}
-  m_LocalRotation: {x: -0.03632495, y: 1e-45, z: -0, w: 0.99934006}
+  m_LocalRotation: {x: -0.03632495, y: -0, z: -0, w: 0.99934006}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

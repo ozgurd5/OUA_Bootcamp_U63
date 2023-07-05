@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
-
-//TODO: Remove debugRunScale when tests are done
 
 /// <summary>
 /// <para>Controls each scale and their position</para>
