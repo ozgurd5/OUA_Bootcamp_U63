@@ -22,7 +22,7 @@ public class PlayerController : NetworkBehaviour
 
     private NetworkPlayerData npd;
     private NetworkInputManager nim;
-    private NetworkInputManager.InputData input;
+    public NetworkInputManager.InputData input;
     private PlayerStateData psd;
 
     private Transform cameraTransform;

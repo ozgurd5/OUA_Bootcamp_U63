@@ -406,7 +406,7 @@ MonoBehaviour:
   isWalking: 0
   isRunning: 0
   isMoving: 0
-  isGrounded: 0
+  isGrabbing: 0
 --- !u!114 &8472633499655834703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,8 +489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crosshairImage: {fileID: 3633622301284064038}
   grabRange: 5
-  holdArea: {fileID: 0}
-  pickupForce: 150
+  movingForce: 150
+  grabPoint: {fileID: 0}
 --- !u!114 &2278140208749324800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,7 +619,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3556086607243346278}
-  m_LocalRotation: {x: -0.03632495, y: -0, z: -0, w: 0.99934006}
+  m_LocalRotation: {x: -0.03632495, y: 1e-45, z: -0, w: 0.99934006}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

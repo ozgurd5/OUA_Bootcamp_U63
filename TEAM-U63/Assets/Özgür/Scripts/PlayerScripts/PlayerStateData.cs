@@ -22,5 +22,5 @@ public class PlayerStateData : MonoBehaviour
 
     [Header("Logic Only Sub-states")]
     public bool isMoving;   //PlayerController.cs
-    public bool isGrounded; //PlayerGroundChecker.cs
+    public bool isGrabbing; //PlayerGrabbing.cs
 }
