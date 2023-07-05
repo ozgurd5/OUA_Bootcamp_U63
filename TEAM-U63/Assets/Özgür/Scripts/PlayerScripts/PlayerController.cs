@@ -17,7 +17,6 @@ public class PlayerController : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 10f;
-    [SerializeField] private float jumpSpeed = 5f;
     [SerializeField] private float walkingRotatingSpeed = 5f;
     [SerializeField] private float runningRotatingSpeed = 20f;
 
@@ -157,48 +156,6 @@ public class PlayerController : NetworkBehaviour
         movingDirection *= movingSpeed;
         rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
     }
-    
-    /// <summary>
-    /// <para>Handles jump buffer time for smooth gameplay</para>
-    /// <para>When user press the space, player has jumpBufferLimit time to touch the ground.</para>
-    /// <para>For example when player is falling down, user doesn't have to press the jump button in the perfect time
-    /// to jump right again. User press the button when player is in the air, if player touch ground within the
-    /// buffer time, it jumps</para>
-    /// <para>Must work in Update since it has input check</para>
-    /// </summary>
-    private void HandleJumpBufferTime()
-    {
-        if (input.isJumpKeyDown)
-            jumpBufferTimer = jumpBufferLimit;
-        else
-            jumpBufferTimer -= Time.deltaTime;
-    }
-    
-    /// <summary>
-    /// <para>Checks if conditions for jump are set</para>
-    /// <para>Must work in Update, since checks time based on deltaTime</para>
-    /// </summary>
-    private void CheckJumpCondition()
-    {
-        if (jumpBufferTimer > 0f && psd.isGrounded && psd.canJump)
-            jumpCondition = true;
-    }
-    
-    /// <summary>
-    /// <para>Makes the player jump if conditions are set</para>
-    /// <para>Must work in FixedUpdate</para>
-    /// </summary>
-    private void HandleJump()
-    {
-        if (jumpCondition)
-        {
-            rb.velocity += new Vector3(0f, jumpSpeed, 0f);
-            
-            //Must reset these variables to ensure that HandleJump is called once, not repeatedly
-            jumpCondition = false;
-            jumpBufferTimer = 0f;
-        }
-    }
 
     private void Update()
     {
@@ -208,9 +165,6 @@ public class PlayerController : NetworkBehaviour
 
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
-
-        HandleJumpBufferTime();
-        CheckJumpCondition();
     }
 
     private void FixedUpdate()
@@ -222,7 +176,6 @@ public class PlayerController : NetworkBehaviour
         SyncLookingDirection();
         
         HandleMovement();
-        HandleJump();
     }
     
     /// <summary>

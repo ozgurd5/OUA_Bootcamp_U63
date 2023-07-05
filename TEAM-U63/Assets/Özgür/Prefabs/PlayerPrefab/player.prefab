@@ -275,7 +275,6 @@ Transform:
   - {fileID: 2178046828639182778}
   - {fileID: 9030205960871973574}
   - {fileID: 3570452912440738448}
-  - {fileID: 6558609035532650457}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -406,11 +405,8 @@ MonoBehaviour:
   isIdle: 0
   isWalking: 0
   isRunning: 0
-  isJumping: 0
   isMoving: 0
   isGrounded: 0
-  isGrabbing: 0
-  canJump: 1
 --- !u!114 &8472633499655834703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +422,6 @@ MonoBehaviour:
   isCoder: 0
   walkingSpeed: 3
   runningSpeed: 10
-  jumpSpeed: 5
   walkingRotatingSpeed: 5
   runningRotatingSpeed: 15
 --- !u!95 &6749040510035442493
@@ -758,50 +753,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 3300283379069484470}
---- !u!1 &5001902066480409562
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6558609035532650457}
-  - component: {fileID: 6658407857073380349}
-  m_Layer: 0
-  m_Name: GroundChecker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6558609035532650457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5001902066480409562}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00281, y: 0.016, z: -0.00448}
-  m_LocalScale: {x: 0.07073863, y: 0.01760506, z: 0.17013472}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3220177498919852292}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6658407857073380349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5001902066480409562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c7ef17fa91b6414f818f48dea59b21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5195888382389949641
 GameObject:
   m_ObjectHideFlags: 0

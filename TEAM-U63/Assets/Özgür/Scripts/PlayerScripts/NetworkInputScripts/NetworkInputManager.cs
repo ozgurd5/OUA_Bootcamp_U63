@@ -19,7 +19,6 @@ public class NetworkInputManager : NetworkBehaviour
     public class InputData : INetworkSerializable
     {
         public Vector2 moveInput;
-        public bool isJumpKeyDown;
         public bool isRunKey;
         public bool isGrabKeyDown;
         public bool isPrimaryAbilityKeyDown;
@@ -34,7 +33,6 @@ public class NetworkInputManager : NetworkBehaviour
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref moveInput);
-            serializer.SerializeValue(ref isJumpKeyDown);
             serializer.SerializeValue(ref isRunKey);
             serializer.SerializeValue(ref isGrabKeyDown);
             serializer.SerializeValue(ref isPrimaryAbilityKeyDown);
@@ -98,7 +96,6 @@ public class NetworkInputManager : NetworkBehaviour
         if (!IsHost) return;
         
         hostInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
-        hostInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
         hostInput.isRunKey = nia.Player.Run.IsPressed();
         hostInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
         hostInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
@@ -119,7 +116,6 @@ public class NetworkInputManager : NetworkBehaviour
         if (IsHost) return;
         
         clientInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
-        clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
         clientInput.isRunKey = nia.Player.Run.IsPressed();
         clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();  
         clientInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
