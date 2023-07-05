@@ -55,7 +55,7 @@ public class PlayerGrab : MonoBehaviour
         grabbedObject = pickObj;
         grabbedObjectRb = pickObj.GetComponent<Rigidbody>();
 
-        grabbedObject.GetComponent<CubeStates>().isGrabbed = true;
+        grabbedObject.GetComponent<CubeStateManager>().isGrabbed = true;
 
         //grabbedObject.transform.parent = holdArea;
         
@@ -70,7 +70,7 @@ public class PlayerGrab : MonoBehaviour
         grabbedObjectRb.drag = 1;
         grabbedObjectRb.constraints = RigidbodyConstraints.None;
         
-        grabbedObject.GetComponent<CubeStates>().isGrabbed = false;
+        grabbedObject.GetComponent<CubeStateManager>().isGrabbed = false;
         
         grabbedObject = null;
         

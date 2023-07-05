@@ -14,10 +14,11 @@ public class ScaleController : MonoBehaviour
     private static int completedScaleNumber;
     public static bool isAllScalesCompleted;
 
-    //moveSpeed and completionLenght should be static
+    //moveSpeed, completionLocalPositionY and maxLocalPosition should be static
     [Header("Assign")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float completionLenght = 4.5f;
+    [SerializeField] private float completionLocalPositionY = -4.5f;
+    [SerializeField] private float maxLocalPosition = -4.7f;
     [SerializeField] private Transform ceilingTransform;
     //Remove after tests are done
     [SerializeField] private bool testRunScale;
@@ -46,9 +47,10 @@ public class ScaleController : MonoBehaviour
     private LineRenderer lr;
     private Vector3 fixedPosition;
     private Vector3 weightlessPosition;
+    private float weightlessLocalPositionY;
     
-    private CubeStates enteredCubeStates;           //Explanation is in further down where it's being used
-    private bool isEnteredCubeStatesNull = true;    //Comparison to null is expensive
+    private CubeStateManager enteredCubeStateManager;   //Explanation is in further down where it's being used
+    private bool isEnteredCubeStatesNull = true;        //Comparison to null is expensive
 
     private void Awake()
     {
@@ -56,6 +58,7 @@ public class ScaleController : MonoBehaviour
 
         //Scales are weightless in the beginning
         weightlessPosition = transform.position;
+        weightlessLocalPositionY = transform.localPosition.y;
         
         //Fixed and never changing position of the line's beginning in the ceiling
         fixedPosition = new Vector3(weightlessPosition.x, ceilingTransform.position.y, weightlessPosition.z);
@@ -79,7 +82,7 @@ public class ScaleController : MonoBehaviour
         }
         
         //Not the best way :p
-        lr.SetPosition(1, transform.position - new Vector3(0f, 0.5f, 0f));
+        lr.SetPosition(1, transform.position + new Vector3(0f, 0.5f, 0f));
     }
 
     /// <summary>
@@ -88,6 +91,11 @@ public class ScaleController : MonoBehaviour
     private void UpdateScalePosition()
     {
         float stretchAmount = redNumber * redMultiplier + greenNumber * greenMultiplier + blueNumber * blueMultiplier;
+        float localPositionYAfterStretch = weightlessLocalPositionY - stretchAmount;
+        
+        //Local positions are negative, so smaller position means longer lenght
+        if (localPositionYAfterStretch < maxLocalPosition)
+            stretchAmount -=  math.abs(localPositionYAfterStretch - maxLocalPosition);
         
         //To set a constant speed for DOMove, no matter what the distance is, we need these calculations //TYT FİZİK
         float targetPositionY = weightlessPosition.y - stretchAmount;
@@ -106,15 +114,15 @@ public class ScaleController : MonoBehaviour
     /// </summary>
     private void CheckCompletion()
     {
-        float currentLenght = transform.localPosition.y;
-        
-        if (math.abs(currentLenght - completionLenght) < 0.01f)    //Float comparison is not precise
+        float currentLocalPositionY =  transform.localPosition.y;
+
+        if (math.abs(currentLocalPositionY - completionLocalPositionY) < 0.01f)    //Float comparison is not precise
         {
             isCompleted = true;
             completedScaleNumber++;
         }
         
-        else if (math.abs(currentLenght - completionLenght) > 0.01f && isCompleted) //Float comparison is not precise
+        else if (math.abs(currentLocalPositionY - completionLocalPositionY) > 0.01f && isCompleted) //Float comparison is not precise
         {
             isCompleted = false;
             completedScaleNumber--;
@@ -176,23 +184,20 @@ public class ScaleController : MonoBehaviour
         col.transform.SetParent(transform);
         
         //Updating scale position is not smooth and looks very bad while player is holding the cube
-        
         //We can not check if player is holding the cube in OnTriggerEnter method. Player can drop..
         //..the cube after it's entry to the collider. So we must check it dynamically in FixedUpdate
-        //To do that, we need the data of the cube that has entered the collider if it's currently..
-        //..held by player or not
-        enteredCubeStates = col.GetComponent<CubeStates>();
+        //To do that, we need the data of the cube that has entered the collider if it's currently held by player or not
+        enteredCubeStateManager = col.GetComponent<CubeStateManager>();
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive
     }
 
     private void FixedUpdate()
     {
         if (isEnteredCubeStatesNull) return; 
-        if (enteredCubeStates.isGrabbed) return;
-        
-        //enteredCubeStates.transform.SetParent(transform);
+        if (enteredCubeStateManager.isGrabbed) return;
+
         UpdateScalePosition();
-        enteredCubeStates = null;
+        enteredCubeStateManager = null;
         isEnteredCubeStatesNull = true; //Comparison to null is expensive
     }
 

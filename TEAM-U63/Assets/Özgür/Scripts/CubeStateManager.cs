@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CubeStates : MonoBehaviour
+public class CubeStateManager : MonoBehaviour
 {
     public bool isGrabbed;  //PlayerGrab.cs
 }
