@@ -28,5 +28,8 @@ public class AnimControl : MonoBehaviour
             blinkEyesObject.SetActive(true);
             hypnotizedEyesObject.SetActive(false);
         }
+        
+        
+        
     }
 }
