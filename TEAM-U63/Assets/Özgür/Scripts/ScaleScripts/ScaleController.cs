@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
@@ -8,7 +9,8 @@ using UnityEngine;
 public class ScaleController : MonoBehaviour
 {
     private static int completedScaleNumber;
-    public static bool isAllScalesCompleted;
+    private static bool isAllScalesCompleted;
+    public static event Action<bool> OnScaleCompleted;
 
     //moveSpeed, completionLocalPositionY and maxLocalPosition should be static
     [Header("Assign")]
@@ -137,6 +139,8 @@ public class ScaleController : MonoBehaviour
         //Debug.Log(gameObject.name + ": " + isCompleted);
         //Debug.Log("how many completed: " + completedScaleNumber);
         //Debug.Log("all completed: " + isAllScalesCompleted);
+
+        OnScaleCompleted?.Invoke(isAllScalesCompleted);
     }
 
     /// <summary>
