@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CoderVisionObject : MonoBehaviour
+public class IboCoderVisionObject : MonoBehaviour
 {
     public CoderVision coderVision;
 

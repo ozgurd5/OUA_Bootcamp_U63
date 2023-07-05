@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "4789f21c-c73d-4154-a114-5f63ecfde064",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Run",
                     "type": "Button",
                     "id": "10760d4d-2e5d-40f3-a430-268233d52140",
@@ -63,6 +54,15 @@
                     "name": "EasterEgg",
                     "type": "Button",
                     "id": "ede93c93-064e-41fd-8ae1-9910e13332e5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MapKey",
+                    "type": "Button",
+                    "id": "030d457d-c682-457c-a453-7cbd67aed3f2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -182,28 +182,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1c4f19b5-5291-482c-9bd1-85259868fd32",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "93c15250-9e65-474b-bc83-437f6a53d349",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e7bfc684-fcea-419b-8f5f-3ee3a6846071",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -303,12 +281,23 @@
                 },
                 {
                     "name": "",
-                    "id": "be3f60a2-8615-401e-8c34-2c0633ed43b1",
-                    "path": "<Gamepad>/dpad/down",
+                    "id": "0372fce9-d671-4c88-8ae5-cb258cf92e62",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "EasterEgg",
+                    "action": "MapKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "031e52bc-66cf-41e6-9c29-bfaab5a6e428",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
