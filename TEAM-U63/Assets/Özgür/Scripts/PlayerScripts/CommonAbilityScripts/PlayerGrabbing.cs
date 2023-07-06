@@ -40,9 +40,9 @@ public class PlayerGrabbing : MonoBehaviour
     {
         crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);
         bool wasRayHit = Physics.Raycast(crosshairRay, out crosshairHit, grabRange);
-
+        
         if (!wasRayHit) return false;
-
+        
         Collider col = crosshairHit.collider; //Shorter return statement :p
         return col.CompareTag("RedPuzzle") || col.CompareTag("GreenPuzzle") || col.CompareTag("BluePuzzle");
     }
