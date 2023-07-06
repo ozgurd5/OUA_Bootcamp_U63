@@ -3,8 +3,6 @@ using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
 
-//TODO: remove test only line in awake before build
-
 /// <summary>
 /// <para>Controls player movement, rotation, jump</para>
 /// <para>Works only in "Normal State"</para>
@@ -12,7 +10,7 @@ using UnityEngine;
 public class PlayerController : NetworkBehaviour
 {
     [Header("IMPORTANT - SELECT OR NOT")]
-    [SerializeField] private bool isCoder;
+    public bool isCoder;
 
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 3f;
@@ -41,12 +39,8 @@ public class PlayerController : NetworkBehaviour
     public event Action OnEasterEggEnter;
     public event Action OnEasterEggExit;
 
-    private void Start()
+    private void Awake()
     {
-        //TEST ONLY
-        NetworkManager.Singleton.StartHost();
-        //TEST ONLY
-
         //Moving and rotating speed defaults must be walking speeds
         movingSpeed = walkingSpeed;
         rotatingSpeed = walkingRotatingSpeed;

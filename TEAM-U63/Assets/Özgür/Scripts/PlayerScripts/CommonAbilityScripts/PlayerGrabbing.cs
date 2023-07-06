@@ -25,11 +25,6 @@ public class PlayerGrabbing : MonoBehaviour
         psd = GetComponent<PlayerStateData>();
         pc = GetComponent<PlayerController>();
         cam = Camera.main;
-        
-        //TEMPORARY - NOT BELONG HERE
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        //TEMPORARY - NOT BELONG HERE
     }
 
     /// <summary>
