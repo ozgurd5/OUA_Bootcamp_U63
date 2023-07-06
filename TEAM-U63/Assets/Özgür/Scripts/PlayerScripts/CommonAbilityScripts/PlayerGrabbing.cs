@@ -25,11 +25,6 @@ public class PlayerGrabbing : MonoBehaviour
         psd = GetComponent<PlayerStateData>();
         pc = GetComponent<PlayerController>();
         cam = Camera.main;
-        
-        //TEMPORARY - NOT BELONG HERE
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
-        //TEMPORARY - NOT BELONG HERE
     }
 
     /// <summary>
@@ -40,9 +35,9 @@ public class PlayerGrabbing : MonoBehaviour
     {
         crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);
         bool wasRayHit = Physics.Raycast(crosshairRay, out crosshairHit, grabRange);
-
+        
         if (!wasRayHit) return false;
-
+        
         Collider col = crosshairHit.collider; //Shorter return statement :p
         return col.CompareTag("RedPuzzle") || col.CompareTag("GreenPuzzle") || col.CompareTag("BluePuzzle");
     }
