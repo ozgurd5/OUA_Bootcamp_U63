@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// <para>Responsible of vision ability of the coder</para>
+/// </summary>
 public class PlayerCoderVisionAbility : MonoBehaviour
 {
     public static bool isCoderVisionActive;

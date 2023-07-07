@@ -49,6 +49,9 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// <para>Handles easter egg state's animation</para>
+    /// </summary>
     private void HandleEasterEgg()
     {
         if (psd.currentState != PlayerStateData.PlayerState.EasterEggState) return;

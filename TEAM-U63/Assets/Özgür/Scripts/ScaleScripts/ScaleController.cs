@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
-/// <para>Controls each scale and their position</para>
+/// <para>Responsible of scale's position, colors, completion status and more</para>
 /// </summary>
 public class ScaleController : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private float completionLocalPositionY = -4.5f;
     [SerializeField] private float maxLocalPosition = -4.7f;
     [SerializeField] private Transform ceilingTransform;
-    //Remove after tests are done
+    //TODO: Remove after tests are done
     [SerializeField] private bool testRunScale;
 
     //Materials should be static but we can't assign static variables in inspector, assign the same for every scale
@@ -58,10 +58,10 @@ public class ScaleController : MonoBehaviour
         weightlessPosition = transform.position;
         weightlessLocalPositionY = transform.localPosition.y;
         
-        //Fixed and never changing position of the line's beginning in the ceiling
+        //Fixed and never changing position of the line's top end is the ceiling 
         fixedPosition = new Vector3(weightlessPosition.x, ceilingTransform.position.y, weightlessPosition.z);
         
-        //Line renderer is disabled and it's default positions are (0,0,0) before we start the game
+        //Line renderer is disabled and it's default positions are (0,0,0) in both end by default, we must change it
         lr.enabled = true;
         lr.SetPosition(0, fixedPosition);
         lr.SetPosition(1, weightlessPosition);
@@ -72,14 +72,14 @@ public class ScaleController : MonoBehaviour
 
     private void Update()
     {
-        //Remove after tests are done
+        //TODO: Remove after tests are done
         if (testRunScale)
         {
             UpdateScalePosition();
             testRunScale = false;
         }
         
-        //Not the best way :p
+        //Not the best way i think
         lr.SetPosition(1, transform.position + new Vector3(0f, 0.5f, 0f));
     }
 
@@ -102,8 +102,8 @@ public class ScaleController : MonoBehaviour
         
         transform.DOMoveY(targetPositionY, duration).SetEase(Ease.Linear);
         
-        //We need to check completion after DOMoveY is done because we are comparing transform.position.y..
-        //..in that method. Since DOMoveY is a coroutine, transform.position.y will change during "duration"
+        //We need to check completion after DOMoveY method is done because we are comparing transform.position.y..
+        //..in that method. Since DOMoveY method is a coroutine, transform.position.y will change during "duration"
         Invoke(nameof(CheckCompletion), duration + 0.1f);
     }
     
@@ -135,7 +135,7 @@ public class ScaleController : MonoBehaviour
         
         UpdateCompletionMaterial();
 
-        //Remove after tests are done
+        //TODO: Remove after tests are done
         //Debug.Log(gameObject.name + ": " + isCompleted);
         //Debug.Log("how many completed: " + completedScaleNumber);
         //Debug.Log("all completed: " + isAllScalesCompleted);
@@ -151,7 +151,7 @@ public class ScaleController : MonoBehaviour
         //Updating mesh renderer materials in Unity is ultra protected for several long reasons
         //Long story short: We can not change a single element of the mesh renderer's materials array
         //We can only change the complete array by assign an array to it
-        //So we must make our changes in a copy array and assign it to mesh renderer material
+        //So we must make our changes in a temporary copy array and assign it to mesh renderer material
 
         Material[] newCeilingMeshRendererMaterials = ceilingMeshRenderer.materials;
 
@@ -181,14 +181,14 @@ public class ScaleController : MonoBehaviour
             return;
 
         //Updating scale position is not smooth and looks very bad while player is holding the cube
-        //We can not check if player is holding the cube in OnTriggerEnter method. Player can drop..
+        //We can not check "if player is holding the cube" in OnTriggerEnter method. Player can drop..
         //..the cube after it's entry to the collider. So we must check it dynamically in FixedUpdate
         
         //Also the parenting in this script cause conflict with PlayerGrabbing.cs parenting. It must also be
         //..done while player is not holding the cube.
         
         //To do all of that, we need the CubeStateManager.cs from the cube that has entered the collider...
-        //..and check if it's currently held by player or not
+        //..and check if it's currently held by player or not. That state is updated by PlayerGrabbing.cs
         enteredCubeStateManager = col.GetComponent<CubeStateManager>();
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
     }
@@ -202,6 +202,7 @@ public class ScaleController : MonoBehaviour
         enteredCubeStateManager.transform.SetParent(transform);
 
         UpdateScalePosition();
+        
         enteredCubeStateManager = null;
         isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
     }

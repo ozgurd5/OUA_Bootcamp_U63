@@ -1,10 +1,8 @@
-using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
 
 /// <summary>
 /// <para>Controls easter egg state</para>
-/// <para>Works both in host and client side</para>
 /// </summary>
 public class EasterEggController : MonoBehaviour
 {

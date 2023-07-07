@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// <para>Responsible of grabbing, dropping and moving with the cube</para>
+/// </summary>
 public class PlayerGrabbing : MonoBehaviour
 {
     [Header("Assign")]
@@ -44,7 +47,7 @@ public class PlayerGrabbing : MonoBehaviour
     
     /// <summary>
     /// <para>Picks the object up</para>
-    /// <para>Must work in Update but it's conditions must be given in the Update to avoid conflicts with DropObject</para>
+    /// <para>Must work in Update and it's conditions must be given in the Update to avoid conflicts with DropObject</para>
     /// </summary>
     private void PickUpObject()
     {
@@ -66,7 +69,7 @@ public class PlayerGrabbing : MonoBehaviour
     }
     
     /// <summary>
-    /// <para>Drops the object and basically do opposite of what PickUpObject method do</para>
+    /// <para>Drops the object and basically do opposite of what PickUpObject method does</para>
     /// <para>Must work in Update and it's conditions must be given in the Update to avoid conflicts with PickUpObject</para>
     /// </summary>
     private void DropObject()
@@ -87,7 +90,7 @@ public class PlayerGrabbing : MonoBehaviour
     }
     
     /// <summary>
-    /// <para>Moves the object</para>
+    /// <para>Moves the object with the crosshair while holding the cube</para>
     /// <para>Must work in FixedUpdate</para>
     /// </summary>
     private void MoveObject()
@@ -107,7 +110,7 @@ public class PlayerGrabbing : MonoBehaviour
     {
         //Input and isGrabbing condition check must be checked here instead of inside of the methods
         //If not, it's get broken. Maybe there is a way to make safer methods with it's condition checks are..
-        //..inside of it, idk, this is the best i can
+        //..inside of it, idk
         
         if (!pc.input.isGrabKeyDown) return;
 
