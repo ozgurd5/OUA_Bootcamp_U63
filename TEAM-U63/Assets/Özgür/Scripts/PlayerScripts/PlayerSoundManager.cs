@@ -8,6 +8,8 @@ public class PlayerSoundManager : MonoBehaviour
     [Header("Assign")]
     [SerializeField] private AudioClip walkingSound;
     [SerializeField] private AudioClip runningSound;
+    [SerializeField] [Range(0,1)] private float walkingSoundVolume = 1f;
+    [SerializeField] [Range(0,1)] private float runningSoundVolume = 1f;
     
     private PlayerStateData psd;
     private AudioSource aus;
@@ -40,13 +42,13 @@ public class PlayerSoundManager : MonoBehaviour
     {
         if (psd.isWalking)
         {
-            aus.volume = 0.3f;  //Walking sound is too loud
+            aus.volume = walkingSoundVolume;
             aus.clip = walkingSound;
         }
         
         else if (psd.isRunning)
         {
-            aus.volume = 1f;
+            aus.volume = runningSoundVolume;
             aus.clip = runningSound;
         }
     }

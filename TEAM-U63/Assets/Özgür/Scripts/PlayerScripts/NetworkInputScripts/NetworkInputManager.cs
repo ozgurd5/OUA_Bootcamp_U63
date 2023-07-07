@@ -66,7 +66,8 @@ public class NetworkInputManager : NetworkBehaviour
         nia.Player.Enable();
 
         npd = NetworkPlayerData.Singleton;
-        
+
+        npd.OnIsHostCoderChanged += DecideForInputSource;
         DecideForInputSource();
     }
 
@@ -153,7 +154,7 @@ public class NetworkInputManager : NetworkBehaviour
         //clientInput in this line is the client input in the host side
         clientInput = inputFromClient;
         
-        //Since we changed what clientInput references, we must update what coderInput or artistInput references..
+        //Since we changed what clientInput references, we must update what coderInput and artistInput reference..
         //..depending which one is controlled by client
         DecideForInputSource();
     }
