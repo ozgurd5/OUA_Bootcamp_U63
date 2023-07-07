@@ -32,10 +32,6 @@ public class PlayerController : NetworkBehaviour
     private float movingSpeed;
     private float rotatingSpeed;
 
-    private bool jumpCondition;
-    private float jumpBufferLimit = 0.2f;
-    private float jumpBufferTimer;
-
     public event Action OnEasterEggEnter;
     public event Action OnEasterEggExit;
 
@@ -51,11 +47,11 @@ public class PlayerController : NetworkBehaviour
         
         rb = GetComponent<Rigidbody>();
         cameraTransform = Camera.main.transform;
-
+        
         DecideForInputSource();
-        npd.OnIsHostCoderChanged += obj => DecideForInputSource();
+        npd.OnIsHostCoderChanged += DecideForInputSource;
     }
-    
+
     /// <summary>
     /// <para>Gets coder or artist input as the input source</para>
     /// </summary>
@@ -153,6 +149,8 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
+        DecideForInputSource();
+        
         HandleEasterEgg();
         
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;

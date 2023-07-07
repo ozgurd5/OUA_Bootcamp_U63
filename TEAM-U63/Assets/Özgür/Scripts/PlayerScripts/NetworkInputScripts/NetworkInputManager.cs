@@ -1,8 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//TODO: fix OnNetworkSpawn before build
-
 /// <summary>
 /// <para>Gets host and client input. Decides for coder and artist input</para>
 /// </summary>
@@ -70,23 +68,17 @@ public class NetworkInputManager : NetworkBehaviour
         npd = NetworkPlayerData.Singleton;
         
         DecideForInputSource();
-        npd.OnIsHostCoderChanged += obj => DecideForInputSource();
-    }
-
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-        
-        //DecideForInputSource();
     }
 
     private void Update()
     {
         GetInputFromHost();
         GetInputFromClient();
-
-        //clientInput parameter in this method is the input coming from the client side
-        if (!IsHost) SendInputFromClientServerRpc(clientInput);
+        
+        //clientInput parameter in this method must be the input from the client side. Since host is also a client..
+        //..it can call this server rpc and override client input. We must prevent that by returning if isHost
+        if (IsHost) return;
+        SendInputFromClientToHostServerRpc(clientInput);
     }
     
     /// <summary>
@@ -156,8 +148,13 @@ public class NetworkInputManager : NetworkBehaviour
     /// <param name="inputFromClient">Input from client side that will be send to host side</param>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
-    private void SendInputFromClientServerRpc(InputData inputFromClient)
+    private void SendInputFromClientToHostServerRpc(InputData inputFromClient)
     {
+        //clientInput in this line is the client input in the host side
         clientInput = inputFromClient;
+        
+        //Since we changed what clientInput references, we must update what coderInput or artistInput references..
+        //..depending which one is controlled by client
+        DecideForInputSource();
     }
 }

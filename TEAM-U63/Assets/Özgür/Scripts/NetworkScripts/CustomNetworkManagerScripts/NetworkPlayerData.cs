@@ -8,7 +8,7 @@ public class NetworkPlayerData : NetworkBehaviour
 {
     public static NetworkPlayerData Singleton;
 
-    public event Action<bool> OnIsHostCoderChanged;
+    public event Action OnIsHostCoderChanged;
 
     public bool isHostCoder { get; private set; }
     
@@ -16,7 +16,7 @@ public class NetworkPlayerData : NetworkBehaviour
     {
         Singleton = GetComponent<NetworkPlayerData>();
     }
-    
+
     /// <summary>
     /// <para>Updates current state of the selected players through the network</para>
     /// <para>Works and must work both in host side and client side</para>
@@ -25,10 +25,10 @@ public class NetworkPlayerData : NetworkBehaviour
     public void UpdateIsHostCoder(bool newIsHostCoder)
     {
         isHostCoder = newIsHostCoder;
+        OnIsHostCoderChanged?.Invoke();
+        
         if (!IsHost) UpdateIsHostCoderServerRpc(newIsHostCoder);
         UpdateIsHostCoderClientRpc(newIsHostCoder);
-        
-        OnIsHostCoderChanged?.Invoke(newIsHostCoder);
     }
     
     /// <summary>
@@ -40,6 +40,7 @@ public class NetworkPlayerData : NetworkBehaviour
     private void UpdateIsHostCoderServerRpc(bool newIsHostCoder)
     {
         isHostCoder = newIsHostCoder;
+        OnIsHostCoderChanged?.Invoke();
     }
     
     /// <summary>
@@ -52,5 +53,6 @@ public class NetworkPlayerData : NetworkBehaviour
     {
         if (IsHost) return;
         isHostCoder = newIsHostCoder;
+        OnIsHostCoderChanged?.Invoke();
     }
 }

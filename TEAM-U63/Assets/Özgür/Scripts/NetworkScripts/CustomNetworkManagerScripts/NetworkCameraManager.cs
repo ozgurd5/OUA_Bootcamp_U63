@@ -19,12 +19,11 @@ public class NetworkCameraManager : NetworkBehaviour
 
         npd.OnIsHostCoderChanged += UpdateCameraPriorities;
     }
-
-    //Change parameter
+    
     /// <summary>
     /// <para>Update the main cinemachine camera according to controlled player by changing it's priority</para>
     /// </summary>
-    private void UpdateCameraPriorities(bool @bool)
+    private void UpdateCameraPriorities()
     {
         if (IsHost)
         {
