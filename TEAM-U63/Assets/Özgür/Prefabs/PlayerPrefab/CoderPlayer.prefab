@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 7530498336432832920}
   - component: {fileID: 6967493690419810746}
   - component: {fileID: 6564080524809976904}
+  - component: {fileID: 2082439524373390254}
   m_Layer: 0
   m_Name: CoderPlayer
   m_TagString: Player
@@ -1041,6 +1042,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSound: {fileID: 8300000, guid: 595b408bcc8421f4e90ea69d4208650d, type: 3}
   runningSound: {fileID: 8300000, guid: 668f3bf123656924a8545eb70ff7360b, type: 3}
+  walkingSoundVolume: 1
+  runningSoundVolume: 1
+--- !u!114 &2082439524373390254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5106352570885643660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e17eb6934fabc4cb64d4d382e252c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5406720342454152900
 GameObject:
   m_ObjectHideFlags: 0

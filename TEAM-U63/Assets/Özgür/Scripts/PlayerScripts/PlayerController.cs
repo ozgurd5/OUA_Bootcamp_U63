@@ -18,16 +18,11 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float walkingRotatingSpeed = 5f;
     [SerializeField] private float runningRotatingSpeed = 20f;
 
-    private NetworkPlayerData npd;
     private NetworkInputManager nim;
     public NetworkInputManager.InputData input;
     private PlayerStateData psd;
-
-    private Transform cameraTransform;
     private Rigidbody rb;
 
-    private Vector3 lookingDirectionForward;
-    private Vector3 lookingDirectionRight;
     private Vector3 movingDirection;
     private float movingSpeed;
     private float rotatingSpeed;
@@ -41,15 +36,10 @@ public class PlayerController : NetworkBehaviour
         movingSpeed = walkingSpeed;
         rotatingSpeed = walkingRotatingSpeed;
         
-        npd = NetworkPlayerData.Singleton;
         nim = NetworkInputManager.Singleton;
         psd = GetComponent<PlayerStateData>();
         
         rb = GetComponent<Rigidbody>();
-        cameraTransform = Camera.main.transform;
-        
-        DecideForInputSource();
-        npd.OnIsHostCoderChanged += DecideForInputSource;
     }
 
     /// <summary>
@@ -62,19 +52,6 @@ public class PlayerController : NetworkBehaviour
         else
             input = nim.artistInput;
     }
-
-    /// <summary>
-    /// <para>Calculates looking direction</para>
-    /// <para>Must work in FixedUpdate, idk why but Update stutters</para>
-    /// </summary>
-    private void CalculateLookingDirection()
-    {
-        lookingDirectionForward = cameraTransform.forward;
-        lookingDirectionForward.y = 0f;
-
-        lookingDirectionRight = cameraTransform.right;
-        lookingDirectionRight.y = 0f;
-    }
     
     /// <summary>
     /// <para>Calculates moving direction</para>
@@ -82,7 +59,9 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void CalculateMovingDirection()
     {
-        movingDirection = lookingDirectionRight * input.moveInput.x + lookingDirectionForward * input.moveInput.y;
+        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, input.lookingDirection);
+        
+        movingDirection = lookingDirectionRight * input.moveInput.x + input.lookingDirection * input.moveInput.y;
         movingDirection.y = 0f;
     }
     
@@ -149,6 +128,8 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
+        //We have to constantly call this method due to reference changes in NetworkInputManager's ServerRpc method
+        //Detailed explanation is in there
         DecideForInputSource();
         
         HandleEasterEgg();
@@ -163,7 +144,6 @@ public class PlayerController : NetworkBehaviour
     {
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
         
-        CalculateLookingDirection();
         CalculateMovingDirection();
         SyncLookingDirection();
         

@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Controls easter egg state</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
 public class EasterEggController : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class EasterEggController : MonoBehaviour
     }
 
     /// <summary>
-    /// <para>Gets camera pivot's transform in order to assigned player</para>
+    /// <para>Gets camera pivot's transform according to assigned player</para>
     /// </summary>
     /// <returns>Coder's camera pivot if the player is coder, artist's camera pivot if the player is artist</returns>
     private Transform GetCameraPivotTransform()

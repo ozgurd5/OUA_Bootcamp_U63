@@ -6,8 +6,8 @@ using UnityEngine;
 /// <para>Single audio listener in main camera is actually enough but feels bad because cinemachine moves
 /// the camera around the player and that makes the audio listener closer to audio sources even though player
 /// is not in that distance</para>
-/// <para>Long story short: 3D audio volume should increase or decrease according to player position, not camera
-/// position which can change around the player</para>
+/// <para>TLDR: 3D audio volume should increase or decrease according to player position, not camera position</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
 public class NetworkAudioListenerManager : NetworkBehaviour
 {
@@ -21,7 +21,7 @@ public class NetworkAudioListenerManager : NetworkBehaviour
     {
         npd = NetworkPlayerData.Singleton;
 
-        npd.OnIsHostCoderChanged += UpdateAudioListeners;
+        npd.OnIsHostCoderChanged += UpdateAudioListeners;   //Needed for island 3 mechanics
         UpdateAudioListeners();
     }
 

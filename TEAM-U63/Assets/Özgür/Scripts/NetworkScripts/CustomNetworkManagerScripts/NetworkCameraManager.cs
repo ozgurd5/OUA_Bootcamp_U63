@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Makes the cinemachine camera of the controlled player main camera by changing it's priority</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
 public class NetworkCameraManager : NetworkBehaviour
 {
@@ -17,7 +18,7 @@ public class NetworkCameraManager : NetworkBehaviour
     {
         npd = NetworkPlayerData.Singleton;
 
-        npd.OnIsHostCoderChanged += UpdateCameraPriorities;
+        npd.OnIsHostCoderChanged += UpdateCameraPriorities; //Needed for island 3 mechanics
     }
     
     /// <summary>

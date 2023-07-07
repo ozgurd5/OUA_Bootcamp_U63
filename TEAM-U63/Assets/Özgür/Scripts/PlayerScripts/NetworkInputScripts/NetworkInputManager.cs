@@ -3,6 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Gets host and client input. Decides for coder and artist input</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
 public class NetworkInputManager : NetworkBehaviour
 {
@@ -17,6 +18,7 @@ public class NetworkInputManager : NetworkBehaviour
     public class InputData : INetworkSerializable
     {
         public Vector2 moveInput;
+        public Vector3 lookingDirection;
         public bool isRunKey;
         public bool isGrabKeyDown;
         public bool isPrimaryAbilityKeyDown;
@@ -32,6 +34,7 @@ public class NetworkInputManager : NetworkBehaviour
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref moveInput);
+            serializer.SerializeValue(ref lookingDirection);
             serializer.SerializeValue(ref isRunKey);
             serializer.SerializeValue(ref isGrabKeyDown);
             serializer.SerializeValue(ref isPrimaryAbilityKeyDown);
@@ -45,8 +48,8 @@ public class NetworkInputManager : NetworkBehaviour
         }
     }
     
-    private InputData hostInput;
-    private InputData clientInput;
+    public InputData hostInput;
+    public InputData clientInput;
     
     public InputData coderInput;
     public InputData artistInput;
@@ -67,7 +70,7 @@ public class NetworkInputManager : NetworkBehaviour
 
         npd = NetworkPlayerData.Singleton;
 
-        npd.OnIsHostCoderChanged += DecideForInputSource;
+        npd.OnIsHostCoderChanged += DecideForInputSource;   //Needed for island 3 mechanics
         DecideForInputSource();
     }
 
@@ -91,6 +94,7 @@ public class NetworkInputManager : NetworkBehaviour
         if (!IsHost) return;
         
         hostInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
+        //lookDirectionForward is calculated by NetworkInputLookingDirection.cs
         hostInput.isRunKey = nia.Player.Run.IsPressed();
         hostInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
         hostInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
@@ -112,6 +116,7 @@ public class NetworkInputManager : NetworkBehaviour
         if (IsHost) return;
         
         clientInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
+        //lookDirectionForward is calculated by NetworkInputLookingDirection.cs
         clientInput.isRunKey = nia.Player.Run.IsPressed();
         clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();  
         clientInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
@@ -154,8 +159,9 @@ public class NetworkInputManager : NetworkBehaviour
         //clientInput in this line is the client input in the host side
         clientInput = inputFromClient;
         
-        //Since we changed what clientInput references, we must update what coderInput and artistInput reference..
-        //..depending which one is controlled by client
+        //We have changed what clientInput references. coderInput or artistInput, whichever is referring the clientInput,..
+        //are now references old data. We must update them. This update will also effect input variable in the..
+        //..PlayerController.cs, since it's references to coderInput or artistInput. So we also have to update it in there
         DecideForInputSource();
     }
 }
