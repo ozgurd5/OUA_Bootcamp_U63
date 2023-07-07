@@ -1,10 +1,9 @@
 using Unity.Netcode;
 using UnityEngine;
 
-//TODO: fix OnNetworkSpawn before build
-
 /// <summary>
 /// <para>Gets host and client input. Decides for coder and artist input</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
 public class NetworkInputManager : NetworkBehaviour
 {
@@ -19,13 +18,14 @@ public class NetworkInputManager : NetworkBehaviour
     public class InputData : INetworkSerializable
     {
         public Vector2 moveInput;
-        public bool isJumpKeyDown;
+        public Vector3 lookingDirection;
         public bool isRunKey;
         public bool isGrabKeyDown;
         public bool isPrimaryAbilityKeyDown;
         public bool isSecondaryAbilityKeyDown;
         public bool isEasterEggKeyDown;
         public bool isEasterEggKeyUp;
+        public bool isMapKeyDown;
 
         public bool robotIsAscendKeyDown;
         public bool robotIsDescendKeyDown;
@@ -34,21 +34,22 @@ public class NetworkInputManager : NetworkBehaviour
         public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
         {
             serializer.SerializeValue(ref moveInput);
-            serializer.SerializeValue(ref isJumpKeyDown);
+            serializer.SerializeValue(ref lookingDirection);
             serializer.SerializeValue(ref isRunKey);
             serializer.SerializeValue(ref isGrabKeyDown);
             serializer.SerializeValue(ref isPrimaryAbilityKeyDown);
             serializer.SerializeValue(ref isSecondaryAbilityKeyDown);
             serializer.SerializeValue(ref isEasterEggKeyDown);
             serializer.SerializeValue(ref isEasterEggKeyUp);
+            serializer.SerializeValue(ref isMapKeyDown);
             
             serializer.SerializeValue(ref robotIsAscendKeyDown);
             serializer.SerializeValue(ref robotIsDescendKeyDown);
         }
     }
     
-    private InputData hostInput;
-    private InputData clientInput;
+    public InputData hostInput;
+    public InputData clientInput;
     
     public InputData coderInput;
     public InputData artistInput;
@@ -68,25 +69,20 @@ public class NetworkInputManager : NetworkBehaviour
         nia.Player.Enable();
 
         npd = NetworkPlayerData.Singleton;
-        
-        DecideForInputSource();
-        npd.OnIsHostCoderChanged += obj => DecideForInputSource();
-    }
 
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-        
-        //DecideForInputSource();
+        npd.OnIsHostCoderChanged += DecideForInputSource;   //Needed for island 3 mechanics
+        DecideForInputSource();
     }
 
     private void Update()
     {
         GetInputFromHost();
         GetInputFromClient();
-
-        //clientInput parameter in this method is the input coming from the client side
-        if (!IsHost) SendInputFromClientServerRpc(clientInput);
+        
+        //clientInput parameter in this method must be the input from the client side. Since host is also a client..
+        //..it can call this server rpc and override client input. We must prevent that by returning if isHost
+        if (IsHost) return;
+        SendInputFromClientToHostServerRpc(clientInput);
     }
     
     /// <summary>
@@ -98,13 +94,14 @@ public class NetworkInputManager : NetworkBehaviour
         if (!IsHost) return;
         
         hostInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
-        hostInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
+        //lookDirectionForward is calculated by NetworkInputLookingDirection.cs
         hostInput.isRunKey = nia.Player.Run.IsPressed();
         hostInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
         hostInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
         hostInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
         hostInput.isEasterEggKeyDown = nia.Player.EasterEgg.WasPressedThisFrame();
         hostInput.isEasterEggKeyUp = nia.Player.EasterEgg.WasReleasedThisFrame();
+        hostInput.isMapKeyDown = nia.Player.MapKey.WasPressedThisFrame();
 
         hostInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
         hostInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();
@@ -119,13 +116,14 @@ public class NetworkInputManager : NetworkBehaviour
         if (IsHost) return;
         
         clientInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
-        clientInput.isJumpKeyDown = nia.Player.Jump.WasPressedThisFrame();
+        //lookDirectionForward is calculated by NetworkInputLookingDirection.cs
         clientInput.isRunKey = nia.Player.Run.IsPressed();
         clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();  
         clientInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
         clientInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
         clientInput.isEasterEggKeyDown = nia.Player.EasterEgg.WasPressedThisFrame();
         clientInput.isEasterEggKeyUp = nia.Player.EasterEgg.WasReleasedThisFrame();
+        clientInput.isMapKeyDown = nia.Player.MapKey.WasPressedThisFrame();
         
         clientInput.robotIsAscendKeyDown = nia.Robot.Ascend.WasPressedThisFrame();
         clientInput.robotIsDescendKeyDown = nia.Robot.Descend.WasPressedThisFrame();
@@ -156,8 +154,14 @@ public class NetworkInputManager : NetworkBehaviour
     /// <param name="inputFromClient">Input from client side that will be send to host side</param>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
-    private void SendInputFromClientServerRpc(InputData inputFromClient)
+    private void SendInputFromClientToHostServerRpc(InputData inputFromClient)
     {
+        //clientInput in this line is the client input in the host side
         clientInput = inputFromClient;
+        
+        //We have changed what clientInput references. coderInput or artistInput, whichever is referring the clientInput,..
+        //are now references old data. We must update them. This update will also effect input variable in the..
+        //..PlayerController.cs, since it's references to coderInput or artistInput. So we also have to update it in there
+        DecideForInputSource();
     }
 }

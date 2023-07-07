@@ -3,8 +3,6 @@ using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
 
-//TODO: remove test only line in awake before build
-
 /// <summary>
 /// <para>Controls player movement, rotation, jump</para>
 /// <para>Works only in "Normal State"</para>
@@ -12,57 +10,38 @@ using UnityEngine;
 public class PlayerController : NetworkBehaviour
 {
     [Header("IMPORTANT - SELECT OR NOT")]
-    [SerializeField] private bool isCoder;
+    public bool isCoder;
 
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 10f;
-    [SerializeField] private float jumpSpeed = 5f;
     [SerializeField] private float walkingRotatingSpeed = 5f;
     [SerializeField] private float runningRotatingSpeed = 20f;
 
-    private NetworkPlayerData npd;
     private NetworkInputManager nim;
-    private NetworkInputManager.InputData input;
+    public NetworkInputManager.InputData input;
     private PlayerStateData psd;
-
-    private Transform cameraTransform;
     private Rigidbody rb;
 
-    private Vector3 lookingDirectionForward;
-    private Vector3 lookingDirectionRight;
     private Vector3 movingDirection;
     private float movingSpeed;
     private float rotatingSpeed;
 
-    private bool jumpCondition;
-    private float jumpBufferLimit = 0.2f;
-    private float jumpBufferTimer;
-
     public event Action OnEasterEggEnter;
     public event Action OnEasterEggExit;
 
-    private void Start()
+    private void Awake()
     {
-        //TEST ONLY
-        NetworkManager.Singleton.StartHost();
-        //TEST ONLY
-
         //Moving and rotating speed defaults must be walking speeds
         movingSpeed = walkingSpeed;
         rotatingSpeed = walkingRotatingSpeed;
         
-        npd = NetworkPlayerData.Singleton;
         nim = NetworkInputManager.Singleton;
         psd = GetComponent<PlayerStateData>();
         
         rb = GetComponent<Rigidbody>();
-        cameraTransform = Camera.main.transform;
-
-        DecideForInputSource();
-        npd.OnIsHostCoderChanged += obj => DecideForInputSource();
     }
-    
+
     /// <summary>
     /// <para>Gets coder or artist input as the input source</para>
     /// </summary>
@@ -73,19 +52,6 @@ public class PlayerController : NetworkBehaviour
         else
             input = nim.artistInput;
     }
-
-    /// <summary>
-    /// <para>Calculates looking direction</para>
-    /// <para>Must work in FixedUpdate, idk why but Update stutters</para>
-    /// </summary>
-    private void CalculateLookingDirection()
-    {
-        lookingDirectionForward = cameraTransform.forward;
-        lookingDirectionForward.y = 0f;
-
-        lookingDirectionRight = cameraTransform.right;
-        lookingDirectionRight.y = 0f;
-    }
     
     /// <summary>
     /// <para>Calculates moving direction</para>
@@ -93,7 +59,9 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void CalculateMovingDirection()
     {
-        movingDirection = lookingDirectionRight * input.moveInput.x + lookingDirectionForward * input.moveInput.y;
+        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, input.lookingDirection);
+        
+        movingDirection = lookingDirectionRight * input.moveInput.x + input.lookingDirection * input.moveInput.y;
         movingDirection.y = 0f;
     }
     
@@ -157,72 +125,29 @@ public class PlayerController : NetworkBehaviour
         movingDirection *= movingSpeed;
         rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
     }
-    
-    /// <summary>
-    /// <para>Handles jump buffer time for smooth gameplay</para>
-    /// <para>When user press the space, player has jumpBufferLimit time to touch the ground.</para>
-    /// <para>For example when player is falling down, user doesn't have to press the jump button in the perfect time
-    /// to jump right again. User press the button when player is in the air, if player touch ground within the
-    /// buffer time, it jumps</para>
-    /// <para>Must work in Update since it has input check</para>
-    /// </summary>
-    private void HandleJumpBufferTime()
-    {
-        if (input.isJumpKeyDown)
-            jumpBufferTimer = jumpBufferLimit;
-        else
-            jumpBufferTimer -= Time.deltaTime;
-    }
-    
-    /// <summary>
-    /// <para>Checks if conditions for jump are set</para>
-    /// <para>Must work in Update, since checks time based on deltaTime</para>
-    /// </summary>
-    private void CheckJumpCondition()
-    {
-        if (jumpBufferTimer > 0f && psd.isGrounded && psd.canJump)
-            jumpCondition = true;
-    }
-    
-    /// <summary>
-    /// <para>Makes the player jump if conditions are set</para>
-    /// <para>Must work in FixedUpdate</para>
-    /// </summary>
-    private void HandleJump()
-    {
-        if (jumpCondition)
-        {
-            rb.velocity += new Vector3(0f, jumpSpeed, 0f);
-            
-            //Must reset these variables to ensure that HandleJump is called once, not repeatedly
-            jumpCondition = false;
-            jumpBufferTimer = 0f;
-        }
-    }
 
     private void Update()
     {
+        //We have to constantly call this method due to reference changes in NetworkInputManager's ServerRpc method
+        //Detailed explanation is in there
+        DecideForInputSource();
+        
         HandleEasterEgg();
         
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
 
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
-
-        HandleJumpBufferTime();
-        CheckJumpCondition();
     }
 
     private void FixedUpdate()
     {
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
         
-        CalculateLookingDirection();
         CalculateMovingDirection();
         SyncLookingDirection();
         
         HandleMovement();
-        HandleJump();
     }
     
     /// <summary>

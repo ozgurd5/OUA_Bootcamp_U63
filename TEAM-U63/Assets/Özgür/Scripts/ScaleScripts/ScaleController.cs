@@ -3,21 +3,23 @@ using DG.Tweening;
 using Unity.Mathematics;
 using UnityEngine;
 
-//TODO: Remove debugRunScale when tests are done
-
 /// <summary>
 /// <para>Controls each scale and their position</para>
 /// </summary>
 public class ScaleController : MonoBehaviour
 {
     private static int completedScaleNumber;
-    public static bool isAllScalesCompleted;
+    private static bool isAllScalesCompleted;
+    public static event Action<bool> OnScaleCompleted;
 
+    //moveSpeed, completionLocalPositionY and maxLocalPosition should be static
     [Header("Assign")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float completionLenght = 14f;
+    [SerializeField] private float completionLocalPositionY = -4.5f;
+    [SerializeField] private float maxLocalPosition = -4.7f;
+    [SerializeField] private Transform ceilingTransform;
     //Remove after tests are done
-    [SerializeField] private bool debugRunScale;
+    [SerializeField] private bool testRunScale;
 
     //Materials should be static but we can't assign static variables in inspector, assign the same for every scale
     //Ceiling mesh renderer is object specific though
@@ -26,10 +28,11 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private Material notCompletedMaterial;
     [SerializeField] private MeshRenderer ceilingMeshRenderer;
     
+    //These should be static
     [Header("Assign - Color multipliers")]
-    [SerializeField] private float redMultiplier = 0.4f;
-    [SerializeField] private float greenMultiplier = 0.3f;
-    [SerializeField] private float blueMultiplier = 0.5f;
+    [SerializeField] private float redMultiplier = 0.5f;
+    [SerializeField] private float greenMultiplier = 0.4f;
+    [SerializeField] private float blueMultiplier = 0.8f;
     
     [Header("Number of cubes")]
     [SerializeField] private int redNumber;
@@ -42,6 +45,10 @@ public class ScaleController : MonoBehaviour
     private LineRenderer lr;
     private Vector3 fixedPosition;
     private Vector3 weightlessPosition;
+    private float weightlessLocalPositionY;
+    
+    private CubeStateManager enteredCubeStateManager;   //Explanation is in further down where it's being used
+    private bool isEnteredCubeStatesNull = true;        //Comparison to null is expensive
 
     private void Awake()
     {
@@ -49,11 +56,12 @@ public class ScaleController : MonoBehaviour
 
         //Scales are weightless in the beginning
         weightlessPosition = transform.position;
+        weightlessLocalPositionY = transform.localPosition.y;
         
         //Fixed and never changing position of the line's beginning in the ceiling
-        fixedPosition = new Vector3(weightlessPosition.x, transform.parent.position.y, weightlessPosition.z);
+        fixedPosition = new Vector3(weightlessPosition.x, ceilingTransform.position.y, weightlessPosition.z);
         
-        //Line renderer's default positions are 0 in the beginning
+        //Line renderer is disabled and it's default positions are (0,0,0) before we start the game
         lr.enabled = true;
         lr.SetPosition(0, fixedPosition);
         lr.SetPosition(1, weightlessPosition);
@@ -65,14 +73,14 @@ public class ScaleController : MonoBehaviour
     private void Update()
     {
         //Remove after tests are done
-        if (debugRunScale)
+        if (testRunScale)
         {
             UpdateScalePosition();
-            debugRunScale = false;
+            testRunScale = false;
         }
         
         //Not the best way :p
-        lr.SetPosition(1, transform.position);
+        lr.SetPosition(1, transform.position + new Vector3(0f, 0.5f, 0f));
     }
 
     /// <summary>
@@ -81,6 +89,11 @@ public class ScaleController : MonoBehaviour
     private void UpdateScalePosition()
     {
         float stretchAmount = redNumber * redMultiplier + greenNumber * greenMultiplier + blueNumber * blueMultiplier;
+        float localPositionYAfterStretch = weightlessLocalPositionY - stretchAmount;
+        
+        //Local positions are negative, so smaller position means longer lenght
+        if (localPositionYAfterStretch < maxLocalPosition)
+            stretchAmount -=  math.abs(localPositionYAfterStretch - maxLocalPosition);
         
         //To set a constant speed for DOMove, no matter what the distance is, we need these calculations //TYT FİZİK
         float targetPositionY = weightlessPosition.y - stretchAmount;
@@ -89,10 +102,9 @@ public class ScaleController : MonoBehaviour
         
         transform.DOMoveY(targetPositionY, duration).SetEase(Ease.Linear);
         
-        //DOMoveY is a coroutine, we need do check after it is done because we are comparing transform.position.y
-        //Since DOMoveY is a coroutine, transform.position.y will change during "duration"
+        //We need to check completion after DOMoveY is done because we are comparing transform.position.y..
+        //..in that method. Since DOMoveY is a coroutine, transform.position.y will change during "duration"
         Invoke(nameof(CheckCompletion), duration + 0.1f);
-        Invoke(nameof(UpdateCompletionMaterial), duration + 0.1f);
     }
     
     /// <summary>
@@ -100,15 +112,15 @@ public class ScaleController : MonoBehaviour
     /// </summary>
     private void CheckCompletion()
     {
-        float currentLenght = transform.localPosition.y;
-        
-        if (math.abs(currentLenght * -1 - completionLenght) < 0.01f)    //Float comparison is not precise
+        float currentLocalPositionY =  transform.localPosition.y;
+
+        if (math.abs(currentLocalPositionY - completionLocalPositionY) < 0.01f)    //Float comparison is not precise
         {
             isCompleted = true;
             completedScaleNumber++;
         }
         
-        else if (Math.Abs(currentLenght - completionLenght) > 0.01f && isCompleted) //Float comparison is not precise
+        else if (math.abs(currentLocalPositionY - completionLocalPositionY) > 0.01f && isCompleted) //Float comparison is not precise
         {
             isCompleted = false;
             completedScaleNumber--;
@@ -121,10 +133,14 @@ public class ScaleController : MonoBehaviour
         
         isAllScalesCompleted = completedScaleNumber == 3;
         
+        UpdateCompletionMaterial();
+
         //Remove after tests are done
         //Debug.Log(gameObject.name + ": " + isCompleted);
         //Debug.Log("how many completed: " + completedScaleNumber);
         //Debug.Log("all completed: " + isAllScalesCompleted);
+
+        OnScaleCompleted?.Invoke(isAllScalesCompleted);
     }
 
     /// <summary>
@@ -132,55 +148,75 @@ public class ScaleController : MonoBehaviour
     /// </summary>
     private void UpdateCompletionMaterial()
     {
+        //Updating mesh renderer materials in Unity is ultra protected for several long reasons
+        //Long story short: We can not change a single element of the mesh renderer's materials array
+        //We can only change the complete array by assign an array to it
+        //So we must make our changes in a copy array and assign it to mesh renderer material
+
+        Material[] newCeilingMeshRendererMaterials = ceilingMeshRenderer.materials;
+
         if (isCompleted)
         {
-            ceilingMeshRenderer.material = completedMaterial;
+            newCeilingMeshRendererMaterials[1] = completedMaterial;
             lr.material = completedMaterial;
         }
         else
         {
-            ceilingMeshRenderer.material = notCompletedMaterial;
+            newCeilingMeshRendererMaterials[1] = notCompletedMaterial;
             lr.material = notCompletedMaterial;
         }
+
+        ceilingMeshRenderer.materials = newCeilingMeshRendererMaterials;
     }
     
     private void OnTriggerEnter(Collider col)
     {
-        if ((bool)col.gameObject?.GetComponent<IsGrabbed>().isGrabbed) return;
-
-        col.gameObject.GetComponent<IsGrabbed>().isEntered = true;
-
-        Debug.Log("enter");
-        //Set the cube child of the scale for smooth movement
-        //col.transform.SetParent(transform);
-        
         if (col.CompareTag("RedPuzzle"))
             redNumber++;
         else if (col.CompareTag("GreenPuzzle"))
             greenNumber++;
         else if (col.CompareTag("BluePuzzle"))
             blueNumber++;
+        else
+            return;
+
+        //Updating scale position is not smooth and looks very bad while player is holding the cube
+        //We can not check if player is holding the cube in OnTriggerEnter method. Player can drop..
+        //..the cube after it's entry to the collider. So we must check it dynamically in FixedUpdate
+        
+        //Also the parenting in this script cause conflict with PlayerGrabbing.cs parenting. It must also be
+        //..done while player is not holding the cube.
+        
+        //To do all of that, we need the CubeStateManager.cs from the cube that has entered the collider...
+        //..and check if it's currently held by player or not
+        enteredCubeStateManager = col.GetComponent<CubeStateManager>();
+        isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
+    }
+
+    private void FixedUpdate()
+    {
+        if (isEnteredCubeStatesNull) return; 
+        if (enteredCubeStateManager.isGrabbed) return;
+        
+        //Parenting is needed for smooth movement and good looking motion
+        enteredCubeStateManager.transform.SetParent(transform);
 
         UpdateScalePosition();
+        enteredCubeStateManager = null;
+        isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (!(bool)col.gameObject?.GetComponent<IsGrabbed>().isEntered) return;
-
-        col.gameObject.GetComponent<IsGrabbed>().isEntered = false;
-        
-        Debug.Log("exit");
-        //Release the cube if it's taken back
-        //col.transform.SetParent(null);
-        
         if (col.CompareTag("RedPuzzle"))
             redNumber--;
         else if (col.CompareTag("GreenPuzzle"))
             greenNumber--;
         else if (col.CompareTag("BluePuzzle"))
             blueNumber--;
-
+        else
+            return;
+        
         UpdateScalePosition();
     }
 }

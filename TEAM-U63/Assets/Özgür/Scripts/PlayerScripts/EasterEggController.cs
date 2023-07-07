@@ -4,29 +4,41 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Controls easter egg state</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
 public class EasterEggController : MonoBehaviour
 {
-    public PlayerStateData psd;
-    public CinemachineFreeLook cam;
-    public PlayerController pc;
+    private PlayerStateData psd;
+    private PlayerController pc;
     
-    public Rigidbody rb;
-    public Transform cameraPivot;
-    public float defaultCameraPivotLocalYPosition;
+    private Rigidbody rb;
+    private Transform cameraPivot;
+    private float defaultCameraPivotLocalYPosition;
 
     private void Awake()
     {
         psd = GetComponent<PlayerStateData>();
-        cam = GetComponent<CinemachineFreeLook>();
         pc = GetComponent<PlayerController>();
 
         rb = GetComponent<Rigidbody>();
-        cameraPivot = transform.Find("CameraPivot").GetComponent<Transform>();
+        cameraPivot = GetCameraPivotTransform();
         defaultCameraPivotLocalYPosition = cameraPivot.localPosition.y;
 
         pc.OnEasterEggEnter += EnterEasterEggState;
         pc.OnEasterEggExit += ExitEasterEggState;
+    }
+
+    /// <summary>
+    /// <para>Gets camera pivot's transform according to assigned player</para>
+    /// </summary>
+    /// <returns>Coder's camera pivot if the player is coder, artist's camera pivot if the player is artist</returns>
+    private Transform GetCameraPivotTransform()
+    {
+        if (pc.isCoder)
+            return transform.Find("CoderCameraPivot").GetComponent<Transform>();
+        
+        //Works as else automatically
+        return transform.Find("ArtistCameraPivot").GetComponent<Transform>();
     }
     
     /// <summary>

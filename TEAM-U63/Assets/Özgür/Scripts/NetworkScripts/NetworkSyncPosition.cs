@@ -3,6 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Handles synchronization of position with interpolation because Network Transform is bad at interpolation</para>
+/// <para>Send data from host to client</para>
 /// </summary>
 public class NetworkSyncPosition : NetworkBehaviour
 {
