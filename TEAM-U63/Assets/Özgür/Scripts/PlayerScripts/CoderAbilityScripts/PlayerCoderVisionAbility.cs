@@ -10,7 +10,7 @@ public class PlayerCoderVisionAbility : MonoBehaviour
     public static event Action OnCoderVisionEnable;
     
     [Header("Assign")]
-    [SerializeField] private GameObject coderVisionCanvas;
+    [SerializeField] private Canvas coderVisionCanvas;
 
     private PlayerController pc;
 
@@ -24,7 +24,7 @@ public class PlayerCoderVisionAbility : MonoBehaviour
         if (!pc.input.isSecondaryAbilityKeyDown) return;
         
         isCoderVisionActive = !isCoderVisionActive;
-        coderVisionCanvas.SetActive(isCoderVisionActive);
+        coderVisionCanvas.gameObject.SetActive(isCoderVisionActive);
         
         OnCoderVisionEnable?.Invoke();
     }

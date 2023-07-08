@@ -39,7 +39,7 @@ public class NetworkInputLookingDirection : NetworkBehaviour
     /// <para>Must not be called from the host side. Since host is also a client, it can call this method, be careful</para>
     /// <param name="clientLookingDirection">Looking direction from client side that will be send to host side</param>
     /// </summary>
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void SendLookingDirectionToHostServerRpc(Vector3 clientLookingDirection)
     {
         nim.clientInput.lookingDirection = clientLookingDirection;

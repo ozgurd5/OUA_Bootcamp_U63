@@ -3,6 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Controls easter egg state</para>
+/// <para>Works locally</para>
 /// </summary>
 public class EasterEggController : MonoBehaviour
 {

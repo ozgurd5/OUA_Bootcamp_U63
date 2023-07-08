@@ -19,6 +19,7 @@ public class NetworkCameraManager : NetworkBehaviour
         npd = NetworkPlayerData.Singleton;
 
         npd.OnIsHostCoderChanged += UpdateCameraPriorities; //Needed for island 3 mechanics
+        UpdateCameraPriorities();
     }
     
     /// <summary>
