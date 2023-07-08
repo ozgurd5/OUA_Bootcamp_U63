@@ -45,10 +45,6 @@ public class PlayerController : NetworkBehaviour
         DecideForInputSource();
     }
     
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-
     /// <summary>
     /// <para>Gets coder or artist input as the input source</para>
     /// </summary>
@@ -71,10 +67,6 @@ public class PlayerController : NetworkBehaviour
         movingDirection = lookingDirectionRight * input.moveInput.x + input.lookingDirection * input.moveInput.y;
         movingDirection.y = 0f;
     }
-    
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
     
     /// <summary>
     /// <para>Turns the player to looking direction</para>

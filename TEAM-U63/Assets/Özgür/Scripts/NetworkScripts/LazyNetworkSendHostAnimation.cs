@@ -36,7 +36,7 @@ public class LazyNetworkSendHostAnimation : NetworkBehaviour
     private void GatherStates()
     {
         if (!IsHost) return;
-        Debug.Log("host animations gathered. HOST");
+        
         networkIsIdle = psd.isIdle;
         networkIsWalking = psd.isWalking;
         networkIsRunning = psd.isRunning;
@@ -46,7 +46,7 @@ public class LazyNetworkSendHostAnimation : NetworkBehaviour
     private void SendStatesClientRpc(bool newIsIdle, bool newIsWalking, bool newIsRunning)
     {
         if (IsHost) return;
-        Debug.Log("host animations sent. CLIENT");
+        
         networkIsIdle = newIsIdle;
         networkIsWalking = newIsWalking;
         networkIsRunning = newIsRunning;

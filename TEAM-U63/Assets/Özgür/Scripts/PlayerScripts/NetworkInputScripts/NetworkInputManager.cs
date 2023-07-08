@@ -8,7 +8,6 @@ using UnityEngine;
 public class NetworkInputManager : NetworkBehaviour
 {
     public static NetworkInputManager Singleton;
-    
     private NetworkInputActions nia;
     private NetworkPlayerData npd;
 
@@ -118,7 +117,7 @@ public class NetworkInputManager : NetworkBehaviour
         clientInput.moveInput = nia.Player.Movement.ReadValue<Vector2>();
         //lookDirectionForward is calculated by NetworkInputLookingDirection.cs
         clientInput.isRunKey = nia.Player.Run.IsPressed();
-        clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();  
+        clientInput.isGrabKeyDown = nia.Player.Grab.WasPressedThisFrame();
         clientInput.isPrimaryAbilityKeyDown = nia.Player.PrimaryAbility.WasPressedThisFrame();
         clientInput.isSecondaryAbilityKeyDown = nia.Player.SecondaryAbility.WasPressedThisFrame();
         clientInput.isEasterEggKeyDown = nia.Player.EasterEgg.WasPressedThisFrame();

@@ -20,7 +20,7 @@ public class PlayerGrabbing : MonoBehaviour
     private RaycastHit crosshairHit;
     
     private GameObject grabbedCube;
-    private CubeStateManager grabbedCubeStateManager;
+    private CubeManager _grabbedCubeManager;
     private Rigidbody grabbedCubeRb;
 
     private void Awake()
@@ -54,8 +54,8 @@ public class PlayerGrabbing : MonoBehaviour
         grabbedCube = crosshairHit.collider.gameObject;
         grabbedCubeRb = grabbedCube.GetComponent<Rigidbody>();
         
-        grabbedCubeStateManager = grabbedCube.GetComponent<CubeStateManager>();
-        grabbedCubeStateManager.isGrabbed = true;
+        _grabbedCubeManager = grabbedCube.GetComponent<CubeManager>();
+        _grabbedCubeManager.isGrabbed = true;
 
         //These values prevent all kind of stuttering, flickering, shaking, lagging etc.
         grabbedCubeRb.useGravity = false;
@@ -82,8 +82,8 @@ public class PlayerGrabbing : MonoBehaviour
         grabbedCubeRb.drag = 0f;
         grabbedCubeRb.constraints = RigidbodyConstraints.None;
         
-        grabbedCubeStateManager.isGrabbed = false;
-        grabbedCubeStateManager = null;
+        _grabbedCubeManager.isGrabbed = false;
+        _grabbedCubeManager = null;
         
         grabbedCube = null;
         grabbedCubeRb = null;
