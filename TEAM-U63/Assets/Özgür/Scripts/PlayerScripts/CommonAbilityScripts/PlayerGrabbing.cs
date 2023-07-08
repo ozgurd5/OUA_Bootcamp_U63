@@ -1,11 +1,16 @@
+using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
 /// <para>Responsible of grabbing, dropping and moving with the cube</para>
 /// </summary>
-public class PlayerGrabbing : MonoBehaviour
+public class PlayerGrabbing : NetworkBehaviour
 {
+    //
+    private NetworkPlayerData npd;
+    
     [Header("Assign")]
     [SerializeField] private Image crosshairImage;
     [SerializeField] private float grabRange = 5f;
@@ -15,12 +20,12 @@ public class PlayerGrabbing : MonoBehaviour
     private PlayerStateData psd;
     private PlayerController pc;
     private Camera cam;
-    
+
     private Ray crosshairRay;
     private RaycastHit crosshairHit;
     
     private GameObject grabbedCube;
-    private CubeManager _grabbedCubeManager;
+    private CubeManager grabbedCubeManager;
     private Rigidbody grabbedCubeRb;
 
     private void Awake()
@@ -28,6 +33,9 @@ public class PlayerGrabbing : MonoBehaviour
         psd = GetComponent<PlayerStateData>();
         pc = GetComponent<PlayerController>();
         cam = Camera.main;
+        
+        //
+        npd = NetworkPlayerData.Singleton;
     }
 
     /// <summary>
@@ -54,18 +62,23 @@ public class PlayerGrabbing : MonoBehaviour
         grabbedCube = crosshairHit.collider.gameObject;
         grabbedCubeRb = grabbedCube.GetComponent<Rigidbody>();
         
-        _grabbedCubeManager = grabbedCube.GetComponent<CubeManager>();
-        _grabbedCubeManager.isGrabbed = true;
+        grabbedCubeManager = grabbedCube.GetComponent<CubeManager>();
+        grabbedCubeManager.isGrabbed = true;
 
         //These values prevent all kind of stuttering, flickering, shaking, lagging etc.
         grabbedCubeRb.useGravity = false;
-        grabbedCubeRb.drag = 10f;
+        grabbedCubeRb.drag = 15f;
         grabbedCubeRb.constraints = RigidbodyConstraints.FreezeRotation;
         
         //Parenting is needed for smooth movement and good looking motion
-        grabbedCube.transform.parent = grabPoint.transform;
+        //grabbedCube.transform.parent = grabPoint.transform;
         
         psd.isGrabbing = true;
+        
+        //
+        grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = true;
+        grabbedCube.GetComponent<NetworkTransform>().enabled = false;
+        ReverseSyncScriptServerRpc(true);
     }
     
     /// <summary>
@@ -74,16 +87,21 @@ public class PlayerGrabbing : MonoBehaviour
     /// </summary>
     private void DropObject()
     {
+        //
+        grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = false;
+        grabbedCube.GetComponent<NetworkTransform>().enabled = true;
+        ReverseSyncScriptServerRpc(false);
+        
         psd.isGrabbing = false;
 
-        grabbedCube.transform.parent = null;
+        //grabbedCube.transform.parent = null;
         
         grabbedCubeRb.useGravity = true;
         grabbedCubeRb.drag = 0f;
         grabbedCubeRb.constraints = RigidbodyConstraints.None;
         
-        _grabbedCubeManager.isGrabbed = false;
-        _grabbedCubeManager = null;
+        grabbedCubeManager.isGrabbed = false;
+        grabbedCubeManager = null;
         
         grabbedCube = null;
         grabbedCubeRb = null;
@@ -97,17 +115,25 @@ public class PlayerGrabbing : MonoBehaviour
     {
         if (!psd.isGrabbing) return;
         
+        grabbedCube.transform.position = grabPoint.transform.position;
+        
         //Cube must not follow grabPoint's position all the time, if it does it won't be in the..
         //..perfect position and therefore stutter when it should be stop moving
-        if (Vector3.Distance(grabPoint.position, grabbedCube.transform.position) > 0.1f)
-        {
-            Vector3 moveDirection = (grabPoint.position -  grabbedCube.transform.position).normalized;
-            grabbedCubeRb.AddForce(moveDirection * movingForce);
-        }
+        //if (Vector3.Distance(grabPoint.position, grabbedCube.transform.position) > 0.1f)
+        //{
+        //    Vector3 moveDirection = (grabPoint.position - grabbedCube.transform.position).normalized;
+        //    grabbedCubeRb.AddForce(moveDirection * movingForce);
+        //}
     }
 
     private void Update()
     {
+        //
+        if (IsHost && npd.isHostCoder && name != "CoderPlayer") return;
+        if (IsHost && !npd.isHostCoder && name != "ArtistPlayer") return;
+        if (!IsHost && npd.isHostCoder && name != "ArtistPlayer") return;
+        if (!IsHost && !npd.isHostCoder && name != "CoderPlayer") return;
+        
         //Input and isGrabbing condition check must be checked here instead of inside of the methods
         //If not, it's get broken. Maybe there is a way to make safer methods with it's condition checks are..
         //..inside of it, idk
@@ -124,5 +150,27 @@ public class PlayerGrabbing : MonoBehaviour
     private void FixedUpdate()
     {
         MoveObject();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void ReverseSyncScriptServerRpc(bool isPickUp)
+    {
+        grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = isPickUp;
+        grabbedCube.GetComponent<NetworkTransform>().enabled = !isPickUp;
+
+        if (isPickUp)
+        {
+            //These values prevent all kind of stuttering, flickering, shaking, lagging etc.
+            grabbedCubeRb.useGravity = false;
+            grabbedCubeRb.drag = 15f;
+            grabbedCubeRb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
+
+        else
+        {
+            grabbedCubeRb.useGravity = true;
+            grabbedCubeRb.drag = 0f;
+            grabbedCubeRb.constraints = RigidbodyConstraints.None;
+        }
     }
 }

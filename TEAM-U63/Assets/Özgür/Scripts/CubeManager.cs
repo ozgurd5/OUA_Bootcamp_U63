@@ -47,7 +47,6 @@ public class CubeManager : NetworkBehaviour
     [ClientRpc]
     private void UpdateCubeStatusClientRpc(int newMaterialAndTagIndex)
     {
-        Debug.Log("client rpc running");
         if (IsHost) return;
         materialAndTagIndex = newMaterialAndTagIndex;
         UpdateMaterialAndTag();
@@ -56,7 +55,6 @@ public class CubeManager : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void UpdateCubeStatusServerRpc(int newMaterialAndTagIndex)
     {
-        Debug.Log("server rpc running");
         materialAndTagIndex = newMaterialAndTagIndex;
         UpdateMaterialAndTag();
     }

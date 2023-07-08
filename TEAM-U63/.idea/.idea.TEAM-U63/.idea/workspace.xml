@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scenes/Island 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scenes/Island 1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/BlueCube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/BlueCube.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeStateManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeStateManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LazyNetworkSendHostAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/LazyNetworkSendHostAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistAbilityScripts/PlayerArtistPaintAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistAbilityScripts/PlayerArtistPaintAbility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderAbilityScripts/PlayerCoderVisionAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderAbilityScripts/PlayerCoderVisionAbility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/ArtistPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/ArtistPlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/CoderPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/CoderPlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/CubeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/NetworkScripts/NetworkSyncPosition.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CommonAbilityScripts/PlayerGrabbing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CommonAbilityScripts/PlayerGrabbing.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NetworkInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/NetworkInputScripts/NetworkInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/ScaleScripts/ScaleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/ScaleScripts/ScaleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Scripts/ElevatorParenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/İbrahim/Scripts/ElevatorParenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Core/NetworkManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Core/NetworkObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Logging/NetworkLog.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Messaging/Messages/RpcMessages.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Messaging/MessagingSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/Messaging/RpcAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.netcode.gameobjects@1.4.0/Runtime/NetworkVariable/NetworkVariable.cs" root0="SKIP_HIGHLIGHTING" />
@@ -91,7 +87,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../bul/TEAM-U63.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../fan/TEAM-U63.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\ACER\Desktop\test" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -183,7 +179,7 @@
       <workItem from="1688600852138" duration="16533000" />
       <workItem from="1688626575987" duration="5843000" />
       <workItem from="1688660866958" duration="29878000" />
-      <workItem from="1688759560039" duration="24849000" />
+      <workItem from="1688759560039" duration="40486000" />
     </task>
     <servers />
   </component>

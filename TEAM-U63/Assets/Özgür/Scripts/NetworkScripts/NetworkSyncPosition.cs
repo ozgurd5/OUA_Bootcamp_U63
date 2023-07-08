@@ -7,14 +7,23 @@ using UnityEngine;
 /// </summary>
 public class NetworkSyncPosition : NetworkBehaviour
 {
+    public bool isReversed;
+    
     private static float interpolationValue = 0.5f;
     
     private void Update()
     {
-        if (!IsHost) return;
-        
-        //transform.position in this line is the position in the host side
-        SyncClientPositionWithInterpolationClientRpc(transform.position);
+        //
+        if (isReversed && !IsHost)
+        {
+            SyncHostPositionWithInterpolationServerRpc(transform.position);
+        }
+
+        if (!isReversed && IsHost)
+        {
+            //transform.position in this line is the position in the host side
+            SyncClientPositionWithInterpolationClientRpc(transform.position);
+        }
     }
     
     /// <summary>
@@ -28,5 +37,12 @@ public class NetworkSyncPosition : NetworkBehaviour
         //transform.position in this line is the position in the client side + host side
         //So this method also provide host side interpolation because host is also a client
         transform.position = Vector3.Lerp(transform.position , hostPosition, interpolationValue);
+    }
+
+    //
+    [ServerRpc(RequireOwnership = false)]
+    private void SyncHostPositionWithInterpolationServerRpc(Vector3 clientPosition)
+    {
+        transform.position = Vector3.Lerp(transform.position , clientPosition, interpolationValue);
     }
 }
