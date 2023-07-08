@@ -40,6 +40,9 @@ public class PlayerController : NetworkBehaviour
         psd = GetComponent<PlayerStateData>();
         
         rb = GetComponent<Rigidbody>();
+        
+        //TODO: remove before build, not necessary
+        DecideForInputSource();
     }
     
     ///////////////////////////////////////////////////////////

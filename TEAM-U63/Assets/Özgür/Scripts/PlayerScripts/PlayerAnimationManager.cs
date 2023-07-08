@@ -1,12 +1,16 @@
+using Unity.Netcode;
 using UnityEngine;
 
 /// <summary>
 /// <para>Responsible for player animation</para>
 /// </summary>
-public class PlayerAnimationManager : MonoBehaviour
+public class PlayerAnimationManager : NetworkBehaviour
 {
     private PlayerStateData psd;
     private Animator an;
+    
+    //
+    private LazyNetworkSendHostAnimation lazy;
 
     public enum Animation
     {
@@ -22,30 +26,60 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         psd = GetComponent<PlayerStateData>();
         an = GetComponent<Animator>();
+        
+        //
+        lazy = GetComponent<LazyNetworkSendHostAnimation>();
     }
 
     private void Update()
     {
         HandleEasterEgg();
         
-        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
-        
-        if (psd.isIdle && currentAnimation != Animation.Idle)
+        if (IsHost)
         {
-            an.Play("PlayerIdle");
-            currentAnimation = Animation.Idle;
+            if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        
+            if (psd.isIdle && currentAnimation != Animation.Idle)
+            {
+                an.Play("PlayerIdle");
+                currentAnimation = Animation.Idle;
+            }
+        
+            else if (psd.isWalking && currentAnimation != Animation.Walking)
+            {
+                an.Play("PlayerWalking");
+                currentAnimation = Animation.Walking;
+            }
+        
+            else if (psd.isRunning && currentAnimation != Animation.Running)
+            {
+                an.Play("PlayerRunning");
+                currentAnimation = Animation.Running;
+            }
         }
-        
-        else if (psd.isWalking && currentAnimation != Animation.Walking)
+
+        //
+        else
         {
-            an.Play("PlayerWalking");
-            currentAnimation = Animation.Walking;
-        }
+            if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
         
-        else if (psd.isRunning && currentAnimation != Animation.Running)
-        {
-            an.Play("PlayerRunning");
-            currentAnimation = Animation.Running;
+            if (lazy.networkIsIdle && currentAnimation != Animation.Idle)
+            {
+                an.Play("PlayerIdle");
+                currentAnimation = Animation.Idle;
+            }
+        
+            else if (lazy.networkIsWalking && currentAnimation != Animation.Walking)
+            {
+                an.Play("PlayerWalking");
+                currentAnimation = Animation.Walking;
+            }
+        
+            else if (lazy.networkIsRunning && currentAnimation != Animation.Running)
+            {
+                an.Play("PlayerRunning");
+                currentAnimation = Animation.Running;
+            }
         }
     }
 
