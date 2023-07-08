@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 7349328362982381401}
   - component: {fileID: 3611348412780926169}
   - component: {fileID: 6922753453741687387}
+  - component: {fileID: 8343242982373971324}
   m_Layer: 0
   m_Name: ArtistPlayer
   m_TagString: Player
@@ -196,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66dfc6120cece140837fbc17091738e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isReversed: 0
 --- !u!114 &3339852778641820878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +481,21 @@ MonoBehaviour:
   networkIsIdle: 0
   networkIsWalking: 0
   networkIsRunning: 0
+--- !u!114 &8343242982373971324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119828609326303048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551a95a917f3aa7469b2a8c822ad1928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkType: 0
+  controlSource: 0
+  playerName: 0
 --- !u!1 &2050370645264347171
 GameObject:
   m_ObjectHideFlags: 3
@@ -878,7 +895,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3966506279696876845}
-  m_LocalRotation: {x: -3e-45, y: 1e-45, z: -0, w: 1}
+  m_LocalRotation: {x: 1e-45, y: 1e-45, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

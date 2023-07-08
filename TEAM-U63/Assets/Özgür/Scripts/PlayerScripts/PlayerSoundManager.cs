@@ -10,14 +10,21 @@ public class PlayerSoundManager : MonoBehaviour
     [SerializeField] private AudioClip runningSound;
     [SerializeField] [Range(0,1)] private float walkingSoundVolume = 1f;
     [SerializeField] [Range(0,1)] private float runningSoundVolume = 1f;
-    
+
+    private PlayerData pd;
     private PlayerStateData psd;
+    private AudioListener al;
     private AudioSource aus;
 
     private void Awake()
     {
+        pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
         aus = GetComponent<AudioSource>();
+        al = GetComponent<AudioListener>();
+
+        pd.OnControlSourceChanged += UpdateAudioListener;
+        UpdateAudioListener();
     }
 
     private void Update()
@@ -54,14 +61,24 @@ public class PlayerSoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// <para>Starts playing the selected sound</para>
+    /// <para>Starts playing the selected clip</para>
     /// </summary>
     private void PlaySound()
     {
         if (aus.isPlaying) return;
         
-        //Making loop false feels more natural then using Stop method, but we have to enable it everytime
+        //Making loop property to false feels more natural then using Stop method, but we have to enable it everytime
         aus.loop = true;
         aus.Play();
+    }
+
+    /// <summary>
+    /// <para>3D audio volume should increase or decrease according to player position, not camera position. Therefore we
+    /// must not place the audio listener to main camera because it's moving and rotating around the player. Each player
+    /// has an audio listener and we have to only enable the local player's audio listener</para>
+    /// </summary>
+    private void UpdateAudioListener()
+    {
+        al.enabled = pd.controlSource == PlayerData.ControlSource.Local;
     }
 }
