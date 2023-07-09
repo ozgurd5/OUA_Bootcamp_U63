@@ -2,16 +2,15 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Assign this script to the objects that will be enabled when coder vision is activated</para>
-/// <para>Unity doesn't accept the name CoderVisionObject so it's CoderVisionObjectT. Weird Unity problem</para>
+/// <para>Since PlayerCoderVisionAbility.cs works locally, this too works locally</para>
 /// </summary>
-public class CoderVisionObjectT : MonoBehaviour
+public class CoderVisionObject : MonoBehaviour
 {
     private MeshRenderer mr;
 
     private void Awake()
     {
         mr = GetComponent<MeshRenderer>();
-        
         PlayerCoderVisionAbility.OnCoderVisionEnable += EnableMeshRenderer;
     }
 
