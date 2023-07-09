@@ -1,10 +1,12 @@
+using Unity.Netcode;
 using UnityEngine;
 
 /// <summary>
 /// <para>Responsible for player animation</para>
 /// </summary>
-public class PlayerAnimationManager : MonoBehaviour
+public class PlayerAnimationManager : NetworkBehaviour
 {
+    private PlayerData pd;
     private PlayerStateData psd;
     private Animator an;
 
@@ -20,6 +22,7 @@ public class PlayerAnimationManager : MonoBehaviour
     
     private void Awake()
     {
+        pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
         an = GetComponent<Animator>();
     }
@@ -27,7 +30,7 @@ public class PlayerAnimationManager : MonoBehaviour
     private void Update()
     {
         HandleEasterEgg();
-        
+
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
         
         if (psd.isIdle && currentAnimation != Animation.Idle)

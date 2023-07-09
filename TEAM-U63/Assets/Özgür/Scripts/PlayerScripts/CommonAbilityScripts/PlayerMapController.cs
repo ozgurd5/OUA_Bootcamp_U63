@@ -25,7 +25,7 @@ public class PlayerMapController : MonoBehaviour
     /// </summary>
     private void OpenAndCloseMap()
     {
-        if (!pc.input.isMapKeyDown || !mapCollected) return;
+        //if (!pc.input.isMapKeyDown || !mapCollected) return;
         
         isMapActive = !isMapActive;
         mapCanvas.SetActive(isMapActive);
