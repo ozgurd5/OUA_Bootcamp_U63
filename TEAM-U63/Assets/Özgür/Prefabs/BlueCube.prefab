@@ -122,7 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1045c91b456a2c419ffd1e54ac2ffac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleMaterials:
+  - {fileID: 2100000, guid: 1d716cf66d16f2743a8425e8d0bf7170, type: 2}
+  - {fileID: 2100000, guid: 8ea5569540eb72d49b9e3da286a1e8ff, type: 2}
+  - {fileID: 2100000, guid: 82cde8e0b358ad84381811ee25157e38, type: 2}
   isGrabbed: 0
+  materialAndTagIndex: 0
 --- !u!54 &5469490300526062211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -176,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
+  SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0

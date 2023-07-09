@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// <para>Responsible of player selection and starting of the game</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
 public class LobbyUI : NetworkBehaviour
 {
@@ -32,10 +33,9 @@ public class LobbyUI : NetworkBehaviour
         base.OnNetworkSpawn();
         
         //Client shouldn't start the game. Also client can't see the join code, so doesn't need copyCodeButton
-        if (IsHost)
-        {
-            startGameButton.gameObject.SetActive(true);
-            copyCodeButton.gameObject.SetActive(true);
-        }
+        if (!IsHost) return;
+        
+        startGameButton.gameObject.SetActive(true);
+        copyCodeButton.gameObject.SetActive(true);
     }
 }

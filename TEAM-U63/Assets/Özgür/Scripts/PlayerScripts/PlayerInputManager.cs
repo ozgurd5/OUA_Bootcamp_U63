@@ -1,0 +1,50 @@
+using UnityEngine;
+
+public class PlayerInputManager : MonoBehaviour
+{
+    private PlayerInputActions pia;
+    private PlayerData pd;
+    private Transform cameraTransform;
+
+    public Vector2 moveInput;
+    public Vector3 lookingDirection;
+    public bool isRunKey;
+    public bool isGrabKeyDown;
+    public bool isPrimaryAbilityKeyDown;
+    public bool isSecondaryAbilityKeyDown;
+    public bool isEasterEggKeyDown;
+    public bool isEasterEggKeyUp;
+    public bool isMapKeyDown;
+
+    private void Awake()
+    {
+        pia = new PlayerInputActions();
+        pia.Player.Enable();
+
+        pd = GetComponent<PlayerData>();
+        cameraTransform = Camera.main!.transform;
+    }
+
+    private void Update()
+    {
+        if (pd.controlSource != PlayerData.ControlSource.Local) return;
+        
+        moveInput = pia.Player.Movement.ReadValue<Vector2>();
+        isRunKey = pia.Player.Run.IsPressed();
+        isGrabKeyDown = pia.Player.Grab.WasPressedThisFrame();
+        isPrimaryAbilityKeyDown = pia.Player.PrimaryAbility.WasPressedThisFrame();
+        isSecondaryAbilityKeyDown = pia.Player.SecondaryAbility.WasPressedThisFrame();
+        isEasterEggKeyDown = pia.Player.EasterEgg.WasPressedThisFrame();
+        isMapKeyDown = pia.Player.MapKey.WasPressedThisFrame();
+        isEasterEggKeyUp = pia.Player.EasterEgg.WasReleasedThisFrame();
+    }
+
+    //TODO what happens in update? we can or we must?
+    //Methods that depend lookingDirection in PlayerController.cs are working in FixedUpdate, so we can calculate..
+    //..and sync lookingDirection in FixedUpdate
+    private void FixedUpdate()
+    {
+        lookingDirection = cameraTransform.forward;
+        lookingDirection.y = 0f;
+    }
+}

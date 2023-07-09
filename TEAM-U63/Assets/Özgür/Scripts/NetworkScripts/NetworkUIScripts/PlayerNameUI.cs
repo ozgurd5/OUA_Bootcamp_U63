@@ -23,7 +23,7 @@ public class PlayerNameUI : NetworkBehaviour
         //Works locally
         playerNameInputField.onValueChanged.AddListener(enteredName => localPlayerName = enteredName);
 
-        npd.OnIsHostCoderChanged += UpdatePlayerNames;
+        //npd.OnIsHostCoderChanged += UpdatePlayerNames;
         NetworkManager.Singleton.OnClientConnectedCallback += obj => SetPlayerNames();
     }
     

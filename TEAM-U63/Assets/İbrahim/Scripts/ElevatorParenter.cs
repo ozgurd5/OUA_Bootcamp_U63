@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ElevatorParenter : MonoBehaviour
 {
-    private CubeStateManager enteredCubeStateManager;   //Explanation is in further down where it's being used
+    private CubeManager _enteredCubeManager;   //Explanation is in further down where it's being used
     private bool isEnteredCubeStatesNull = true;        //Comparison to null is expensive
     
     private void OnTriggerEnter(Collider col)
@@ -16,21 +16,21 @@ public class ElevatorParenter : MonoBehaviour
         //Also the parenting in this script cause conflict with PlayerGrabbing.cs parenting. It must also be
         //..done while player is not holding the cube.
         
-        //To do all of that, we need the CubeStateManager.cs from the cube that has entered the collider...
+        //To do all of that, we need the CubeManager.cs from the cube that has entered the collider...
         //..and check if it's currently held by player or not
-        enteredCubeStateManager = col.GetComponent<CubeStateManager>();
+        _enteredCubeManager = col.GetComponent<CubeManager>();
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
     }
     
     private void FixedUpdate()
     {
         if (isEnteredCubeStatesNull) return; 
-        if (enteredCubeStateManager.isGrabbed) return;
+        if (_enteredCubeManager.isGrabbed) return;
         
         //Parenting is needed for smooth movement and good looking motion
-        enteredCubeStateManager.transform.SetParent(transform.parent);
+        _enteredCubeManager.transform.SetParent(transform.parent);
 
-        enteredCubeStateManager = null;
+        _enteredCubeManager = null;
         isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
     }
 }

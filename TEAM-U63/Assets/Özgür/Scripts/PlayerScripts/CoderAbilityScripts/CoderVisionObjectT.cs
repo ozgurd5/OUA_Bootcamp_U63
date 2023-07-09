@@ -15,6 +15,9 @@ public class CoderVisionObjectT : MonoBehaviour
         PlayerCoderVisionAbility.OnCoderVisionEnable += EnableMeshRenderer;
     }
 
+    /// <summary>
+    /// <para>Enables mesh renderer so that coder can see it</para>
+    /// </summary>
     private void EnableMeshRenderer()
     {
         mr.enabled = PlayerCoderVisionAbility.isCoderVisionActive;

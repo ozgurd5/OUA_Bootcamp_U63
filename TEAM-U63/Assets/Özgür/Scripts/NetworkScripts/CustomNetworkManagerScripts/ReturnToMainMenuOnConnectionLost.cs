@@ -3,9 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// <para>Returns player to the main menu after disconnection</para>
+/// <para>Returns player to the main menu after connection lost</para>
+/// <para>Works both in host and client side</para>
 /// </summary>
-public class ReturnToMainMenuOnDisconnection : NetworkBehaviour
+public class ReturnToMainMenuOnConnectionLost : NetworkBehaviour
 {
     public override void OnNetworkSpawn()
     {
