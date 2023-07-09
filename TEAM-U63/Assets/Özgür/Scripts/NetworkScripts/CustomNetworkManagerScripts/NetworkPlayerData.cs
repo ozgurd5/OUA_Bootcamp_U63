@@ -3,7 +3,7 @@ using Unity.Netcode;
 
 /// <summary>
 /// <para>Responsible of deciding which user controls which player</para>
-/// <para>Works both in host and client sides but NOT for each player</para>
+/// <para>Works both in host and client sides</para>
 /// </summary>
 public class NetworkPlayerData : NetworkBehaviour
 {

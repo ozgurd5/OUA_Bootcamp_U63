@@ -30,8 +30,7 @@ public class NetworkInputLookingDirection : NetworkBehaviour
         else
             nim.clientInput.lookingDirection = lookingDirection;
 
-        if (IsHost) return;
-        SendLookingDirectionToHostServerRpc(lookingDirection);
+        if (!IsHost) SendLookingDirectionToHostServerRpc(lookingDirection);
     }
     
     /// <summary>

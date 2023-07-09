@@ -3,22 +3,13 @@ using Unity.Netcode;
 
 /// <summary>
 /// <para>Holds the data of if the player is host, client, controlled, remote, coder or artist</para>
-/// <para>Works for each player both in host and client side</para>
+/// <para>Works for each player, both in host and client sides</para>
 /// </summary>
 public class PlayerData : NetworkBehaviour
 {
     private NetworkPlayerData npd;
 
     public event Action OnControlSourceChanged;
-    
-    /// <summary>
-    /// <para>Host or client</para>
-    /// </summary>
-    public enum NetworkType
-    {
-        Host,
-        Client
-    }
     
     /// <summary>
     /// <para>Controlled by this computer, or remote</para>
@@ -35,7 +26,6 @@ public class PlayerData : NetworkBehaviour
         Artist
     }
 
-    public NetworkType networkType;
     public ControlSource controlSource;
     public PlayerName playerName;
 
@@ -47,22 +37,7 @@ public class PlayerData : NetworkBehaviour
         DecidePlayerName();
         DecideControlSource();
     }
-
-    //TODO: this must be in Awake
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-        DecideNetworkType();
-    }
-
-    private void DecideNetworkType()
-    {
-        if (IsHost)
-            networkType = NetworkType.Host;
-        else
-            networkType = NetworkType.Client;
-    }
-
+    
     private void DecidePlayerName()
     {
         if (name == "CoderPlayer")

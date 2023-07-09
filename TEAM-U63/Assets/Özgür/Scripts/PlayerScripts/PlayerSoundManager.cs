@@ -2,6 +2,9 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Responsible of sound management of the player</para>
+/// <para>Works for each player, both in host and client sides</para>
+/// <para>Audio source must work in each player, both in host and client side but audio listener must only work
+/// in local player</para>
 /// </summary>
 public class PlayerSoundManager : MonoBehaviour
 {
@@ -23,7 +26,7 @@ public class PlayerSoundManager : MonoBehaviour
         aus = GetComponent<AudioSource>();
         al = GetComponent<AudioListener>();
 
-        pd.OnControlSourceChanged += UpdateAudioListener;
+        pd.OnControlSourceChanged += UpdateAudioListener;   //Needed for island 3 mechanics
         UpdateAudioListener();
     }
 

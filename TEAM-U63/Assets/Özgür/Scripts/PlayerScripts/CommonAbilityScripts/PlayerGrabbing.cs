@@ -76,7 +76,7 @@ public class PlayerGrabbing : NetworkBehaviour
         psd.isGrabbing = true;
         
         //
-        grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = true;
+        //grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = true;
         grabbedCube.GetComponent<NetworkTransform>().enabled = false;
         ReverseSyncScriptServerRpc(true);
     }
@@ -88,7 +88,7 @@ public class PlayerGrabbing : NetworkBehaviour
     private void DropObject()
     {
         //
-        grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = false;
+        //grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = false;
         grabbedCube.GetComponent<NetworkTransform>().enabled = true;
         ReverseSyncScriptServerRpc(false);
         
@@ -155,7 +155,7 @@ public class PlayerGrabbing : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void ReverseSyncScriptServerRpc(bool isPickUp)
     {
-        grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = isPickUp;
+        //grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = isPickUp;
         grabbedCube.GetComponent<NetworkTransform>().enabled = !isPickUp;
 
         if (isPickUp)
