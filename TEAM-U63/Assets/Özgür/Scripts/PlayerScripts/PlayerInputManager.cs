@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// <para>Gather and holds data from the unity input system</para>
+/// <para>Works for only local player</para>
+/// </summary>
 public class PlayerInputManager : MonoBehaviour
 {
     private PlayerInputActions pia;
@@ -27,7 +31,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void Update()
     {
-        if (pd.controlSource != PlayerData.ControlSource.Local) return;
+        if (!pd.isLocal) return;
         
         moveInput = pia.Player.Movement.ReadValue<Vector2>();
         isRunKey = pia.Player.Run.IsPressed();
@@ -38,8 +42,7 @@ public class PlayerInputManager : MonoBehaviour
         isMapKeyDown = pia.Player.MapKey.WasPressedThisFrame();
         isEasterEggKeyUp = pia.Player.EasterEgg.WasReleasedThisFrame();
     }
-
-    //TODO what happens in update? we can or we must?
+    
     //Methods that depend lookingDirection in PlayerController.cs are working in FixedUpdate, so we can calculate..
     //..and sync lookingDirection in FixedUpdate
     private void FixedUpdate()

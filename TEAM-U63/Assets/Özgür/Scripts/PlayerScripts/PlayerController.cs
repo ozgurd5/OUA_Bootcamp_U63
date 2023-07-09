@@ -5,7 +5,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Controls player movement, rotation, jump</para>
-/// <para>Works only in "Normal State"</para>
+/// <para>Works only for local player</para>
 /// </summary>
 public class PlayerController : NetworkBehaviour
 {
@@ -114,11 +114,11 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
-        if (pd.controlSource != PlayerData.ControlSource.Local) return;
+        if (!pd.isLocal) return;
         
         HandleEasterEgg();
         
-        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
@@ -126,8 +126,8 @@ public class PlayerController : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (pd.controlSource != PlayerData.ControlSource.Local) return;
-        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        if (!pd.isLocal) return;
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
         
         CalculateMovingDirection();
         TurnLookingDirection();
@@ -142,7 +142,7 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void HandleEasterEgg()
     {
-        if (psd.currentState == PlayerStateData.PlayerState.AbilityState) return;
+        if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) return;
         
         if (pim.isEasterEggKeyDown)
             OnEasterEggEnter?.Invoke();

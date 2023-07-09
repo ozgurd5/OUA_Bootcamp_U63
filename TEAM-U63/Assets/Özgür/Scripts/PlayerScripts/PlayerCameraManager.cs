@@ -3,8 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Updates main camera according to local player</para>
-/// <para>Works for each player, both in host and client sides</para>
-/// <para>Cinemachine camera must be active only in local player</para>
+/// <para>Works for each player</para>
 /// </summary>
 public class PlayerCameraManager : MonoBehaviour
 {
@@ -22,6 +21,6 @@ public class PlayerCameraManager : MonoBehaviour
 
     private void UpdateCurrentCamera()
     {
-        cinemachineCamera.enabled = pd.controlSource == PlayerData.ControlSource.Local;
+        cinemachineCamera.enabled = pd.isLocal;
     }
 }

@@ -4,17 +4,16 @@ using UnityEngine.UI;
 
 /// <summary>
 /// <para>Responsible of painting ability of the artist</para>
+/// <para>Works only in local player</para>
 /// </summary>
 public class PlayerArtistPaintAbility : NetworkBehaviour
 {
-    //
-    private NetworkPlayerData npd;
-    
     [Header("Assign")]
     [SerializeField] private Image crosshairImage;
     [SerializeField] private float paintRange = 5f;
-    
-    private PlayerController pc;
+
+    private PlayerData pd;
+    private PlayerInputManager pim;
     private Camera cam;
     
     private Ray crosshairRay;
@@ -22,11 +21,9 @@ public class PlayerArtistPaintAbility : NetworkBehaviour
     
     private void Awake()
     {
-        pc = GetComponent<PlayerController>();
+        pd = GetComponent<PlayerData>();
+        pim = GetComponent<PlayerInputManager>();
         cam = Camera.main;
-        
-        //
-        npd = NetworkPlayerData.Singleton;
     }
 
     /// <summary>
@@ -46,13 +43,10 @@ public class PlayerArtistPaintAbility : NetworkBehaviour
 
     private void Update()
     {
-        //
-        if ((npd.isHostCoder && !IsHost) || (!npd.isHostCoder && IsHost))
-        {
-            //if (!pc.input.isSecondaryAbilityKeyDown) return;   
-            if (!CastRayForCubes()) return;
+        if (!pd.isLocal) return;
+        if (!pim.isSecondaryAbilityKeyDown) return;   
+        if (!CastRayForCubes()) return;
         
-            crosshairHit.collider.gameObject.GetComponent<CubeManager>().PaintCube();
-        }
+        crosshairHit.collider.gameObject.GetComponent<CubeManager>().PaintCube();
     }
 }

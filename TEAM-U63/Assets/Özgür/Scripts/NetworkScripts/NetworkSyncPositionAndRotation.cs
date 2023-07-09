@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Handles synchronization of position and rotation across the network with interpolation</para>
-/// <para>Works for each object, both in host and client sides</para>
+/// <para>Works only for local object</para>
 /// <para>Local objects transmit position and rotation data, remote objects receive position and rotation data</para>
 /// </summary>
 public class NetworkSyncPositionAndRotation : NetworkBehaviour
@@ -21,8 +21,8 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
         if (CompareTag("Player"))
         {
             pd = GetComponent<PlayerData>();
-            pd.OnControlSourceChanged += () => UpdateIsObjectLocal(pd.controlSource == PlayerData.ControlSource.Local);
-            UpdateIsObjectLocal(pd.controlSource == PlayerData.ControlSource.Local);
+            pd.OnControlSourceChanged += () => UpdateIsObjectLocal(pd.isLocal);
+            UpdateIsObjectLocal(pd.isLocal);
 
             pc = GetComponent<PlayerController>();
         }
