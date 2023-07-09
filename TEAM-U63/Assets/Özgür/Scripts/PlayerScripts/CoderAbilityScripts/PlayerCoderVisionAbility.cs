@@ -31,7 +31,7 @@ public class PlayerCoderVisionAbility : NetworkBehaviour
         //
         if ((npd.isHostCoder && IsHost) || (!npd.isHostCoder && !IsHost))
         {
-            if (!pc.input.isSecondaryAbilityKeyDown) return;
+            //if (!pc.input.isSecondaryAbilityKeyDown) return;
 
             isCoderVisionActive = !isCoderVisionActive;
             coderVisionCanvas.gameObject.SetActive(isCoderVisionActive);

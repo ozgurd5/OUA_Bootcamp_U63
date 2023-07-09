@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 4210278552668420622}
   - component: {fileID: 7213661440270305425}
   - component: {fileID: 5630695906611296981}
+  - component: {fileID: 979862807991171988}
   - component: {fileID: 7022791293337844307}
   - component: {fileID: 4885421240507298559}
   - component: {fileID: 4636345872673757799}
@@ -397,8 +398,6 @@ GameObject:
   - component: {fileID: 2856632037734889629}
   - component: {fileID: 5005171469690754772}
   - component: {fileID: 821208545414571534}
-  - component: {fileID: 32459853959101937}
-  - component: {fileID: 6731819363653698531}
   m_Layer: 0
   m_Name: CoderPlayer
   m_TagString: Player
@@ -459,7 +458,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5190144263192956876}
-  m_Material: {fileID: 13400000, guid: e01308874ac3b3449923dea93b65b0bd, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -501,6 +500,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlSource: 0
   playerName: 0
+--- !u!114 &979862807991171988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5190144263192956876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bdc04bafc564544b89512c530c5d73f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInput: {x: 0, y: 0}
+  lookingDirection: {x: 0, y: 0, z: 0}
+  isRunKey: 0
+  isGrabKeyDown: 0
+  isPrimaryAbilityKeyDown: 0
+  isSecondaryAbilityKeyDown: 0
+  isEasterEggKeyDown: 0
+  isEasterEggKeyUp: 0
+  isMapKeyDown: 0
 --- !u!114 &7022791293337844307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,11 +533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865a49163f43dff4b9204f3050c9f5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCoder: 1
   walkingSpeed: 3
   runningSpeed: 10
-  walkingRotatingSpeed: 5
-  runningRotatingSpeed: 15
+  walkingRotatingSpeed: 0.2
+  runningRotatingSpeed: 0.4
+  rotatingSpeed: 0
 --- !u!114 &4885421240507298559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,7 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66dfc6120cece140837fbc17091738e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pd: {fileID: 0}
 --- !u!114 &2923539045908985717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,7 +759,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5190144263192956876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13d1e315e710dd442828173e98b2dbf4, type: 3}
   m_Name: 
@@ -756,7 +775,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5190144263192956876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e86f14cde71929409dcf56d1c32c17e, type: 3}
   m_Name: 
@@ -770,39 +789,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5190144263192956876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3fd8182397e80f409fe84129a6b202f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coderVisionCanvas: {fileID: 0}
---- !u!114 &32459853959101937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5190144263192956876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e17eb6934fabc4cb64d4d382e252c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6731819363653698531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5190144263192956876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ff7f032e647eb4fa8ce7f0d0041f4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  networkIsIdle: 0
-  networkIsWalking: 0
-  networkIsRunning: 0
 --- !u!1 &5369427239680500428
 GameObject:
   m_ObjectHideFlags: 0

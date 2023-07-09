@@ -20,8 +20,8 @@ public class EasterEggController : MonoBehaviour
         pc = GetComponent<PlayerController>();
 
         rb = GetComponent<Rigidbody>();
-        cameraPivot = GetCameraPivotTransform();
-        defaultCameraPivotLocalYPosition = cameraPivot.localPosition.y;
+        //cameraPivot = GetCameraPivotTransform();
+        //defaultCameraPivotLocalYPosition = cameraPivot.localPosition.y;
 
         pc.OnEasterEggEnter += EnterEasterEggState;
         pc.OnEasterEggExit += ExitEasterEggState;
@@ -31,14 +31,14 @@ public class EasterEggController : MonoBehaviour
     /// <para>Gets camera pivot's transform according to assigned player</para>
     /// </summary>
     /// <returns>Coder's camera pivot if the player is coder, artist's camera pivot if the player is artist</returns>
-    private Transform GetCameraPivotTransform()
-    {
-        if (pc.isCoder)
-            return transform.Find("CoderCameraPivot").GetComponent<Transform>();
+    //private Transform GetCameraPivotTransform()
+    //{
+        //if (pc.isCoder)
+//            return transform.Find("CoderCameraPivot").GetComponent<Transform>();
         
         //Works as else automatically
-        return transform.Find("ArtistCameraPivot").GetComponent<Transform>();
-    }
+        //return transform.Find("ArtistCameraPivot").GetComponent<Transform>();
+    //}
     
     /// <summary>
     /// <para>Makes player enter to easter egg state</para>

@@ -76,7 +76,7 @@ public class PlayerGrabbing : NetworkBehaviour
         psd.isGrabbing = true;
         
         //
-        //grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = true;
+        //grabbedCube.GetComponent<NetworkSyncPositionAndRotation>().isReversed = true;
         grabbedCube.GetComponent<NetworkTransform>().enabled = false;
         ReverseSyncScriptServerRpc(true);
     }
@@ -88,7 +88,7 @@ public class PlayerGrabbing : NetworkBehaviour
     private void DropObject()
     {
         //
-        //grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = false;
+        //grabbedCube.GetComponent<NetworkSyncPositionAndRotation>().isReversed = false;
         grabbedCube.GetComponent<NetworkTransform>().enabled = true;
         ReverseSyncScriptServerRpc(false);
         
@@ -138,7 +138,7 @@ public class PlayerGrabbing : NetworkBehaviour
         //If not, it's get broken. Maybe there is a way to make safer methods with it's condition checks are..
         //..inside of it, idk
         
-        if (!pc.input.isGrabKeyDown) return;
+        //if (!pc.input.isGrabKeyDown) return;
 
         if (psd.isGrabbing)
             DropObject();
@@ -155,7 +155,7 @@ public class PlayerGrabbing : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void ReverseSyncScriptServerRpc(bool isPickUp)
     {
-        //grabbedCube.GetComponent<NetworkSyncPosition>().isReversed = isPickUp;
+        //grabbedCube.GetComponent<NetworkSyncPositionAndRotation>().isReversed = isPickUp;
         grabbedCube.GetComponent<NetworkTransform>().enabled = !isPickUp;
 
         if (isPickUp)

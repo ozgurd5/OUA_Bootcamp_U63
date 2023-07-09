@@ -9,23 +9,20 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : NetworkBehaviour
 {
-    [Header("IMPORTANT - SELECT OR NOT")]
-    public bool isCoder;
-
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 10f;
-    [SerializeField] private float walkingRotatingSpeed = 5f;
-    [SerializeField] private float runningRotatingSpeed = 20f;
+    [SerializeField] [Range(0,1)] private float walkingRotatingSpeed = 0.2f;
+    [SerializeField] [Range(0,1)] private float runningRotatingSpeed = 0.4f;
 
-    private NetworkInputManager nim;
-    public NetworkInputManager.InputData input;
+    private PlayerData pd;
     private PlayerStateData psd;
+    private PlayerInputManager pim;
     private Rigidbody rb;
 
+    public float rotatingSpeed;
     private Vector3 movingDirection;
     private float movingSpeed;
-    private float rotatingSpeed;
 
     public event Action OnEasterEggEnter;
     public event Action OnEasterEggExit;
@@ -35,25 +32,11 @@ public class PlayerController : NetworkBehaviour
         //Moving and rotating speed defaults must be walking speeds
         movingSpeed = walkingSpeed;
         rotatingSpeed = walkingRotatingSpeed;
-        
-        nim = NetworkInputManager.Singleton;
+
+        pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
-        
+        pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
-        
-        //TODO: remove before build, not necessary
-        DecideForInputSource();
-    }
-    
-    /// <summary>
-    /// <para>Gets coder or artist input as the input source</para>
-    /// </summary>
-    private void DecideForInputSource()
-    {
-        if (isCoder)
-            input = nim.coderInput;
-        else
-            input = nim.artistInput;
     }
     
     /// <summary>
@@ -62,9 +45,9 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void CalculateMovingDirection()
     {
-        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, input.lookingDirection);
+        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirection);
         
-        movingDirection = lookingDirectionRight * input.moveInput.x + input.lookingDirection * input.moveInput.y;
+        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirection * pim.moveInput.y;
         movingDirection.y = 0f;
     }
     
@@ -72,11 +55,11 @@ public class PlayerController : NetworkBehaviour
     /// <para>Turns the player to looking direction</para>
     /// <para>Must work in FixedUpdate, because Update stutters, idk why</para>
     /// </summary>
-    private void SyncLookingDirection()
+    private void TurnLookingDirection()
     {
         if (!psd.isMoving) return;
         
-        transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed * Time.fixedDeltaTime);
+        transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
     }
 
     /// <summary>
@@ -104,7 +87,7 @@ public class PlayerController : NetworkBehaviour
             return;
         }
         
-        psd.isRunning = input.isRunKey;
+        psd.isRunning = pim.isRunKey;
         psd.isWalking = !psd.isRunning;
 
         if (psd.isRunning)
@@ -131,9 +114,7 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
-        //We have to constantly call this method due to reference changes in NetworkInputManager's ServerRpc method
-        //Detailed explanation is in there
-        DecideForInputSource();
+        if (pd.controlSource != PlayerData.ControlSource.Local) return;
         
         HandleEasterEgg();
         
@@ -145,10 +126,11 @@ public class PlayerController : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        if (pd.controlSource != PlayerData.ControlSource.Local) return;
         if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
         
         CalculateMovingDirection();
-        SyncLookingDirection();
+        TurnLookingDirection();
         
         HandleMovement();
     }
@@ -162,9 +144,9 @@ public class PlayerController : NetworkBehaviour
     {
         if (psd.currentState == PlayerStateData.PlayerState.AbilityState) return;
         
-        if (input.isEasterEggKeyDown)
+        if (pim.isEasterEggKeyDown)
             OnEasterEggEnter?.Invoke();
-        else if (input.isEasterEggKeyUp)
+        else if (pim.isEasterEggKeyUp)
             OnEasterEggExit?.Invoke();
     }
 }

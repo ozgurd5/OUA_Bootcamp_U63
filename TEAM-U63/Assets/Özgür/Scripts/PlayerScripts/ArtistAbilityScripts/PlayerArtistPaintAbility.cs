@@ -49,7 +49,7 @@ public class PlayerArtistPaintAbility : NetworkBehaviour
         //
         if ((npd.isHostCoder && !IsHost) || (!npd.isHostCoder && IsHost))
         {
-            if (!pc.input.isSecondaryAbilityKeyDown) return;   
+            //if (!pc.input.isSecondaryAbilityKeyDown) return;   
             if (!CastRayForCubes()) return;
         
             crosshairHit.collider.gameObject.GetComponent<CubeManager>().PaintCube();
