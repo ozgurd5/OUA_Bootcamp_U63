@@ -57,9 +57,7 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void TurnLookingDirection()
     {
-        if (!psd.isMoving) return;
-        
-        transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
     }
 
     /// <summary>

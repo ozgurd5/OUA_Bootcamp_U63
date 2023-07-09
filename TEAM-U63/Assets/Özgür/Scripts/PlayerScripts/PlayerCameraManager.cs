@@ -15,7 +15,7 @@ public class PlayerCameraManager : MonoBehaviour
         pd = GetComponent<PlayerData>();
         cinemachineCamera = GetComponentInChildren<CinemachineFreeLook>();
 
-        pd.OnControlSourceChanged += UpdateCurrentCamera;   //Needed for island 3 mechanics
+        pd.OnLocalStatusChanged += UpdateCurrentCamera;   //Needed for island 3 mechanics
         UpdateCurrentCamera();
     }
 

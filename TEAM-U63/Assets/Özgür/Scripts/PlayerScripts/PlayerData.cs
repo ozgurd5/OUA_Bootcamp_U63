@@ -9,7 +9,7 @@ public class PlayerData : NetworkBehaviour
 {
     private NetworkPlayerData npd;
 
-    public event Action OnControlSourceChanged;
+    public event Action OnLocalStatusChanged;
     
     public bool isLocal;
 
@@ -29,6 +29,6 @@ public class PlayerData : NetworkBehaviour
         else if (!IsHost && npd.isHostCoder && name == "ArtistPlayer") isLocal = true;
         else isLocal = false;
         
-        OnControlSourceChanged?.Invoke();
+        OnLocalStatusChanged?.Invoke();
     }
 }

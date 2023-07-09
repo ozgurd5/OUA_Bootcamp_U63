@@ -25,7 +25,7 @@ public class PlayerSoundManager : MonoBehaviour
         aus = GetComponent<AudioSource>();
         al = GetComponent<AudioListener>();
 
-        pd.OnControlSourceChanged += UpdateAudioListener;   //Needed for island 3 mechanics
+        pd.OnLocalStatusChanged += UpdateAudioListener;   //Needed for island 3 mechanics
         UpdateAudioListener();
     }
 

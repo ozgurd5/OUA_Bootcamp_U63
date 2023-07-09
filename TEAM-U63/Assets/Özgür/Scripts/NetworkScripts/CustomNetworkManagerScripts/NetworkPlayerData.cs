@@ -56,6 +56,7 @@ public class NetworkPlayerData : NetworkBehaviour
     private void UpdateIsHostCoderClientRpc(bool newIsHostCoder)
     {
         if (IsHost) return;
+        
         isHostCoder = newIsHostCoder;
         OnIsHostCoderChanged?.Invoke();
     }

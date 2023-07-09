@@ -1,5 +1,4 @@
 using Unity.Netcode;
-using Unity.Netcode.Components;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,17 +7,15 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerGrabbing : NetworkBehaviour
 {
-    //
-    private NetworkPlayerData npd;
-    
     [Header("Assign")]
     [SerializeField] private Image crosshairImage;
     [SerializeField] private float grabRange = 5f;
     [SerializeField] private float movingForce = 150f;
     [SerializeField] private Transform grabPoint;
 
+    private PlayerData pd;
+    private PlayerInputManager pim;
     private PlayerStateData psd;
-    private PlayerController pc;
     private Camera cam;
 
     private Ray crosshairRay;
@@ -30,12 +27,10 @@ public class PlayerGrabbing : NetworkBehaviour
 
     private void Awake()
     {
+        pd = GetComponent<PlayerData>();
+        pim = GetComponent<PlayerInputManager>();
         psd = GetComponent<PlayerStateData>();
-        pc = GetComponent<PlayerController>();
         cam = Camera.main;
-        
-        //
-        npd = NetworkPlayerData.Singleton;
     }
 
     /// <summary>
@@ -74,11 +69,6 @@ public class PlayerGrabbing : NetworkBehaviour
         //grabbedCube.transform.parent = grabPoint.transform;
         
         psd.isGrabbing = true;
-        
-        //
-        //grabbedCube.GetComponent<NetworkSyncPositionAndRotation>().isReversed = true;
-        grabbedCube.GetComponent<NetworkTransform>().enabled = false;
-        ReverseSyncScriptServerRpc(true);
     }
     
     /// <summary>
@@ -86,12 +76,7 @@ public class PlayerGrabbing : NetworkBehaviour
     /// <para>Must work in Update and it's conditions must be given in the Update to avoid conflicts with PickUpObject</para>
     /// </summary>
     private void DropObject()
-    {
-        //
-        //grabbedCube.GetComponent<NetworkSyncPositionAndRotation>().isReversed = false;
-        grabbedCube.GetComponent<NetworkTransform>().enabled = true;
-        ReverseSyncScriptServerRpc(false);
-        
+    { 
         psd.isGrabbing = false;
 
         //grabbedCube.transform.parent = null;
@@ -128,17 +113,7 @@ public class PlayerGrabbing : NetworkBehaviour
 
     private void Update()
     {
-        //
-        if (IsHost && npd.isHostCoder && name != "CoderPlayer") return;
-        if (IsHost && !npd.isHostCoder && name != "ArtistPlayer") return;
-        if (!IsHost && npd.isHostCoder && name != "ArtistPlayer") return;
-        if (!IsHost && !npd.isHostCoder && name != "CoderPlayer") return;
-        
-        //Input and isGrabbing condition check must be checked here instead of inside of the methods
-        //If not, it's get broken. Maybe there is a way to make safer methods with it's condition checks are..
-        //..inside of it, idk
-        
-        //if (!pc.input.isGrabKeyDown) return;
+        if (!pim.isGrabKeyDown) return;
 
         if (psd.isGrabbing)
             DropObject();
@@ -150,27 +125,5 @@ public class PlayerGrabbing : NetworkBehaviour
     private void FixedUpdate()
     {
         MoveObject();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void ReverseSyncScriptServerRpc(bool isPickUp)
-    {
-        //grabbedCube.GetComponent<NetworkSyncPositionAndRotation>().isReversed = isPickUp;
-        grabbedCube.GetComponent<NetworkTransform>().enabled = !isPickUp;
-
-        if (isPickUp)
-        {
-            //These values prevent all kind of stuttering, flickering, shaking, lagging etc.
-            grabbedCubeRb.useGravity = false;
-            grabbedCubeRb.drag = 15f;
-            grabbedCubeRb.constraints = RigidbodyConstraints.FreezeRotation;
-        }
-
-        else
-        {
-            grabbedCubeRb.useGravity = true;
-            grabbedCubeRb.drag = 0f;
-            grabbedCubeRb.constraints = RigidbodyConstraints.None;
-        }
     }
 }

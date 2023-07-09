@@ -20,10 +20,10 @@ public class NetworkSyncPlayerStateData : NetworkBehaviour
     {
         if (!pd.isLocal) return;
         
-        //transform.position in this line is the position in the host side because client can't call ClientRpc
+        //States in this line are the states in the host side because client can't call ClientRpc
         SyncClientPlayerStateDataClientRpc((int)psd.currentMainState, psd.isIdle, psd.isWalking, psd.isRunning);
-            
-        //transform.position in this line is the position in the client side and it must be
+        
+        //States in this line must be states in the client side and they are
         if (!IsHost) SyncHostPlayerStateDataServerRpc((int)psd.currentMainState, psd.isIdle, psd.isWalking, psd.isRunning);
     }
 
@@ -46,7 +46,7 @@ public class NetworkSyncPlayerStateData : NetworkBehaviour
     /// <summary>
     /// <para>Sends position in the client to host and interpolates it in host side</para>
     /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
-    /// that would override client position and cause object to not update it's position</para>
+    /// that would override client side position and cause object to not update it's position</para>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
     private void SyncHostPlayerStateDataServerRpc(int newMainState, bool newIsIdle, bool newIsWalking, bool newIsRunning)
