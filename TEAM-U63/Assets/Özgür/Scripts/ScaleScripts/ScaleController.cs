@@ -83,7 +83,7 @@ public class ScaleController : MonoBehaviour
         }
         
         //Not the best way i think
-        lr.SetPosition(1, transform.position + new Vector3(0f, 0.5f, 0f));
+        lr.SetPosition(1, transform.position + new Vector3(0f, 0.7f, 0f));
     }
 
     /// <summary>
@@ -139,9 +139,8 @@ public class ScaleController : MonoBehaviour
         UpdateCompletionMaterial();
 
         //TODO: Remove after tests are done
-        //Debug.Log(gameObject.name + ": " + isCompleted);
-        //Debug.Log("how many completed: " + completedScaleNumber);
-        //Debug.Log("all completed: " + isAllScalesCompleted);
+        Debug.Log(gameObject.name + ": " + isCompleted);
+        Debug.Log("how many completed: " + completedScaleNumber);
 
         OnScaleCompleted?.Invoke(isAllScalesCompleted);
     }

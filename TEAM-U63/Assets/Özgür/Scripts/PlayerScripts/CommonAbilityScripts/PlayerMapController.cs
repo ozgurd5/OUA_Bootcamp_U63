@@ -58,6 +58,6 @@ public class PlayerMapController : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         if (pd.isLocal) CollectMap(col);
-        else Destroy(col.gameObject);
+        else if (col.CompareTag("MapCollectible")) Destroy(col.gameObject);
     }
 }

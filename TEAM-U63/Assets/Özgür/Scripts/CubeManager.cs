@@ -32,16 +32,35 @@ public class CubeManager : NetworkBehaviour
 
     #region Parenting
 
+    /// <summary>
+    /// <para>Updates the cube's parent</para>
+    /// </summary>
+    /// <param name="networkParentListID">Parents id in the network parent list. -1 for null</param>
     public void UpdateParentUsingNetworkParentListID(int networkParentListID)
     {
+        if (networkParentListID == -1)
+        {
+            if (IsHost) transform.parent = null;
+            else UpdateParentUsingNetworkParentListIDServerRpc(networkParentListID);
+            
+            return;
+        }
+        
         if (IsHost) transform.parent = NetworkParentingManager.Singleton.FindTransformUsingID(networkParentListID);
         else UpdateParentUsingNetworkParentListIDServerRpc(networkParentListID);
     }
 
+    /// <summary>
+    /// <para>Updates the cube's parent in the host side so that it can be updated in client side. I know that's very stupid,
+    /// read the <see cref="NetworkParentingManager"/>'s description</para>
+    /// <para>Should not called by the host, though it's not important</para>
+    /// <param name="networkParentListID">Parents id in the network parent list. -1 for null</param>
+    /// </summary>
     [ServerRpc(RequireOwnership = false)]
     private void UpdateParentUsingNetworkParentListIDServerRpc(int networkParentListID)
     {
-        transform.parent = NetworkParentingManager.Singleton.FindTransformUsingID(networkParentListID);
+        if (networkParentListID == -1) transform.parent = null;
+        else transform.parent = NetworkParentingManager.Singleton.FindTransformUsingID(networkParentListID);
     }
 
     #endregion
