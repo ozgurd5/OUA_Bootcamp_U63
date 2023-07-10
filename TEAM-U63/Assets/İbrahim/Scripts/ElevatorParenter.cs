@@ -1,15 +1,20 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class ElevatorParenter : MonoBehaviour
+public class ElevatorParenter : NetworkBehaviour
 {
-    private CubeManager _enteredCubeManager;   //Explanation is in further down where it's being used
-    private bool isEnteredCubeStatesNull = true;        //Comparison to null is expensive
+    [Header("Assign - NetworkParentListID")]
+    [SerializeField] private int networkParentListID;
+
+    private CubeManager enteredCubeManager;         //Explanation is in further down where it's being used
+    private bool isEnteredCubeStatesNull = true;    //Comparison to null is expensive
+    private NetworkObject no;
     
     private void OnTriggerEnter(Collider col)
     {
         if (!col.CompareTag("RedPuzzle") && !col.CompareTag("GreenPuzzle") && !col.CompareTag("BluePuzzle")) return;
         
-        //Updating scale position is not smooth and looks very bad while player is holding the cube
+        //Updating elevator position is not smooth and looks very bad while player is holding the cube
         //We can not check if player is holding the cube in OnTriggerEnter method. Player can drop..
         //..the cube after it's entry to the collider. So we must check it dynamically in FixedUpdate
         
@@ -18,19 +23,19 @@ public class ElevatorParenter : MonoBehaviour
         
         //To do all of that, we need the CubeManager.cs from the cube that has entered the collider...
         //..and check if it's currently held by player or not
-        _enteredCubeManager = col.GetComponent<CubeManager>();
+        enteredCubeManager = col.GetComponent<CubeManager>();
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
     }
     
     private void FixedUpdate()
     {
         if (isEnteredCubeStatesNull) return; 
-        if (_enteredCubeManager.isGrabbed) return;
+        if (enteredCubeManager.isGrabbed) return;
         
         //Parenting is needed for smooth movement and good looking motion
-        _enteredCubeManager.transform.SetParent(transform.parent);
+        enteredCubeManager.UpdateParentUsingNetworkParentListID(networkParentListID);
 
-        _enteredCubeManager = null;
+        enteredCubeManager = null;
         isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
     }
 }

@@ -11,6 +11,9 @@ public class ScaleController : MonoBehaviour
     private static int completedScaleNumber;
     private static bool isAllScalesCompleted;
     public static event Action<bool> OnScaleCompleted;
+    
+    [Header("Assign - NetworkParentListID")]
+    [SerializeField] private int networkParentListID;
 
     //moveSpeed, completionLocalPositionY and maxLocalPosition should be static
     [Header("Assign")]
@@ -47,7 +50,7 @@ public class ScaleController : MonoBehaviour
     private Vector3 weightlessPosition;
     private float weightlessLocalPositionY;
     
-    private CubeManager _enteredCubeManager;   //Explanation is in further down where it's being used
+    private CubeManager enteredCubeManager;   //Explanation is in further down where it's being used
     private bool isEnteredCubeStatesNull = true;        //Comparison to null is expensive
 
     private void Awake()
@@ -189,21 +192,21 @@ public class ScaleController : MonoBehaviour
         
         //To do all of that, we need the CubeManager.cs from the cube that has entered the collider...
         //..and check if it's currently held by player or not. That state is updated by PlayerGrabbing.cs
-        _enteredCubeManager = col.GetComponent<CubeManager>();
+        enteredCubeManager = col.GetComponent<CubeManager>();
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
     }
 
     private void FixedUpdate()
     {
         if (isEnteredCubeStatesNull) return; 
-        if (_enteredCubeManager.isGrabbed) return;
+        if (enteredCubeManager.isGrabbed) return;
         
         //Parenting is needed for smooth movement and good looking motion
-        _enteredCubeManager.transform.SetParent(transform);
+        enteredCubeManager.UpdateParentUsingNetworkParentListID(networkParentListID);
 
         UpdateScalePosition();
         
-        _enteredCubeManager = null;
+        enteredCubeManager = null;
         isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
     }
 

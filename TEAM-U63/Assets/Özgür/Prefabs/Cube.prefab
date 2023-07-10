@@ -16,9 +16,8 @@ GameObject:
   - component: {fileID: 5015412277581736174}
   - component: {fileID: 100884839410854088}
   - component: {fileID: 229148439091249310}
-  - component: {fileID: 7805340903408021096}
   m_Layer: 0
-  m_Name: RedCube
+  m_Name: Cube
   m_TagString: RedPuzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8629827911264056042
 MeshFilter:
@@ -122,7 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1045c91b456a2c419ffd1e54ac2ffac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrabbed: 0
+  puzzleMaterials:
+  - {fileID: 2100000, guid: 1d716cf66d16f2743a8425e8d0bf7170, type: 2}
+  - {fileID: 2100000, guid: 8ea5569540eb72d49b9e3da286a1e8ff, type: 2}
+  - {fileID: 2100000, guid: 82cde8e0b358ad84381811ee25157e38, type: 2}
 --- !u!54 &5015412277581736174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66dfc6120cece140837fbc17091738e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isObjectLocal: 0
 --- !u!114 &229148439091249310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,38 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 951099334
   AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
+  SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
   SceneMigrationSynchronization: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &7805340903408021096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135875594582529476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 0
-  SyncPositionY: 0
-  SyncPositionZ: 0
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 0
-  SlerpPosition: 0

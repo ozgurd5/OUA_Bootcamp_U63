@@ -50,11 +50,6 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
             
         //transform.position in this line must be states in the client side and it is
         if (!IsHost) SyncHostPositionWithInterpolationServerRpc(transform.position);
-    }
-    
-    private void FixedUpdate()
-    {
-        if (!isObjectLocal) return;
 
         //Player's rotating speed is changes according to walking or running, other objects are constant
         if (CompareTag("Player"))

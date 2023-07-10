@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class PressurePoint : MonoBehaviour
 {
-    public GameObject puzzlePiece;
-    public GameObject targetObject;
+    [SerializeField] private GameObject targetObject;
+    [SerializeField] private string activationTag = "Player";
 
     private Animator animator;
-    //private Animation _animation;
     
-    private bool isPuzzlePlaced = false;
+    private bool isPuzzlePlaced;
 
     private void Start()
     {
@@ -18,29 +17,18 @@ public class PressurePoint : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == puzzlePiece && !isPuzzlePlaced)
+        if (other.CompareTag(activationTag) && !isPuzzlePlaced)
         {
-            // Enable the Animator component on the target object
-            
-            if (animator != null)
-            {
-                // Set the bool parameter in the Animator controller
-                animator.SetBool("IsPuzzlePlaced", true);
-
-                // Set the puzzle as placed to prevent repeated triggering
-                isPuzzlePlaced = true;
-            }
+            animator.SetBool("IsPuzzlePlaced", true);
+            isPuzzlePlaced = true;
         }
     }
     
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == puzzlePiece)
-        {
-            // Reset the bool parameter in the Animator controller
-            animator.SetBool("IsPuzzlePlaced", false);
-            
-            isPuzzlePlaced = false;
-        }
+        if (!other.CompareTag(activationTag)) return;
+        
+        animator.SetBool("IsPuzzlePlaced", false);
+        isPuzzlePlaced = false;
     }
 }

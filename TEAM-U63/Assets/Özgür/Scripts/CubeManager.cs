@@ -9,24 +9,129 @@ using UnityEngine;
 public class CubeManager : NetworkBehaviour
 {
     //This should be static but we can't see static variables in inspector, therefore can't assign materials
-    //There should be a way to do it but don't know, don't care
-    //Long story short, we must manually assign materials by the order of RGB to every cube
+    //We must manually assign materials by the order of RGB. It's already assigned and saved in the prefab but if a
+    //..problem occur, especially about dividing zero, the problem may be about this list being empty
     [Header("Assign")]
     [SerializeField] private List<Material> puzzleMaterials;
     private string[] puzzlesTag = { "RedPuzzle", "GreenPuzzle", "BluePuzzle" };
 
     private MeshRenderer mr;
+    private Rigidbody rb;
     
-    public bool isGrabbed;          //PlayerGrabbing.cs
-    public int materialAndTagIndex; //PlayerArtistPaintAbility.cs
+    private int materialAndTagIndex;    //PlayerArtistPaintAbility.cs
     
-    public bool isLocal;
+    public bool isGrabbed { get; private set; } //PlayerGrabbing.cs
+    public bool isLocal { get; private set; }   //This script //PlayerGrabbing.cs
     public event Action OnLocalStatusChanged;
 
     private void Awake()
     {
         mr = GetComponent<MeshRenderer>();
+        rb = GetComponent<Rigidbody>();
     }
+
+    #region Parenting
+
+    public void UpdateParentUsingNetworkParentListID(int networkParentListID)
+    {
+        if (IsHost) transform.parent = NetworkParentingManager.Singleton.FindTransformUsingID(networkParentListID);
+        else UpdateParentUsingNetworkParentListIDServerRpc(networkParentListID);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void UpdateParentUsingNetworkParentListIDServerRpc(int networkParentListID)
+    {
+        transform.parent = NetworkParentingManager.Singleton.FindTransformUsingID(networkParentListID);
+    }
+
+    #endregion
+
+    #region Gravity
+
+    /// <summary>
+    /// <para>Enables and disables the gravity of the cube and syncs it across the network</para>
+    /// <param name="newUseGravity">Will the gravity enabled for the remote after this action?</param>
+    /// </summary>
+    public void UpdateGravity(bool newUseGravity)
+    {
+        rb.useGravity = newUseGravity;
+        
+        SyncGravityForRemoteWhileGrabbingClientRpc(newUseGravity);
+        if (!IsHost) SyncGravityForRemoteWhileGrabbingServerRpc(newUseGravity);
+    }
+    
+    /// <summary>
+    /// <para>Sends gravity status in the host to client</para>
+    /// <para>Can't and must not work in host side</para>
+    /// <param name="newUseGravity">Will the gravity enabled for the remote after this action?</param>
+    /// </summary>
+    [ClientRpc]
+    private void SyncGravityForRemoteWhileGrabbingClientRpc(bool newUseGravity)
+    {
+        //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
+        if (!IsHost) rb.useGravity = newUseGravity;
+    }
+
+    /// <summary>
+    /// <para>Sends gravity status in the client to host</para>
+    /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
+    /// that would override client side local status and cause object to not update it's local status</para>
+    /// <param name="newUseGravity">Will the gravity enabled for the remote after this action?</param>
+    /// </summary>
+    [ServerRpc(RequireOwnership = false)]
+    private void SyncGravityForRemoteWhileGrabbingServerRpc(bool newUseGravity)
+    {
+        rb.useGravity = newUseGravity;
+    }
+
+    #endregion
+
+    #region IsGrabbed
+
+    /// <summary>
+    /// <para>Changes the isGrabbed state of the cube and syncs it across the network</para>
+    /// </summary>
+    /// <param name="newIsGrabbed">Will the cube become grabbed after this action?</param>
+    public void UpdateIsGrabbed(bool newIsGrabbed)
+    {
+        isGrabbed = newIsGrabbed;
+            
+        //isLocal in this line is the value in the host side because client can't call ClientRpc
+        SyncIsGrabbedClientRpc(newIsGrabbed);
+        
+        //isLocal in this line must be the value in the client side and it is
+        if (!IsHost) SyncIsGrabbedServerRpc(newIsGrabbed);
+    }
+    
+    /// <summary>
+    /// <para>Sends isGrabbed value in the host to client</para>
+    /// <para>Can't and must not work in host side</para>
+    /// <param name="newIsGrabbed">Will the cube become local after this action?</param>
+    /// </summary>
+    [ClientRpc]
+    private void SyncIsGrabbedClientRpc(bool newIsGrabbed)
+    {
+        //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
+        if (IsHost) return;
+        
+        isGrabbed = newIsGrabbed;
+    }
+
+    /// <summary>
+    /// <para>Sends isGrabbed value in the host to client</para>
+    /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
+    /// that would override client side local status and cause object to not update it's local status</para>
+    /// <param name="newIsGrabbed">Will the cube become local after this action?</param>
+    /// </summary>
+    [ServerRpc(RequireOwnership = false)]
+    private void SyncIsGrabbedServerRpc(bool newIsGrabbed)
+    {
+        isGrabbed = newIsGrabbed;
+    }
+
+    #endregion
+    
+    #region Painting
 
     /// <summary>
     /// <para>Paints cubes by increasing their material and tag</para>
@@ -87,21 +192,32 @@ public class CubeManager : NetworkBehaviour
         UpdateMaterialAndTagLocally();
     }
 
+    #endregion
+
+    #region LocalStatus
+
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            Debug.Log(col.gameObject.name);
-            isLocal = col.gameObject.GetComponent<PlayerData>().isLocal;
-            Debug.Log("is local " + isLocal);
-            OnLocalStatusChanged?.Invoke();
-            
-            //isLocal in this line is the value in the host side because client can't call ClientRpc
-            SyncCubeIsLocalClientRpc(isLocal);
+        if (isGrabbed) return; //Must not change local status if grabbed. Player who grab the cube is the owner of it
+        if (!col.gameObject.CompareTag("Player")) return;
         
-            //isLocal in this line must be the value in the client side and it is
-            if (!IsHost) SyncCubeIsLocalServerRpc(isLocal);
-        }
+        ChangeCubeLocalStatus(col.gameObject.GetComponent<PlayerData>().isLocal);
+    }
+    
+    /// <summary>
+    /// <para>Changes the local status of the cube and syncs it across the network</para>
+    /// </summary>
+    /// <param name="newIsLocal">Will the cube become local after this action?</param>
+    public void ChangeCubeLocalStatus(bool newIsLocal)
+    {
+        isLocal = newIsLocal;
+        OnLocalStatusChanged?.Invoke();
+            
+        //isLocal in this line is the value in the host side because client can't call ClientRpc
+        SyncCubeLocalStatusClientRpc(newIsLocal);
+        
+        //isLocal in this line must be the value in the client side and it is
+        if (!IsHost) SyncCubeLocalStatusServerRpc(newIsLocal);
     }
     
     /// <summary>
@@ -110,7 +226,7 @@ public class CubeManager : NetworkBehaviour
     /// <param name="newIsLocal">Will the cube become local after this action?</param>
     /// </summary>
     [ClientRpc]
-    private void SyncCubeIsLocalClientRpc(bool newIsLocal)
+    private void SyncCubeLocalStatusClientRpc(bool newIsLocal)
     {
         //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
         if (IsHost) return;
@@ -131,7 +247,7 @@ public class CubeManager : NetworkBehaviour
     /// <param name="newIsLocal">Will the cube become local after this action?</param>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
-    private void SyncCubeIsLocalServerRpc(bool newIsLocal)
+    private void SyncCubeLocalStatusServerRpc(bool newIsLocal)
     {
         //isLocal value will be assigned twice with the same value twice:
         //1- local player will assign it in the OnTriggerEnter 2- remote player assign it in this rpc
@@ -141,4 +257,6 @@ public class CubeManager : NetworkBehaviour
         isLocal = !newIsLocal;
         OnLocalStatusChanged?.Invoke();
     }
+
+    #endregion
 }

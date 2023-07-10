@@ -50,44 +50,40 @@ public class PlayerGrabbing : NetworkBehaviour
     
     /// <summary>
     /// <para>Picks the object up</para>
-    /// <para>Must work in Update and it's conditions must be given in the Update to avoid conflicts with DropObject</para>
+    /// <para>Must work in Update</para>
     /// </summary>
     private void PickUpObject()
     {
         grabbedCube = crosshairHit.collider.gameObject;
         grabbedCubeRb = grabbedCube.GetComponent<Rigidbody>();
-        
         grabbedCubeManager = grabbedCube.GetComponent<CubeManager>();
-        grabbedCubeManager.isGrabbed = true;
+        
+        grabbedCubeManager.UpdateIsGrabbed(true);
+        grabbedCubeManager.UpdateGravity(false);
+        grabbedCubeManager.ChangeCubeLocalStatus(true);
 
-        //These values prevent all kind of stuttering, flickering, shaking, lagging etc.
-        grabbedCubeRb.useGravity = false;
+        //These settings prevent all kind of stuttering, flickering, shaking, lagging etc.
         grabbedCubeRb.drag = 15f;
         grabbedCubeRb.constraints = RigidbodyConstraints.FreezeRotation;
-        
-        //Parenting is needed for smooth movement and good looking motion
-        //grabbedCube.transform.parent = grabPoint.transform;
-        
+
         psd.isGrabbing = true;
     }
     
     /// <summary>
     /// <para>Drops the object and basically do opposite of what PickUpObject method does</para>
-    /// <para>Must work in Update and it's conditions must be given in the Update to avoid conflicts with PickUpObject</para>
+    /// <para>Must work in Update</para>
     /// </summary>
     private void DropObject()
     { 
         psd.isGrabbing = false;
-
-        //grabbedCube.transform.parent = null;
         
-        grabbedCubeRb.useGravity = true;
         grabbedCubeRb.drag = 0f;
         grabbedCubeRb.constraints = RigidbodyConstraints.None;
         
-        grabbedCubeManager.isGrabbed = false;
-        grabbedCubeManager = null;
+        grabbedCubeManager.UpdateGravity(true);
+        grabbedCubeManager.UpdateIsGrabbed(false);
         
+        grabbedCubeManager = null;
         grabbedCube = null;
         grabbedCubeRb = null;
     }
@@ -100,19 +96,20 @@ public class PlayerGrabbing : NetworkBehaviour
     {
         if (!psd.isGrabbing) return;
         
-        grabbedCube.transform.position = grabPoint.transform.position;
+        //grabbedCube.transform.position = grabPoint.transform.position;
         
         //Cube must not follow grabPoint's position all the time, if it does it won't be in the..
         //..perfect position and therefore stutter when it should be stop moving
-        //if (Vector3.Distance(grabPoint.position, grabbedCube.transform.position) > 0.1f)
-        //{
-        //    Vector3 moveDirection = (grabPoint.position - grabbedCube.transform.position).normalized;
-        //    grabbedCubeRb.AddForce(moveDirection * movingForce);
-        //}
+        if (Vector3.Distance(grabPoint.position, grabbedCube.transform.position) > 0.1f)
+        {
+            Vector3 moveDirection = (grabPoint.position - grabbedCube.transform.position).normalized;
+            grabbedCubeRb.AddForce(moveDirection * movingForce);
+        }
     }
 
     private void Update()
     {
+        if (!pd.isLocal) return;
         if (!pim.isGrabKeyDown) return;
 
         if (psd.isGrabbing)
