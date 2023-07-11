@@ -99,8 +99,9 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cloud_Contrast: 2
     - _Cloud_Density: 2
-    - _Cloud_Size: 30
+    - _Cloud_Size: 243
     - _Cloud_Speed: 0
+    - _Cloud_distorting_size: 50
     - _ConservativeDepthOffsetEnable: 0
     - _Cull: 2
     - _CullMode: 2
@@ -162,7 +163,8 @@ Material:
     - ObjectColor: {r: 0, g: 1, b: 0, a: 0}
     - _Alpha: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Cloud_Speed: {r: 0.01, g: 0.05, b: 0, a: 0}
+    - _Cloud_Speed: {r: 0.01, g: 0.04, b: 0, a: 0}
+    - _Cloud_distorting: {r: 0.01, g: 0.02, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color_1: {r: 0.5655571, g: 0.8396226, b: 0.8345473, a: 0}
     - _Color_2: {r: 1, g: 1, b: 1, a: 0}
