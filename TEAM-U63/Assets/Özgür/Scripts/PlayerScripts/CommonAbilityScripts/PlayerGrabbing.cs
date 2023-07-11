@@ -6,6 +6,9 @@ using UnityEngine;
 /// </summary>
 public class PlayerGrabbing : NetworkBehaviour
 {
+    [Header("Assign - NetworkParentListID")]
+    [SerializeField] private int grabPointNetworkParentListID;
+    
     [Header("Assign")]
     [SerializeField] private float walkingMovingForce = 150f;
     [SerializeField] private float runningMovingForce = 300f;
@@ -17,9 +20,7 @@ public class PlayerGrabbing : NetworkBehaviour
     private PlayerStateData psd;
     private CrosshairManager cm;
     
-    //
-    public Transform grabPointTransform;
-
+    private Transform grabPointTransform;
     private GameObject grabbedCube;
     private CubeManager grabbedCubeManager;
     private Rigidbody grabbedCubeRb;
@@ -54,6 +55,7 @@ public class PlayerGrabbing : NetworkBehaviour
         grabbedCubeRb.drag = cubeDrag;
         grabbedCubeRb.constraints = RigidbodyConstraints.FreezeRotation;
 
+        grabbedCubeManager.UpdateParentUsingNetworkParentListID(grabPointNetworkParentListID);
         psd.isGrabbing = true;
     }
      
@@ -64,16 +66,17 @@ public class PlayerGrabbing : NetworkBehaviour
     private void DropObject()
     {
         psd.isGrabbing = false;
+        grabbedCubeManager.UpdateParentUsingNetworkParentListID(-1);    //-1 means null
         
-        grabbedCubeRb.drag = 0f;
         grabbedCubeRb.constraints = RigidbodyConstraints.None;
+        grabbedCubeRb.drag = 0f;
         grabbedCubeManager.UpdateGravity(true);
         
         grabbedCubeManager.UpdateIsGrabbed(false);
         
         grabbedCubeManager = null;
-        grabbedCube = null;
         grabbedCubeRb = null;
+        grabbedCube = null;
     }
     
     /// <summary>

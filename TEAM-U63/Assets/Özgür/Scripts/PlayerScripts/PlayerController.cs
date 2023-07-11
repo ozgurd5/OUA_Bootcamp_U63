@@ -19,7 +19,6 @@ public class PlayerController : NetworkBehaviour
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private Rigidbody rb;
-    public Transform grabPointTransform;
 
     public float rotatingSpeed;
     private Vector3 movingDirection;
@@ -38,7 +37,6 @@ public class PlayerController : NetworkBehaviour
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
-        grabPointTransform = Camera.main!.transform.Find("GrabPoint");
     }
     
     /// <summary>
@@ -47,9 +45,9 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void CalculateMovingDirection()
     {
-        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirection);
+        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirectionForward);
         
-        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirection * pim.moveInput.y;
+        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirectionForward * pim.moveInput.y;
         movingDirection.y = 0f;
     }
     
@@ -59,8 +57,8 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void TurnLookingDirection()
     {
-        if (psd.isGrabbing) transform.forward = Vector3.Slerp(transform.forward, pim.lookingDirection, rotatingSpeed);
-        else if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        else if (psd.isGrabbing && psd.isIdle) transform.forward = Vector3.Slerp(transform.forward, pim.lookingDirectionForward, rotatingSpeed);
     }
 
     /// <summary>

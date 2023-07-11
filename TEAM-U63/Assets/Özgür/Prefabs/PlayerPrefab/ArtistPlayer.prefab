@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
-  lookingDirection: {x: 0, y: 0, z: 0}
+  lookingDirectionForward: {x: 0, y: 0, z: 0}
   isRunKey: 0
   isGrabKeyDown: 0
   isPrimaryAbilityKeyDown: 0
@@ -375,7 +375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865a49163f43dff4b9204f3050c9f5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabPoint: {fileID: 0}
   walkingSpeed: 3
   runningSpeed: 10
   walkingRotatingSpeed: 0.2
@@ -620,11 +619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d1e315e710dd442828173e98b2dbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabPointNetworkParentListID: 4
   walkingMovingForce: 150
   runningMovingForce: 300
   bufferDistance: 0.1
   cubeDrag: 15
-  grabPointTransform: {fileID: 0}
 --- !u!114 &1289451359628995353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,7 +676,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4816182799501027859}
-  m_LocalRotation: {x: -0.03632495, y: 0.0000000021493782, z: 7.812763e-11, w: 0.99934006}
+  m_LocalRotation: {x: -0.03632495, y: -0.000000002149378, z: -7.812762e-11, w: 0.99934006}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

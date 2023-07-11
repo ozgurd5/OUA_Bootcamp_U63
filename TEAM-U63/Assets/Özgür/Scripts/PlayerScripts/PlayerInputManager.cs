@@ -11,7 +11,7 @@ public class PlayerInputManager : MonoBehaviour
     private Transform cameraTransform;
 
     public Vector2 moveInput;
-    public Vector3 lookingDirection;
+    public Vector3 lookingDirectionForward;
     public bool isRunKey;
     public bool isGrabKeyDown;
     public bool isPrimaryAbilityKeyDown;
@@ -32,7 +32,7 @@ public class PlayerInputManager : MonoBehaviour
     private void Update()
     {
         if (!pd.isLocal) return;
-        
+
         moveInput = pia.Player.Movement.ReadValue<Vector2>();
         isRunKey = pia.Player.Run.IsPressed();
         isGrabKeyDown = pia.Player.Grab.WasPressedThisFrame();
@@ -43,11 +43,11 @@ public class PlayerInputManager : MonoBehaviour
         isEasterEggKeyUp = pia.Player.EasterEgg.WasReleasedThisFrame();
     }
     
-    //Methods that depend lookingDirection in PlayerController.cs are working in FixedUpdate, so we can calculate..
-    //..and sync lookingDirection in FixedUpdate
+    //Methods that depend lookingDirectionForward in PlayerController.cs are working in FixedUpdate, so we can calculate..
+    //..and sync lookingDirectionForward in FixedUpdate
     private void FixedUpdate()
     {
-        lookingDirection = cameraTransform.forward;
-        lookingDirection.y = 0f;
+        lookingDirectionForward = cameraTransform.forward;
+        lookingDirectionForward.y = 0f;
     }
 }

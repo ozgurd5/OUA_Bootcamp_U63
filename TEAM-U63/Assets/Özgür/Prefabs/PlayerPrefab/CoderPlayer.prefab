@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
-  lookingDirection: {x: 0, y: 0, z: 0}
+  lookingDirectionForward: {x: 0, y: 0, z: 0}
   isRunKey: 0
   isGrabKeyDown: 0
   isPrimaryAbilityKeyDown: 0
@@ -713,7 +713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865a49163f43dff4b9204f3050c9f5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabPoint: {fileID: 0}
   walkingSpeed: 3
   runningSpeed: 10
   walkingRotatingSpeed: 0.2
@@ -958,11 +957,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d1e315e710dd442828173e98b2dbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabPointNetworkParentListID: 4
   walkingMovingForce: 150
   runningMovingForce: 300
   bufferDistance: 0.1
   cubeDrag: 15
-  grabPointTransform: {fileID: 0}
 --- !u!114 &5005171469690754772
 MonoBehaviour:
   m_ObjectHideFlags: 0
