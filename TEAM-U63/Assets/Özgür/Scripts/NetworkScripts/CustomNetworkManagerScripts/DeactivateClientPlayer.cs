@@ -26,6 +26,7 @@ public class DeactivateClientPlayer : NetworkBehaviour
             //Since host is also a client, creating of the lobby will trigger this event
             //We can prevent that by not counting host as a client
             if (NetworkManager.Singleton.ConnectedClientsList.Count == 1) return;
+            
             coderPlayer.SetActive(true);
             artistPlayer.SetActive(true);
         };
