@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// <para>Responsible from crosshair opacity and crosshair raycast</para>
+/// <para>Responsible from crosshair opacity and raycast</para>
 /// </summary>
 public class CrosshairManager : MonoBehaviour
 {
@@ -16,14 +16,17 @@ public class CrosshairManager : MonoBehaviour
     public RaycastHit crosshairHit;
 
     private PlayerData pd;
+    private PlayerStateData psd;
     private Image crosshairImage;
     private Camera cam;
 
+    private bool crosshairVisibilityCondition;
     private Color temporaryColor;
 
     private void Awake()
     {
         pd = GetComponentInParent<PlayerData>();
+        psd = GetComponentInParent<PlayerStateData>();
         crosshairImage = GetComponent<Image>();
         cam = Camera.main;
 
@@ -45,13 +48,15 @@ public class CrosshairManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G)) Debug.Log(crosshairHit.collider.gameObject.name);
         
         isLookingAtCube = CastRayForCubes();
+
+        crosshairVisibilityCondition = isLookingAtCube || psd.isGrabbing;
         
         //Just like the mesh renderer example, we can not directly change crosshairImage.color.a
         //We can only assign a color variable to it. Therefore we need a temporary color variable..
         //..to make changes upon and finally assign it
         
         temporaryColor = crosshairImage.color;
-        if (isLookingAtCube) temporaryColor.a = 1f;
+        if (crosshairVisibilityCondition) temporaryColor.a = 1f;
         else temporaryColor.a = opacity;
         crosshairImage.color = temporaryColor;
     }

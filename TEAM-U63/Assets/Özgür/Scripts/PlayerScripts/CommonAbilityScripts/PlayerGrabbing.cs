@@ -1,6 +1,5 @@
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// <para>Responsible of grabbing, dropping and moving with the cube</para>
@@ -8,11 +7,8 @@ using UnityEngine.UI;
 public class PlayerGrabbing : NetworkBehaviour
 {
     [Header("Assign")]
-    [SerializeField] private Image crosshairImage;
-    [SerializeField] private float grabRange = 7f;
     [SerializeField] private float walkingMovingForce = 150f;
     [SerializeField] private float runningMovingForce = 300f;
-    [SerializeField] private Transform grabPointTransform;
     [SerializeField] private float bufferDistance = 0.1f;
     [SerializeField] private float cubeDrag = 15f;
 
@@ -20,6 +16,9 @@ public class PlayerGrabbing : NetworkBehaviour
     private PlayerInputManager pim;
     private PlayerStateData psd;
     private CrosshairManager cm;
+    
+    //
+    public Transform grabPointTransform;
 
     private GameObject grabbedCube;
     private CubeManager grabbedCubeManager;
@@ -33,6 +32,7 @@ public class PlayerGrabbing : NetworkBehaviour
         pim = GetComponent<PlayerInputManager>();
         psd = GetComponent<PlayerStateData>();
         cm = GetComponentInChildren<CrosshairManager>();
+        grabPointTransform = Camera.main!.transform.Find("GrabPoint");
     }
     
     
@@ -105,7 +105,6 @@ public class PlayerGrabbing : NetworkBehaviour
         if (!pim.isGrabKeyDown) return;
 
         if (psd.isGrabbing) DropObject();
-        
         else if (cm.isLookingAtCube) PickUpObject();
     }
 

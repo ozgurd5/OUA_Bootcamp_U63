@@ -12,7 +12,7 @@ public class PlayerMapController : MonoBehaviour
     private PlayerData pd;
     private PlayerInputManager pim;
     
-    [SerializeField] private bool mapCollected;
+    public bool mapCollected;
     private bool isMapActive;
 
     private void Awake()

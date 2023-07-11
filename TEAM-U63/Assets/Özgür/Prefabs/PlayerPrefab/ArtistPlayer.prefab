@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865a49163f43dff4b9204f3050c9f5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabPoint: {fileID: 0}
   walkingSpeed: 3
   runningSpeed: 10
   walkingRotatingSpeed: 0.2
@@ -619,13 +620,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d1e315e710dd442828173e98b2dbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshairImage: {fileID: 5777742009596892253}
-  grabRange: 10
   walkingMovingForce: 150
   runningMovingForce: 300
-  grabPointTransform: {fileID: 0}
   bufferDistance: 0.1
   cubeDrag: 15
+  grabPointTransform: {fileID: 0}
 --- !u!114 &1289451359628995353
 MonoBehaviour:
   m_ObjectHideFlags: 0

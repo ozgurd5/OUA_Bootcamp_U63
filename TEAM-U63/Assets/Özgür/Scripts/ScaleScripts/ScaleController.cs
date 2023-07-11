@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class ScaleController : MonoBehaviour
     //moveSpeed, completionLocalPositionY and maxLocalPosition should be static
     [Header("Assign")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float completionLocalPositionY = -4.5f;
+    [SerializeField] private float completionLocalPositionY = -4.2f;
     [SerializeField] private float maxLocalPosition = -4.7f;
     [SerializeField] private Transform ceilingTransform;
     //TODO: Remove after tests are done
@@ -33,9 +34,9 @@ public class ScaleController : MonoBehaviour
     
     //These should be static
     [Header("Assign - Color multipliers")]
-    [SerializeField] private float redMultiplier = 0.5f;
+    [SerializeField] private float redMultiplier = 0.3f;
     [SerializeField] private float greenMultiplier = 0.4f;
-    [SerializeField] private float blueMultiplier = 0.8f;
+    [SerializeField] private float blueMultiplier = 0.5f;
     
     [Header("Number of cubes")]
     [SerializeField] private int redNumber;
@@ -45,6 +46,7 @@ public class ScaleController : MonoBehaviour
     [Header("isCompleted")]
     [SerializeField] private bool isCompleted;
 
+    private TextMeshProUGUI weightText;
     private LineRenderer lr;
     private Vector3 fixedPosition;
     private Vector3 weightlessPosition;
@@ -56,6 +58,7 @@ public class ScaleController : MonoBehaviour
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
+        weightText = GetComponentInChildren<TextMeshProUGUI>();
 
         //Scales are weightless in the beginning
         weightlessPosition = transform.position;
@@ -107,7 +110,8 @@ public class ScaleController : MonoBehaviour
         
         //We need to check completion after DOMoveY method is done because we are comparing transform.position.y..
         //..in that method. Since DOMoveY method is a coroutine, transform.position.y will change during "duration"
-        Invoke(nameof(CheckCompletion), duration + 0.1f);
+        Invoke(nameof(CheckCompletion), duration + 0.01f);
+        UpdateWeightText(stretchAmount);
     }
     
     /// <summary>
@@ -143,6 +147,14 @@ public class ScaleController : MonoBehaviour
         Debug.Log("how many completed: " + completedScaleNumber);
 
         OnScaleCompleted?.Invoke(isAllScalesCompleted);
+    }
+
+    /// <summary>
+    /// <para>Updates weight text above the ceiling</para>
+    /// </summary>
+    private void UpdateWeightText(float stretchAmount)
+    {
+        weightText.text = $"{stretchAmount * 10}";
     }
 
     /// <summary>
@@ -186,22 +198,17 @@ public class ScaleController : MonoBehaviour
         //We can not check "if player is holding the cube" in OnTriggerEnter method. Player can drop..
         //..the cube after it's entry to the collider. So we must check it dynamically in FixedUpdate
         
-        //Also the parenting in this script cause conflict with PlayerGrabbing.cs parenting. It must also be
-        //..done while player is not holding the cube.
-        
-        //To do all of that, we need the CubeManager.cs from the cube that has entered the collider...
-        //..and check if it's currently held by player or not. That state is updated by PlayerGrabbing.cs
         enteredCubeManager = col.GetComponent<CubeManager>();
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
+        
+        //Parenting is needed for smooth movement and good looking motion
+        enteredCubeManager.UpdateParentUsingNetworkParentListID(networkParentListID);
     }
 
     private void FixedUpdate()
     {
         if (isEnteredCubeStatesNull) return; 
         if (enteredCubeManager.isGrabbed) return;
-        
-        //Parenting is needed for smooth movement and good looking motion
-        enteredCubeManager.UpdateParentUsingNetworkParentListID(networkParentListID);
 
         UpdateScalePosition();
         
@@ -220,6 +227,7 @@ public class ScaleController : MonoBehaviour
         else
             return;
         
+        col.GetComponent<CubeManager>().UpdateParentUsingNetworkParentListID(-1);   //-1 means null
         UpdateScalePosition();
     }
 }

@@ -19,6 +19,7 @@ public class PlayerController : NetworkBehaviour
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private Rigidbody rb;
+    public Transform grabPointTransform;
 
     public float rotatingSpeed;
     private Vector3 movingDirection;
@@ -37,6 +38,7 @@ public class PlayerController : NetworkBehaviour
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
+        grabPointTransform = Camera.main!.transform.Find("GrabPoint");
     }
     
     /// <summary>
@@ -57,7 +59,8 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void TurnLookingDirection()
     {
-        if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        if (psd.isGrabbing) transform.forward = Vector3.Slerp(transform.forward, pim.lookingDirection, rotatingSpeed);
+        else if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
     }
 
     /// <summary>
@@ -114,7 +117,8 @@ public class PlayerController : NetworkBehaviour
     {
         if (!pd.isLocal) return;
         
-        HandleEasterEgg();
+        //TODO: easter egg
+        //HandleEasterEgg();
         
         if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 
