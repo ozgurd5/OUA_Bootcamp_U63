@@ -172,7 +172,7 @@ Transform:
   - {fileID: 6381131291144220151}
   - {fileID: 8180677387334370036}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6248529106961120588
 MonoBehaviour:
@@ -186,9 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5563fc57e5aea914ba3cae9b4710a5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserStartPoint: {fileID: 6381131291144220151}
-  lineRenderer: {fileID: 7215857576228049106}
-  LastRobot: {fileID: 0}
+  lastRobot: {fileID: 0}
 --- !u!120 &7215857576228049106
 LineRenderer:
   serializedVersion: 2

@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class CrosshairManager : MonoBehaviour
 {
     [Header("Assign")]
-    [SerializeField] private float grabRange = 7f;
+    [SerializeField] private float interactionRange = 7f;
     [SerializeField] [Range(0, 1)] private float opacity = 0.3f;
 
     [Header("Info - No Touch")]
     public bool isLookingAtCube;
+    public bool isLookingAtRobot;
     public Ray crosshairRay;
     public RaycastHit crosshairHit;
 
@@ -46,10 +47,23 @@ public class CrosshairManager : MonoBehaviour
     {
         //TODO: debug purpose, remove before build
         if (Input.GetKeyDown(KeyCode.G)) Debug.Log(crosshairHit.collider.gameObject.name);
-        
-        isLookingAtCube = CastRayForCubes();
 
-        crosshairVisibilityCondition = isLookingAtCube || psd.isGrabbing;
+        if (CastRayFromCrosshair())
+        {
+            isLookingAtCube = crosshairHit.collider.CompareTag("RedPuzzle") ||
+                              crosshairHit.collider.CompareTag("GreenPuzzle") ||
+                              crosshairHit.collider.CompareTag("BluePuzzle");
+
+            isLookingAtRobot = crosshairHit.collider.CompareTag("robot");
+        }
+
+        else    //If in the up won't work if raycast return null
+        {
+            isLookingAtCube = false;
+            isLookingAtRobot = false;
+        }
+
+        crosshairVisibilityCondition = isLookingAtCube || psd.isGrabbing || isLookingAtRobot;
         
         //Just like the mesh renderer example, we can not directly change crosshairImage.color.a
         //We can only assign a color variable to it. Therefore we need a temporary color variable..
@@ -65,14 +79,9 @@ public class CrosshairManager : MonoBehaviour
     /// <para>Casts ray for cubes</para>
     /// </summary>
     /// <returns>True if a ray hits a cube</returns>
-    private bool CastRayForCubes()
+    private bool CastRayFromCrosshair()
     {
         crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);
-        bool wasRayHit = Physics.Raycast(crosshairRay, out crosshairHit, grabRange);
-        
-        if (!wasRayHit) return false;
-        
-        Collider col = crosshairHit.collider; //Shorter return statement :p
-        return col.CompareTag("RedPuzzle") || col.CompareTag("GreenPuzzle") || col.CompareTag("BluePuzzle");
+        return Physics.Raycast(crosshairRay, out crosshairHit, interactionRange);
     }
 }

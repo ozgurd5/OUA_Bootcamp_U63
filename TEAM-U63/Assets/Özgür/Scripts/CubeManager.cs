@@ -18,7 +18,7 @@ public class CubeManager : NetworkBehaviour
     private MeshRenderer mr;
     private Rigidbody rb;
     
-    private int materialAndTagIndex;    //PlayerArtistPaintAbility.cs
+    private int cubeMaterialAndTagIndex;    //PlayerArtistPaintAbility.cs
     
     public bool isGrabbed { get; private set; } //PlayerGrabbing.cs
     public bool isLocal { get; private set; }   //This script //PlayerGrabbing.cs
@@ -139,7 +139,7 @@ public class CubeManager : NetworkBehaviour
     /// <summary>
     /// <para>Sends isGrabbed value in the host to client</para>
     /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
-    /// that would override client side local status and cause object to not update it's local status</para>
+    /// that would override client side isGrabbed value and cause object to not update it's isGrabbed value</para>
     /// <param name="newIsGrabbed">Will the cube become local after this action?</param>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
@@ -158,20 +158,20 @@ public class CubeManager : NetworkBehaviour
     public void PaintCube()
     {
         //Index will go like 1-2-3-1-2-3 on and on...
-        materialAndTagIndex = (materialAndTagIndex + 1) % puzzleMaterials.Count;
+        cubeMaterialAndTagIndex = (cubeMaterialAndTagIndex + 1) % puzzleMaterials.Count;
         
         UpdateMaterialAndTagLocally();
         
-        //materialAndTagIndex in this line are the states in the host side because client can't call ClientRpc
-        UpdateCubeMaterialAndTagClientRpc(materialAndTagIndex);
+        //cubeMaterialAndTagIndex in this line are the states in the host side because client can't call ClientRpc
+        UpdateCubeMaterialAndTagClientRpc(cubeMaterialAndTagIndex);
         
-        //materialAndTagIndex in this line must be states in the client side and it is
-        if (!IsHost) UpdateCubeMaterialAndTagServerRpc(materialAndTagIndex);
+        //cubeMaterialAndTagIndex in this line must be states in the client side and it is
+        if (!IsHost) UpdateCubeMaterialAndTagServerRpc(cubeMaterialAndTagIndex);
     }
 
     private void UpdateMaterialAndTagLocally()
     {
-        tag = puzzlesTag[materialAndTagIndex];
+        tag = puzzlesTag[cubeMaterialAndTagIndex];
         
         //Updating mesh renderer materials in Unity is ultra protected for several long reasons
         //Long story short: We can not change a single element of the mesh renderer's materials array
@@ -179,12 +179,12 @@ public class CubeManager : NetworkBehaviour
         //So we must make our changes in a temporary copy array and assign it to mesh renderer material
         
         Material[] newCubeMaterials = mr.materials;
-        newCubeMaterials[0] = puzzleMaterials[materialAndTagIndex];
+        newCubeMaterials[0] = puzzleMaterials[cubeMaterialAndTagIndex];
         mr.materials = newCubeMaterials;
     }
 
     /// <summary>
-    /// <para>Sends position in the host to client and interpolates it in client side</para>
+    /// <para>Sends material and tag index in the host to client</para>
     /// <para>Can't and must not work in host side</para>
     /// <param name="newMaterialAndTagIndex">Material and tag index in the host side</param>
     /// </summary>
@@ -194,12 +194,12 @@ public class CubeManager : NetworkBehaviour
         //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
         if (IsHost) return;
         
-        materialAndTagIndex = newMaterialAndTagIndex;
+        cubeMaterialAndTagIndex = newMaterialAndTagIndex;
         UpdateMaterialAndTagLocally();
     }
 
     /// <summary>
-    /// <para>Sends position in the client to host and interpolates it in host side</para>
+    /// <para>Sends material and tag index in the client to host</para>
     /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
     /// that would override client side index and cause object to not update it's index</para>
     /// <param name="newMaterialAndTagIndex">Material and tag index in the client side</param>
@@ -207,7 +207,7 @@ public class CubeManager : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void UpdateCubeMaterialAndTagServerRpc(int newMaterialAndTagIndex)
     {
-        materialAndTagIndex = newMaterialAndTagIndex;
+        cubeMaterialAndTagIndex = newMaterialAndTagIndex;
         UpdateMaterialAndTagLocally();
     }
 

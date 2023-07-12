@@ -8,6 +8,6 @@ public class FirstIslandQTEActivator : MonoBehaviour
 {
     private void OnTriggerEnter(Collider col)
     {
-        PlayerQTEAbility.IsQTEActive = true;
+        PlayerQTEAbility.canQTE = true;
     }
 }

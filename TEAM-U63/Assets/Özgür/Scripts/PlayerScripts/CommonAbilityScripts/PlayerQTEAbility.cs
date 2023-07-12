@@ -1,9 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
+/// <summary>
+/// <para>Responsible for both hacking and lullaby</para>
+/// </summary>
 public class PlayerQTEAbility : MonoBehaviour
 {
-    public static bool IsQTEActive;
+    //TODO: make it false before build
+    public static bool canQTE = true;
+    public static event Action<Transform> OnRobotHacked;
     
     [Header("MAKE IT TRUE IF THIS SCRIPT IS FOR HACKING, FALSE FOR LULLABY")]
     [SerializeField] private bool IsHackQTE;
@@ -19,7 +26,9 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private Image keyImage;
     [SerializeField] private GameObject abilityCanvas;
 
+    private PlayerStateData psd;
     private PlayerInputManager pim;
+    private CrosshairManager cm;
     
     private float currentTimer;
     private int randomNumber;
@@ -28,34 +37,41 @@ public class PlayerQTEAbility : MonoBehaviour
     [Header("Info - No Touch")]
     [SerializeField] private int currentKeyPress;
     private int hackDoneLimit = 4;
+    private int lullabyDoneLimit = 15;
+
+    private RobotManager rm;
 
     private void Awake()
     {
+        psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
-        
-        GenerateRandomNumber();
-        DisplayNumber();
+        cm = GetComponentInChildren<CrosshairManager>();
     }
 
     private void Update()
     {
-        if (!IsQTEActive) return;
+        if (!canQTE) return;
 
-        if (currentTimer > 0f) currentTimer -= Time.deltaTime;
-        
-        if (pim.isPrimaryAbilityKeyDown)
+        if (pim.isPrimaryAbilityKeyDown && cm.isLookingAtRobot)
         {
-            if (abilityCanvas.activeSelf) DeactivateCanvas();
-            else ActivateCanvas();
+            rm = cm.crosshairHit.collider.GetComponent<RobotManager>();
+
+            if (abilityCanvas.activeSelf) DeactivateAbility();
+            
+            if (!IsHackQTE && rm.currentState == RobotManager.RobotState.IsRouting) ActivateAbility();
+            if (IsHackQTE && rm.currentState == RobotManager.RobotState.IsSleeping) ActivateAbility();
         }
+
+        if (!abilityCanvas.activeSelf) return;
         
-        if (currentTimer <= 0f) DeactivateCanvas();
+        if (currentTimer > 0f) currentTimer -= Time.deltaTime;
+        if (currentTimer <= 0f) DeactivateAbility();
 
         //If not pressing any key, return
         if (TurnInputToNumber() == 0) return;
 
         if (TurnInputToNumber() == randomNumber) Correct();
-        else DeactivateCanvas();
+        else DeactivateAbility();
     }
 
     private int TurnInputToNumber()
@@ -68,42 +84,82 @@ public class PlayerQTEAbility : MonoBehaviour
         return 0;
     }
     
-    private void ActivateCanvas()
+    private void ActivateAbility()
     {
+        psd.currentMainState = PlayerStateData.PlayerMainState.AbilityState;
+        
         abilityCanvas.SetActive(true);
         currentTimer = keyTimerLimit;
+        GenerateRandomNumber();
+        DisplayNumber();
+        
+        //Sleeping process is necessary for robot to stand still while artist is singing
+        //It can not be hacked during process. It can only be hacked while isSleeping is true
+        if (!IsHackQTE) rm.UpdateStates((int)RobotManager.RobotState.IsSleepingProcess);
     }
     
-    private void DeactivateCanvas()
+    private void DeactivateAbility()
     {
+        //Deactivation called after both success and failure. If coder succeeded to hack, it must not return to normal..
+        //..state, only failed players and succeeded artist must return to normal state
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.RobotControllingState)
+            psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+        
+        //If artist failed, the robot must go back to routing. Artist can fail only in IsSleepingProcess state
+        if (rm.currentState == RobotManager.RobotState.IsSleepingProcess)
+            rm.currentState = RobotManager.RobotState.IsRouting;
+        
         abilityCanvas.SetActive(false);
-        if (IsHackQTE) currentKeyPress = 0;
+        currentKeyPress = 0;
     }
     
     private void Correct()
     {
-        if (IsHackQTE)
-        {
-            currentKeyPress++;
-            if (CheckHackCompletion()) DeactivateCanvas();
-        }
+        currentKeyPress++;
+        
+        if (IsHackQTE && CheckHackCompletion()) DeactivateAbility();
+        else if (!IsHackQTE && CheckLullabyCompletion()) DeactivateAbility();
         
         currentTimer = keyTimerLimit;
         GenerateRandomNumber();
         DisplayNumber();
     }
-    
+
+    #region CheckCompletion
+
     private bool CheckHackCompletion()
     {
         if (currentKeyPress == hackDoneLimit)
         {
             currentKeyPress = 0;
+            
+            rm.UpdateStates((int)RobotManager.RobotState.IsHacked);
+            psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
+            OnRobotHacked?.Invoke(rm.transform);
+            
             return true;
         }
         
         return false;
     }
-    
+
+    private bool CheckLullabyCompletion()
+    {
+        if (currentKeyPress == lullabyDoneLimit)
+        {
+            currentKeyPress = 0;
+            rm.UpdateStates((int)RobotManager.RobotState.IsSleeping);
+            
+            return true;
+        }
+        
+        return false;
+    }
+
+    #endregion
+
+    #region RandomGenerationAndDisplay
+
     private void GenerateRandomNumber()
     {
         while (randomNumber == previousRandomNumber)
@@ -112,11 +168,6 @@ public class PlayerQTEAbility : MonoBehaviour
         }
 
         previousRandomNumber = randomNumber;
-    }
-
-    private void DisplayNumber()
-    {
-        keyImage.sprite = TurnNumberToImage(randomNumber);
     }
 
     private Sprite TurnNumberToImage(int number)
@@ -128,4 +179,11 @@ public class PlayerQTEAbility : MonoBehaviour
 
         return upKeyImage; //Won't be needed, compiler gets angry
     }
+    
+    private void DisplayNumber()
+    {
+        keyImage.sprite = TurnNumberToImage(randomNumber);
+    }
+    
+    #endregion
 }

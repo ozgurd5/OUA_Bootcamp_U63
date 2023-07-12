@@ -10,7 +10,8 @@ public class PlayerStateData : MonoBehaviour
     {
         NormalState = 0,
         AbilityState = 1,
-        EasterEggState = 2
+        EasterEggState = 2,
+        RobotControllingState = 3
     }
 
     [Header("Main State")]
