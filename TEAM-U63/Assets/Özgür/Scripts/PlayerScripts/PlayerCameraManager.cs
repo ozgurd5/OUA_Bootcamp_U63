@@ -3,8 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Updates main camera according to local player</para>
-/// <para>Works for each player, both in host and client sides</para>
-/// <para>Cinemachine camera must be active only in local player</para>
+/// <para>Works for each player</para>
 /// </summary>
 public class PlayerCameraManager : MonoBehaviour
 {
@@ -16,12 +15,12 @@ public class PlayerCameraManager : MonoBehaviour
         pd = GetComponent<PlayerData>();
         cinemachineCamera = GetComponentInChildren<CinemachineFreeLook>();
 
-        pd.OnControlSourceChanged += UpdateCurrentCamera;   //Needed for island 3 mechanics
+        pd.OnLocalStatusChanged += UpdateCurrentCamera;   //Needed for island 3 mechanics
         UpdateCurrentCamera();
     }
 
     private void UpdateCurrentCamera()
     {
-        cinemachineCamera.enabled = pd.controlSource == PlayerData.ControlSource.Local;
+        cinemachineCamera.enabled = pd.isLocal;
     }
 }

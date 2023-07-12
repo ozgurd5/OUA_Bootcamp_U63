@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -11,15 +12,17 @@ public class ScaleController : MonoBehaviour
     private static int completedScaleNumber;
     private static bool isAllScalesCompleted;
     public static event Action<bool> OnScaleCompleted;
+    
+    [Header("Assign - NetworkParentListID")]
+    [SerializeField] private int networkParentListID;
 
     //moveSpeed, completionLocalPositionY and maxLocalPosition should be static
     [Header("Assign")]
-    [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float completionLocalPositionY = -4.5f;
-    [SerializeField] private float maxLocalPosition = -4.7f;
+    [SerializeField] private BottomDetector bottomDetector;
     [SerializeField] private Transform ceilingTransform;
-    //TODO: Remove after tests are done
-    [SerializeField] private bool testRunScale;
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float completionLocalPositionY = -4.2f;
+    [SerializeField] private float maxLocalPosition = -4.7f;
 
     //Materials should be static but we can't assign static variables in inspector, assign the same for every scale
     //Ceiling mesh renderer is object specific though
@@ -30,29 +33,37 @@ public class ScaleController : MonoBehaviour
     
     //These should be static
     [Header("Assign - Color multipliers")]
-    [SerializeField] private float redMultiplier = 0.5f;
+    [SerializeField] private float redMultiplier = 0.3f;
     [SerializeField] private float greenMultiplier = 0.4f;
-    [SerializeField] private float blueMultiplier = 0.8f;
+    [SerializeField] private float blueMultiplier = 0.5f;
     
     [Header("Number of cubes")]
     [SerializeField] private int redNumber;
     [SerializeField] private int greenNumber;
     [SerializeField] private int blueNumber;
+    //TODO: Remove after tests are done
+    [SerializeField] private bool testRunScale;
     
-    [Header("isCompleted")]
+    [Header("Info - No Touch")]
     [SerializeField] private bool isCompleted;
 
+    private TextMeshProUGUI weightText;
     private LineRenderer lr;
     private Vector3 fixedPosition;
     private Vector3 weightlessPosition;
     private float weightlessLocalPositionY;
     
-    private CubeManager _enteredCubeManager;   //Explanation is in further down where it's being used
-    private bool isEnteredCubeStatesNull = true;        //Comparison to null is expensive
+    private CubeManager enteredCubeManager;         //Explanation is in further down where it's being used
+    private bool isEnteredCubeStatesNull = true;    //Comparison to null is expensive
+
+    private Tween movementTween;
+    private bool isMovingDown;
+    private bool isMovingUp;
 
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
+        weightText = GetComponentInChildren<TextMeshProUGUI>();
 
         //Scales are weightless in the beginning
         weightlessPosition = transform.position;
@@ -68,6 +79,9 @@ public class ScaleController : MonoBehaviour
 
         //Assign materials in the beginning
         UpdateCompletionMaterial();
+
+        //
+        bottomDetector.OnBottomExit += UpdateScalePosition;
     }
 
     private void Update()
@@ -78,9 +92,12 @@ public class ScaleController : MonoBehaviour
             UpdateScalePosition();
             testRunScale = false;
         }
+
+        //If there is an object bellow the scale and it tries to go down, it must not go down anymore
+        if (bottomDetector.isTouching && isMovingDown) movementTween.Kill();
         
         //Not the best way i think
-        lr.SetPosition(1, transform.position + new Vector3(0f, 0.5f, 0f));
+        lr.SetPosition(1, transform.position + new Vector3(0f, 0.7f, 0f));
     }
 
     /// <summary>
@@ -91,7 +108,7 @@ public class ScaleController : MonoBehaviour
         float stretchAmount = redNumber * redMultiplier + greenNumber * greenMultiplier + blueNumber * blueMultiplier;
         float localPositionYAfterStretch = weightlessLocalPositionY - stretchAmount;
         
-        //Local positions are negative, so smaller position means longer lenght
+        //Local positions are negative, so smaller y value means longer lenght
         if (localPositionYAfterStretch < maxLocalPosition)
             stretchAmount -=  math.abs(localPositionYAfterStretch - maxLocalPosition);
         
@@ -100,15 +117,40 @@ public class ScaleController : MonoBehaviour
         float distance = math.abs(transform.position.y - targetPositionY);
         float duration = distance / moveSpeed;
         
-        transform.DOMoveY(targetPositionY, duration).SetEase(Ease.Linear);
+        //isMovingDown and movementTween is necessary for stopping when there is an object bellow the scale
+        isMovingDown = transform.localPosition.y > localPositionYAfterStretch;
+        movementTween = transform.DOMoveY(targetPositionY, duration).SetEase(Ease.Linear);
         
         //We need to check completion after DOMoveY method is done because we are comparing transform.position.y..
         //..in that method. Since DOMoveY method is a coroutine, transform.position.y will change during "duration"
-        Invoke(nameof(CheckCompletion), duration + 0.1f);
+        Invoke(nameof(CheckCompletion), duration + 0.01f);
+        
+        //Same thing applies for these too
+        Invoke(nameof(UpdateWeightText), duration + 0.01f);
+        Invoke(nameof(SetIsMovingDownFalse), duration + 0.01f);
+    }
+
+    /// <summary>
+    /// <para>Sets isMovingDown to false</para>
+    /// <para>Must be called in UpdateScalePosition</para>
+    /// </summary>
+    private void SetIsMovingDownFalse()
+    {
+        isMovingDown = false;
+    }
+
+    /// <summary>
+    /// <para>Updates weight text above the ceiling</para>
+    /// <para>Must be called in UpdateScalePosition</para>
+    /// </summary>
+    private void UpdateWeightText()
+    {
+       weightText.text = $"{(int)(math.abs(weightlessLocalPositionY - transform.localPosition.y) * 10)}";
     }
     
     /// <summary>
     /// <para>Checks if the scale reached the lenght needed for completion</para>
+    /// <para>Must be called in UpdateScalePosition</para>
     /// </summary>
     private void CheckCompletion()
     {
@@ -138,13 +180,13 @@ public class ScaleController : MonoBehaviour
         //TODO: Remove after tests are done
         //Debug.Log(gameObject.name + ": " + isCompleted);
         //Debug.Log("how many completed: " + completedScaleNumber);
-        //Debug.Log("all completed: " + isAllScalesCompleted);
 
         OnScaleCompleted?.Invoke(isAllScalesCompleted);
     }
 
     /// <summary>
     /// <para>Updates the material of the ceiling according to completion</para>
+    /// <para>Must be called in CheckCompletion</para>
     /// </summary>
     private void UpdateCompletionMaterial()
     {
@@ -184,26 +226,25 @@ public class ScaleController : MonoBehaviour
         //We can not check "if player is holding the cube" in OnTriggerEnter method. Player can drop..
         //..the cube after it's entry to the collider. So we must check it dynamically in FixedUpdate
         
-        //Also the parenting in this script cause conflict with PlayerGrabbing.cs parenting. It must also be
-        //..done while player is not holding the cube.
-        
-        //To do all of that, we need the CubeManager.cs from the cube that has entered the collider...
-        //..and check if it's currently held by player or not. That state is updated by PlayerGrabbing.cs
-        _enteredCubeManager = col.GetComponent<CubeManager>();
+        //Same thing applies to the parenting. We must not change the parent of the cube while player is..
+        //..holding the cube. Grabbing mechanic needs parenting
+        enteredCubeManager = col.GetComponent<CubeManager>();
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
     }
 
     private void FixedUpdate()
     {
         if (isEnteredCubeStatesNull) return; 
-        if (_enteredCubeManager.isGrabbed) return;
-        
-        //Parenting is needed for smooth movement and good looking motion
-        _enteredCubeManager.transform.SetParent(transform);
+        if (enteredCubeManager.isGrabbed) return;
 
         UpdateScalePosition();
         
-        _enteredCubeManager = null;
+        //Parenting is needed for smooth movement and good looking motion
+        //We must not deparent the object in this script because that cause conflict with PlayerGrab.cs parenting
+        //PlayerGrab.cs is responsible for deparenting cubes from scales. It makes cubes child of the grabPoint
+        enteredCubeManager.UpdateParentUsingNetworkParentListID(networkParentListID);
+        
+        enteredCubeManager = null;
         isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Controls player movement, rotation, jump</para>
-/// <para>Works only in "Normal State"</para>
+/// <para>Works only for local player</para>
 /// </summary>
 public class PlayerController : NetworkBehaviour
 {
@@ -45,9 +45,9 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void CalculateMovingDirection()
     {
-        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirection);
+        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirectionForward);
         
-        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirection * pim.moveInput.y;
+        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirectionForward * pim.moveInput.y;
         movingDirection.y = 0f;
     }
     
@@ -57,9 +57,8 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void TurnLookingDirection()
     {
-        if (!psd.isMoving) return;
-        
-        transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        else if (psd.isGrabbing && psd.isIdle) transform.forward = Vector3.Slerp(transform.forward, pim.lookingDirectionForward, rotatingSpeed);
     }
 
     /// <summary>
@@ -114,11 +113,12 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
-        if (pd.controlSource != PlayerData.ControlSource.Local) return;
+        if (!pd.isLocal) return;
         
-        HandleEasterEgg();
+        //TODO: easter egg
+        //HandleEasterEgg();
         
-        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
@@ -126,8 +126,8 @@ public class PlayerController : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if (pd.controlSource != PlayerData.ControlSource.Local) return;
-        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        if (!pd.isLocal) return;
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
         
         CalculateMovingDirection();
         TurnLookingDirection();
@@ -142,7 +142,7 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void HandleEasterEgg()
     {
-        if (psd.currentState == PlayerStateData.PlayerState.AbilityState) return;
+        if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) return;
         
         if (pim.isEasterEggKeyDown)
             OnEasterEggEnter?.Invoke();

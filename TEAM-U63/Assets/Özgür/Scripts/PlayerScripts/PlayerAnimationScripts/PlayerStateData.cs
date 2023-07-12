@@ -2,20 +2,21 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Stores player state data</para>
+/// <para>Works for each player</para>
 /// </summary>
 public class PlayerStateData : MonoBehaviour
 {
-    public enum PlayerState
+    public enum PlayerMainState
     {
-        NormalState,
-        AbilityState,
-        EasterEggState
+        NormalState = 0,
+        AbilityState = 1,
+        EasterEggState = 2
     }
 
-    [Header("State")]
-    public PlayerState currentState = PlayerState.NormalState;
+    [Header("Main State")]
+    public PlayerMainState currentMainState = PlayerMainState.NormalState;
 
-    [Header("Sub-states")]
+    [Header("States")]
     public bool isIdle;     //PlayerController.cs
     public bool isWalking;  //PlayerController.cs
     public bool isRunning;  //PlayerController.cs

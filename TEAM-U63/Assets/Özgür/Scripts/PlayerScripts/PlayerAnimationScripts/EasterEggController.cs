@@ -45,7 +45,7 @@ public class EasterEggController : MonoBehaviour
     /// </summary>
     private void EnterEasterEggState()
     {
-        psd.currentState = PlayerStateData.PlayerState.EasterEggState;
+        psd.currentMainState = PlayerStateData.PlayerMainState.EasterEggState;
         PositionCamera();
         
         //When player enter EasterEggState while running, it continues to move. It must stop
@@ -57,7 +57,7 @@ public class EasterEggController : MonoBehaviour
     /// </summary>
     private void ExitEasterEggState()
     {
-        psd.currentState = PlayerStateData.PlayerState.NormalState;
+        psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
         PositionCamera();
     }
     
@@ -66,9 +66,9 @@ public class EasterEggController : MonoBehaviour
     /// </summary>
     private void PositionCamera()
     {
-        if (psd.currentState == PlayerStateData.PlayerState.NormalState)
+        if (psd.currentMainState == PlayerStateData.PlayerMainState.NormalState)
             cameraPivot.DOLocalMoveY(defaultCameraPivotLocalYPosition, 1f);
-        else if (psd.currentState == PlayerStateData.PlayerState.EasterEggState)
+        else if (psd.currentMainState == PlayerStateData.PlayerMainState.EasterEggState)
             cameraPivot.DOLocalMoveY(defaultCameraPivotLocalYPosition - 1f, 1f);
     }
 }

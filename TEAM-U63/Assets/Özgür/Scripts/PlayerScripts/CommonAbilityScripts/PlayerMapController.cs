@@ -2,21 +2,23 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Responsible of map control mechanic in the first island's second level (labyrinth)</para>
+/// <para>Works only for local player</para>
 /// </summary>
 public class PlayerMapController : MonoBehaviour
 {
     [Header("Assign")]
-    [SerializeField] private GameObject mapCollectible;
     [SerializeField] private GameObject mapCanvas;
 
-    private PlayerController pc;
+    private PlayerData pd;
+    private PlayerInputManager pim;
     
-    private bool mapCollected;
+    public bool mapCollected;
     private bool isMapActive;
 
     private void Awake()
     {
-        pc = GetComponent<PlayerController>();
+        pd = GetComponent<PlayerData>();
+        pim = GetComponent<PlayerInputManager>();
     }
 
     /// <summary>
@@ -25,10 +27,11 @@ public class PlayerMapController : MonoBehaviour
     /// </summary>
     private void OpenAndCloseMap()
     {
-        //if (!pc.input.isMapKeyDown || !mapCollected) return;
-        
-        isMapActive = !isMapActive;
-        mapCanvas.SetActive(isMapActive);
+        if (pim.isMapKeyDown && mapCollected)
+        {
+            isMapActive = !isMapActive;
+            mapCanvas.SetActive(isMapActive);
+        }
     }
 
     /// <summary>
@@ -37,9 +40,9 @@ public class PlayerMapController : MonoBehaviour
     /// <param name="col">Collider coming from OnTriggerEnter</param>
     private void CollectMap(Collider col)
     {
-        if (col.gameObject != mapCollectible) return;
+        if (!col.CompareTag("MapCollectible")) return;
         
-        Destroy(mapCollectible);
+        Destroy(col.gameObject);
             
         mapCollected = true;
         isMapActive = true;
@@ -49,11 +52,12 @@ public class PlayerMapController : MonoBehaviour
     
     private void Update()
     {
-        OpenAndCloseMap();   
+        OpenAndCloseMap();
     }
     
     private void OnTriggerEnter(Collider col)
     {
-        CollectMap(col);
+        if (pd.isLocal) CollectMap(col);
+        else if (col.CompareTag("MapCollectible")) Destroy(col.gameObject);
     }
 }
