@@ -14,18 +14,15 @@ public class PlayerCoderVisionAbility : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private Canvas coderVisionCanvas;
 
-    private PlayerData pd;
     private PlayerInputManager pim;
 
     private void Awake()
     {
-        pd = GetComponent<PlayerData>();
         pim = GetComponent<PlayerInputManager>();
     }
 
     void Update()
     {
-        if (!pd.isLocal) return;
         if (!pim.isSecondaryAbilityKeyDown) return;
 
         isCoderVisionActive = !isCoderVisionActive;

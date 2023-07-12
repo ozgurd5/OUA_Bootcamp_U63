@@ -9,7 +9,12 @@ public class PlayerInputManager : MonoBehaviour
     private PlayerInputActions pia;
     private PlayerData pd;
     private Transform cameraTransform;
-
+    
+    public bool qteUp;
+    public bool qteDown;
+    public bool qteLeft;
+    public bool qteRight;
+    
     public Vector2 moveInput;
     public Vector3 lookingDirectionForward;
     public bool isRunKey;
@@ -33,6 +38,12 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (!pd.isLocal) return;
 
+        //QTE keys can not be Vector2, we need buttons
+        qteUp = pia.Player.QTEUp.WasPressedThisFrame();
+        qteDown = pia.Player.QTEDown.WasPressedThisFrame();
+        qteLeft = pia.Player.QTELeft.WasPressedThisFrame();
+        qteRight = pia.Player.QTERight.WasPressedThisFrame();
+        
         moveInput = pia.Player.Movement.ReadValue<Vector2>();
         isRunKey = pia.Player.Run.IsPressed();
         isGrabKeyDown = pia.Player.Grab.WasPressedThisFrame();

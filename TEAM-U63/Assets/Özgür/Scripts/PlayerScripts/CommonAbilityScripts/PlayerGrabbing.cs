@@ -15,7 +15,6 @@ public class PlayerGrabbing : NetworkBehaviour
     [SerializeField] private float bufferDistance = 0.1f;
     [SerializeField] private float cubeDrag = 15f;
 
-    private PlayerData pd;
     private PlayerInputManager pim;
     private PlayerStateData psd;
     private CrosshairManager cm;
@@ -29,7 +28,6 @@ public class PlayerGrabbing : NetworkBehaviour
 
     private void Awake()
     {
-        pd = GetComponent<PlayerData>();
         pim = GetComponent<PlayerInputManager>();
         psd = GetComponent<PlayerStateData>();
         cm = GetComponentInChildren<CrosshairManager>();
@@ -104,7 +102,6 @@ public class PlayerGrabbing : NetworkBehaviour
 
     private void Update()
     {
-        if (!pd.isLocal) return;
         if (!pim.isGrabKeyDown) return;
 
         if (psd.isGrabbing) DropObject();

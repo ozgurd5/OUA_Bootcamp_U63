@@ -52,7 +52,7 @@ public class PlayerMapController : MonoBehaviour
     
     private void Update()
     {
-        if (pd.isLocal) OpenAndCloseMap();
+        OpenAndCloseMap();
     }
     
     private void OnTriggerEnter(Collider col)

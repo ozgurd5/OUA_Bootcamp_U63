@@ -25,7 +25,6 @@ public class PlayerArtistPaintAbility : NetworkBehaviour
 
     private void Update()
     {
-        if (!pd.isLocal) return;
         if (!pim.isSecondaryAbilityKeyDown) return;   
         if (!cm.isLookingAtCube) return;
         
