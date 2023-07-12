@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// <para>Responsible for both hacking and lullaby</para>
@@ -8,7 +10,7 @@ public class PlayerQTEAbility : MonoBehaviour
 {
     //TODO: make it false before build
     public static bool canQTE = true;
-    public static bool isCurrentlySinging;
+    public static event Action OnRobotStateChanged;
     
     [Header("MAKE IT TRUE IF THIS SCRIPT IS FOR HACKING, FALSE FOR LULLABY")]
     [SerializeField] private bool IsHackQTE;
@@ -26,6 +28,7 @@ public class PlayerQTEAbility : MonoBehaviour
 
     private PlayerStateData psd;
     private PlayerInputManager pim;
+    private CrosshairManager cm;
     
     private float currentTimer;
     private int randomNumber;
@@ -34,28 +37,34 @@ public class PlayerQTEAbility : MonoBehaviour
     [Header("Info - No Touch")]
     [SerializeField] private int currentKeyPress;
     private int hackDoneLimit = 4;
+    private int lullabyDoneLimit = 15;
+
+    private RobotManager rm;
 
     private void Awake()
     {
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
-        
-        GenerateRandomNumber();
-        DisplayNumber();
+        cm = GetComponentInChildren<CrosshairManager>();
     }
 
     private void Update()
     {
         if (!canQTE) return;
 
-        if (currentTimer > 0f) currentTimer -= Time.deltaTime;
-        
-        if (pim.isPrimaryAbilityKeyDown)
+        if (pim.isPrimaryAbilityKeyDown && cm.isLookingAtRobot)
         {
+            rm = cm.crosshairHit.collider.GetComponent<RobotManager>();
+
             if (abilityCanvas.activeSelf) DeactivateAbility();
-            else ActivateAbility();
+            
+            if (!IsHackQTE) ActivateAbility();
+            if (IsHackQTE && rm.isSleeping) ActivateAbility();
         }
+
+        if (!abilityCanvas.activeSelf) return;
         
+        if (currentTimer > 0f) currentTimer -= Time.deltaTime;
         if (currentTimer <= 0f) DeactivateAbility();
 
         //If not pressing any key, return
@@ -77,48 +86,85 @@ public class PlayerQTEAbility : MonoBehaviour
     
     private void ActivateAbility()
     {
-        if (!IsHackQTE) isCurrentlySinging = true;
-        
         psd.currentMainState = PlayerStateData.PlayerMainState.AbilityState;
         
         abilityCanvas.SetActive(true);
         currentTimer = keyTimerLimit;
+        GenerateRandomNumber();
+        DisplayNumber();
+        
+        //Sleeping process is necessary for robot to stand still while artist is singing
+        //It can not be hacked during process. It can only be hacked while isSleeping is true
+        if (!IsHackQTE)
+        {
+            rm.isSleepingProcess = true;
+            OnRobotStateChanged?.Invoke();
+        }
     }
     
     private void DeactivateAbility()
     {
-        if (!IsHackQTE) isCurrentlySinging = false;
-        
-        psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
-        
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.RobotControllingState)
+            psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+
         abilityCanvas.SetActive(false);
-        if (IsHackQTE) currentKeyPress = 0;
+        currentKeyPress = 0;
     }
     
     private void Correct()
     {
-        if (IsHackQTE)
-        {
-            currentKeyPress++;
-            if (CheckHackCompletion()) DeactivateAbility();
-        }
+        currentKeyPress++;
+        
+        if (IsHackQTE && CheckHackCompletion()) DeactivateAbility();
+        else if (!IsHackQTE && CheckLullabyCompletion()) DeactivateAbility();
         
         currentTimer = keyTimerLimit;
         GenerateRandomNumber();
         DisplayNumber();
     }
-    
+
+    #region CheckCompletion
+
     private bool CheckHackCompletion()
     {
         if (currentKeyPress == hackDoneLimit)
         {
             currentKeyPress = 0;
+            
+            rm.isHacked = true;
+            rm = null;
+
+            psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
+            OnRobotStateChanged?.Invoke();
+            
             return true;
         }
         
         return false;
     }
-    
+
+    private bool CheckLullabyCompletion()
+    {
+        if (currentKeyPress == lullabyDoneLimit)
+        {
+            currentKeyPress = 0;
+            
+            rm.isSleepingProcess = false;
+            rm.isSleeping = true;
+            rm = null;
+            
+            OnRobotStateChanged?.Invoke();
+            
+            return true;
+        }
+        
+        return false;
+    }
+
+    #endregion
+
+    #region RandomGenerationAndDisplay
+
     private void GenerateRandomNumber()
     {
         while (randomNumber == previousRandomNumber)
@@ -127,11 +173,6 @@ public class PlayerQTEAbility : MonoBehaviour
         }
 
         previousRandomNumber = randomNumber;
-    }
-
-    private void DisplayNumber()
-    {
-        keyImage.sprite = TurnNumberToImage(randomNumber);
     }
 
     private Sprite TurnNumberToImage(int number)
@@ -143,4 +184,11 @@ public class PlayerQTEAbility : MonoBehaviour
 
         return upKeyImage; //Won't be needed, compiler gets angry
     }
+    
+    private void DisplayNumber()
+    {
+        keyImage.sprite = TurnNumberToImage(randomNumber);
+    }
+    
+    #endregion
 }

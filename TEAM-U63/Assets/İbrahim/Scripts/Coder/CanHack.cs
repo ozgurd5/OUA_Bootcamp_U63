@@ -8,7 +8,7 @@ public class CanHack : MonoBehaviour
 {
     public GameObject hackCanvas;
     public GameObject artistLullabyCanvas;
-    public FlyingRobotController _flyingRobotController;
+    public RobotController robotController;
     
 
     [SerializeField] List<Image> images;
@@ -167,7 +167,7 @@ public class CanHack : MonoBehaviour
         currentIndex = 0;
         GenerateRandomSequence();
 
-        _flyingRobotController.enabled = isHacked;
+        robotController.enabled = isHacked;
     }
 
     private void TriggerFailure()
@@ -198,10 +198,10 @@ public class CanHack : MonoBehaviour
 
     //private IEnumerator ControlRobot()
     //{
-    //    _flyingRobotController.enabled = isHacked;
+    //    robotController.enabled = isHacked;
     //    yield return new WaitForSeconds(robotControlDuration);
     //    
-    //    _flyingRobotController.enabled = false;
+    //    robotController.enabled = false;
     //    
     //}
 }

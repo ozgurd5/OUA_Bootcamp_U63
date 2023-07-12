@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
-public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotControlActions
+public class RobotController : MonoBehaviour, RobotInputManager.IRobotControlActions
 {
     [SerializeField] private float movementSpeed = 8f;
     [SerializeField] private float liftSpeed = 4f;
@@ -28,8 +25,7 @@ public class FlyingRobotController : MonoBehaviour, RobotInputManager.IRobotCont
         _rb = GetComponent<Rigidbody>();
         _characterTransform = transform;
 
-        _cameraTransform = Camera.main.transform;
-
+        _cameraTransform = Camera.main!.transform;
     }
 
     private void OnEnable()

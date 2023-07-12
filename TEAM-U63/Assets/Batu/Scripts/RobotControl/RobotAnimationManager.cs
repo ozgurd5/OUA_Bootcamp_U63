@@ -1,33 +1,32 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimControl : MonoBehaviour
+public class RobotAnimationManager : MonoBehaviour
 {
     [SerializeField] public GameObject blinkEyesObject;
     [SerializeField] public GameObject hypnotizedEyesObject;
     [SerializeField] public GameObject hypnotizedEarsObject;
     [SerializeField] public GameObject normalEarsObject;
-    [SerializeField] public GameObject quickTimeEventCanvas;
     
-    private FlyingRobotController _flyingRobotController;
+    private RobotManager rm;
 
     public void Awake()
     {
-         _flyingRobotController = GetComponent<FlyingRobotController>();
+         rm = GetComponent<RobotManager>();
+         
+         PlayerQTEAbility.OnRobotStateChanged += UpdateRobotAnimations;
     }
 
-    private void Update()
+    private void UpdateRobotAnimations()
     {
-        if (quickTimeEventCanvas.activeSelf || _flyingRobotController.enabled)
+        if (rm.isSleepingProcess || rm.isSleeping || rm.isHacked)
         {
             blinkEyesObject.SetActive(false);
             normalEarsObject.SetActive(false);
             hypnotizedEarsObject.SetActive(true);
             hypnotizedEyesObject.SetActive(true);
         }
-        else if(!quickTimeEventCanvas.activeSelf || !_flyingRobotController.enabled)
+        
+        else
         {
             blinkEyesObject.SetActive(true);
             normalEarsObject.SetActive(true);
