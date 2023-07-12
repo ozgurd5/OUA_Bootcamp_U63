@@ -17,9 +17,11 @@ public class PlayerArtistPaintAbility : NetworkBehaviour
 
     private void Update()
     {
-        if (!pim.isSecondaryAbilityKeyDown) return;   
-        if (!cm.isLookingAtCube) return;
+        if (!pim.isSecondaryAbilityKeyDown) return;
         
-        cm.crosshairHit.collider.gameObject.GetComponent<CubeManager>().PaintCube();
+        if (cm.isLookingAtCube)
+            cm.crosshairHit.collider.GetComponent<CubeManager>().PaintCube();
+        else if (cm.isLookingAtRobot)
+            cm.crosshairHit.collider.GetComponent<RobotManager>().PaintRobot();
     }
 }

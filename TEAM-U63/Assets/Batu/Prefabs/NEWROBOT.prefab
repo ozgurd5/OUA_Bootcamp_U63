@@ -334,7 +334,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 1
 --- !u!135 &4064816313716689983
 SphereCollider:
@@ -537,6 +537,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9507b627791f56142b0978f627a31679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robotMaterials:
+  - {fileID: 2100000, guid: 52ec5f412fb7d0e4e903ed3aae5cdf30, type: 2}
+  - {fileID: 2100000, guid: 28904e32cf657d546afe019b3cf9ff6f, type: 2}
+  - {fileID: 2100000, guid: 5ae857993e0fa924a847694198c0d4d9, type: 2}
 --- !u!114 &3296004251871438163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +619,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3f68589bba007b14a9c22475ce43e8b5, type: 2}
+  - {fileID: 2100000, guid: 52ec5f412fb7d0e4e903ed3aae5cdf30, type: 2}
   - {fileID: 2100000, guid: 704cfd0a9fe963c4fb92a58196af1883, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -915,7 +919,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3516259430328637615}
-  m_LocalRotation: {x: 0.06162186, y: 0.0000000021467101, z: -1.3253613e-10, w: 0.99809957}
+  m_LocalRotation: {x: 0.06162186, y: -0.0000000021467101, z: 1.3253613e-10, w: 0.99809957}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

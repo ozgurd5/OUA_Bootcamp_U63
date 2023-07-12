@@ -17,7 +17,7 @@ public class RobotAnimationManager : MonoBehaviour
 
     private void UpdateRobotAnimations()
     {
-        if (rm.isSleepingProcess || rm.isSleeping || rm.isHacked)
+        if (rm.currentState != RobotManager.RobotState.IsRouting)
         {
             blinkEyesObject.SetActive(false);
             normalEarsObject.SetActive(false);

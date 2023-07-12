@@ -58,8 +58,8 @@ public class PlayerQTEAbility : MonoBehaviour
 
             if (abilityCanvas.activeSelf) DeactivateAbility();
             
-            if (!IsHackQTE) ActivateAbility();
-            if (IsHackQTE && rm.isSleeping) ActivateAbility();
+            if (!IsHackQTE && rm.currentState == RobotManager.RobotState.IsRouting) ActivateAbility();
+            if (IsHackQTE && rm.currentState == RobotManager.RobotState.IsSleeping) ActivateAbility();
         }
 
         if (!abilityCanvas.activeSelf) return;
@@ -95,18 +95,20 @@ public class PlayerQTEAbility : MonoBehaviour
         
         //Sleeping process is necessary for robot to stand still while artist is singing
         //It can not be hacked during process. It can only be hacked while isSleeping is true
-        if (!IsHackQTE)
-        {
-            //Makes isSleepingProcess true
-            rm.UpdateStates(rm.isSleeping, rm.isHacked, true);
-        }
+        if (!IsHackQTE) rm.UpdateStates((int)RobotManager.RobotState.IsSleepingProcess);
     }
     
     private void DeactivateAbility()
     {
+        //Deactivation called after both success and failure. If coder succeeded to hack, it must not return to normal..
+        //..state, only failed players and succeeded artist must return to normal state
         if (psd.currentMainState != PlayerStateData.PlayerMainState.RobotControllingState)
             psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
-
+        
+        //If artist failed, the robot must go back to routing. Artist can fail only in IsSleepingProcess state
+        if (rm.currentState == RobotManager.RobotState.IsSleepingProcess)
+            rm.currentState = RobotManager.RobotState.IsRouting;
+        
         abilityCanvas.SetActive(false);
         currentKeyPress = 0;
     }
@@ -131,13 +133,9 @@ public class PlayerQTEAbility : MonoBehaviour
         {
             currentKeyPress = 0;
             
-            //Makes isHacked true
-            rm.UpdateStates(rm.isSleeping, true, rm.isSleepingProcess);
-
+            rm.UpdateStates((int)RobotManager.RobotState.IsHacked);
             psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
             OnRobotHacked?.Invoke(rm.transform);
-            
-            rm = null;
             
             return true;
         }
@@ -150,11 +148,7 @@ public class PlayerQTEAbility : MonoBehaviour
         if (currentKeyPress == lullabyDoneLimit)
         {
             currentKeyPress = 0;
-            
-            //Makes isSleeping true, isSleepingProcess false
-            rm.UpdateStates(true, rm.isHacked, false);
-
-            rm = null;
+            rm.UpdateStates((int)RobotManager.RobotState.IsSleeping);
             
             return true;
         }

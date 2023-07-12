@@ -111,12 +111,34 @@ public class PlayerController : NetworkBehaviour
         rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
     }
 
+    /// <summary>
+    /// <para>Controls rigidbody constraints and exiting from robot controlling state</para>
+    /// <para>Must work in Update</para>
+    /// </summary>
+    private void HandleRobotControllingState()
+    {
+        if (psd.currentMainState == PlayerStateData.PlayerMainState.RobotControllingState)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;        //not efficient
+
+            if (pim.isPrimaryAbilityKeyDown)
+            {
+                //exit state
+            }
+        }
+        
+        else rb.constraints = RigidbodyConstraints.FreezeRotation;    //not efficient
+
+    }
+
     private void Update()
     {
         if (!pd.isLocal) return;
         
         //TODO: easter egg
         //HandleEasterEgg();
+        
+        HandleRobotControllingState();
         
         if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 
