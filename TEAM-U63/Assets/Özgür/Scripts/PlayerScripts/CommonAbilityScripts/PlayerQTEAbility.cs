@@ -10,7 +10,6 @@ public class PlayerQTEAbility : MonoBehaviour
 {
     //TODO: make it false before build
     public static bool canQTE = true;
-    public static event Action OnRobotStateChanged;
     public static event Action<Transform> OnRobotHacked;
     
     [Header("MAKE IT TRUE IF THIS SCRIPT IS FOR HACKING, FALSE FOR LULLABY")]
@@ -98,8 +97,8 @@ public class PlayerQTEAbility : MonoBehaviour
         //It can not be hacked during process. It can only be hacked while isSleeping is true
         if (!IsHackQTE)
         {
-            rm.isSleepingProcess = true;
-            OnRobotStateChanged?.Invoke();
+            //Makes isSleepingProcess true
+            rm.UpdateStates(rm.isSleeping, rm.isHacked, true);
         }
     }
     
@@ -132,10 +131,10 @@ public class PlayerQTEAbility : MonoBehaviour
         {
             currentKeyPress = 0;
             
-            rm.isHacked = true;
+            //Makes isHacked true
+            rm.UpdateStates(rm.isSleeping, true, rm.isSleepingProcess);
 
             psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
-            OnRobotStateChanged?.Invoke();
             OnRobotHacked?.Invoke(rm.transform);
             
             rm = null;
@@ -152,11 +151,9 @@ public class PlayerQTEAbility : MonoBehaviour
         {
             currentKeyPress = 0;
             
-            rm.isSleepingProcess = false;
-            rm.isSleeping = true;
-            
-            OnRobotStateChanged?.Invoke();
-            
+            //Makes isSleeping true, isSleepingProcess false
+            rm.UpdateStates(true, rm.isHacked, false);
+
             rm = null;
             
             return true;

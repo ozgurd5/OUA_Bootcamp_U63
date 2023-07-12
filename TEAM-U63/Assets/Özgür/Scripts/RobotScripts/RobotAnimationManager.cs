@@ -12,8 +12,7 @@ public class RobotAnimationManager : MonoBehaviour
     public void Awake()
     {
          rm = GetComponent<RobotManager>();
-         
-         PlayerQTEAbility.OnRobotStateChanged += UpdateRobotAnimations;
+         rm.OnRobotStateChanged += UpdateRobotAnimations;
     }
 
     private void UpdateRobotAnimations()

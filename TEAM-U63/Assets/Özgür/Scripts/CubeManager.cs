@@ -139,7 +139,7 @@ public class CubeManager : NetworkBehaviour
     /// <summary>
     /// <para>Sends isGrabbed value in the host to client</para>
     /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
-    /// that would override client side local status and cause object to not update it's local status</para>
+    /// that would override client side isGrabbed value and cause object to not update it's isGrabbed value</para>
     /// <param name="newIsGrabbed">Will the cube become local after this action?</param>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]

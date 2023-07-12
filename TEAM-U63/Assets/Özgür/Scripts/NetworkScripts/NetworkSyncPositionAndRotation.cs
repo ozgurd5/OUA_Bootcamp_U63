@@ -12,8 +12,10 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
     private static float defaultRotationSpeed = 0.5f;
     
     private PlayerData pd;
-    private PlayerController pc;
     private CubeManager cm;
+    private RobotManager rm;
+    
+    private PlayerController pc;
     
     private float rotatingSpeed;
     [SerializeField] private bool isObjectLocal;
@@ -34,6 +36,13 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
             cm = GetComponent<CubeManager>();
             cm.OnLocalStatusChanged += () => { isObjectLocal = cm.isLocal; };
             isObjectLocal = cm.isLocal;
+        }
+        
+        else if (CompareTag("robot"))
+        {
+            rm = GetComponent<RobotManager>();
+            rm.OnLocalStatusChanged += () => { isObjectLocal = rm.isLocal; };
+            isObjectLocal = rm.isLocal;
         }
 
         //TODO: activate this line before build
