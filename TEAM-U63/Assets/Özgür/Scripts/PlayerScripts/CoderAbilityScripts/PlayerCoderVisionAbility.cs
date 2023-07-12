@@ -14,16 +14,19 @@ public class PlayerCoderVisionAbility : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private Canvas coderVisionCanvas;
 
+    private PlayerStateData psd;
     private PlayerInputManager pim;
 
     private void Awake()
     {
+        psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
     }
 
     void Update()
     {
         if (!pim.isSecondaryAbilityKeyDown) return;
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 
         isCoderVisionActive = !isCoderVisionActive;
         coderVisionCanvas.gameObject.SetActive(isCoderVisionActive);

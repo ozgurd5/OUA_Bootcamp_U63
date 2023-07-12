@@ -11,6 +11,7 @@ public class PlayerQTEAbility : MonoBehaviour
     //TODO: make it false before build
     public static bool canQTE = true;
     public static event Action OnRobotStateChanged;
+    public static event Action<Transform> OnRobotHacked;
     
     [Header("MAKE IT TRUE IF THIS SCRIPT IS FOR HACKING, FALSE FOR LULLABY")]
     [SerializeField] private bool IsHackQTE;
@@ -132,10 +133,12 @@ public class PlayerQTEAbility : MonoBehaviour
             currentKeyPress = 0;
             
             rm.isHacked = true;
-            rm = null;
 
             psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
             OnRobotStateChanged?.Invoke();
+            OnRobotHacked?.Invoke(rm.transform);
+            
+            rm = null;
             
             return true;
         }
@@ -151,9 +154,10 @@ public class PlayerQTEAbility : MonoBehaviour
             
             rm.isSleepingProcess = false;
             rm.isSleeping = true;
-            rm = null;
             
             OnRobotStateChanged?.Invoke();
+            
+            rm = null;
             
             return true;
         }

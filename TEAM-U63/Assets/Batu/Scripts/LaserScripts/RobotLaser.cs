@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RobotLaser : MonoBehaviour
@@ -10,7 +8,7 @@ public class RobotLaser : MonoBehaviour
     private bool isGettingLaser;
     private GameObject LastRobot;
 
-    void Start()
+    void Awake()
     {
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         lineRenderer.positionCount = 2;
@@ -70,8 +68,8 @@ public class RobotLaser : MonoBehaviour
                 }
 
             }
-            
         }
+        
         else
         {
             if(LastRobot != null)
@@ -83,6 +81,5 @@ public class RobotLaser : MonoBehaviour
             lineRenderer.SetPosition(1, laserStartPoint.position + direction * 100);
             
         }
-        
     }
 }
