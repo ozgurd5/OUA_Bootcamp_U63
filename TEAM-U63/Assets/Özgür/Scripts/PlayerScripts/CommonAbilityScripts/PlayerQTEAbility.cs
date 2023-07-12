@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// <para>Responsible for both hacking and lullaby</para>
+/// </summary>
 public class PlayerQTEAbility : MonoBehaviour
 {
-    public static bool IsQTEActive;
+    //TODO: make it false before build
+    public static bool canQTE = true;
+    public static bool isCurrentlySinging;
     
     [Header("MAKE IT TRUE IF THIS SCRIPT IS FOR HACKING, FALSE FOR LULLABY")]
     [SerializeField] private bool IsHackQTE;
@@ -19,6 +24,7 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private Image keyImage;
     [SerializeField] private GameObject abilityCanvas;
 
+    private PlayerStateData psd;
     private PlayerInputManager pim;
     
     private float currentTimer;
@@ -31,6 +37,7 @@ public class PlayerQTEAbility : MonoBehaviour
 
     private void Awake()
     {
+        psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         
         GenerateRandomNumber();
@@ -39,23 +46,23 @@ public class PlayerQTEAbility : MonoBehaviour
 
     private void Update()
     {
-        if (!IsQTEActive) return;
+        if (!canQTE) return;
 
         if (currentTimer > 0f) currentTimer -= Time.deltaTime;
         
         if (pim.isPrimaryAbilityKeyDown)
         {
-            if (abilityCanvas.activeSelf) DeactivateCanvas();
-            else ActivateCanvas();
+            if (abilityCanvas.activeSelf) DeactivateAbility();
+            else ActivateAbility();
         }
         
-        if (currentTimer <= 0f) DeactivateCanvas();
+        if (currentTimer <= 0f) DeactivateAbility();
 
         //If not pressing any key, return
         if (TurnInputToNumber() == 0) return;
 
         if (TurnInputToNumber() == randomNumber) Correct();
-        else DeactivateCanvas();
+        else DeactivateAbility();
     }
 
     private int TurnInputToNumber()
@@ -68,14 +75,22 @@ public class PlayerQTEAbility : MonoBehaviour
         return 0;
     }
     
-    private void ActivateCanvas()
+    private void ActivateAbility()
     {
+        if (!IsHackQTE) isCurrentlySinging = true;
+        
+        psd.currentMainState = PlayerStateData.PlayerMainState.AbilityState;
+        
         abilityCanvas.SetActive(true);
         currentTimer = keyTimerLimit;
     }
     
-    private void DeactivateCanvas()
+    private void DeactivateAbility()
     {
+        if (!IsHackQTE) isCurrentlySinging = false;
+        
+        psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+        
         abilityCanvas.SetActive(false);
         if (IsHackQTE) currentKeyPress = 0;
     }
@@ -85,7 +100,7 @@ public class PlayerQTEAbility : MonoBehaviour
         if (IsHackQTE)
         {
             currentKeyPress++;
-            if (CheckHackCompletion()) DeactivateCanvas();
+            if (CheckHackCompletion()) DeactivateAbility();
         }
         
         currentTimer = keyTimerLimit;
