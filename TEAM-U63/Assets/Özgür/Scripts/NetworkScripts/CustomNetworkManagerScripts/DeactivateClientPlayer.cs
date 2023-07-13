@@ -13,6 +13,7 @@ public class DeactivateClientPlayer : NetworkBehaviour
 
     private NetworkPlayerData npd;
 
+    //TODO: what happens if awake?
     public override void OnNetworkSpawn()
     {
         if (!IsHost) return;

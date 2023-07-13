@@ -1,11 +1,12 @@
 using System;
+using Cinemachine;
 using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
 
 /// <summary>
 /// <para>Controls player movement, rotation, jump</para>
-/// <para>Works only in "Normal State"</para>
+/// <para>Works only for local player</para>
 /// </summary>
 public class PlayerController : NetworkBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerController : NetworkBehaviour
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private Rigidbody rb;
+    private CinemachineFreeLook cam;
 
     public float rotatingSpeed;
     private Vector3 movingDirection;
@@ -37,6 +39,7 @@ public class PlayerController : NetworkBehaviour
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<CinemachineFreeLook>();
     }
     
     /// <summary>
@@ -45,9 +48,9 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void CalculateMovingDirection()
     {
-        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirection);
+        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirectionForward);
         
-        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirection * pim.moveInput.y;
+        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirectionForward * pim.moveInput.y;
         movingDirection.y = 0f;
     }
     
@@ -57,9 +60,8 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void TurnLookingDirection()
     {
-        if (!psd.isMoving) return;
-        
-        transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        else if (psd.isGrabbing && psd.isIdle) transform.forward = Vector3.Slerp(transform.forward, pim.lookingDirectionForward, rotatingSpeed);
     }
 
     /// <summary>
@@ -114,20 +116,33 @@ public class PlayerController : NetworkBehaviour
 
     private void Update()
     {
-        if (pd.controlSource != PlayerData.ControlSource.Local) return;
+        if (!pd.isLocal) return;
         
-        HandleEasterEgg();
+        //TODO: easter egg
+        //HandleEasterEgg();
         
-        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
-
+        //Responsibility chart of the states/rigidbody/camera
+        //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs and RobotManager.cs
+        //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
+        //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+        //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
+        
+        //2.b
+        if (pim.isPrimaryAbilityKeyDown && psd.currentMainState == PlayerStateData.PlayerMainState.RobotControllingState)
+        {
+            psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            cam.enabled = true;
+        }
+        
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
     }
 
     private void FixedUpdate()
     {
-        if (pd.controlSource != PlayerData.ControlSource.Local) return;
-        if (psd.currentState != PlayerStateData.PlayerState.NormalState) return;
+        if (!pd.isLocal) return;
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
         
         CalculateMovingDirection();
         TurnLookingDirection();
@@ -142,7 +157,7 @@ public class PlayerController : NetworkBehaviour
     /// </summary>
     private void HandleEasterEgg()
     {
-        if (psd.currentState == PlayerStateData.PlayerState.AbilityState) return;
+        if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) return;
         
         if (pim.isEasterEggKeyDown)
             OnEasterEggEnter?.Invoke();

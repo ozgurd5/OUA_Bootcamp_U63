@@ -4,39 +4,33 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Responsible of vision ability of the coder</para>
+/// <para>Works only in local player</para>
 /// </summary>
 public class PlayerCoderVisionAbility : NetworkBehaviour
 {
-    //
-    private NetworkPlayerData npd;
-    
     public static bool isCoderVisionActive;
     public static event Action OnCoderVisionEnable;
     
     [Header("Assign")]
     [SerializeField] private Canvas coderVisionCanvas;
 
-    private PlayerController pc;
+    private PlayerStateData psd;
+    private PlayerInputManager pim;
 
     private void Awake()
     {
-        pc = GetComponent<PlayerController>();
-        
-        //
-        npd = NetworkPlayerData.Singleton;
+        psd = GetComponent<PlayerStateData>();
+        pim = GetComponent<PlayerInputManager>();
     }
 
     void Update()
     {
-        //
-        if ((npd.isHostCoder && IsHost) || (!npd.isHostCoder && !IsHost))
-        {
-            //if (!pc.input.isSecondaryAbilityKeyDown) return;
+        if (!pim.isSecondaryAbilityKeyDown) return;
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 
-            isCoderVisionActive = !isCoderVisionActive;
-            coderVisionCanvas.gameObject.SetActive(isCoderVisionActive);
+        isCoderVisionActive = !isCoderVisionActive;
+        coderVisionCanvas.gameObject.SetActive(isCoderVisionActive);
 
-            OnCoderVisionEnable?.Invoke();
-        }
+        OnCoderVisionEnable?.Invoke();
     }
 }

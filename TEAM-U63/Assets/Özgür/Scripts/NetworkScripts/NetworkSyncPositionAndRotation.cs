@@ -3,40 +3,51 @@ using UnityEngine;
 
 /// <summary>
 /// <para>Handles synchronization of position and rotation across the network with interpolation</para>
-/// <para>Works for each object, both in host and client sides</para>
+/// <para>Works only for local object</para>
 /// <para>Local objects transmit position and rotation data, remote objects receive position and rotation data</para>
 /// </summary>
 public class NetworkSyncPositionAndRotation : NetworkBehaviour
 {
     private static float interpolationValue = 0.5f;
+    private static float defaultRotationSpeed = 0.5f;
     
     private PlayerData pd;
+    private CubeManager cm;
+    private RobotManager rm;
+    
     private PlayerController pc;
     
     private float rotatingSpeed;
-    private bool isObjectLocal;
+    [SerializeField] private bool isObjectLocal;
 
     private void Awake()
     {
         if (CompareTag("Player"))
         {
             pd = GetComponent<PlayerData>();
-            pd.OnControlSourceChanged += () => UpdateIsObjectLocal(pd.controlSource == PlayerData.ControlSource.Local);
-            UpdateIsObjectLocal(pd.controlSource == PlayerData.ControlSource.Local);
+            pd.OnLocalStatusChanged += () => { isObjectLocal = pd.isLocal; };
+            isObjectLocal = pd.isLocal;
 
             pc = GetComponent<PlayerController>();
         }
-
-        else
+        
+        else if (CompareTag("RedPuzzle") || CompareTag("GreenPuzzle") || CompareTag("BluePuzzle"))
         {
-            //Other objects should be host controlled by default
-            UpdateIsObjectLocal(IsHost);
+            cm = GetComponent<CubeManager>();
+            cm.OnLocalStatusChanged += () => { isObjectLocal = cm.isLocal; };
+            isObjectLocal = cm.isLocal;
         }
-    }
-    
-    public void UpdateIsObjectLocal(bool newIsObjectLocal)
-    {
-        isObjectLocal = newIsObjectLocal;
+        
+        else if (CompareTag("robot"))
+        {
+            rm = GetComponent<RobotManager>();
+            rm.OnLocalStatusChanged += () => { isObjectLocal = rm.isLocal; };
+            isObjectLocal = rm.isLocal;
+        }
+
+        //TODO: activate this line before build
+        //Other objects should be host controlled by default
+        //else isObjectLocal = IsHost;
     }
 
     private void Update()
@@ -46,18 +57,20 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
         //transform.position in this line is the position in the host side because client can't call ClientRpc
         SyncClientPositionWithInterpolationClientRpc(transform.position);
             
-        //transform.position in this line is the position in the client side and it must be
+        //transform.position in this line must be states in the client side and it is
         if (!IsHost) SyncHostPositionWithInterpolationServerRpc(transform.position);
-    //}
-    //private void FixedUpdate()
-    //{
-        if (!isObjectLocal) return;
+
+        //Player's rotating speed is changes according to walking or running, other objects are constant
+        if (CompareTag("Player"))
+            rotatingSpeed = pc.rotatingSpeed;
+        else
+            rotatingSpeed = defaultRotationSpeed;
         
         //transform.forward in this line is the position in the host side because client can't call ClientRpc
-        SyncClientRotationWithInterpolationClientRpc(transform.forward, pc.rotatingSpeed);
+        SyncClientRotationWithInterpolationClientRpc(transform.forward, rotatingSpeed);
             
         //transform.forward in this line is the position in the client side and it must be
-        if (!IsHost) SyncHostRotationWithInterpolationServerRpc(transform.forward, pc.rotatingSpeed);
+        if (!IsHost) SyncHostRotationWithInterpolationServerRpc(transform.forward, rotatingSpeed);
     }
 
     /// <summary>
@@ -69,15 +82,13 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
     private void SyncClientPositionWithInterpolationClientRpc(Vector3 hostPosition)
     {
         //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
-        if (IsHost) return;
-        
-        transform.position = Vector3.Lerp(transform.position , hostPosition, interpolationValue);
+        if (!IsHost) transform.position = Vector3.Lerp(transform.position , hostPosition, interpolationValue);
     }
 
     /// <summary>
     /// <para>Sends position in the client to host and interpolates it in host side</para>
     /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
-    /// that would override client position and cause object to not update it's position</para>
+    /// that would override client side position and cause object to not update it's position</para>
     /// </summary>
     /// <param name="clientPosition">Position in the client side</param>
     [ServerRpc(RequireOwnership = false)]
@@ -96,15 +107,13 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
     private void SyncClientRotationWithInterpolationClientRpc(Vector3 hostForward, float hostRotationSpeed)
     {
         //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
-        if (IsHost) return;
-        
-        transform.forward = Vector3.Lerp(transform.forward , hostForward, hostRotationSpeed);
+        if (!IsHost) transform.forward = Vector3.Lerp(transform.forward , hostForward, hostRotationSpeed);
     }
     
     /// <summary>
     /// <para>Sends position in the client to host and interpolates it in host side</para>
     /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
-    /// that would override client position and cause object to not update it's position</para>
+    /// that would override client side rotation and cause object to not update it's rotation</para>
     /// </summary>
     /// <param name="clientForward">Position in the client side</param>
     /// <param name="clientRotationSpeed">Rotation speed in the client side which changes according to running or walking states</param>

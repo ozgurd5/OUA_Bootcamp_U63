@@ -89,6 +89,42 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTEUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""aaed9830-448b-41cb-bac4-7e2e9e65c1e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTEDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d5d52ea-0dea-43d1-9264-18178c246144"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTERight"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9fb66e3-712c-44a2-b460-fe7171bac55a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QTELeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""d087d693-c35f-4951-ba99-54dfce30598b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,6 +358,138 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""EasterEgg"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79b59003-2623-4a18-932c-61e3f8663870"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTEUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a570a95-746a-4633-849a-65ce504a17c8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTEUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97393b2f-8c0b-4ac5-a6f4-eb0396f11bdb"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTEUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a524167e-5b3c-4348-a83c-7a22c28a1651"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTEDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""732668f3-40a6-474b-b5d8-621f5d123483"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTEDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6703240-0dff-46fc-84c4-7b840c782a62"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTEDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96b1d5ac-c20a-4104-a164-8dea5651246e"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTERight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfc848bc-0cd2-40d3-8004-137974dc2e18"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTERight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25515667-f6da-4cc3-95b9-7716ba37dd3a"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTERight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59feb968-5b77-48e0-beb8-db54b7388949"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTELeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca5553e8-9f1d-49f7-ab26-f13a9a05e7ca"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTELeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a431efc-c18b-4f36-bd29-4623bbb2059b"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QTELeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -337,6 +505,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SecondaryAbility = m_Player.FindAction("SecondaryAbility", throwIfNotFound: true);
         m_Player_MapKey = m_Player.FindAction("MapKey", throwIfNotFound: true);
         m_Player_EasterEgg = m_Player.FindAction("EasterEgg", throwIfNotFound: true);
+        m_Player_QTEUp = m_Player.FindAction("QTEUp", throwIfNotFound: true);
+        m_Player_QTEDown = m_Player.FindAction("QTEDown", throwIfNotFound: true);
+        m_Player_QTERight = m_Player.FindAction("QTERight", throwIfNotFound: true);
+        m_Player_QTELeft = m_Player.FindAction("QTELeft", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -405,6 +577,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SecondaryAbility;
     private readonly InputAction m_Player_MapKey;
     private readonly InputAction m_Player_EasterEgg;
+    private readonly InputAction m_Player_QTEUp;
+    private readonly InputAction m_Player_QTEDown;
+    private readonly InputAction m_Player_QTERight;
+    private readonly InputAction m_Player_QTELeft;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -416,6 +592,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @SecondaryAbility => m_Wrapper.m_Player_SecondaryAbility;
         public InputAction @MapKey => m_Wrapper.m_Player_MapKey;
         public InputAction @EasterEgg => m_Wrapper.m_Player_EasterEgg;
+        public InputAction @QTEUp => m_Wrapper.m_Player_QTEUp;
+        public InputAction @QTEDown => m_Wrapper.m_Player_QTEDown;
+        public InputAction @QTERight => m_Wrapper.m_Player_QTERight;
+        public InputAction @QTELeft => m_Wrapper.m_Player_QTELeft;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -446,6 +626,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @EasterEgg.started += instance.OnEasterEgg;
             @EasterEgg.performed += instance.OnEasterEgg;
             @EasterEgg.canceled += instance.OnEasterEgg;
+            @QTEUp.started += instance.OnQTEUp;
+            @QTEUp.performed += instance.OnQTEUp;
+            @QTEUp.canceled += instance.OnQTEUp;
+            @QTEDown.started += instance.OnQTEDown;
+            @QTEDown.performed += instance.OnQTEDown;
+            @QTEDown.canceled += instance.OnQTEDown;
+            @QTERight.started += instance.OnQTERight;
+            @QTERight.performed += instance.OnQTERight;
+            @QTERight.canceled += instance.OnQTERight;
+            @QTELeft.started += instance.OnQTELeft;
+            @QTELeft.performed += instance.OnQTELeft;
+            @QTELeft.canceled += instance.OnQTELeft;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -471,6 +663,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @EasterEgg.started -= instance.OnEasterEgg;
             @EasterEgg.performed -= instance.OnEasterEgg;
             @EasterEgg.canceled -= instance.OnEasterEgg;
+            @QTEUp.started -= instance.OnQTEUp;
+            @QTEUp.performed -= instance.OnQTEUp;
+            @QTEUp.canceled -= instance.OnQTEUp;
+            @QTEDown.started -= instance.OnQTEDown;
+            @QTEDown.performed -= instance.OnQTEDown;
+            @QTEDown.canceled -= instance.OnQTEDown;
+            @QTERight.started -= instance.OnQTERight;
+            @QTERight.performed -= instance.OnQTERight;
+            @QTERight.canceled -= instance.OnQTERight;
+            @QTELeft.started -= instance.OnQTELeft;
+            @QTELeft.performed -= instance.OnQTELeft;
+            @QTELeft.canceled -= instance.OnQTELeft;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -497,5 +701,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSecondaryAbility(InputAction.CallbackContext context);
         void OnMapKey(InputAction.CallbackContext context);
         void OnEasterEgg(InputAction.CallbackContext context);
+        void OnQTEUp(InputAction.CallbackContext context);
+        void OnQTEDown(InputAction.CallbackContext context);
+        void OnQTERight(InputAction.CallbackContext context);
+        void OnQTELeft(InputAction.CallbackContext context);
     }
 }
