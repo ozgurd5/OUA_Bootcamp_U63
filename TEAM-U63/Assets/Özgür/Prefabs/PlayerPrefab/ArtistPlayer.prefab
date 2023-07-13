@@ -267,7 +267,7 @@ Transform:
   - {fileID: 34810015599537381}
   - {fileID: 1138921840477374215}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2508607668870857403
 Rigidbody:
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d1e315e710dd442828173e98b2dbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabPointNetworkParentListID: 4
+  grabPointNetworkParentListID: 0
   walkingMovingForce: 150
   runningMovingForce: 300
   bufferDistance: 0.1

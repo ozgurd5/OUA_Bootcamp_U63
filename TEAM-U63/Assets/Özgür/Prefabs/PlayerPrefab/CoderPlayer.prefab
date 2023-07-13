@@ -862,7 +862,7 @@ Transform:
   - {fileID: 2079731186048728947}
   - {fileID: 6920102157120283203}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3371696646887994366
 Rigidbody:
@@ -1220,7 +1220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d1e315e710dd442828173e98b2dbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabPointNetworkParentListID: 4
+  grabPointNetworkParentListID: 0
   walkingMovingForce: 150
   runningMovingForce: 300
   bufferDistance: 0.1
@@ -1720,7 +1720,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6847057034942467226}
-  m_LocalRotation: {x: -1e-45, y: 1e-45, z: -0, w: 1}
+  m_LocalRotation: {x: 3e-45, y: 1e-45, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

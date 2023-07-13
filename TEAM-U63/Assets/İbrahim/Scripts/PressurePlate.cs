@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class PressurePoint : MonoBehaviour
+public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private GameObject targetObject;
     [SerializeField] private string activationTag = "Player";
 
     private Animator animator;
-    
-    private bool isPuzzlePlaced;
+    private bool isPressed;
 
     private void Start()
     {
@@ -17,10 +16,10 @@ public class PressurePoint : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(activationTag) && !isPuzzlePlaced)
+        if (other.CompareTag(activationTag) && !isPressed)
         {
             animator.SetBool("IsPuzzlePlaced", true);
-            isPuzzlePlaced = true;
+            isPressed = true;
         }
     }
     
@@ -29,6 +28,6 @@ public class PressurePoint : MonoBehaviour
         if (!other.CompareTag(activationTag)) return;
         
         animator.SetBool("IsPuzzlePlaced", false);
-        isPuzzlePlaced = false;
+        isPressed = false;
     }
 }

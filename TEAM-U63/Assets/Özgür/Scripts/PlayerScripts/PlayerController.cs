@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class PlayerController : NetworkBehaviour
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private Rigidbody rb;
+    private CinemachineFreeLook cam;
 
     public float rotatingSpeed;
     private Vector3 movingDirection;
@@ -37,6 +39,7 @@ public class PlayerController : NetworkBehaviour
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<CinemachineFreeLook>();
     }
     
     /// <summary>
@@ -111,26 +114,6 @@ public class PlayerController : NetworkBehaviour
         rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
     }
 
-    /// <summary>
-    /// <para>Controls rigidbody constraints and exiting from robot controlling state</para>
-    /// <para>Must work in Update</para>
-    /// </summary>
-    private void HandleRobotControllingState()
-    {
-        if (psd.currentMainState == PlayerStateData.PlayerMainState.RobotControllingState)
-        {
-            rb.constraints = RigidbodyConstraints.FreezeAll;        //not efficient
-
-            if (pim.isPrimaryAbilityKeyDown)
-            {
-                //exit state
-            }
-        }
-        
-        else rb.constraints = RigidbodyConstraints.FreezeRotation;    //not efficient
-
-    }
-
     private void Update()
     {
         if (!pd.isLocal) return;
@@ -138,7 +121,19 @@ public class PlayerController : NetworkBehaviour
         //TODO: easter egg
         //HandleEasterEgg();
         
-        HandleRobotControllingState();
+        //Responsibility chart of the states/rigidbody/camera
+        //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs and RobotManager.cs
+        //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
+        //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+        //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
+        
+        //2.b
+        if (pim.isPrimaryAbilityKeyDown && psd.currentMainState == PlayerStateData.PlayerMainState.RobotControllingState)
+        {
+            psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            cam.enabled = true;
+        }
         
         if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 

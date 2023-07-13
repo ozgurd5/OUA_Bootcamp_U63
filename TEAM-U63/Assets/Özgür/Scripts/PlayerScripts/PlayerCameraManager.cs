@@ -16,22 +16,12 @@ public class PlayerCameraManager : MonoBehaviour
         pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
         cinemachineCamera = GetComponentInChildren<CinemachineFreeLook>();
-
-        PlayerQTEAbility.OnRobotHacked += UpdateCurrentCamera;
-        pd.OnLocalStatusChanged += () => UpdateCurrentCamera(null);   //Needed for island 3 mechanics
-        UpdateCurrentCamera(null);
+        
+        pd.OnLocalStatusChanged += UpdateCurrentCamera;   //Needed for island 3 mechanics
     }
-
-    //Needs rewriting for island 3 mechanics
-    private void UpdateCurrentCamera(Transform tf)
+    
+    private void UpdateCurrentCamera()
     {
-        if (psd.currentMainState != PlayerStateData.PlayerMainState.RobotControllingState)
-            cinemachineCamera.enabled = pd.isLocal;
-
-        else
-        {
-            cinemachineCamera.enabled = false;
-            tf.GetComponentInChildren<CinemachineFreeLook>().enabled = true;
-        }
+        cinemachineCamera.enabled = pd.isLocal;
     }
 }

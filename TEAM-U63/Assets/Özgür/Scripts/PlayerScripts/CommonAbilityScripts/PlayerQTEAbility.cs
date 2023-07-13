@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -10,7 +11,6 @@ public class PlayerQTEAbility : MonoBehaviour
 {
     //TODO: make it false before build
     public static bool canQTE = true;
-    public static event Action<Transform> OnRobotHacked;
     
     [Header("MAKE IT TRUE IF THIS SCRIPT IS FOR HACKING, FALSE FOR LULLABY")]
     [SerializeField] private bool IsHackQTE;
@@ -29,6 +29,8 @@ public class PlayerQTEAbility : MonoBehaviour
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private CrosshairManager cm;
+    private CinemachineFreeLook cam;
+    private Rigidbody rb;
     
     private float currentTimer;
     private int randomNumber;
@@ -46,6 +48,8 @@ public class PlayerQTEAbility : MonoBehaviour
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         cm = GetComponentInChildren<CrosshairManager>();
+        cam = GetComponentInChildren<CinemachineFreeLook>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -95,7 +99,7 @@ public class PlayerQTEAbility : MonoBehaviour
         
         //Sleeping process is necessary for robot to stand still while artist is singing
         //It can not be hacked during process. It can only be hacked while isSleeping is true
-        if (!IsHackQTE) rm.UpdateStates((int)RobotManager.RobotState.IsSleepingProcess);
+        if (!IsHackQTE) rm.UpdateRobotState((int)RobotManager.RobotState.IsSleepingProcess);
     }
     
     private void DeactivateAbility()
@@ -133,9 +137,19 @@ public class PlayerQTEAbility : MonoBehaviour
         {
             currentKeyPress = 0;
             
-            rm.UpdateStates((int)RobotManager.RobotState.IsHacked);
+            //Responsibility chart of the states/rigidbody/camera
+            //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs and RobotManager.cs
+            //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
+            //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+            //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
+            
+            //1.a
+            rm.UpdateRobotState((int)RobotManager.RobotState.IsHacked);
+            
+            //1.b
             psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
-            OnRobotHacked?.Invoke(rm.transform);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            cam.enabled = false;
             
             return true;
         }
@@ -148,7 +162,7 @@ public class PlayerQTEAbility : MonoBehaviour
         if (currentKeyPress == lullabyDoneLimit)
         {
             currentKeyPress = 0;
-            rm.UpdateStates((int)RobotManager.RobotState.IsSleeping);
+            rm.UpdateRobotState((int)RobotManager.RobotState.IsSleeping);
             
             return true;
         }
