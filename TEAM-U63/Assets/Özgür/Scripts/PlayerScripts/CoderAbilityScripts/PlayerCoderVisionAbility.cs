@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class PlayerCoderVisionAbility : NetworkBehaviour
 {
+    [Header("Assign - Coder Vision Audio Source")]
+    [SerializeField] private AudioSource aus;
+    
     public static bool isCoderVisionActive;
     public static event Action OnCoderVisionEnable;
     
@@ -30,6 +33,7 @@ public class PlayerCoderVisionAbility : NetworkBehaviour
 
         isCoderVisionActive = !isCoderVisionActive;
         coderVisionCanvas.gameObject.SetActive(isCoderVisionActive);
+        aus.Play();
 
         OnCoderVisionEnable?.Invoke();
     }
