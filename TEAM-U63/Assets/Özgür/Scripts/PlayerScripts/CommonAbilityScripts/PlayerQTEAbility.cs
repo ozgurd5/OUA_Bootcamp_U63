@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,9 +10,6 @@ public class PlayerQTEAbility : MonoBehaviour
 {
     //TODO: make it false before build
     public static bool canQTE = true;
-    
-    [Header("MAKE IT TRUE IF THIS SCRIPT IS FOR HACKING, FALSE FOR LULLABY")]
-    [SerializeField] private bool IsHackQTE;
 
     [Header("Assign - Images")]
     [SerializeField] private Sprite upKeyImage;
@@ -25,7 +21,15 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private float keyTimerLimit = 2f;
     [SerializeField] private Image keyImage;
     [SerializeField] private GameObject abilityCanvas;
+    
+    [Header("Assign - Sounds")]
+    [SerializeField] private AudioSource aus;
+    [SerializeField] private AudioClip artistFailClip;
+    [SerializeField] private AudioClip coderCorrectClip;
+    [SerializeField] private AudioClip coderFailClip;
 
+    private bool IsHackQTE;
+    
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private CrosshairManager cm;
@@ -38,13 +42,15 @@ public class PlayerQTEAbility : MonoBehaviour
     
     [Header("Info - No Touch")]
     [SerializeField] private int currentKeyPress;
-    private int hackDoneLimit = 4;
+    private int hackDoneLimit = 6;
     private int lullabyDoneLimit = 15;
 
     private RobotManager rm;
 
     private void Awake()
     {
+        IsHackQTE = name == "CoderPlayer";
+        
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         cm = GetComponentInChildren<CrosshairManager>();
@@ -60,7 +66,7 @@ public class PlayerQTEAbility : MonoBehaviour
         {
             rm = cm.crosshairHit.collider.GetComponent<RobotManager>();
 
-            if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) DeactivateAbility();
+            if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) DeactivateAbility(false);
             
             else if (!IsHackQTE && rm.currentState == RobotManager.RobotState.IsRouting) ActivateAbility();
             else if (IsHackQTE && rm.currentState == RobotManager.RobotState.IsSleeping) ActivateAbility();
@@ -69,13 +75,13 @@ public class PlayerQTEAbility : MonoBehaviour
         if (psd.currentMainState != PlayerStateData.PlayerMainState.AbilityState) return;
         
         if (currentTimer > 0f) currentTimer -= Time.deltaTime;
-        if (currentTimer <= 0f) DeactivateAbility();
+        if (currentTimer <= 0f) DeactivateAbility(false);
 
         //If not pressing any key, return
         if (TurnInputToNumber() == 0) return;
 
         if (TurnInputToNumber() == randomNumber) Correct();
-        else DeactivateAbility();
+        else DeactivateAbility(false);
     }
 
     private int TurnInputToNumber()
@@ -103,16 +109,50 @@ public class PlayerQTEAbility : MonoBehaviour
         if (!IsHackQTE) rm.UpdateRobotState((int)RobotManager.RobotState.IsSleepingProcess);
     }
     
-    private void DeactivateAbility()
+    private void DeactivateAbility(bool isSucceeded)
     {
-        //Deactivation called after both success and failure. If coder succeeded to hack, it must not return to normal..
-        //..state, only failed players and succeeded artist must return to normal state
-        if (psd.currentMainState != PlayerStateData.PlayerMainState.RobotControllingState)
-            psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+        if (isSucceeded)
+        {
+            if (IsHackQTE)
+            {
+                aus.PlayOneShot(coderCorrectClip);
+                
+                //Responsibility chart of the states/rigidbody/camera
+                //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs and RobotManager.cs
+                //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
+                //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+                //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
+            
+                //1.a
+                rm.UpdateRobotState((int)RobotManager.RobotState.IsHacked);
+            
+                //1.b
+                psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+                cam.enabled = false;
+            }
+            
+            //Only artist returns to normal state after success
+            else
+            {
+                psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+                rm.UpdateRobotState((int)RobotManager.RobotState.IsSleeping);
+            }
+        }
         
-        //If artist failed, the robot must go back to routing. Artist can fail only in IsSleepingProcess state
-        if (rm.currentState == RobotManager.RobotState.IsSleepingProcess)
-            rm.UpdateRobotState((int)RobotManager.RobotState.IsRouting);
+        else
+        {
+            //Both player returns to normal state after failure
+            psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
+
+            if (IsHackQTE) aus.PlayOneShot(coderFailClip);
+            
+            else
+            {
+                rm.UpdateRobotState((int)RobotManager.RobotState.IsRouting);
+                aus.PlayOneShot(artistFailClip);
+            }
+        }
 
         abilityCanvas.SetActive(false);
         currentKeyPress = 0;
@@ -122,56 +162,23 @@ public class PlayerQTEAbility : MonoBehaviour
     {
         currentKeyPress++;
         
-        if (IsHackQTE && CheckHackCompletion()) DeactivateAbility();
-        else if (!IsHackQTE && CheckLullabyCompletion()) DeactivateAbility();
+        if (IsHackQTE && CheckCompletion(hackDoneLimit)) DeactivateAbility(true);
+        else if (!IsHackQTE && CheckCompletion(lullabyDoneLimit)) DeactivateAbility(true);
+        else if (IsHackQTE) aus.PlayOneShot(coderCorrectClip);
         
         currentTimer = keyTimerLimit;
         GenerateRandomNumber();
         DisplayNumber();
     }
-
-    #region CheckCompletion
-
-    private bool CheckHackCompletion()
+    
+    private bool CheckCompletion(int doneLimit)
     {
-        if (currentKeyPress == hackDoneLimit)
-        {
-            currentKeyPress = 0;
-            
-            //Responsibility chart of the states/rigidbody/camera
-            //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs and RobotManager.cs
-            //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
-            //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
-            //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
-            
-            //1.a
-            rm.UpdateRobotState((int)RobotManager.RobotState.IsHacked);
-            
-            //1.b
-            psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-            cam.enabled = false;
-            
-            return true;
-        }
+        if (currentKeyPress != doneLimit) return false;
         
-        return false;
-    }
+        currentKeyPress = 0;
+        return true;
 
-    private bool CheckLullabyCompletion()
-    {
-        if (currentKeyPress == lullabyDoneLimit)
-        {
-            currentKeyPress = 0;
-            rm.UpdateRobotState((int)RobotManager.RobotState.IsSleeping);
-            
-            return true;
-        }
-        
-        return false;
     }
-
-    #endregion
 
     #region RandomGenerationAndDisplay
 
