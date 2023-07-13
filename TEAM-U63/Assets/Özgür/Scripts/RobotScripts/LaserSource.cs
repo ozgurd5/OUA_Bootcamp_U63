@@ -5,7 +5,7 @@ public class LaserSource : MonoBehaviour
     private Transform laserStartPoint;
     private LineRenderer lr;
     
-    [SerializeField] private GameObject currentRobot;
+    private RobotLaserManager connectedRobotRlm;
     private RaycastHit laserSourceHit;
 
     private void Awake()
@@ -26,12 +26,12 @@ public class LaserSource : MonoBehaviour
             //If we hit robot
             if (laserSourceHit.collider.CompareTag("robot"))
             {
-                currentRobot = laserSourceHit.collider.gameObject;
-                currentRobot.GetComponent<RobotLaser>().OpenLaser();
+                connectedRobotRlm = laserSourceHit.collider.gameObject.GetComponent<RobotLaserManager>();
+                connectedRobotRlm.OpenLaser();
             }
             
-            //If we did not hit robot //We need to prevent null ref ex in the beginning of the game
-            else if (currentRobot != null) currentRobot.GetComponent<RobotLaser>().CloseLaser();
+            //If we hit something else //We need to prevent null ref ex in the beginning of the game
+            else if (connectedRobotRlm != null) connectedRobotRlm.CloseLaser();
         }
         
         //If we don't hit something
@@ -41,7 +41,7 @@ public class LaserSource : MonoBehaviour
             lr.SetPosition(1, laserStartPoint.position + laserStartPoint.forward * 100);
             
             //We need to prevent null ref ex in the beginning of the game
-            if (currentRobot != null) currentRobot.GetComponent<RobotLaser>().CloseLaser();
+            if (connectedRobotRlm != null) connectedRobotRlm.CloseLaser();
         }
     }
 }

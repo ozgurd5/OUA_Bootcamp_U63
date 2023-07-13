@@ -25,6 +25,7 @@ public class RobotManager : NetworkBehaviour
     public bool isLocal { get; private set; }
     public event Action OnLocalStatusChanged;
     public event Action OnRobotStateChanged;
+    public event Action<int> OnRobotPainted;
 
     private PlayerData coderPlayerPd;
     private PlayerInputManager coderPlayerPim;
@@ -34,7 +35,7 @@ public class RobotManager : NetworkBehaviour
     private Rigidbody rb;
     private CinemachineFreeLook cam;
     
-    private int robotMaterialIndex;    //PlayerArtistPaintAbility.cs
+    private int robotMaterialIndex;  //PlayerArtistPaintAbility.cs
 
     private void Awake()
     {
@@ -63,7 +64,7 @@ public class RobotManager : NetworkBehaviour
         //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
         //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
         
-        //2.
+        //2.a
         if (coderPlayerPim.isPrimaryAbilityKeyDown && currentState == RobotState.IsHacked && isLocal)
             UpdateRobotState((int)RobotState.IsSleeping);
     }
@@ -166,8 +167,8 @@ public class RobotManager : NetworkBehaviour
     {
         //Index will go like 1-2-3-1-2-3 on and on...
         robotMaterialIndex = (robotMaterialIndex + 1) % robotMaterials.Count;
-
         UpdateMaterialLocally();
+        OnRobotPainted?.Invoke(robotMaterialIndex);
         
         //robotMaterialIndex in this line are the states in the host side because client can't call ClientRpc
         UpdateCubeMaterialClientRpc(robotMaterialIndex);
@@ -201,6 +202,7 @@ public class RobotManager : NetworkBehaviour
         
         robotMaterialIndex = newMaterialIndex;
         UpdateMaterialLocally();
+        OnRobotPainted?.Invoke(newMaterialIndex);
     }
 
     /// <summary>
@@ -214,6 +216,7 @@ public class RobotManager : NetworkBehaviour
     {
         robotMaterialIndex = newMaterialIndex;
         UpdateMaterialLocally();
+        OnRobotPainted?.Invoke(newMaterialIndex);
     }
 
     #endregion
