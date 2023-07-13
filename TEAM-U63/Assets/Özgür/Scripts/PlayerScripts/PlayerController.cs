@@ -135,8 +135,6 @@ public class PlayerController : NetworkBehaviour
             cam.enabled = true;
         }
         
-        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
-
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
     }

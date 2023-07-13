@@ -20,7 +20,7 @@ public class RobotManager : NetworkBehaviour
         IsSleepingProcess = 3
     }
 
-    public RobotState currentState = RobotState.IsRouting;
+    public RobotState currentState { get; private set; }
 
     public bool isLocal { get; private set; }
     public event Action OnLocalStatusChanged;
@@ -38,6 +38,8 @@ public class RobotManager : NetworkBehaviour
 
     private void Awake()
     {
+        currentState = RobotState.IsRouting;
+        
         coderPlayerPd = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
         coderPlayerPim = coderPlayerPd.GetComponent<PlayerInputManager>();
         

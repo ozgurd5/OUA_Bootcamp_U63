@@ -60,13 +60,13 @@ public class PlayerQTEAbility : MonoBehaviour
         {
             rm = cm.crosshairHit.collider.GetComponent<RobotManager>();
 
-            if (abilityCanvas.activeSelf) DeactivateAbility();
+            if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) DeactivateAbility();
             
-            if (!IsHackQTE && rm.currentState == RobotManager.RobotState.IsRouting) ActivateAbility();
-            if (IsHackQTE && rm.currentState == RobotManager.RobotState.IsSleeping) ActivateAbility();
+            else if (!IsHackQTE && rm.currentState == RobotManager.RobotState.IsRouting) ActivateAbility();
+            else if (IsHackQTE && rm.currentState == RobotManager.RobotState.IsSleeping) ActivateAbility();
         }
-
-        if (!abilityCanvas.activeSelf) return;
+        
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.AbilityState) return;
         
         if (currentTimer > 0f) currentTimer -= Time.deltaTime;
         if (currentTimer <= 0f) DeactivateAbility();
@@ -91,6 +91,7 @@ public class PlayerQTEAbility : MonoBehaviour
     private void ActivateAbility()
     {
         psd.currentMainState = PlayerStateData.PlayerMainState.AbilityState;
+        rb.velocity = Vector3.zero;
         
         abilityCanvas.SetActive(true);
         currentTimer = keyTimerLimit;
@@ -111,8 +112,8 @@ public class PlayerQTEAbility : MonoBehaviour
         
         //If artist failed, the robot must go back to routing. Artist can fail only in IsSleepingProcess state
         if (rm.currentState == RobotManager.RobotState.IsSleepingProcess)
-            rm.currentState = RobotManager.RobotState.IsRouting;
-        
+            rm.UpdateRobotState((int)RobotManager.RobotState.IsRouting);
+
         abilityCanvas.SetActive(false);
         currentKeyPress = 0;
     }
