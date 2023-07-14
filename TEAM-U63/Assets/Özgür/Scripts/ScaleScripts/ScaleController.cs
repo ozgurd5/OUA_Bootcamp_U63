@@ -9,10 +9,12 @@ using UnityEngine;
 /// </summary>
 public class ScaleController : MonoBehaviour
 {
-    private static int completedScaleNumber;
     private static bool isAllScalesCompleted;
     public static event Action<bool> OnScaleCompleted;
-    
+
+    //TODO: find a better solution
+    private static bool[] scaleCompletionStatus = new bool[3];
+
     [Header("Assign - NetworkParentListID")]
     [SerializeField] private int networkParentListID;
 
@@ -31,7 +33,13 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private Material notCompletedMaterial;
     [SerializeField] private MeshRenderer ceilingMeshRenderer;
     
-    //These should be static
+    //These too should be static
+    [Header("Assign - Audio")]
+    [SerializeField] private AudioSource aus;
+    [SerializeField] private AudioClip scaleCompletedClip;
+    [SerializeField] private AudioClip allScalesCompletedClip;
+    
+    //These too should be static
     [Header("Assign - Color multipliers")]
     [SerializeField] private float redMultiplier = 0.3f;
     [SerializeField] private float greenMultiplier = 0.4f;
@@ -41,7 +49,6 @@ public class ScaleController : MonoBehaviour
     [SerializeField] private int redNumber;
     [SerializeField] private int greenNumber;
     [SerializeField] private int blueNumber;
-    //TODO: Remove after tests are done
     [SerializeField] private bool testRunScale;
     
     [Header("Info - No Touch")]
@@ -79,14 +86,12 @@ public class ScaleController : MonoBehaviour
 
         //Assign materials in the beginning
         UpdateCompletionMaterial();
-
-        //
+        
         bottomDetector.OnBottomExit += UpdateScalePosition;
     }
 
     private void Update()
     {
-        //TODO: Remove after tests are done
         if (testRunScale)
         {
             UpdateScalePosition();
@@ -94,7 +99,7 @@ public class ScaleController : MonoBehaviour
         }
 
         //If there is an object bellow the scale and it tries to go down, it must not go down anymore
-        if (bottomDetector.isTouching && isMovingDown) movementTween.Kill();
+        if (bottomDetector.isTouching && isMovingDown) movementTween.Kill(); 
         
         //Not the best way i think
         lr.SetPosition(1, transform.position + new Vector3(0f, 0.7f, 0f));
@@ -123,11 +128,11 @@ public class ScaleController : MonoBehaviour
         
         //We need to check completion after DOMoveY method is done because we are comparing transform.position.y..
         //..in that method. Since DOMoveY method is a coroutine, transform.position.y will change during "duration"
-        Invoke(nameof(CheckCompletion), duration + 0.01f);
+        Invoke(nameof(CheckCompletion), duration + 0.02f);
         
         //Same thing applies for these too
-        Invoke(nameof(UpdateWeightText), duration + 0.01f);
-        Invoke(nameof(SetIsMovingDownFalse), duration + 0.01f);
+        Invoke(nameof(UpdateWeightText), duration + 0.02f);
+        Invoke(nameof(SetIsMovingDownFalse), duration + 0.02f);
     }
 
     /// <summary>
@@ -145,7 +150,8 @@ public class ScaleController : MonoBehaviour
     /// </summary>
     private void UpdateWeightText()
     {
-       weightText.text = $"{(int)(math.abs(weightlessLocalPositionY - transform.localPosition.y) * 10)}";
+        if (bottomDetector.isTouching) weightText.text = ":(";
+        else weightText.text = $"{(int)(math.abs(weightlessLocalPositionY - transform.localPosition.y + 0.001f) * 10)}";
     }
     
     /// <summary>
@@ -156,31 +162,20 @@ public class ScaleController : MonoBehaviour
     {
         float currentLocalPositionY =  transform.localPosition.y;
 
-        if (math.abs(currentLocalPositionY - completionLocalPositionY) < 0.01f)    //Float comparison is not precise
-        {
-            isCompleted = true;
-            completedScaleNumber++;
-        }
-        
-        else if (math.abs(currentLocalPositionY - completionLocalPositionY) > 0.01f && isCompleted) //Float comparison is not precise
-        {
-            isCompleted = false;
-            completedScaleNumber--;
-        }
+        //Float comparison is not precise
+        if (math.abs(currentLocalPositionY - completionLocalPositionY) < 0.01f) isCompleted = true;
+        else if (math.abs(currentLocalPositionY - completionLocalPositionY) > 0.01f && isCompleted) isCompleted = false;
+        else isCompleted = false;
 
-        else
-        {
-            isCompleted = false;
-        }
+        //TODO: find a better solution
+        scaleCompletionStatus[networkParentListID - 1] = isCompleted;
+        if (scaleCompletionStatus[0] && scaleCompletionStatus[1] && scaleCompletionStatus[2])
+            isAllScalesCompleted = true;
         
-        isAllScalesCompleted = completedScaleNumber == 3;
+        if (isAllScalesCompleted) aus.PlayOneShot(allScalesCompletedClip);
+        else if (isCompleted) aus.PlayOneShot(scaleCompletedClip);
         
         UpdateCompletionMaterial();
-
-        //TODO: Remove after tests are done
-        //Debug.Log(gameObject.name + ": " + isCompleted);
-        //Debug.Log("how many completed: " + completedScaleNumber);
-
         OnScaleCompleted?.Invoke(isAllScalesCompleted);
     }
 
@@ -240,8 +235,6 @@ public class ScaleController : MonoBehaviour
         UpdateScalePosition();
         
         //Parenting is needed for smooth movement and good looking motion
-        //We must not deparent the object in this script because that cause conflict with PlayerGrab.cs parenting
-        //PlayerGrab.cs is responsible for deparenting cubes from scales. It makes cubes child of the grabPoint
         enteredCubeManager.UpdateParentUsingNetworkParentListID(networkParentListID);
         
         enteredCubeManager = null;
@@ -258,6 +251,12 @@ public class ScaleController : MonoBehaviour
             blueNumber--;
         else
             return;
+        
+        //If the cube exit from collider naturally, not grabbing -for example dropping- we must set the parent of it..
+        //..to null. If it's grabbed, parenting to null would create a conflict so we must avoid it then
+        
+        CubeManager exitedCubeManager = col.GetComponent<CubeManager>();
+        if (!exitedCubeManager.isGrabbed) exitedCubeManager.UpdateParentUsingNetworkParentListID(-1);   //-1 means null
         
         UpdateScalePosition();
     }
