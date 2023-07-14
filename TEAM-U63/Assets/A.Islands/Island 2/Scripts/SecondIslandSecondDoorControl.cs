@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class SecondIslandFirstDoorControl : MonoBehaviour
+public class SecondIslandSecondDoorControl : MonoBehaviour
 { 
     private void Awake()
     {
-        SecondIslandFirstLevelPuzzle.OnLevelCompleted += HandleForceField;
+        SecondIslandSecondLevelPuzzle.OnLevelCompleted += HandleForceField;
     }
 
     private void HandleForceField(bool isCompleted)

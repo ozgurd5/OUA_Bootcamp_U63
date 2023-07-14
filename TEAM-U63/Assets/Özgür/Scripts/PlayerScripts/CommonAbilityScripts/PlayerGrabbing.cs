@@ -68,6 +68,8 @@ public class PlayerGrabbing : NetworkBehaviour
     /// </summary>
     private void DropObject()
     {
+        aus.Play();
+        
         psd.isGrabbing = false;
         grabbedCubeManager.UpdateParentUsingNetworkParentListID(-1);    //-1 means null
         

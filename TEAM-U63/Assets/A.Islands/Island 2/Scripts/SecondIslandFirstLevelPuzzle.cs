@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class RobotAreaManager : MonoBehaviour
+public class SecondIslandFirstLevelPuzzle : MonoBehaviour
 {
-    public static event Action<bool> OnRobotAreaCompleted;
+    public static event Action<bool> OnLevelCompleted;
     private static int robotNumber;
 
     [Header("Assign")]
@@ -41,13 +41,13 @@ public class RobotAreaManager : MonoBehaviour
         if (robotNumber == 2)
         {
             aus.PlayOneShot(allCompletedClip);
-            OnRobotAreaCompleted?.Invoke(true);
+            OnLevelCompleted?.Invoke(true);
         }
         
         else
         {
             if (isCompleted) aus.PlayOneShot(completedClip);
-            OnRobotAreaCompleted?.Invoke(false);
+            OnLevelCompleted?.Invoke(false);
         }
     }
 }
