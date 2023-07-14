@@ -1,7 +1,11 @@
 using UnityEngine;
 
+//TODO: REPETITIVE CODE - COMBINE WITH ROBOT LASER MANAGER
 public class LaserSource : MonoBehaviour
 {
+    [Header("Assign - Material Index - RGB")]
+    [SerializeField] private int sourceMaterialIndex;
+    
     private Transform laserStartPoint;
     private LineRenderer lr;
     
@@ -27,7 +31,15 @@ public class LaserSource : MonoBehaviour
             if (laserSourceHit.collider.CompareTag("robot"))
             {
                 connectedRobotRlm = laserSourceHit.collider.gameObject.GetComponent<RobotLaserManager>();
-                connectedRobotRlm.OpenLaser();
+                
+                //Red (0) source can only activate green (1) robot, green (1) source can only activate blue (2) robot..
+                //..and blue (2) source can only activate red (0) robot
+                if (sourceMaterialIndex + 1 == connectedRobotRlm.robotMaterialIndex) //R -> G -> B
+                    connectedRobotRlm.OpenLaser();
+                else if (sourceMaterialIndex - 2 == connectedRobotRlm.robotMaterialIndex) //B -> R
+                    connectedRobotRlm.OpenLaser();
+                else
+                    connectedRobotRlm.CloseLaser();
             }
             
             //If we hit something else //We need to prevent null ref ex in the beginning of the game
