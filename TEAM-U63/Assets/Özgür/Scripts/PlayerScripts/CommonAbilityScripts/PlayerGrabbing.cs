@@ -8,6 +8,9 @@ public class PlayerGrabbing : NetworkBehaviour
 {
     [Header("Assign - NetworkParentListID")]
     [SerializeField] private int grabPointNetworkParentListID;
+
+    [Header("Assign - Audio Source")]
+    [SerializeField] private AudioSource aus;
     
     [Header("Assign")]
     [SerializeField] private float walkingMovingForce = 150f;
@@ -41,6 +44,8 @@ public class PlayerGrabbing : NetworkBehaviour
     /// </summary>
     private void PickUpObject()
     {
+        aus.Play();
+        
         grabbedCube = cm.crosshairHit.collider.gameObject;
         grabbedCubeRb = grabbedCube.GetComponent<Rigidbody>();
         grabbedCubeManager = grabbedCube.GetComponent<CubeManager>();
@@ -63,6 +68,8 @@ public class PlayerGrabbing : NetworkBehaviour
     /// </summary>
     private void DropObject()
     {
+        aus.Play();
+        
         psd.isGrabbing = false;
         grabbedCubeManager.UpdateParentUsingNetworkParentListID(-1);    //-1 means null
         

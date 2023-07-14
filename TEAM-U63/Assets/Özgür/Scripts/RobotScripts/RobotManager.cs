@@ -14,10 +14,10 @@ public class RobotManager : NetworkBehaviour
 
     public enum RobotState
     {
-        IsRouting = 0,
-        IsSleeping = 1,
-        IsHacked = 2,
-        IsSleepingProcess = 3
+        Routing = 0,
+        Sleeping = 1,
+        Hacked = 2,
+        SleepingProcess = 3,
     }
 
     public RobotState currentState { get; private set; }
@@ -39,7 +39,7 @@ public class RobotManager : NetworkBehaviour
 
     private void Awake()
     {
-        currentState = RobotState.IsRouting;
+        currentState = RobotState.Routing;
         
         coderPlayerPd = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
         coderPlayerPim = coderPlayerPd.GetComponent<PlayerInputManager>();
@@ -59,14 +59,14 @@ public class RobotManager : NetworkBehaviour
     private void Update()
     {
         //Responsibility chart of the states/rigidbody/camera
-        //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs (and RobotManager.cs)
+        //1.a Robot - Hacked Enter - PlayerQTEAbility.cs (and RobotManager.cs)
         //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
-        //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+        //2.a Robot - Hacked Exit to Sleeping - RobotManager.cs
         //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
         
         //2.a
-        if (coderPlayerPim.isPrimaryAbilityKeyDown && currentState == RobotState.IsHacked && isLocal)
-            UpdateRobotState((int)RobotState.IsSleeping);
+        if (coderPlayerPim.isPrimaryAbilityKeyDown && currentState == RobotState.Hacked && isLocal)
+            UpdateRobotState((int)RobotState.Sleeping);
     }
     
     /// <summary>
@@ -91,7 +91,7 @@ public class RobotManager : NetworkBehaviour
         currentState = (RobotState)newState;
         OnRobotStateChanged?.Invoke();
 
-        rc.enabled = newState == (int)RobotState.IsHacked;  //Do not sync this. Local only
+        rc.enabled = newState == (int)RobotState.Hacked;  //Do not sync this. Local only
             
         //isLocal in this line is the value in the host side because client can't call ClientRpc
         SyncRobotStateClientRpc(newState);
@@ -127,7 +127,7 @@ public class RobotManager : NetworkBehaviour
     }    
     
     /// <summary>
-    /// <para>Handles the camera and rigidbody according to entering or exiting IsHacked state</para>
+    /// <para>Handles the camera and rigidbody according to entering or exiting Hacked state</para>
     /// <para>Must only be called in UpdateRobotState method, do not call anywhere else</para>
     /// </summary>
     private void HandleHackedStateTransition()
@@ -140,7 +140,7 @@ public class RobotManager : NetworkBehaviour
         }
         
         //Enter hacking state in the local side
-        if (currentState == RobotState.IsHacked)
+        if (currentState == RobotState.Hacked)
         {
             //Robot can only move in it's own side when hacked
             rb.constraints = RigidbodyConstraints.None;

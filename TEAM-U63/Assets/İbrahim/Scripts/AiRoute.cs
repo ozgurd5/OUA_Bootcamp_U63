@@ -1,16 +1,17 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AiRoute : MonoBehaviour
 {
-    public float speed = 5f;
-    public float waitTime = .5f;
-    public float turnSpeed = 90f;
+    //TODO: FIND A BETTER SOLUTION
+    [Header("Robot ID for starting waypoint")]
+    [SerializeField] private int robotID;
     
-    public Transform routeHolder;
-
+    [Header("Assign")]
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float waitTime = 0.1f;
+    [SerializeField] private float turnSpeed = 200f;
+    [SerializeField] private Transform routeHolder;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class AiRoute : MonoBehaviour
 
     IEnumerator FollowRoute(Vector3[] waypoints)
     {
-        transform.position = waypoints[0];
+        transform.position = waypoints[robotID];
 
         int targetWaypointIndex = 1;
         Vector3 targetWayPoint = waypoints[targetWaypointIndex];

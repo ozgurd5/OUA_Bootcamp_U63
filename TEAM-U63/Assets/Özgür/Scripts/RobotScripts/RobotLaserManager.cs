@@ -5,10 +5,15 @@ public class RobotLaserManager : MonoBehaviour
     private Transform laserStartPoint;
     private LineRenderer lr;
     private MeshRenderer mr;
+    private AudioSource aus;
     
-    private RobotLaserManager connectedRobotRlm;
-    private RaycastHit laserSourceHit;
     private bool isGettingLaser;
+    private RaycastHit laserSourceHit;
+    private RobotLaserManager connectedRobotRlm;
+    private LaserTarget connectedLaserTarget;
+    
+    //TODO: FIND A BETTER SOLUTION
+    private bool isLaserSoundPlayed;
 
     //We can not compare materials by their value using == operator, so we have to compare integers
     //Read UpdateRobotMaterialIndex summary
@@ -20,6 +25,7 @@ public class RobotLaserManager : MonoBehaviour
         laserStartPoint = transform.Find("LaserStartPoint");
         mr = transform.Find("BODY").GetComponent<MeshRenderer>();
         lr = GetComponent<LineRenderer>();
+        aus = GetComponent<AudioSource>();
 
         //Read UpdateRobotMaterialIndex summary
         rm = GetComponent<RobotManager>();
@@ -28,6 +34,10 @@ public class RobotLaserManager : MonoBehaviour
 
     public void OpenLaser()
     {
+        //TODO FIND A BETTER SOLUTION: NOT FOR AUS, BUT CONTINUOUS METHOD CALL
+        if (!isLaserSoundPlayed) aus.Play();
+        isLaserSoundPlayed = true;
+        
         lr.enabled = true;
         isGettingLaser = true;
         lr.material = mr.material;
@@ -40,6 +50,9 @@ public class RobotLaserManager : MonoBehaviour
         
         isGettingLaser = false;
         lr.enabled = false;
+        
+        //
+        isLaserSoundPlayed = false;
     }
 
     /// <summary>
@@ -77,8 +90,18 @@ public class RobotLaserManager : MonoBehaviour
                     connectedRobotRlm.CloseLaser();
             }
             
+            else if (laserSourceHit.collider.CompareTag("LaserTarget") && isGettingLaser)
+            {
+                connectedLaserTarget = laserSourceHit.collider.GetComponent<LaserTarget>();
+                connectedLaserTarget.CheckLaserTargetHit(robotMaterialIndex);
+            }
+            
             //If we hit something else //We need to prevent null ref ex in the beginning of the game
             else if (connectedRobotRlm != null) connectedRobotRlm.CloseLaser();
+            
+            //TODO: find a better solution
+            //If we hit something else //We need to prevent null ref ex in the beginning of the game
+            else if (connectedLaserTarget != null) connectedLaserTarget.CheckLaserTargetHit(10);
         }
         
         //If we don't hit something
@@ -89,6 +112,10 @@ public class RobotLaserManager : MonoBehaviour
             
             //We need to prevent null ref ex in the beginning of the game
             if (connectedRobotRlm != null) connectedRobotRlm.CloseLaser();
+            
+            //TODO: find a better solution
+            //We need to prevent null ref ex in the beginning of the game
+            if (connectedLaserTarget != null) connectedLaserTarget.CheckLaserTargetHit(10);
         }
     }
 }

@@ -169,8 +169,7 @@ public class ScaleController : MonoBehaviour
 
         //TODO: find a better solution
         scaleCompletionStatus[networkParentListID - 1] = isCompleted;
-        if (scaleCompletionStatus[0] && scaleCompletionStatus[1] && scaleCompletionStatus[2])
-            isAllScalesCompleted = true;
+        isAllScalesCompleted = scaleCompletionStatus[0] && scaleCompletionStatus[1] && scaleCompletionStatus[2];
         
         if (isAllScalesCompleted) aus.PlayOneShot(allScalesCompletedClip);
         else if (isCompleted) aus.PlayOneShot(scaleCompletedClip);

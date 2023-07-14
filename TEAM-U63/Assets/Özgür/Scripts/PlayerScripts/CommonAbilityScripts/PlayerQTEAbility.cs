@@ -68,8 +68,8 @@ public class PlayerQTEAbility : MonoBehaviour
 
             if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) DeactivateAbility(false);
             
-            else if (!IsHackQTE && rm.currentState == RobotManager.RobotState.IsRouting) ActivateAbility();
-            else if (IsHackQTE && rm.currentState == RobotManager.RobotState.IsSleeping) ActivateAbility();
+            else if (!IsHackQTE && rm.currentState == RobotManager.RobotState.Routing) ActivateAbility();
+            else if (IsHackQTE && rm.currentState == RobotManager.RobotState.Sleeping) ActivateAbility();
         }
         
         if (psd.currentMainState != PlayerStateData.PlayerMainState.AbilityState) return;
@@ -106,7 +106,7 @@ public class PlayerQTEAbility : MonoBehaviour
         
         //Sleeping process is necessary for robot to stand still while artist is singing
         //It can not be hacked during process. It can only be hacked while isSleeping is true
-        if (!IsHackQTE) rm.UpdateRobotState((int)RobotManager.RobotState.IsSleepingProcess);
+        if (!IsHackQTE) rm.UpdateRobotState((int)RobotManager.RobotState.SleepingProcess);
     }
     
     private void DeactivateAbility(bool isSucceeded)
@@ -118,13 +118,13 @@ public class PlayerQTEAbility : MonoBehaviour
                 aus.PlayOneShot(coderCorrectClip);
                 
                 //Responsibility chart of the states/rigidbody/camera
-                //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs and RobotManager.cs
+                //1.a Robot - Hacked Enter - PlayerQTEAbility.cs and RobotManager.cs
                 //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
-                //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+                //2.a Robot - Hacked Exit to Sleeping - RobotManager.cs
                 //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
             
                 //1.a
-                rm.UpdateRobotState((int)RobotManager.RobotState.IsHacked);
+                rm.UpdateRobotState((int)RobotManager.RobotState.Hacked);
             
                 //1.b
                 psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
@@ -136,7 +136,7 @@ public class PlayerQTEAbility : MonoBehaviour
             else
             {
                 psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
-                rm.UpdateRobotState((int)RobotManager.RobotState.IsSleeping);
+                rm.UpdateRobotState((int)RobotManager.RobotState.Sleeping);
             }
         }
         
@@ -149,7 +149,7 @@ public class PlayerQTEAbility : MonoBehaviour
             
             else
             {
-                rm.UpdateRobotState((int)RobotManager.RobotState.IsRouting);
+                rm.UpdateRobotState((int)RobotManager.RobotState.Routing);
                 aus.PlayOneShot(artistFailClip);
             }
         }
