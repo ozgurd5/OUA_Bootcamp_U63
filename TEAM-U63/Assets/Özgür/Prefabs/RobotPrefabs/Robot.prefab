@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 2594410883010266241}
   - component: {fileID: 3296004251871438163}
   - component: {fileID: 7986051916026200369}
+  - component: {fileID: 5629040566506362408}
   m_Layer: 0
   m_Name: Robot
   m_TagString: robot
@@ -308,7 +309,7 @@ Transform:
   - {fileID: 8387420699453184248}
   - {fileID: 392507219790783177}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3280311500602447263
 Rigidbody:
@@ -650,6 +651,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5629040566506362408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724610851150070021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d7c930f5684bb4f96297218002467b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  waitTime: 0.1
+  turnSpeed: 200
+  routeHolder: {fileID: 0}
 --- !u!1 &1727303932842273216
 GameObject:
   m_ObjectHideFlags: 0

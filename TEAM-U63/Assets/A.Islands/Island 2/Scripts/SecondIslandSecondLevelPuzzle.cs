@@ -30,7 +30,6 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     {
         if (IsRobot && col.CompareTag("robot"))
         {
-            Debug.Log("enter - name: " + name);
             isCompleted = true;
             completionStatus[ID] = true;
             CheckAllCompletion();
@@ -38,7 +37,6 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
         
         else
         {
-            Debug.Log("enter - name: " + name);
             if (col.CompareTag("RedPuzzle")) redNumber++;
             if (col.CompareTag("GreenPuzzle")) greenNumber++;
             if (col.CompareTag("BluePuzzle")) blueNumber++;
