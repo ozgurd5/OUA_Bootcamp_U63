@@ -8,7 +8,7 @@ public class PlayerMapController : MonoBehaviour
 {
     [Header("Assign")]
     [SerializeField] private GameObject mapCanvas;
-
+    
     private PlayerData pd;
     private PlayerInputManager pim;
     
@@ -17,6 +17,9 @@ public class PlayerMapController : MonoBehaviour
 
     private void Awake()
     {
+        //TODO: find out why it is not working
+        //mapCanvas = GameObject.Find("MapCanvas");
+        
         pd = GetComponent<PlayerData>();
         pim = GetComponent<PlayerInputManager>();
     }

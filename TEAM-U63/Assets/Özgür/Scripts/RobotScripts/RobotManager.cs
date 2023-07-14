@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -19,42 +20,55 @@ public class RobotManager : NetworkBehaviour
         IsSleepingProcess = 3
     }
 
-    public RobotState currentState = RobotState.IsRouting;
+    public RobotState currentState { get; private set; }
 
     public bool isLocal { get; private set; }
     public event Action OnLocalStatusChanged;
     public event Action OnRobotStateChanged;
+    public event Action<int> OnRobotPainted;
 
     private PlayerData coderPlayerPd;
-    private Rigidbody coderPlayerRb;
+    private PlayerInputManager coderPlayerPim;
+    
     private RobotController rc;
     private MeshRenderer mr;
     private Rigidbody rb;
+    private CinemachineFreeLook cam;
     
-    private int robotMaterialIndex;    //PlayerArtistPaintAbility.cs
+    private int robotMaterialIndex;  //PlayerArtistPaintAbility.cs
 
     private void Awake()
     {
+        currentState = RobotState.IsRouting;
+        
+        coderPlayerPd = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
+        coderPlayerPim = coderPlayerPd.GetComponent<PlayerInputManager>();
+        
         rc = GetComponent<RobotController>();
         mr = transform.Find("BODY").GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<CinemachineFreeLook>();
 
-        coderPlayerPd = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
-        
         //Robot must be local where the coder player is local
         coderPlayerPd.OnLocalStatusChanged += UpdateRobotLocalStatus;   //Needed for island 3 mechanics
         UpdateRobotLocalStatus();
 
-        OnRobotStateChanged += HandleHackedState;
+        OnRobotStateChanged += HandleHackedStateTransition;
     }
 
-    private void HandleHackedState()
+    private void Update()
     {
-        //Robot can only move in it's own side while hacked
-        if (currentState == RobotState.IsHacked && isLocal) rb.constraints = RigidbodyConstraints.None;
-        else rb.constraints = RigidbodyConstraints.FreezeAll;
+        //Responsibility chart of the states/rigidbody/camera
+        //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs (and RobotManager.cs)
+        //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
+        //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+        //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
+        
+        //2.a
+        if (coderPlayerPim.isPrimaryAbilityKeyDown && currentState == RobotState.IsHacked && isLocal)
+            UpdateRobotState((int)RobotState.IsSleeping);
     }
-
+    
     /// <summary>
     /// <para>Robot must be local where the coder player is local</para>
     /// <para>Robot must not be physically interacted by the remote side</para>
@@ -72,7 +86,7 @@ public class RobotManager : NetworkBehaviour
     /// <summary>
     /// <para>Changes the states of the robot and syncs it across the network</para>
     /// </summary>
-    public void UpdateStates(int newState)
+    public void UpdateRobotState(int newState)
     {
         currentState = (RobotState)newState;
         OnRobotStateChanged?.Invoke();
@@ -80,10 +94,10 @@ public class RobotManager : NetworkBehaviour
         rc.enabled = newState == (int)RobotState.IsHacked;  //Do not sync this. Local only
             
         //isLocal in this line is the value in the host side because client can't call ClientRpc
-        SyncIsGrabbedClientRpc(newState);
+        SyncRobotStateClientRpc(newState);
         
         //isLocal in this line must be the value in the client side and it is
-        if (!IsHost) SyncIsGrabbedServerRpc(newState);
+        if (!IsHost) SyncRobotStateServerRpc(newState);
     }
     
     /// <summary>
@@ -91,7 +105,7 @@ public class RobotManager : NetworkBehaviour
     /// <para>Can't and must not work in host side</para>
     /// </summary>
     [ClientRpc]
-    private void SyncIsGrabbedClientRpc(int newState)
+    private void SyncRobotStateClientRpc(int newState)
     {
         //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
         if (IsHost) return;
@@ -106,10 +120,40 @@ public class RobotManager : NetworkBehaviour
     /// that would override client side states and cause object to not update it's states</para>
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
-    private void SyncIsGrabbedServerRpc(int newState)
+    private void SyncRobotStateServerRpc(int newState)
     {
         currentState = (RobotState)newState;
         OnRobotStateChanged?.Invoke();
+    }    
+    
+    /// <summary>
+    /// <para>Handles the camera and rigidbody according to entering or exiting IsHacked state</para>
+    /// <para>Must only be called in UpdateRobotState method, do not call anywhere else</para>
+    /// </summary>
+    private void HandleHackedStateTransition()
+    {
+        if (!isLocal)
+        {
+            //Robot can only move in it's own side
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            return;
+        }
+        
+        //Enter hacking state in the local side
+        if (currentState == RobotState.IsHacked)
+        {
+            //Robot can only move in it's own side when hacked
+            rb.constraints = RigidbodyConstraints.None;
+            cam.enabled = true;
+        }
+        
+        //Exit hacking state in the local side
+        else
+        {
+            //Robot can only move in it's own side when hacked
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            cam.enabled = false;
+        }
     }
 
     #endregion
@@ -123,8 +167,8 @@ public class RobotManager : NetworkBehaviour
     {
         //Index will go like 1-2-3-1-2-3 on and on...
         robotMaterialIndex = (robotMaterialIndex + 1) % robotMaterials.Count;
-
         UpdateMaterialLocally();
+        OnRobotPainted?.Invoke(robotMaterialIndex);
         
         //robotMaterialIndex in this line are the states in the host side because client can't call ClientRpc
         UpdateCubeMaterialClientRpc(robotMaterialIndex);
@@ -158,6 +202,7 @@ public class RobotManager : NetworkBehaviour
         
         robotMaterialIndex = newMaterialIndex;
         UpdateMaterialLocally();
+        OnRobotPainted?.Invoke(newMaterialIndex);
     }
 
     /// <summary>
@@ -171,6 +216,7 @@ public class RobotManager : NetworkBehaviour
     {
         robotMaterialIndex = newMaterialIndex;
         UpdateMaterialLocally();
+        OnRobotPainted?.Invoke(newMaterialIndex);
     }
 
     #endregion

@@ -1,4 +1,5 @@
 using Unity.Netcode;
+using UnityEngine;
 
 /// <summary>
 /// <para>Responsible of painting ability of the artist</para>
@@ -6,6 +7,9 @@ using Unity.Netcode;
 /// </summary>
 public class PlayerArtistPaintAbility : NetworkBehaviour
 {
+    [Header("Assign - Coder Vision Audio Source")]
+    [SerializeField] private AudioSource aus;
+
     private PlayerInputManager pim;
     private CrosshairManager cm;
     
@@ -18,10 +22,17 @@ public class PlayerArtistPaintAbility : NetworkBehaviour
     private void Update()
     {
         if (!pim.isSecondaryAbilityKeyDown) return;
-        
+
         if (cm.isLookingAtCube)
+        {
             cm.crosshairHit.collider.GetComponent<CubeManager>().PaintCube();
+            aus.Play();
+        }
+        
         else if (cm.isLookingAtRobot)
+        {
             cm.crosshairHit.collider.GetComponent<RobotManager>().PaintRobot();
+            aus.Play();
+        }
     }
 }

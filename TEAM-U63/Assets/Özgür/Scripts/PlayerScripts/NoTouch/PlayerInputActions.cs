@@ -125,6 +125,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a2f01c0-d0e3-43d8-a966-5aebce7a8368"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -490,6 +499,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""QTELeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cc62ea0-9908-43ec-9d0b-42297573ccfb"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -509,6 +529,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_QTEDown = m_Player.FindAction("QTEDown", throwIfNotFound: true);
         m_Player_QTERight = m_Player.FindAction("QTERight", throwIfNotFound: true);
         m_Player_QTELeft = m_Player.FindAction("QTELeft", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -581,6 +602,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_QTEDown;
     private readonly InputAction m_Player_QTERight;
     private readonly InputAction m_Player_QTELeft;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -596,6 +618,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @QTEDown => m_Wrapper.m_Player_QTEDown;
         public InputAction @QTERight => m_Wrapper.m_Player_QTERight;
         public InputAction @QTELeft => m_Wrapper.m_Player_QTELeft;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -638,6 +661,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @QTELeft.started += instance.OnQTELeft;
             @QTELeft.performed += instance.OnQTELeft;
             @QTELeft.canceled += instance.OnQTELeft;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -675,6 +701,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @QTELeft.started -= instance.OnQTELeft;
             @QTELeft.performed -= instance.OnQTELeft;
             @QTELeft.canceled -= instance.OnQTELeft;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -705,5 +734,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnQTEDown(InputAction.CallbackContext context);
         void OnQTERight(InputAction.CallbackContext context);
         void OnQTELeft(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }

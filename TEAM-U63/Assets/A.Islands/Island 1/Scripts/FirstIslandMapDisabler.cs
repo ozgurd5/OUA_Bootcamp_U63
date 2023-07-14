@@ -9,6 +9,6 @@ public class FirstIslandMapDisabler : MonoBehaviour
     {
         if (!col.CompareTag("Player")) return;
 
-        col.GetComponent<PlayerMapController>().mapCollected = false;
+        Destroy(col.GetComponent<PlayerMapController>());
     }
 }
