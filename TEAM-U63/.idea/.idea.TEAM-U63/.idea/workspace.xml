@@ -2,22 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24bc7eb-f1f1-4184-b456-571a083584b5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TEAM-U63/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/MapCollectible.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/MapCollectible.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Sound/ArtistQTEFail.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Sound/ArtistQTEFail.ogg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Sound/CoderQTECorrect.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Sound/CoderQTECorrect.ogg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Sound/CoderQTEFail.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/İbrahim/Sound/CoderQTEFail.ogg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/ELEVATOR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/ELEVATOR.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/ScalePrefabs/SCALES.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Prefabs/ScalePrefabs/SCALES.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scenes/Island 1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scenes/Island 1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/CustomNetworkManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/NetworkPrefabs/CustomNetworkManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scripts/FirstIslandDoorForceFieldDisabler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scripts/FirstIslandDoorControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scripts/FirstIslandDoorForceFieldDisabler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scripts/FirstIslandDoorControl.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scripts/FirstIslandMapDisabler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/A.Islands/Island 1/Scripts/FirstIslandMapDisabler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/ArtistPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/ArtistPlayer.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/CoderPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Prefabs/PlayerPrefab/CoderPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistAbilityScripts/PlayerArtistPaintAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/ArtistAbilityScripts/PlayerArtistPaintAbility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderAbilityScripts/PlayerCoderVisionAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CoderAbilityScripts/PlayerCoderVisionAbility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/ScaleScripts/ScaleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/ScaleScripts/ScaleController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Sound/ColorChanged.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Sound/ColorChanged.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Sound/ScaleComplete.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Sound/ScaleComplete.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Sound/ScaleCorrect.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/İbrahim/Sound/ScaleCorrect.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CommonAbilityScripts/PlayerMapController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CommonAbilityScripts/PlayerMapController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CommonAbilityScripts/PlayerQTEAbility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Özgür/Scripts/PlayerScripts/CommonAbilityScripts/PlayerQTEAbility.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,14 +112,6 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\PC\Documents\GitHub\Team.U63-Bootcamp.Project\TEAM-U63 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\PC\Documents\GitHub\Team.U63-Bootcamp.Project\TEAM-U63" />
-      <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <method v="2" />
-    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.0f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\ACER\Desktop\GameDev\Team.U63-Bootcamp.Project\TEAM-U63 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -199,6 +193,7 @@
       <workItem from="1689192715016" duration="7000" />
       <workItem from="1689268532337" duration="288000" />
       <workItem from="1689270747652" duration="3700000" />
+      <workItem from="1689275125035" duration="12182000" />
     </task>
     <servers />
   </component>
