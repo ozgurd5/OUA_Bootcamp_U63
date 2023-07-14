@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class CrosshairManager : MonoBehaviour
 {
     [Header("Assign")]
-    [SerializeField] private float interactionRange = 7f;
+    [SerializeField] private float cubeRange = 7f;
+    [SerializeField] private float robotRange = 25f;
     [SerializeField] [Range(0, 1)] private float opacity = 0.3f;
 
     [Header("Info - No Touch")]
@@ -48,20 +49,11 @@ public class CrosshairManager : MonoBehaviour
         //TODO: debug purpose, remove before build
         if (Input.GetKeyDown(KeyCode.G)) Debug.Log(crosshairHit.collider.gameObject.name);
 
-        if (CastRayFromCrosshair())
-        {
-            isLookingAtCube = crosshairHit.collider.CompareTag("RedPuzzle") ||
-                              crosshairHit.collider.CompareTag("GreenPuzzle") ||
-                              crosshairHit.collider.CompareTag("BluePuzzle");
+        //TODO: fix this and make it one raycast
+        //The reason why we have two methods is their ranges are different
 
-            isLookingAtRobot = crosshairHit.collider.CompareTag("robot");
-        }
-
-        else    //If in the up won't work if raycast return null
-        {
-            isLookingAtCube = false;
-            isLookingAtRobot = false;
-        }
+        CastRayForCubes();
+        CastRayForRobots();
 
         crosshairVisibilityCondition = isLookingAtCube || psd.isGrabbing || isLookingAtRobot;
         
@@ -79,9 +71,35 @@ public class CrosshairManager : MonoBehaviour
     /// <para>Casts ray for cubes</para>
     /// </summary>
     /// <returns>True if a ray hits a cube</returns>
-    private bool CastRayFromCrosshair()
+    private void CastRayForCubes()
     {
         crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);
-        return Physics.Raycast(crosshairRay, out crosshairHit, interactionRange);
+
+        if (!Physics.Raycast(crosshairRay, out crosshairHit, cubeRange))
+        {
+            isLookingAtCube = false;
+            return;
+        }
+        
+        isLookingAtCube = crosshairHit.collider.CompareTag("RedPuzzle") ||
+                          crosshairHit.collider.CompareTag("GreenPuzzle") ||
+                          crosshairHit.collider.CompareTag("BluePuzzle");
+    }
+    
+    /// <summary>
+    /// <para>Casts ray for robots</para>
+    /// </summary>
+    /// <returns>True if a ray hits a robot</returns>
+    private void CastRayForRobots()
+    {
+        crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);
+
+        if (!Physics.Raycast(crosshairRay, out crosshairHit, robotRange))
+        {
+            isLookingAtRobot = false;
+            return;
+        }
+        
+        isLookingAtRobot = crosshairHit.collider.CompareTag("robot");
     }
 }
