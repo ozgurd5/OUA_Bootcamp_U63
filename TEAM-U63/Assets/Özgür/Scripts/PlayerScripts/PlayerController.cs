@@ -122,9 +122,9 @@ public class PlayerController : NetworkBehaviour
         //HandleEasterEgg();
         
         //Responsibility chart of the states/rigidbody/camera
-        //1.a Robot - IsHacked Enter - PlayerQTEAbility.cs and RobotManager.cs
+        //1.a Robot - Hacked Enter - PlayerQTEAbility.cs and RobotManager.cs
         //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
-        //2.a Robot - IsHacked Exit to IsSleeping - RobotManager.cs
+        //2.a Robot - Hacked Exit to Sleeping - RobotManager.cs
         //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
         
         //2.b

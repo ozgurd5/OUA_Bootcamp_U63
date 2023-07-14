@@ -18,9 +18,13 @@ public class NetworkParentingManager : MonoBehaviour
     public static NetworkParentingManager Singleton;
 
     //Level 1 (order is not important in the list but assign their indexes to the responsible scripts in the objects)
-    //GrabPoint - 0 - PlayerGrabbing.cs
-    //Left-Mid-Right Scales - 1-2-3 - ScaleController.cs
+    //GrabPoint - 0 - Main Camera
+    //Left-Mid-Right Scales - 1-2-3 - SCALES
     //Elevator Parenter - 4 - Elevator Parenter
+    
+    //Level 2 (order is not important in the list but assign their indexes to the responsible scripts in the objects)
+    //GrabPoint - 0 - Main Camera
+    
     
     [Header("Assign Parents - Their indexes are their IDs - Look for the notes in the script")]
     public List<Transform> NetworkParentList;
