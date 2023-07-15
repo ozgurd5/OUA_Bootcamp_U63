@@ -31,9 +31,7 @@ public class CrosshairManager : MonoBehaviour
         pd = GetComponentInParent<PlayerData>();
         psd = GetComponentInParent<PlayerStateData>();
         crosshairImage = GetComponent<Image>();
-        
-        //We can not make the main camera DontDestroyOnLoad. Details are written in CustomDontDestroyOnLoad.cs
-        SceneManager.activeSceneChanged += (a, b) => { cam = Camera.main; };
+        cam = Camera.main; 
         
         pd.OnLocalStatusChanged += ToggleCrosshair;
         ToggleCrosshair();

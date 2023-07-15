@@ -30,11 +30,8 @@ public class PlayerInputManager : MonoBehaviour
     {
         pia = new PlayerInputActions();
         pia.Player.Enable();
-
         pd = GetComponent<PlayerData>();
-        
-        //We can not make the main camera DontDestroyOnLoad. Details are written in CustomDontDestroyOnLoad.cs
-        SceneManager.activeSceneChanged += (a, b) => { cameraTransform = Camera.main!.transform; };
+        cameraTransform = Camera.main!.transform;
     }
 
     private void Update()

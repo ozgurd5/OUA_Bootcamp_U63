@@ -1,5 +1,6 @@
 using System;
 using Unity.Netcode;
+using UnityEngine;
 
 /// <summary>
 /// <para>Holds the data of if the player is host, client, controlled, remote, coder or artist</para>
@@ -16,14 +17,17 @@ public class PlayerData : NetworkBehaviour
     private void Awake()
     {
         npd = NetworkPlayerData.Singleton;
-        npd.OnIsHostCoderChanged += DecideControlSource;  //Needed for island 3 mechanics
-
+    }
+    
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
         DecideControlSource();
     }
 
     private void DecideControlSource()
-    {;
-        if      (IsHost && npd.isHostCoder && name == "CoderPlayer") isLocal = true;
+    {
+        if (IsHost && npd.isHostCoder && name == "CoderPlayer") isLocal = true;
         else if (IsHost && !npd.isHostCoder && name == "ArtistPlayer") isLocal = true;
         else if (!IsHost && !npd.isHostCoder && name == "CoderPlayer") isLocal = true;
         else if (!IsHost && npd.isHostCoder && name == "ArtistPlayer") isLocal = true;

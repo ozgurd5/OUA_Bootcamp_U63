@@ -26,7 +26,16 @@ public class PlayerNameUI : NetworkBehaviour
         npd.OnIsHostCoderChanged += UpdatePlayerNames;
         npd.OnIsHostCoderChanged += SyncPlayerNames;
     }
-    
+
+    //To prevent null reference exceptions in other scene, we must unsubscribe
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        
+        npd.OnIsHostCoderChanged -= UpdatePlayerNames;
+        npd.OnIsHostCoderChanged -= SyncPlayerNames;
+    }
+
     //We need a spawned network to subscribe OnClient.. actions
     public override void OnNetworkSpawn()
     {
@@ -34,7 +43,7 @@ public class PlayerNameUI : NetworkBehaviour
         
         //Works when the lobby created and client joined the lobby, in both sides
         NetworkManager.Singleton.OnClientConnectedCallback += obj =>
-        {;
+        {
             //Set the names for the first time, locally
             UpdatePlayerNames();
             

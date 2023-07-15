@@ -839,7 +839,6 @@ GameObject:
   - component: {fileID: 4969286886938997792}
   - component: {fileID: 356077594404146795}
   - component: {fileID: 9016697784758819762}
-  - component: {fileID: 2067033097803999937}
   m_Layer: 0
   m_Name: CoderPlayer
   m_TagString: Player
@@ -866,7 +865,7 @@ Transform:
   - {fileID: 2079731186048728947}
   - {fileID: 6920102157120283203}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3371696646887994366
 Rigidbody:
@@ -1001,7 +1000,7 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
+  SceneMigrationSynchronization: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
 --- !u!114 &4636345872673757799
@@ -1570,18 +1569,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2067033097803999937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5190144263192956876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b70f9ae5478734da3d42330b6dda21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5369427239680500428
 GameObject:
   m_ObjectHideFlags: 0
