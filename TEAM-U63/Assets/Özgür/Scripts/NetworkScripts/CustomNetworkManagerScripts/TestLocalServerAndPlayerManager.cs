@@ -26,7 +26,7 @@ public class TestLocalServerAndPlayerManager : MonoBehaviour
             npd.UpdateIsHostCoder(!npd.isHostCoder);
 
         if (Input.GetKeyDown(KeyCode.N))
-            NetworkManager.Singleton.SceneManager.LoadScene("TEST", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("Island 2", LoadSceneMode.Single);
         
         if (Input.GetKeyDown(KeyCode.P))
             NetworkManager.Singleton.SceneManager.LoadScene("MAIN_MENU", LoadSceneMode.Single);

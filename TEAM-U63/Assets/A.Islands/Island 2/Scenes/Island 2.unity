@@ -18126,15 +18126,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 234
+      value: 77.33
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 541.5
+      value: 540.283
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 204
+      value: 200.28
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18146,7 +18146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.z
@@ -36811,6 +36811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArtistPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 3569892158731142398, guid: 03aacddfd81af5649b2f283a21492f59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4139893828228305639, guid: 03aacddfd81af5649b2f283a21492f59, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -37028,6 +37032,10 @@ PrefabInstance:
     - target: {fileID: 7747426050092489636, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
       propertyPath: m_Name
       value: CustomNetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747426050092489636, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37389,6 +37397,10 @@ PrefabInstance:
     - target: {fileID: 5190144263192956876, guid: 7242434401952b44aab961cca48496f4, type: 3}
       propertyPath: m_Name
       value: CoderPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5190144263192956876, guid: 7242434401952b44aab961cca48496f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44926,6 +44938,10 @@ PrefabInstance:
     - target: {fileID: 2115399574457327219, guid: 6dd0303090213314d92496abce08829c, type: 3}
       propertyPath: m_Name
       value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115399574457327219, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
       propertyPath: m_RootOrder

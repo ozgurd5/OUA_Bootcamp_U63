@@ -8,9 +8,6 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class PlayerQTEAbility : MonoBehaviour
 {
-    //TODO: make it false before build
-    public static bool canQTE = true;
-
     [Header("Assign - Images")]
     [SerializeField] private Sprite upKeyImage;
     [SerializeField] private Sprite downKeyImage;
@@ -60,8 +57,6 @@ public class PlayerQTEAbility : MonoBehaviour
 
     private void Update()
     {
-        if (!canQTE) return;
-
         if (pim.isPrimaryAbilityKeyDown && cm.isLookingAtRobot)
         {
             rm = cm.crosshairHit.collider.GetComponent<RobotManager>();

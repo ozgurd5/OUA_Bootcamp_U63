@@ -24,10 +24,17 @@ public class PlayerNameUI : NetworkBehaviour
         playerNameInputField.onValueChanged.AddListener(enteredName => localPlayerName = enteredName);
         
         npd.OnIsHostCoderChanged += UpdatePlayerNames;
+        npd.OnIsHostCoderChanged += SyncPlayerNames;
+    }
+    
+    //We need a spawned network to subscribe OnClient.. actions
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
         
         //Works when the lobby created and client joined the lobby, in both sides
         NetworkManager.Singleton.OnClientConnectedCallback += obj =>
-        {
+        {;
             //Set the names for the first time, locally
             UpdatePlayerNames();
             
@@ -49,7 +56,6 @@ public class PlayerNameUI : NetworkBehaviour
     private void SendHostNameClientRpc(string hostNameInHostSide)
     {
         if (IsHost) return; //Since host is also a client, this method will also run in host side. No need for that.
-        
         hostName = hostNameInHostSide;
         UpdatePlayerNames();
     }
@@ -64,11 +70,6 @@ public class PlayerNameUI : NetworkBehaviour
         UpdatePlayerNames();
     }
 
-    /// <summary>
-    /// <para>Doesn't send any data, just updates current data, because player can't change their names in lobby,
-    /// they can only change their players</para>
-    /// <para>Therefore it must work when isHostCoder changed and new data comes which means lobby creation or join</para>
-    /// </summary>
     private void UpdatePlayerNames()
     {
         if (IsHost) hostName = localPlayerName;
@@ -76,14 +77,32 @@ public class PlayerNameUI : NetworkBehaviour
 
         if (IsHost)
         {
-            if (npd.isHostCoder) coderNameText.text = localPlayerName;
-            else artistNameText.text = localPlayerName;
+            if (npd.isHostCoder)
+            {
+                coderNameText.text = localPlayerName;
+                artistNameText.text = clientName;   //get from other side
+            }
+            
+            else
+            {
+                coderNameText.text = clientName;    //get from other side
+                artistNameText.text = localPlayerName;
+            }
         }
 
         else
         {
-            if (npd.isHostCoder) artistNameText.text = localPlayerName;
-            else coderNameText.text = localPlayerName;
+            if (npd.isHostCoder)
+            {
+                coderNameText.text = hostName;  //get from other side
+                artistNameText.text = localPlayerName;
+            }
+            
+            else
+            {
+                coderNameText.text = localPlayerName;
+                artistNameText.text = hostName; //get from other side
+            }
         }
     }
 }

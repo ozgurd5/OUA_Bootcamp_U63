@@ -25,12 +25,15 @@ public class CustomDontDestroyOnLoad : MonoBehaviour
         SceneManager.activeSceneChanged += (s, currentScene) => {DestroyObjectsInMainMenu(currentScene);};
     }
 
+    //TODO: Make this on "return" to main menu by creating scene management events
     private void DestroyObjectsInMainMenu(Scene currentScene)
     {
         if (currentScene.name != "MAIN_MENU") return;
         
         foreach (GameObject go in dontDestroyOnLoadList)
         {
+            if (go.name is "CustomNetworkManager" or "NetworkManager") continue;    //Don't delete it
+            
             Destroy(go);
         }
     }

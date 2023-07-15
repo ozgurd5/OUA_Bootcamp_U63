@@ -32,7 +32,6 @@ public class DeactivateClientPlayerOnDisconnection : NetworkBehaviour
 
         NetworkManager.Singleton.OnClientConnectedCallback += obj =>
         {
-            Debug.Log("client disconnected");
             //Since host is also a client, creating of the lobby will trigger this event
             //We can prevent that by not counting host as a client
             if (NetworkManager.Singleton.ConnectedClientsList.Count == 1) return;
@@ -50,6 +49,7 @@ public class DeactivateClientPlayerOnDisconnection : NetworkBehaviour
         };
     }
 
+    //TODO: NOT ISLAND 2 - MAIN ISLAND - CHANGE BEFORE BUILD
     private void GetPlayersInMainIsland(Scene currentScene)
     {
         if (currentScene.name != "Island 2") return;

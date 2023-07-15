@@ -36,12 +36,12 @@ public class UnityRelayUI : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        if (!IsHost)
-        {
-            lobbyJoinCodeText.gameObject.SetActive(false);
-            copyLobbyJoinCodeButton.SetActive(false);
-            lobbyIDText.SetActive(false);
-        }
+        
+        //Client should not see join code elements
+        if (IsHost) return;
+        lobbyJoinCodeText.gameObject.SetActive(false);
+        copyLobbyJoinCodeButton.SetActive(false);
+        lobbyIDText.SetActive(false);
     }
     
     /// <summary>

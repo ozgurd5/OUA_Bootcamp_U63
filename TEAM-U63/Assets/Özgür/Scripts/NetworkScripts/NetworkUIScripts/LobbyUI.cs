@@ -12,7 +12,6 @@ public class LobbyUI : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private Button startGameButton;
     [SerializeField] private Button switchPlayerButton;
-    [SerializeField] private Button copyCodeButton;
 
     private NetworkPlayerData npd;
 
@@ -22,7 +21,7 @@ public class LobbyUI : NetworkBehaviour
         
         startGameButton.onClick.AddListener(() =>
         {
-            NetworkManager.Singleton.SceneManager.LoadScene("Island 1", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("Island 2", LoadSceneMode.Single);
         });
         
         switchPlayerButton.onClick.AddListener(() => { npd.UpdateIsHostCoder(!npd.isHostCoder); });
@@ -34,8 +33,6 @@ public class LobbyUI : NetworkBehaviour
         
         //Client shouldn't start the game. Also client can't see the join code, so doesn't need copyCodeButton
         if (!IsHost) return;
-        
         startGameButton.gameObject.SetActive(true);
-        copyCodeButton.gameObject.SetActive(true);
     }
 }

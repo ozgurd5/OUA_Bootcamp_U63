@@ -21,6 +21,15 @@ public class NetworkPlayerData : NetworkBehaviour
         Singleton = GetComponent<NetworkPlayerData>();
     }
 
+    //We need a spawned network to subscribe OnClient.. actions
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+
+        //Client must get the host isHostCoder value in the very start of the game - which is lobby screen
+        NetworkManager.Singleton.OnClientConnectedCallback += obj => { if (IsHost) UpdateIsHostCoder(isHostCoder); };
+    }
+
     /// <summary>
     /// <para>Updates which side controls which player</para>
     /// <para>Works and must work both in host side and client side</para>

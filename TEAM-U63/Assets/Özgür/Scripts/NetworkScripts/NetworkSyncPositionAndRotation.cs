@@ -45,7 +45,7 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
             isObjectLocal = rm.isLocal;
         }
 
-        //TODO: activate this line before build
+        //TODO: activate this line before build - ??
         //Other objects should be host controlled by default
         //else isObjectLocal = IsHost;
     }
