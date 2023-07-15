@@ -1,33 +1,38 @@
+using System;
 using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private GameObject targetObject;
+    [Header("Assign")]
     [SerializeField] private string activationTag = "Player";
 
-    private Animator animator;
-    private bool isPressed;
+    [Header("Info - No touch")]
+    public bool isPressed;
+    public event Action<bool> OnPressurePlateInteraction; 
 
-    private void Start()
+    private AudioSource aus;
+
+    private void Awake()
     {
-        animator = targetObject.GetComponent<Animator>();
-        animator.SetBool("IsPuzzlePlaced", false);
+        aus = GetComponent<AudioSource>();
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider col)
     {
-        if (other.CompareTag(activationTag) && !isPressed)
+        if (col.CompareTag(activationTag) && !isPressed)
         {
-            animator.SetBool("IsPuzzlePlaced", true);
             isPressed = true;
+            aus.Play();
+            OnPressurePlateInteraction?.Invoke(isPressed);
         }
     }
     
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider col)
     {
-        if (!other.CompareTag(activationTag)) return;
+        if (!col.CompareTag(activationTag)) return;
         
-        animator.SetBool("IsPuzzlePlaced", false);
         isPressed = false;
+        aus.Play();
+        OnPressurePlateInteraction?.Invoke(isPressed);
     }
 }
