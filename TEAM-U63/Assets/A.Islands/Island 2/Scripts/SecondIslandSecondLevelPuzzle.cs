@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SecondIslandSecondLevelPuzzle : MonoBehaviour
@@ -19,12 +20,23 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     [SerializeField] private int neededGreen;
     [SerializeField] private int neededBlue;
 
-    [Header("Info - No touch")]
-    public bool isCompleted;
+    [Header("Number of Cubes")]
+    [SerializeField] private int redNumber;
+    [SerializeField] private int greenNumber;
+    [SerializeField] private int blueNumber;
     
-    private int redNumber;
-    private int greenNumber;
-    private int blueNumber;
+    [Header("Info - No Touch")]
+    public bool isCompleted;
+    [SerializeField] private List<Collider> currentCubesInside;
+    [SerializeField] private int currentCubeNumber;
+    [SerializeField] private CubeManager currentCubeManager;
+
+    private AudioSource aus;
+
+    private void Awake()
+    {
+        aus = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider col)
     {
@@ -35,14 +47,14 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
             CheckAllCompletion();
         }
         
-        else
+        else if (col.CompareTag("RedPuzzle") || col.CompareTag("GreenPuzzle") || col.CompareTag("BluePuzzle"))
         {
-            if (col.CompareTag("RedPuzzle")) redNumber++;
-            if (col.CompareTag("GreenPuzzle")) greenNumber++;
-            if (col.CompareTag("BluePuzzle")) blueNumber++;
+            currentCubeManager = col.GetComponent<CubeManager>();
+            currentCubeManager.OnCubePainted += CheckCubeCompletion;
 
+            currentCubeNumber++;
+            currentCubesInside.Add(col);
             CheckCubeCompletion();
-            CheckAllCompletion();
         }
     }
     
@@ -54,22 +66,34 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
             completionStatus[ID] = false;
             CheckAllCompletion();
         }
-        
-        else
-        {
-            if (col.CompareTag("RedPuzzle")) redNumber--;
-            if (col.CompareTag("GreenPuzzle")) greenNumber--;
-            if (col.CompareTag("BluePuzzle")) blueNumber--;
 
+        else if (col.CompareTag("RedPuzzle") || col.CompareTag("GreenPuzzle") || col.CompareTag("BluePuzzle"))
+        {
+            currentCubeManager = col.GetComponent<CubeManager>();
+            currentCubeManager.OnCubePainted -= CheckCubeCompletion;
+            
+            currentCubeNumber--;
+            currentCubesInside.Remove(col);
             CheckCubeCompletion();
-            CheckAllCompletion();
         }
     }
 
-    private void CheckCubeCompletion()
+    public void CheckCubeCompletion()
     {
+        redNumber = 0;
+        greenNumber = 0;
+        blueNumber = 0;
+        
+        foreach (Collider cube in currentCubesInside)
+        {
+            if (cube.CompareTag("RedPuzzle")) redNumber++;
+            if (cube.CompareTag("GreenPuzzle")) greenNumber++;
+            if (cube.CompareTag("BluePuzzle")) blueNumber++;
+        }
+
         isCompleted = redNumber == neededRed && greenNumber == neededGreen && blueNumber == neededBlue;
         completionStatus[ID] = isCompleted;
+        CheckAllCompletion();
     }
 
     //TODO: FIND BETTER SOLUTION
@@ -77,5 +101,7 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     {
         isAllCompleted = completionStatus[0] && completionStatus[1] && completionStatus[2] && completionStatus[3];
         OnLevelCompleted?.Invoke(isAllCompleted);
+
+        if (isAllCompleted) aus.Play();
     }
 }

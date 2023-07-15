@@ -309,7 +309,7 @@ Transform:
   - {fileID: 8387420699453184248}
   - {fileID: 392507219790783177}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3280311500602447263
 Rigidbody:
@@ -567,7 +567,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c7640003bd8b22d429dad9fac8861662, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -576,9 +576,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d7c930f5684bb4f96297218002467b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  robotID: 0
   speed: 5
   waitTime: 0.1
   turnSpeed: 200

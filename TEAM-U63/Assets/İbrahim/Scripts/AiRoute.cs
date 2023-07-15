@@ -3,18 +3,22 @@ using UnityEngine;
 
 public class AiRoute : MonoBehaviour
 {
-    //TODO: FIND A BETTER SOLUTION
-    [Header("Robot ID for starting waypoint")]
-    [SerializeField] private int robotID;
-    
     [Header("Assign")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float waitTime = 0.1f;
     [SerializeField] private float turnSpeed = 200f;
     [SerializeField] private Transform routeHolder;
 
+    private RobotManager rm;
+    
+    private void Awake()
+    {
+        rm = GetComponent<RobotManager>();
+    }
+
     private void Start()
     {
+        
         Vector3[] wayPoints = new Vector3 [routeHolder.childCount];
 
         for (int i = 0; i < wayPoints.Length; i++)
@@ -28,7 +32,7 @@ public class AiRoute : MonoBehaviour
 
     IEnumerator FollowRoute(Vector3[] waypoints)
     {
-        transform.position = waypoints[robotID];
+        transform.position = waypoints[0];
 
         int targetWaypointIndex = 1;
         Vector3 targetWayPoint = waypoints[targetWaypointIndex];
@@ -36,6 +40,9 @@ public class AiRoute : MonoBehaviour
 
         while (true)
         {
+            if (rm.currentState != RobotManager.RobotState.Routing)
+                yield return new WaitUntil(() => rm.currentState == RobotManager.RobotState.Routing);
+            
             transform.position = Vector3.MoveTowards(transform.position, targetWayPoint, speed * Time.deltaTime);
 
             if (transform.position == targetWayPoint)

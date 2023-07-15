@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class RobotManager : NetworkBehaviour
 {
+    public bool select;
+    
     //This should be static but we can't see static variables in inspector, therefore can't assign materials
     //We must manually assign materials by the order of RGB. It's already assigned and saved in the prefab but if a
     //..problem occur, especially about dividing zero, the problem may be about this list being empty
@@ -58,6 +60,8 @@ public class RobotManager : NetworkBehaviour
 
     private void Update()
     {
+        if (select) Debug.Log(currentState);
+        
         //Responsibility chart of the states/rigidbody/camera
         //1.a Robot - Hacked Enter - PlayerQTEAbility.cs (and RobotManager.cs)
         //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs

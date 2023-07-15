@@ -9,11 +9,16 @@ public class LaserTarget : MonoBehaviour
     [Header("Assign - Material Index - RGB")]
     [SerializeField] private int targetMaterialIndex;
 
-    //
-    //
+    private AudioSource aus;
+    
+    //TODO: FIND BETTER SOLUTION, NOT FOR THIS BUT REPETITIVE METHOD CALL
+    private bool isSoundPlayed;
+
     private void Awake()
     {
-        OnLaserTargetHit += b => { Debug.Log("correct hit"); };
+        aus = GetComponent<AudioSource>();
+        
+        OnLaserTargetHit += HandleCompletionSound;
     }
 
     public void CheckLaserTargetHit(int hittingRobotMaterialIndex)
@@ -28,5 +33,20 @@ public class LaserTarget : MonoBehaviour
             OnLaserTargetHit?.Invoke(true);
         else
             OnLaserTargetHit?.Invoke(false);
+    }
+
+    private void HandleCompletionSound(bool isCompleted)
+    {
+        if (!isCompleted)
+        {
+            isSoundPlayed = false;
+        }
+        
+        else if (!isSoundPlayed)
+        {
+            Debug.Log("log");
+            aus.Play();
+            isSoundPlayed = true;
+        }
     }
 }
