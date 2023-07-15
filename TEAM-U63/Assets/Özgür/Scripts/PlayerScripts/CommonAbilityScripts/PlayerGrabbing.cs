@@ -1,5 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// <para>Responsible of grabbing, dropping and moving with the cube</para>
@@ -34,7 +35,10 @@ public class PlayerGrabbing : NetworkBehaviour
         pim = GetComponent<PlayerInputManager>();
         psd = GetComponent<PlayerStateData>();
         cm = GetComponentInChildren<CrosshairManager>();
-        grabPointTransform = Camera.main!.transform.Find("GrabPoint");
+        
+        //We can not make the main camera DontDestroyOnLoad. Details are written in CustomDontDestroyOnLoad.cs
+        SceneManager.activeSceneChanged += (a, b) => { grabPointTransform = Camera.main!.transform.Find("GrabPoint"); };
+        
     }
     
     

@@ -1,5 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// <para>Creates and connects local host. Changes controlled players</para>
@@ -23,5 +24,11 @@ public class TestLocalServerAndPlayerManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.L))
             npd.UpdateIsHostCoder(!npd.isHostCoder);
+
+        if (Input.GetKeyDown(KeyCode.N))
+            NetworkManager.Singleton.SceneManager.LoadScene("TEST", LoadSceneMode.Single);
+        
+        if (Input.GetKeyDown(KeyCode.P))
+            NetworkManager.Singleton.SceneManager.LoadScene("MAIN_MENU", LoadSceneMode.Single);
     }
 }

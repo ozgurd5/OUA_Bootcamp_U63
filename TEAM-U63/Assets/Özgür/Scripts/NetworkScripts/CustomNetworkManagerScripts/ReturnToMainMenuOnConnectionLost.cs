@@ -23,9 +23,6 @@ public class ReturnToMainMenuOnConnectionLost : NetworkBehaviour
     /// </summary>
     private void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
-        
-        foreach (GameObject item in CustomDontDestroyOnLoad.DontDestroyOnLoadList)
-            Destroy(item);
+        SceneManager.LoadScene("MAIN_MENU", LoadSceneMode.Single);
     }
 }

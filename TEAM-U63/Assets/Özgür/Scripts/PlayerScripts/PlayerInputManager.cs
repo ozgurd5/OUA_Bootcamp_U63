@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// <para>Gather and holds data from the unity input system</para>
@@ -31,7 +32,9 @@ public class PlayerInputManager : MonoBehaviour
         pia.Player.Enable();
 
         pd = GetComponent<PlayerData>();
-        cameraTransform = Camera.main!.transform;
+        
+        //We can not make the main camera DontDestroyOnLoad. Details are written in CustomDontDestroyOnLoad.cs
+        SceneManager.activeSceneChanged += (a, b) => { cameraTransform = Camera.main!.transform; };
     }
 
     private void Update()

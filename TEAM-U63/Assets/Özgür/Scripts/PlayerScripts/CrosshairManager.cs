@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -30,8 +31,10 @@ public class CrosshairManager : MonoBehaviour
         pd = GetComponentInParent<PlayerData>();
         psd = GetComponentInParent<PlayerStateData>();
         crosshairImage = GetComponent<Image>();
-        cam = Camera.main;
-
+        
+        //We can not make the main camera DontDestroyOnLoad. Details are written in CustomDontDestroyOnLoad.cs
+        SceneManager.activeSceneChanged += (a, b) => { cam = Camera.main; };
+        
         pd.OnLocalStatusChanged += ToggleCrosshair;
         ToggleCrosshair();
     }
@@ -46,9 +49,6 @@ public class CrosshairManager : MonoBehaviour
 
     private void Update()
     {
-        //TODO: debug purpose, remove before build
-        if (Input.GetKeyDown(KeyCode.G)) Debug.Log(crosshairHit.collider.gameObject.name);
-
         //TODO: fix this and make it one raycast
         //The reason why we have two methods is their ranges are different
 

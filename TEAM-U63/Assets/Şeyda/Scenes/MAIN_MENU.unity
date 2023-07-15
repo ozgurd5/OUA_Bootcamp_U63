@@ -6160,8 +6160,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createLobbyButton: {fileID: 859317611}
   joinLobbyButton: {fileID: 1226471229}
-  lobbyJoinCodeText: {fileID: 340317951}
   enterLobbyJoinCodeText: {fileID: 1099042395}
+  lobbyJoinCodeText: {fileID: 340317951}
+  copyLobbyJoinCodeButton: {fileID: 458215854}
+  lobbyIDText: {fileID: 235984642}
 --- !u!114 &807435694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6176,7 +6178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startGameButton: {fileID: 1772802940}
   switchPlayerButton: {fileID: 862947204}
-  copyCodeButton: {fileID: 0}
+  copyCodeButton: {fileID: 458215856}
 --- !u!114 &807435695
 MonoBehaviour:
   m_ObjectHideFlags: 0
