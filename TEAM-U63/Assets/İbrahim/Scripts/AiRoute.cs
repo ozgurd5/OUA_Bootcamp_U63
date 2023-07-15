@@ -1,19 +1,24 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AiRoute : MonoBehaviour
 {
-    public float speed = 5f;
-    public float waitTime = .5f;
-    public float turnSpeed = 90f;
-    
-    public Transform routeHolder;
+    [Header("Assign")]
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float waitTime = 0.1f;
+    [SerializeField] private float turnSpeed = 200f;
+    [SerializeField] private Transform routeHolder;
 
+    private RobotManager rm;
+    
+    private void Awake()
+    {
+        rm = GetComponent<RobotManager>();
+    }
 
     private void Start()
     {
+        
         Vector3[] wayPoints = new Vector3 [routeHolder.childCount];
 
         for (int i = 0; i < wayPoints.Length; i++)
@@ -35,6 +40,9 @@ public class AiRoute : MonoBehaviour
 
         while (true)
         {
+            if (rm.currentState != RobotManager.RobotState.Routing)
+                yield return new WaitUntil(() => rm.currentState == RobotManager.RobotState.Routing);
+            
             transform.position = Vector3.MoveTowards(transform.position, targetWayPoint, speed * Time.deltaTime);
 
             if (transform.position == targetWayPoint)

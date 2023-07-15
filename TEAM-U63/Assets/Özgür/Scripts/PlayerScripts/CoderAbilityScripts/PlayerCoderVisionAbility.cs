@@ -28,8 +28,16 @@ public class PlayerCoderVisionAbility : NetworkBehaviour
 
     void Update()
     {
+        if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState)
+        {
+            isCoderVisionActive = false;
+            coderVisionCanvas.gameObject.SetActive(false);
+            aus.Play();
+            
+            return;
+        }
+        
         if (!pim.isSecondaryAbilityKeyDown) return;
-        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
 
         isCoderVisionActive = !isCoderVisionActive;
         coderVisionCanvas.gameObject.SetActive(isCoderVisionActive);

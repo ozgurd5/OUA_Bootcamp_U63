@@ -10,8 +10,10 @@ public class PlayerSoundManager : MonoBehaviour
     [Header("Assign")]
     [SerializeField] private AudioClip walkingSound;
     [SerializeField] private AudioClip runningSound;
-    [SerializeField] [Range(0,1)] private float walkingSoundVolume = 1f;
-    [SerializeField] [Range(0,1)] private float runningSoundVolume = 1f;
+    
+    [Header("Must be between 0 and 1 - Range is buggy")]
+    [SerializeField] private float walkingSoundVolume = 1f;
+    [SerializeField] private float runningSoundVolume = 1f;
 
     private PlayerData pd;
     private PlayerStateData psd;

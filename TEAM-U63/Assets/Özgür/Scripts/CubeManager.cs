@@ -23,6 +23,7 @@ public class CubeManager : NetworkBehaviour
     public bool isGrabbed { get; private set; } //PlayerGrabbing.cs
     public bool isLocal { get; private set; }   //This script //PlayerGrabbing.cs
     public event Action OnLocalStatusChanged;
+    public event Action OnCubePainted;
 
     private void Awake()
     {
@@ -159,8 +160,8 @@ public class CubeManager : NetworkBehaviour
     {
         //Index will go like 1-2-3-1-2-3 on and on...
         cubeMaterialAndTagIndex = (cubeMaterialAndTagIndex + 1) % puzzleMaterials.Count;
-        
         UpdateMaterialAndTagLocally();
+        OnCubePainted?.Invoke();
         
         //cubeMaterialAndTagIndex in this line are the states in the host side because client can't call ClientRpc
         UpdateCubeMaterialAndTagClientRpc(cubeMaterialAndTagIndex);
@@ -196,6 +197,7 @@ public class CubeManager : NetworkBehaviour
         
         cubeMaterialAndTagIndex = newMaterialAndTagIndex;
         UpdateMaterialAndTagLocally();
+        OnCubePainted?.Invoke();
     }
 
     /// <summary>
@@ -209,6 +211,7 @@ public class CubeManager : NetworkBehaviour
     {
         cubeMaterialAndTagIndex = newMaterialAndTagIndex;
         UpdateMaterialAndTagLocally();
+        OnCubePainted?.Invoke();
     }
 
     #endregion
