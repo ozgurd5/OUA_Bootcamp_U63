@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -20,6 +19,7 @@ public class CrosshairManager : MonoBehaviour
 
     private PlayerData pd;
     private PlayerStateData psd;
+    public Transform crosshairCanvas;
     private Image crosshairImage;
     private Camera cam;
 
@@ -30,19 +30,20 @@ public class CrosshairManager : MonoBehaviour
     {
         pd = GetComponentInParent<PlayerData>();
         psd = GetComponentInParent<PlayerStateData>();
+        crosshairCanvas = transform.parent;
         crosshairImage = GetComponent<Image>();
         cam = Camera.main; 
         
-        pd.OnLocalStatusChanged += ToggleCrosshair;
-        ToggleCrosshair();
+        pd.OnLocalStatusChanged += ToggleCanvas;
+        ToggleCanvas();
     }
 
     /// <summary>
     /// <para>Toggles crosshair on or of according to local status</para>
     /// </summary>
-    private void ToggleCrosshair()
+    private void ToggleCanvas()
     {
-        crosshairImage.enabled = pd.isLocal;
+        crosshairCanvas.gameObject.SetActive(pd.isLocal);
     }
 
     private void Update()

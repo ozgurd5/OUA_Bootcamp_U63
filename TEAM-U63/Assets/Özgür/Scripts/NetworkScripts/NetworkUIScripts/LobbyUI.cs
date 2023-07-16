@@ -20,7 +20,7 @@ public class LobbyUI : NetworkBehaviour
         npd = NetworkPlayerData.Singleton;
         
         //TODO: CBB
-        startGameButton.onClick.AddListener(() =>
+        startGameButton.onClick.AddListener(() => 
         {
             NetworkManager.Singleton.SceneManager.LoadScene("Island 1", LoadSceneMode.Single);
         });
