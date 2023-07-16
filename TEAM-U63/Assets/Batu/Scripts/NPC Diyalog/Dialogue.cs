@@ -34,6 +34,7 @@ public class Dialogue : MonoBehaviour
                 StopCoroutine(typingCoroutine); // Stop the current typing coroutine
                 textComponent.text = lines[index];
             }
+            
         }
     }
 
