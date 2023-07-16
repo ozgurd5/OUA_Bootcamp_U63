@@ -163,6 +163,21 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
+  - m_Index: 18
+    m_Metrics:
+      m_Width: 30.40625
+      m_Height: 54.65625
+      m_HorizontalBearingX: 7.296875
+      m_HorizontalBearingY: 53.5625
+      m_HorizontalAdvance: 45
+    m_GlyphRect:
+      m_X: 604
+      m_Y: 223
+      m_Width: 31
+      m_Height: 56
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
   - m_Index: 19
     m_Metrics:
       m_Width: 35.71875
@@ -1168,21 +1183,6 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-  - m_Index: 18
-    m_Metrics:
-      m_Width: 30.40625
-      m_Height: 54.65625
-      m_HorizontalBearingX: 7.296875
-      m_HorizontalBearingY: 53.5625
-      m_HorizontalAdvance: 45
-    m_GlyphRect:
-      m_X: 604
-      m_Y: 223
-      m_Width: 31
-      m_Height: 56
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1215,6 +1215,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 46
     m_GlyphIndex: 17
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 47
+    m_GlyphIndex: 18
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 48
@@ -1483,10 +1487,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 171
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 47
-    m_GlyphIndex: 18
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 1230563660180554153}
@@ -5352,7 +5352,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - GLOW_ON
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -5401,9 +5401,9 @@ Material:
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
-    - _GlowOffset: -0.64
+    - _GlowOffset: -1
     - _GlowOuter: 0.05
-    - _GlowPower: 0.75
+    - _GlowPower: 1
     - _GradientScale: 10
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
@@ -5430,8 +5430,8 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0.55
-    - _UnderlayOffsetY: 0.61
+    - _UnderlayOffsetX: 0.74
+    - _UnderlayOffsetY: -0.79
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -5441,11 +5441,11 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 0.9911022, b: 0.015208514, a: 1}
+    - _GlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0.4245283, g: 0.40650588, b: 0.40650588, a: 0.5}
+    - _UnderlayColor: {r: 0.016064432, g: 0.17147473, b: 0.1792453, a: 1}
   m_BuildTextureStacks: []
