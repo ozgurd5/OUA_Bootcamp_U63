@@ -5,6 +5,7 @@ public class DialogueEnter : MonoBehaviour
     public GameObject objectToOpen;
     private bool isOpen;
     private Dialogue dialogue;
+    private NPCTalk npcTalk;
 
 
     private void Start()
@@ -12,6 +13,7 @@ public class DialogueEnter : MonoBehaviour
         isOpen = false;
         objectToOpen.SetActive(isOpen);
         dialogue = objectToOpen.GetComponentInChildren<Dialogue>();
+        npcTalk = objectToOpen.GetComponentInChildren<NPCTalk>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,6 +24,8 @@ public class DialogueEnter : MonoBehaviour
 
             objectToOpen.SetActive(isOpen);
             dialogue.StartDialogue(); // Start the dialogue
+            
+            npcTalk.StartTalking();
             
         }
     }
@@ -35,6 +39,7 @@ public class DialogueEnter : MonoBehaviour
             objectToOpen.SetActive(isOpen);
             dialogue.ResetDialogue(); // Reset the dialogue state
             
+            npcTalk.StopTalking();
         }
     }
 }
