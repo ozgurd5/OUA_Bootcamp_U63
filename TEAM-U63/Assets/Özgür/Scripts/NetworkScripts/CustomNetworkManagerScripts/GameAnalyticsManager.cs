@@ -29,6 +29,7 @@ public class GameAnalyticsManager : MonoBehaviour
             previousSceneName = previousScene.name;
             currentSceneName = currentScene.name;
 
+            //TODO: CBB
             if (currentSceneName == "TEST")
             {
                 GameObject.Find("AnalyticsBoard").GetComponentInChildren<TextMeshPro>().text = 
