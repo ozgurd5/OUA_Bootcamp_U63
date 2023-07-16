@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class RobotManager : NetworkBehaviour
 {
+    public static RobotManager currentControlledRobot;
+    public static event Action OnCurrentControlledRobotChanged;
+    
     //This should be static but we can't see static variables in inspector, therefore can't assign materials
     //We must manually assign materials by the order of RGB. It's already assigned and saved in the prefab but if a
     //..problem occur, especially about dividing zero, the problem may be about this list being empty
@@ -33,7 +36,7 @@ public class RobotManager : NetworkBehaviour
     private RobotController rc;
     private MeshRenderer mr;
     private Rigidbody rb;
-    private CinemachineFreeLook cam;
+    public CinemachineFreeLook cam;
     
     private int robotMaterialIndex;  //PlayerArtistPaintAbility.cs
 
@@ -145,6 +148,9 @@ public class RobotManager : NetworkBehaviour
             //Robot can only move in it's own side when hacked
             rb.constraints = RigidbodyConstraints.None;
             cam.enabled = true;
+            
+            currentControlledRobot = this;
+            OnCurrentControlledRobotChanged?.Invoke();
         }
         
         //Exit hacking state in the local side
@@ -153,6 +159,7 @@ public class RobotManager : NetworkBehaviour
             //Robot can only move in it's own side when hacked
             rb.constraints = RigidbodyConstraints.FreezeAll;
             cam.enabled = false;
+            currentControlledRobot = this;
         }
     }
 

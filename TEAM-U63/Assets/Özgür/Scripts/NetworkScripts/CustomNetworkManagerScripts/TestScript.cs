@@ -9,9 +9,11 @@ public class TestScript : MonoBehaviour
 
     private void Awake()
     {
-        SceneManager.activeSceneChanged += (a, b) =>
+        npd = NetworkPlayerData.Singleton;
+        
+        SceneManager.activeSceneChanged += (a, currentScene) =>
         {
-            npd = NetworkPlayerData.Singleton;
+            if (currentScene.name == "MAIN_MENU") return;
             coder = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
             artist = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
         };
