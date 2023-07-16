@@ -6,6 +6,7 @@ public class DialogueEnter : MonoBehaviour
     private bool isOpen;
     private Dialogue dialogue;
 
+
     private void Start()
     {
         isOpen = false;
@@ -18,8 +19,10 @@ public class DialogueEnter : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isOpen = true;
+
             objectToOpen.SetActive(isOpen);
             dialogue.StartDialogue(); // Start the dialogue
+            
         }
     }
 
@@ -28,8 +31,10 @@ public class DialogueEnter : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isOpen = false;
+
             objectToOpen.SetActive(isOpen);
             dialogue.ResetDialogue(); // Reset the dialogue state
+            
         }
     }
 }
