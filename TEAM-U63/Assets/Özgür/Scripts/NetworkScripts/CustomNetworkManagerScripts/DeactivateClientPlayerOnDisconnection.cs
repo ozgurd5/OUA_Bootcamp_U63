@@ -1,11 +1,13 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// <para>Deactivates character controlled by client when client disconnects</para>
 /// <para>Works only in host side</para>
 /// </summary>
-public class DeactivateClientPlayer : NetworkBehaviour
+public class DeactivateClientPlayerOnDisconnection : NetworkBehaviour
 {
     [Header("Assign")]
     [SerializeField] private GameObject coderPlayer;
@@ -13,7 +15,13 @@ public class DeactivateClientPlayer : NetworkBehaviour
 
     private NetworkPlayerData npd;
 
-    //TODO: what happens if awake?
+    private void Awake()
+    {
+        //Get the coder and artist players in main island
+        SceneManager.activeSceneChanged += (a, currentScene) => { GetPlayers(currentScene); };
+    }
+    
+    //We need a spawned network to subscribe OnClient.. actions
     public override void OnNetworkSpawn()
     {
         if (!IsHost) return;
@@ -39,5 +47,13 @@ public class DeactivateClientPlayer : NetworkBehaviour
             coderPlayer.SetActive(npd.isHostCoder);
             artistPlayer.SetActive(!npd.isHostCoder);
         };
+    }
+    
+    private void GetPlayers(Scene currentScene)
+    {
+        if (currentScene.name == "MAIN_MENU") return;
+        
+        coderPlayer = GameObject.Find("CoderPlayer");
+        artistPlayer = GameObject.Find("ArtistPlayer");
     }
 }

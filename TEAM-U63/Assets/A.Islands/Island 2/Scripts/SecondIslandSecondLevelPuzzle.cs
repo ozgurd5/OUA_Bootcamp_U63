@@ -27,11 +27,11 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     
     [Header("Info - No Touch")]
     public bool isCompleted;
-    [SerializeField] private List<Collider> currentCubesInside;
-    [SerializeField] private int currentCubeNumber;
-    [SerializeField] private CubeManager currentCubeManager;
-
+    
+    private List<Collider> currentCubesInside;
+    private CubeManager currentCubeManager;
     private AudioSource aus;
+    private int robotNumber;
 
     private void Awake()
     {
@@ -42,8 +42,10 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     {
         if (IsRobot && col.CompareTag("robot"))
         {
-            isCompleted = true;
-            completionStatus[ID] = true;
+            robotNumber++;
+            isCompleted = robotNumber > 1;
+            
+            completionStatus[ID] = isCompleted;
             CheckAllCompletion();
         }
         
@@ -52,7 +54,6 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
             currentCubeManager = col.GetComponent<CubeManager>();
             currentCubeManager.OnCubePainted += CheckCubeCompletion;
 
-            currentCubeNumber++;
             currentCubesInside.Add(col);
             CheckCubeCompletion();
         }
@@ -62,8 +63,10 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     {
         if (IsRobot && col.CompareTag("robot"))
         {
-            isCompleted = false;
-            completionStatus[ID] = false;
+            robotNumber--;
+            isCompleted = robotNumber > 1;
+            
+            completionStatus[ID] = isCompleted;
             CheckAllCompletion();
         }
 
@@ -72,7 +75,6 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
             currentCubeManager = col.GetComponent<CubeManager>();
             currentCubeManager.OnCubePainted -= CheckCubeCompletion;
             
-            currentCubeNumber--;
             currentCubesInside.Remove(col);
             CheckCubeCompletion();
         }

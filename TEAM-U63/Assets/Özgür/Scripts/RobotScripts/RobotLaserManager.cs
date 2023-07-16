@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class RobotLaserManager : MonoBehaviour
 {
+    [Header("Assign")]
+    [SerializeField] private AudioSource aus;
+    
     private Transform laserStartPoint;
     private LineRenderer lr;
     private MeshRenderer mr;
-    private AudioSource aus;
     
     private bool isGettingLaser;
     private RaycastHit laserSourceHit;
@@ -25,7 +27,6 @@ public class RobotLaserManager : MonoBehaviour
         laserStartPoint = transform.Find("LaserStartPoint");
         mr = transform.Find("BODY").GetComponent<MeshRenderer>();
         lr = GetComponent<LineRenderer>();
-        aus = GetComponent<AudioSource>();
 
         //Read UpdateRobotMaterialIndex summary
         rm = GetComponent<RobotManager>();

@@ -22,77 +22,96 @@ public class PlayerNameUI : NetworkBehaviour
         
         //Works locally
         playerNameInputField.onValueChanged.AddListener(enteredName => localPlayerName = enteredName);
-
-        //npd.OnIsHostCoderChanged += UpdatePlayerNames;
-        NetworkManager.Singleton.OnClientConnectedCallback += obj => SetPlayerNames();
+        
+        npd.OnIsHostCoderChanged += UpdatePlayerNames;
+        npd.OnIsHostCoderChanged += SyncPlayerNames;
     }
-    
-    /// <summary>
-    /// <para>Sets the player names through the network when a player joins</para>
-    /// <para>Works and must work both in host side and client side</para>
-    /// </summary>
-    private void SetPlayerNames()
+
+    //To prevent null reference exceptions in other scene, we must unsubscribe
+    public override void OnDestroy()
     {
+        base.OnDestroy();
+        
+        npd.OnIsHostCoderChanged -= UpdatePlayerNames;
+        npd.OnIsHostCoderChanged -= SyncPlayerNames;
+    }
+
+    //We need a spawned network to subscribe OnClient.. actions
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        
+        //Works when the lobby created and client joined the lobby, in both sides
+        NetworkManager.Singleton.OnClientConnectedCallback += obj =>
+        {
+            //Set the names for the first time, locally
+            UpdatePlayerNames();
+            
+            //Sync the names across the network (and update it in the other side)
+            SyncPlayerNames();
+        };
+    }
+
+    /// <summary>
+    /// <para>This method only sends data to the players when they join the lobby</para>
+    /// </summary>
+    private void SyncPlayerNames()
+    {
+        if (!IsHost) SendClientNameServerRpc(clientName);
+        SendHostNameClientRpc(hostName);
+    }
+
+    [ClientRpc]
+    private void SendHostNameClientRpc(string hostNameInHostSide)
+    {
+        if (IsHost) return; //Since host is also a client, this method will also run in host side. No need for that.
+        hostName = hostNameInHostSide;
+        UpdatePlayerNames();
+    }
+
+    /// <summary>
+    /// <para>HOST MUST NOT CALL THIS METHOD</para>
+    /// </summary>
+    [ServerRpc(RequireOwnership = false)]
+    private void SendClientNameServerRpc(string clientNameInClientSide)
+    {
+        clientName = clientNameInClientSide;
+        UpdatePlayerNames();
+    }
+
+    private void UpdatePlayerNames()
+    {
+        if (IsHost) hostName = localPlayerName;
+        else clientName = localPlayerName;
+
         if (IsHost)
         {
-            hostName = localPlayerName;
-            SendHostNameClientRpc(hostName);
+            if (npd.isHostCoder)
+            {
+                coderNameText.text = localPlayerName;
+                artistNameText.text = clientName;   //get from other side
+            }
+            
+            else
+            {
+                coderNameText.text = clientName;    //get from other side
+                artistNameText.text = localPlayerName;
+            }
         }
 
         else
         {
-            clientName = localPlayerName;
-            SendClientNameServerRpc(clientName);
-        }
-        
-        //This method in this context updates only one player on that player's side. No network sync
-        //Because RPC methods are working after SetPlayerNames method is done, they are not multi-threaded
-        //So the UpdatePlayerNames methods in RPC methods are responsible of the sync across the network, not this one
-        UpdatePlayerNames(npd.isHostCoder);
-    }
-
-    /// <summary>
-    /// <para>Sends client name to the host side</para>
-    /// <para>Must not be called from the host side. Since host is also a client, it can call this method, be careful</para>
-    /// </summary>
-    /// <param name="clientNameComingFromClient">Client name coming from client side</param>
-    [ServerRpc(RequireOwnership = false)]
-    private void SendClientNameServerRpc(string clientNameComingFromClient)
-    {
-        clientName = clientNameComingFromClient;
-        UpdatePlayerNames(npd.isHostCoder);
-    }
-    
-    /// <summary>
-    /// <para>Sends host name to the client side</para>
-    /// <para>Can't work in host side, though it's not important</para>
-    /// </summary>
-    /// <param name="hostNameComingFromHost">Host name coming from host side</param>
-    [ClientRpc]
-    private void SendHostNameClientRpc(string hostNameComingFromHost)
-    {
-        if (IsHost) return;
-        hostName = hostNameComingFromHost;
-        UpdatePlayerNames(npd.isHostCoder);
-    }
-    
-    /// <summary>
-    /// <para>Updates names of the players when host or client change player</para>
-    /// <para>Works and must work both in host side and client side</para>
-    /// </summary>
-    /// <param name="isHostCoder">Current isHostCoder value</param>
-    private void UpdatePlayerNames(bool isHostCoder)
-    {
-        if (isHostCoder)
-        {
-            coderNameText.text = hostName;
-            artistNameText.text = clientName;
-        }
-
-        else
-        {
-            coderNameText.text = clientName;
-            artistNameText.text = hostName;
+            if (npd.isHostCoder)
+            {
+                coderNameText.text = hostName;  //get from other side
+                artistNameText.text = localPlayerName;
+            }
+            
+            else
+            {
+                coderNameText.text = localPlayerName;
+                artistNameText.text = hostName; //get from other side
+            }
         }
     }
 }

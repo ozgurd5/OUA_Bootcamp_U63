@@ -3,14 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+//TODO: random numbers and inputs not 1-4 but 0-3
 /// <summary>
 /// <para>Responsible for both hacking and lullaby</para>
 /// </summary>
 public class PlayerQTEAbility : MonoBehaviour
 {
-    //TODO: make it false before build
-    public static bool canQTE = true;
-
     [Header("Assign - Images")]
     [SerializeField] private Sprite upKeyImage;
     [SerializeField] private Sprite downKeyImage;
@@ -27,6 +25,9 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private AudioClip artistFailClip;
     [SerializeField] private AudioClip coderCorrectClip;
     [SerializeField] private AudioClip coderFailClip;
+
+    [Header("Assign - Ukulele")]
+    [SerializeField] private AudioClip[] ukuleleSounds = new AudioClip[4];
 
     private bool IsHackQTE;
     
@@ -60,8 +61,6 @@ public class PlayerQTEAbility : MonoBehaviour
 
     private void Update()
     {
-        if (!canQTE) return;
-
         if (pim.isPrimaryAbilityKeyDown && cm.isLookingAtRobot)
         {
             rm = cm.crosshairHit.collider.GetComponent<RobotManager>();
@@ -163,8 +162,10 @@ public class PlayerQTEAbility : MonoBehaviour
         currentKeyPress++;
         
         if (IsHackQTE && CheckCompletion(hackDoneLimit)) DeactivateAbility(true);
-        else if (!IsHackQTE && CheckCompletion(lullabyDoneLimit)) DeactivateAbility(true);
         else if (IsHackQTE) aus.PlayOneShot(coderCorrectClip);
+        
+        else if (!IsHackQTE && CheckCompletion(lullabyDoneLimit)) DeactivateAbility(true);
+        else if (!IsHackQTE) aus.PlayOneShot(ukuleleSounds[randomNumber - 1]);
         
         currentTimer = keyTimerLimit;
         GenerateRandomNumber();

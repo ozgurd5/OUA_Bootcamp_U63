@@ -1,6 +1,8 @@
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PortalCheck : MonoBehaviour
+public class PortalCheck : NetworkBehaviour
 {
     [Header("Assign")]
     [SerializeField] private int requiredPlayers = 2;
@@ -10,8 +12,8 @@ public class PortalCheck : MonoBehaviour
     private void Update()
     {
         if (requiredPlayers != numberOfPlayers) return;
-        
-        Debug.Log("both players are in");
+
+        NetworkManager.Singleton.SceneManager.LoadScene("TEST", LoadSceneMode.Single);
     }
 
 

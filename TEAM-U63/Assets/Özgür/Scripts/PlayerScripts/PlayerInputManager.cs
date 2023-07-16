@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// <para>Gather and holds data from the unity input system</para>
@@ -29,7 +30,6 @@ public class PlayerInputManager : MonoBehaviour
     {
         pia = new PlayerInputActions();
         pia.Player.Enable();
-
         pd = GetComponent<PlayerData>();
         cameraTransform = Camera.main!.transform;
     }
