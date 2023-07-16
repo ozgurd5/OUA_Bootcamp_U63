@@ -865,7 +865,7 @@ Transform:
   - {fileID: 2079731186048728947}
   - {fileID: 6920102157120283203}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3371696646887994366
 Rigidbody:
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 0
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
+  SceneMigrationSynchronization: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
 --- !u!114 &4636345872673757799
@@ -1472,6 +1472,11 @@ MonoBehaviour:
   artistFailClip: {fileID: 0}
   coderCorrectClip: {fileID: 8300000, guid: e0c00b3074b3b2b42ad4496b8db9aed4, type: 3}
   coderFailClip: {fileID: 8300000, guid: 98d1636635451864ba3d126927557242, type: 3}
+  ukuleleSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentKeyPress: 0
 --- !u!82 &9016697784758819762
 AudioSource:
@@ -1485,7 +1490,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 2.2
   Loop: 0
   Mute: 0
@@ -1494,9 +1499,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1529,7 +1534,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

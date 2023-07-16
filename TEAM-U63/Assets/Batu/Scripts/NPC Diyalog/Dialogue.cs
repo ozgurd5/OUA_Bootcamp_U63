@@ -11,15 +11,19 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
 
     private int index;
+    private Coroutine typingCoroutine;
+
+    private bool dialogueInProgress;
 
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialogue();
+        dialogueInProgress = false;
     }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (dialogueInProgress && Input.GetMouseButtonDown(0))
         {
             if (textComponent.text == lines[index])
             {
@@ -27,21 +31,27 @@ public class Dialogue : MonoBehaviour
             }
             else
             {
-                StopAllCoroutines();
+                StopCoroutine(typingCoroutine); // Stop the current typing coroutine
                 textComponent.text = lines[index];
             }
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
-        index = 0;
-        StartCoroutine(TypeLine());
+        if (!dialogueInProgress)
+        {
+            index = 0;
+            textComponent.text = string.Empty;
+            gameObject.SetActive(true); // Ensure the canvas is active
+            dialogueInProgress = true;
+            typingCoroutine = StartCoroutine(TypeLine());
+        }
     }
 
     IEnumerator TypeLine()
     {
-        foreach (Char c in lines[index].ToCharArray())
+        foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
@@ -54,11 +64,20 @@ public class Dialogue : MonoBehaviour
         {
             index++;
             textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
+            typingCoroutine = StartCoroutine(TypeLine());
         }
         else
         {
-            gameObject.SetActive(false);
+            dialogueInProgress = false;
+            gameObject.SetActive(false); // Disable the canvas when dialogue ends
         }
+    }
+
+    public void ResetDialogue()
+    {
+        dialogueInProgress = false;
+        index = 0;
+        textComponent.text = string.Empty;
+        gameObject.SetActive(false);
     }
 }

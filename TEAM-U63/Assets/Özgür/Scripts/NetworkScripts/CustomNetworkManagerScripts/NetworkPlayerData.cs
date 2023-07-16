@@ -1,5 +1,7 @@
 using System;
 using Unity.Netcode;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// <para>Responsible of deciding which user controls which player</para>
@@ -19,6 +21,15 @@ public class NetworkPlayerData : NetworkBehaviour
     private void Awake()
     {
         Singleton = GetComponent<NetworkPlayerData>();
+    }
+
+    //We need a spawned network to subscribe OnClient.. actions
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+
+        //Client must get the host isHostCoder value in the very start of the game - which is lobby screen
+        NetworkManager.Singleton.OnClientConnectedCallback += obj => { if (IsHost) UpdateIsHostCoder(isHostCoder); };
     }
 
     /// <summary>

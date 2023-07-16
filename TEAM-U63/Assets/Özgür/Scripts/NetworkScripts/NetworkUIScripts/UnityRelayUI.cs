@@ -13,8 +13,12 @@ public class UnityRelayUI : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button joinLobbyButton;
-    [SerializeField] private TextMeshProUGUI lobbyJoinCodeText;
     [SerializeField] private TMP_InputField enterLobbyJoinCodeText;
+    
+    [Header("Assign - Join Code Elements")]
+    [SerializeField] private TextMeshProUGUI lobbyJoinCodeText;
+    [SerializeField] private GameObject copyLobbyJoinCodeButton;
+    [SerializeField] private GameObject lobbyIDText;
     
     private string joinCodeComingFromClient;
     
@@ -32,7 +36,12 @@ public class UnityRelayUI : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        if (!IsHost) lobbyJoinCodeText.gameObject.SetActive(false);
+        
+        //Client should not see join code elements
+        if (IsHost) return;
+        lobbyJoinCodeText.gameObject.SetActive(false);
+        copyLobbyJoinCodeButton.SetActive(false);
+        lobbyIDText.SetActive(false);
     }
     
     /// <summary>
