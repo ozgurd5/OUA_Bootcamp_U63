@@ -25,7 +25,8 @@ public class PlayerData : NetworkBehaviour
         DecideControlSource();
     }
 
-    private void DecideControlSource()
+    //It's public for TestScript.cs
+    public void DecideControlSource()
     {
         if (IsHost && npd.isHostCoder && name == "CoderPlayer") isLocal = true;
         else if (IsHost && !npd.isHostCoder && name == "ArtistPlayer") isLocal = true;

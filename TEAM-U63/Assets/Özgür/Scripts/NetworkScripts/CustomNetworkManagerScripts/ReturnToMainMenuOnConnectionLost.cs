@@ -1,5 +1,4 @@
 using Unity.Netcode;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -12,10 +11,8 @@ public class ReturnToMainMenuOnConnectionLost : NetworkBehaviour
     {
         base.OnNetworkSpawn();
         
-        if (IsHost)
-            NetworkManager.Singleton.OnServerStopped += obj => ReturnToMainMenu();
-        else
-            NetworkManager.Singleton.OnClientStopped += obj => ReturnToMainMenu();
+        if (IsHost) NetworkManager.Singleton.OnServerStopped += obj => ReturnToMainMenu();
+        else NetworkManager.Singleton.OnClientStopped += obj => ReturnToMainMenu();
     }
 
     /// <summary>

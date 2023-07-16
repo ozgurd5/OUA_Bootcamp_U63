@@ -18,38 +18,10 @@ public class NetworkPlayerData : NetworkBehaviour
     /// </summary>
     public bool isHostCoder { get; private set; }
     
-    [Header("Debug Buttons")]
-    [SerializeField] private bool invokeOnIsHostCoderChanged;
-    [SerializeField] private bool printIsHostCoder;
-    
     private void Awake()
     {
         Singleton = GetComponent<NetworkPlayerData>();
-
-        //SceneManager.activeSceneChanged += (a, b) => { OnIsHostCoderChanged?.Invoke(); };
     }
-
-    //DEBUG
-    private void Update()
-    {
-        if (invokeOnIsHostCoderChanged)
-        {
-            OnIsHostCoderChanged?.Invoke();
-            invokeOnIsHostCoderChanged = false;
-        }
-
-        else if (printIsHostCoder)
-        {
-            Debug.Log(isHostCoder);
-            printIsHostCoder = false;
-        }
-        
-        else if (Input.GetKeyDown(KeyCode.P))
-        { 
-            NetworkManager.Singleton.SceneManager.LoadScene("TEST", LoadSceneMode.Single);
-        }
-    }
-    //DEBUG
 
     //We need a spawned network to subscribe OnClient.. actions
     public override void OnNetworkSpawn()

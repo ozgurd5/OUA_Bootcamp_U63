@@ -18,7 +18,7 @@ public class DeactivateClientPlayerOnDisconnection : NetworkBehaviour
     private void Awake()
     {
         //Get the coder and artist players in main island
-        SceneManager.activeSceneChanged += (a, currentScene) => { GetPlayersInMainIsland(currentScene); };
+        SceneManager.activeSceneChanged += (a, currentScene) => { GetPlayers(currentScene); };
     }
     
     //We need a spawned network to subscribe OnClient.. actions
@@ -48,11 +48,10 @@ public class DeactivateClientPlayerOnDisconnection : NetworkBehaviour
             artistPlayer.SetActive(!npd.isHostCoder);
         };
     }
-
-    //TODO: NOT ISLAND 2 - MAIN ISLAND - CHANGE BEFORE BUILD
-    private void GetPlayersInMainIsland(Scene currentScene)
+    
+    private void GetPlayers(Scene currentScene)
     {
-        if (currentScene.name != "Island 2") return;
+        if (currentScene.name == "MAIN_MENU") return;
         
         coderPlayer = GameObject.Find("CoderPlayer");
         artistPlayer = GameObject.Find("ArtistPlayer");
