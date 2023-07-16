@@ -19,9 +19,10 @@ public class LobbyUI : NetworkBehaviour
     {
         npd = NetworkPlayerData.Singleton;
         
+        //TODO: CBB
         startGameButton.onClick.AddListener(() =>
         {
-            NetworkManager.Singleton.SceneManager.LoadScene("Main Island", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("Island 1", LoadSceneMode.Single);
         });
         
         switchPlayerButton.onClick.AddListener(() => { npd.UpdateIsHostCoder(!npd.isHostCoder); });
