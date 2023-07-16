@@ -115,22 +115,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490374942038371068}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dc31bc74451db042b1712d4a63b67d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstIslandFirstLevelPlayTime: 0
-  firstIslandSecondLevelPlayTime: 0
-  secondIslandFirstLevelPlayTime: 0
-  secondIslandSecondLevelPlayTime: 0
-  secondIslandThirdLevelPlayTime: 0
-  thirdIslandFirstLevelPlayTime: 0
-  thirdIslandSecondLevelPlayTime: 0
-  thirdIslandThirdLevelPlayTime: 0
-  hackNumber: 0
-  paintNumber: 0
-  testPlayTime: 0
+  currentSceneName: 
+  previousSceneName: 
+  firstIslandGeneralPlayTime: 0
+  secondIslandGeneralPlayTime: 0
 --- !u!114 &1414037896126526401
 MonoBehaviour:
   m_ObjectHideFlags: 0

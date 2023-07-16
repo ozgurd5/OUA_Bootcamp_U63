@@ -165,7 +165,7 @@ public class PlayerQTEAbility : MonoBehaviour
         else if (IsHackQTE) aus.PlayOneShot(coderCorrectClip);
         
         else if (!IsHackQTE && CheckCompletion(lullabyDoneLimit)) DeactivateAbility(true);
-        else if (!IsHackQTE) aus.PlayOneShot(ukuleleSounds[randomNumber - 1]);
+        //else if (!IsHackQTE) aus.PlayOneShot(ukuleleSounds[randomNumber - 1]);
         
         currentTimer = keyTimerLimit;
         GenerateRandomNumber();
