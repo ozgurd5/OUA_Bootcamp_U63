@@ -1,30 +1,41 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Analytics;
+using UnityEngine.SceneManagement;
 
 public class GameAnalyticsManager : MonoBehaviour
 {
-    public static GameAnalyticsManager Singleton;
-    
-    public float firstIslandFirstLevelPlayTime;
-    public float firstIslandSecondLevelPlayTime;
-    public float secondIslandFirstLevelPlayTime;
-    public float secondIslandSecondLevelPlayTime;
-    public float secondIslandThirdLevelPlayTime;
-    public float thirdIslandFirstLevelPlayTime;
-    public float thirdIslandSecondLevelPlayTime;
-    public float thirdIslandThirdLevelPlayTime;
-    
-    public int hackNumber;
-    public int paintNumber;
+    [Header("Scene Info")]
+    [SerializeField] private string currentSceneName;
+    [SerializeField] private string previousSceneName;
 
-    [SerializeField] private float testPlayTime;
-    private int testEventNumber;
+    [Header("First Island")]
+    public float firstIslandGeneralPlayTime;
+    //public float firstIslandFirstLevelPlayTime;
+    //public float firstIslandSecondLevelPlayTime;
+    
+    [Header("Second Island")]
+    public float secondIslandGeneralPlayTime;
+    //public float secondIslandFirstLevelPlayTime;
+    //public float secondIslandSecondLevelPlayTime;
+    //public float secondIslandThirdLevelPlayTime;
 
     private void Awake()
     {
-        Singleton = GetComponent<GameAnalyticsManager>();
+        SceneManager.activeSceneChanged += (previousScene, currentScene) =>
+        {
+            previousSceneName = previousScene.name;
+            currentSceneName = currentScene.name;
+
+            //TODO: CBB
+            if (currentSceneName == "TEST")
+            {
+                GameObject.Find("AnalyticsBoard").GetComponentInChildren<TextMeshPro>().text = 
+                $"First Island Time: {firstIslandGeneralPlayTime}\nSecond Island Time: {secondIslandGeneralPlayTime}";
+            }
+        };
     }
 
     private async void Start()
@@ -42,13 +53,18 @@ public class GameAnalyticsManager : MonoBehaviour
             Debug.Log(e);
         }
     }
+
+    private void Update()
+    {
+        if (currentSceneName == "Island 1") IncreasePlayTime(ref firstIslandGeneralPlayTime);
+        else if (currentSceneName == "Island 2") IncreasePlayTime(ref secondIslandGeneralPlayTime);
+        
+        if (previousSceneName == "Island 1") SendPlayTime("firstIslandGeneralPlayTime", firstIslandGeneralPlayTime);
+        if (previousSceneName == "Island 2") SendPlayTime("secondIslandGeneralPlayTime", secondIslandGeneralPlayTime);
+    }
     
-    /// <summary>
-    /// <para>Increases play time of the level, but doesn't send the data</para>
-    /// <para>Must work in Update</para>
-    /// </summary>
-    /// <param name="playTime">Island and level number</param>
-    public void IncreasePlayTime(ref float playTime)
+    
+    private void IncreasePlayTime(ref float playTime)
     {
         playTime += Time.deltaTime;
     }
@@ -59,7 +75,7 @@ public class GameAnalyticsManager : MonoBehaviour
     /// </summary>
     /// <param name="eventName">Island and level number</param>
     /// <param name="playTime">Play time</param>
-    public void SendPlayTime(string eventName, float playTime)
+    private void SendPlayTime(string eventName, float playTime)
     {
         Dictionary<string, object> playtimeParameters = new Dictionary<string, object>()
         {
@@ -68,64 +84,5 @@ public class GameAnalyticsManager : MonoBehaviour
         
         AnalyticsService.Instance.CustomData(eventName, playtimeParameters);
         AnalyticsService.Instance.Flush();
-    }
-
-    /// <summary>
-    /// <para>Increases and sends the hack number</para>
-    /// <para>Must work when a successful hacking preformed</para>
-    /// </summary>
-    public void IncreaseAndSendHackNumber()
-    {
-        hackNumber++;
-        
-        Dictionary<string, object> hackNumberParameters = new Dictionary<string, object>()
-        {
-            { "hackNumber", hackNumber }
-        };
-        
-        AnalyticsService.Instance.CustomData("hackNumberEvent", hackNumberParameters);
-        AnalyticsService.Instance.Flush();
-    }
-
-    /// <summary>
-    /// <para>Increases and sends the paint number</para>
-    /// <para>Must work when a thing painted</para>
-    /// </summary>
-    public void IncreaseAndSendPaintNumber()
-    {
-        paintNumber++;
-        
-        Dictionary<string, object> paintNumberParameters = new Dictionary<string, object>()
-        {
-            { "paintNumber", paintNumber }
-        };
-        
-        AnalyticsService.Instance.CustomData("paintNumberEvent", paintNumberParameters);
-        AnalyticsService.Instance.Flush();
-    }
-
-    //TEST
-    private void SendTestEvent()
-    {
-        testEventNumber++;
-        
-        Dictionary<string, object> testEventParameters = new Dictionary<string, object>()
-        {
-            { "testParameter", testEventNumber }
-        };
-
-        AnalyticsService.Instance.CustomData("testEvent", testEventParameters);
-        AnalyticsService.Instance.Flush();
-    }
-
-    private void Update()
-    {
-        //USE FOR TESTS ONLY
-        IncreasePlayTime(ref testPlayTime);
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SendPlayTime("testPlayTime", testPlayTime);
-        }
     }
 }

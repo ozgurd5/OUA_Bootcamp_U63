@@ -19,6 +19,7 @@ public class TestScript : MonoBehaviour
 
     private void Update()
     {
+        //TODO: CBB
         if (Input.GetKeyDown(KeyCode.B))
         {
             npd.UpdateIsHostCoder(!npd.isHostCoder);

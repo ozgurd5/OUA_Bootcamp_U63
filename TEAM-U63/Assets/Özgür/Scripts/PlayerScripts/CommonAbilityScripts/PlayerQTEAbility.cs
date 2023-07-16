@@ -26,9 +26,6 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private AudioClip coderCorrectClip;
     [SerializeField] private AudioClip coderFailClip;
 
-    [Header("Assign - Ukulele")]
-    [SerializeField] private AudioClip[] ukuleleSounds = new AudioClip[4];
-
     private bool IsHackQTE;
     
     private PlayerStateData psd;
@@ -163,9 +160,7 @@ public class PlayerQTEAbility : MonoBehaviour
         
         if (IsHackQTE && CheckCompletion(hackDoneLimit)) DeactivateAbility(true);
         else if (IsHackQTE) aus.PlayOneShot(coderCorrectClip);
-        
         else if (!IsHackQTE && CheckCompletion(lullabyDoneLimit)) DeactivateAbility(true);
-        else if (!IsHackQTE) aus.PlayOneShot(ukuleleSounds[randomNumber - 1]);
         
         currentTimer = keyTimerLimit;
         GenerateRandomNumber();
