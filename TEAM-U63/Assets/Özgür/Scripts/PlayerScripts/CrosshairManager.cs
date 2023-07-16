@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -20,7 +19,7 @@ public class CrosshairManager : MonoBehaviour
 
     private PlayerData pd;
     private PlayerStateData psd;
-    private Transform crosshairCanvas;
+    public Transform crosshairCanvas;
     private Image crosshairImage;
     private Camera cam;
 
