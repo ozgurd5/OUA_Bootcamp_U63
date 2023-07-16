@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class UnityRelayUI : NetworkBehaviour
 {
     [Header("Assign")]
+    [SerializeField] private Canvas lobbyLoadingCanvas;
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button joinLobbyButton;
     [SerializeField] private TMP_InputField enterLobbyJoinCodeText;
@@ -24,29 +25,42 @@ public class UnityRelayUI : NetworkBehaviour
     
     private void Awake()
     {
-        createLobbyButton.onClick.AddListener(UnityRelayServiceManager.CreateRelay);
+        createLobbyButton.onClick.AddListener(() =>
+        {
+            lobbyLoadingCanvas.enabled = true;
+            UnityRelayServiceManager.CreateRelay();
+        });
+        
         enterLobbyJoinCodeText.onValueChanged.AddListener(clientInput => joinCodeComingFromClient = clientInput);
-        joinLobbyButton.onClick.AddListener(() => UnityRelayServiceManager.JoinRelay(joinCodeComingFromClient)); 
+        
+        joinLobbyButton.onClick.AddListener(() =>
+        {
+            lobbyLoadingCanvas.enabled = true;
+            UnityRelayServiceManager.JoinRelay(joinCodeComingFromClient);
+        }); 
         
         //Creation of the lobby join code is async. We have to wait Unity Relay Service to create a code for us
         //That means we can't write lobby join code to UI until it's created
-        UnityRelayServiceManager.OnLobbyJoinCodeCreated += WriteLobbyJoinCodeToUI;
+        //UnityRelayServiceManager.OnLobbyJoinCodeCreated += WriteLobbyJoinCodeToUI;
     }
     
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+        lobbyLoadingCanvas.enabled = false;
         
         //Client should not see join code elements
-        if (IsHost) return;
-        lobbyJoinCodeText.gameObject.SetActive(false);
-        copyLobbyJoinCodeButton.SetActive(false);
-        lobbyIDText.SetActive(false);
+        if (IsHost) lobbyJoinCodeText.text = UnityRelayServiceManager.lobbyJoinCode;
+
+        //TODO: reverse them in the scene??
+        else
+        {
+            lobbyJoinCodeText.gameObject.SetActive(false);
+            copyLobbyJoinCodeButton.SetActive(false);
+            lobbyIDText.SetActive(false);
+        }
     }
     
-    /// <summary>
-    /// <para>Writes lobby join code to the UI</para>
-    /// </summary>
     private void WriteLobbyJoinCodeToUI()
     {
         lobbyJoinCodeText.text = UnityRelayServiceManager.lobbyJoinCode;

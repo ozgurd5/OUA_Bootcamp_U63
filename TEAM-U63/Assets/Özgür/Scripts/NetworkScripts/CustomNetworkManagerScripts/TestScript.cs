@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,14 +20,19 @@ public class TestScript : MonoBehaviour
         };
     }
 
+    //TODO: CBB
     private void Update()
     {
-        //TODO: CBB
         if (Input.GetKeyDown(KeyCode.B))
         {
             npd.UpdateIsHostCoder(!npd.isHostCoder);
             coder.DecideControlSource();
             artist.DecideControlSource();
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            NetworkManager.Singleton.SceneManager.LoadScene("TEST", LoadSceneMode.Single);
         }
     }
 }
