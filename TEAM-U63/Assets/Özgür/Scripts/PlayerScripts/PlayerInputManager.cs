@@ -25,6 +25,7 @@ public class PlayerInputManager : MonoBehaviour
     public bool isEasterEggKeyDown;
     public bool isEasterEggKeyUp;
     public bool isMapKeyDown;
+    public bool isPauseKeyDown;
 
     private void Awake()
     {
@@ -52,6 +53,8 @@ public class PlayerInputManager : MonoBehaviour
         isEasterEggKeyDown = pia.Player.EasterEgg.WasPressedThisFrame();
         isMapKeyDown = pia.Player.MapKey.WasPressedThisFrame();
         isEasterEggKeyUp = pia.Player.EasterEgg.WasReleasedThisFrame();
+        isPauseKeyDown = pia.Player.PauseMenu.WasPressedThisFrame();
+
     }
     
     //Methods that depend lookingDirectionForward in PlayerController.cs are working in FixedUpdate, so we can calculate..
