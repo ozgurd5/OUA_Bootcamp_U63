@@ -7,9 +7,13 @@ using UnityEngine.UI;
 
 public class SensitivityManager : MonoBehaviour
 {
-    [Header("Assign")]
-    [SerializeField] private Slider sensSlider;
-    [SerializeField] private TextMeshProUGUI sensText;
+    [Header("Assign for Main Menu")]
+    [SerializeField] private Slider sensSliderMM;
+    [SerializeField] private TextMeshProUGUI sensTextMM;
+    
+    [Header("Assign for In Game")]
+    [SerializeField] private Slider sensSliderIG;
+    [SerializeField] private TextMeshProUGUI sensTextIG;
 
     [Header("No touch")]
     [SerializeField] private float sensValue = 8f;
@@ -20,13 +24,24 @@ public class SensitivityManager : MonoBehaviour
     
     private void Awake()
     {
-        sensSlider.onValueChanged.AddListener((value) =>
+        sensSliderIG.onValueChanged.AddListener((value) =>
         {
             sensValue = (float)Math.Round(value, 2) * 10;
-            sensText.text = sensValue.ToString("0.0");
+            sensTextIG.text = sensValue.ToString("0.0");
         });
+        
+        SceneManager.activeSceneChanged += (a, currentScene) =>
+        {
+            currentSceneName = currentScene.name;
 
-        SceneManager.activeSceneChanged += (a, currentScene) => currentSceneName = currentScene.name;
+            if (currentSceneName != "MAIN_MENU") return;
+            
+            sensSliderMM.onValueChanged.AddListener((value) =>
+            {
+                sensValue = (float)Math.Round(value, 2) * 10;
+                sensTextMM.text = sensValue.ToString("0.0");
+            });
+        };
 
         RobotManager.OnCurrentControlledRobotChanged += () =>
         {
