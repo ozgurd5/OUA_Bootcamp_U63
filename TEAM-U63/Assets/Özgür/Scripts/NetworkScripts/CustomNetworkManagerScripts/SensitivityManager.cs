@@ -51,10 +51,8 @@ public class SensitivityManager : MonoBehaviour
     {
         if (currentSceneName == "MAIN_MENU")
         {
-            Debug.Log("current scene is main menu");
             sensSliderMM.onValueChanged.AddListener((value) =>
             {
-                Debug.Log("listener");
                 sensValue = (float)Math.Round(value, 2) * 10;
                 sensTextMM.text = sensValue.ToString("0.0");
             });

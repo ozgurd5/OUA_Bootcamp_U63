@@ -10,6 +10,6 @@ public class OutroCutsceneManager : NetworkBehaviour
 
     private void LoadMainIsland()
     {
-        NetworkManager.SceneManager.LoadScene("Main Island", LoadSceneMode.Single);
+        NetworkManager.SceneManager.LoadScene("MAIN_MENU", LoadSceneMode.Single);
     }
 }

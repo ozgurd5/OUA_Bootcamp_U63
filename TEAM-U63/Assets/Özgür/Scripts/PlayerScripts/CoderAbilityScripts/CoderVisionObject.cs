@@ -21,4 +21,9 @@ public class CoderVisionObject : MonoBehaviour
     {
         mr.enabled = PlayerCoderVisionAbility.isCoderVisionActive;
     }
+
+    private void OnDestroy()
+    {
+        PlayerCoderVisionAbility.OnCoderVisionEnable -= EnableMeshRenderer;
+    }
 }

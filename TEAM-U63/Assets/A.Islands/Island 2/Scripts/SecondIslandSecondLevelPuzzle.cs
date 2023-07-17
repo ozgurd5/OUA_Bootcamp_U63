@@ -20,18 +20,18 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     [SerializeField] private int neededGreen;
     [SerializeField] private int neededBlue;
 
-    [Header("Number of Cubes")]
+    [Header("Numbers")]
     [SerializeField] private int redNumber;
     [SerializeField] private int greenNumber;
     [SerializeField] private int blueNumber;
-    
+    [SerializeField] private int robotNumber;
+
     [Header("Info - No Touch")]
     public bool isCompleted;
     
     private List<Collider> currentCubesInside;
     private CubeManager currentCubeManager;
     private AudioSource aus;
-    private int robotNumber;
 
     private void Awake()
     {

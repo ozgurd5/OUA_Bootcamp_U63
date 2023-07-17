@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// <para>Responsible of map control mechanic in the first island's second level (labyrinth)</para>
@@ -17,6 +18,12 @@ public class PlayerMapController : MonoBehaviour
 
     private void Awake()
     {
+        //Auto destroyer
+        SceneManager.activeSceneChanged += (a, currentScene) =>
+        {
+            if (currentScene.name != "Island 1") Destroy(this);
+        };
+        
         //TODO: find out why it is not working
         //mapCanvas = GameObject.Find("MapCanvas");
         
