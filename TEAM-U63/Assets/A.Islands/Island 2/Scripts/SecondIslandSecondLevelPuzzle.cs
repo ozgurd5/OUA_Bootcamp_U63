@@ -35,6 +35,7 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
 
     private void Awake()
     {
+        currentCubesInside = new List<Collider>();
         aus = GetComponent<AudioSource>();
     }
 

@@ -10,30 +10,35 @@ public class GameAnalyticsManager : MonoBehaviour
     [Header("Scene Info")]
     [SerializeField] private string currentSceneName;
     [SerializeField] private string previousSceneName;
+    public bool isFirstIslandCompleted;
+    public bool isSecondIslandCompleted;
 
-    [Header("First Island")]
+    [Header("Play Times")]
     public float firstIslandGeneralPlayTime;
-    //public float firstIslandFirstLevelPlayTime;
-    //public float firstIslandSecondLevelPlayTime;
-    
-    [Header("Second Island")]
     public float secondIslandGeneralPlayTime;
-    //public float secondIslandFirstLevelPlayTime;
-    //public float secondIslandSecondLevelPlayTime;
-    //public float secondIslandThirdLevelPlayTime;
 
     private void Awake()
     {
         SceneManager.activeSceneChanged += (previousScene, currentScene) =>
         {
-            previousSceneName = previousScene.name;
+            //not working, idk why
+            //previousSceneName = previousScene.name;
+            
+            previousSceneName = currentSceneName;
             currentSceneName = currentScene.name;
+            
+            if (previousSceneName == "Island 1") SendPlayTime("firstIslandGeneralPlayTime", firstIslandGeneralPlayTime);
+            if (previousSceneName == "Island 2") SendPlayTime("secondIslandGeneralPlayTime", secondIslandGeneralPlayTime);
 
             //TODO: CBB
             if (currentSceneName == "TEST")
             {
                 GameObject.Find("AnalyticsBoard").GetComponentInChildren<TextMeshPro>().text = 
-                $"First Island Time: {firstIslandGeneralPlayTime}\nSecond Island Time: {secondIslandGeneralPlayTime}";
+                $"First Island Play Time: {(int)firstIslandGeneralPlayTime} seconds\nSecond Island Play Time: " +
+                $"{(int)secondIslandGeneralPlayTime} seconds";
+                
+                if (previousSceneName == "Island 1") isFirstIslandCompleted = true;
+                else if (previousSceneName == "Island 2") isSecondIslandCompleted = true;
             }
         };
     }
@@ -58,9 +63,6 @@ public class GameAnalyticsManager : MonoBehaviour
     {
         if (currentSceneName == "Island 1") IncreasePlayTime(ref firstIslandGeneralPlayTime);
         else if (currentSceneName == "Island 2") IncreasePlayTime(ref secondIslandGeneralPlayTime);
-        
-        if (previousSceneName == "Island 1") SendPlayTime("firstIslandGeneralPlayTime", firstIslandGeneralPlayTime);
-        if (previousSceneName == "Island 2") SendPlayTime("secondIslandGeneralPlayTime", secondIslandGeneralPlayTime);
     }
     
     
@@ -68,13 +70,7 @@ public class GameAnalyticsManager : MonoBehaviour
     {
         playTime += Time.deltaTime;
     }
-
-    /// <summary>
-    /// <para>Send the play time of the level</para>
-    /// <para>Must work at the end of the level</para>
-    /// </summary>
-    /// <param name="eventName">Island and level number</param>
-    /// <param name="playTime">Play time</param>
+    
     private void SendPlayTime(string eventName, float playTime)
     {
         Dictionary<string, object> playtimeParameters = new Dictionary<string, object>()

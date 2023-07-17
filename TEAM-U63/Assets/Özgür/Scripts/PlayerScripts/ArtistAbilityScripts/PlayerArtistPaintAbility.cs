@@ -7,16 +7,17 @@ using UnityEngine;
 /// </summary>
 public class PlayerArtistPaintAbility : NetworkBehaviour
 {
+    [Header("ASSIGN - BROKEN")]
+    [SerializeField] private CrosshairManager cm;
+    
     [Header("Assign - Coder Vision Audio Source")]
     [SerializeField] private AudioSource aus;
 
     private PlayerInputManager pim;
-    private CrosshairManager cm;
     
     private void Awake()
     {
         pim = GetComponent<PlayerInputManager>();
-        cm = GetComponentInChildren<CrosshairManager>();
     }
 
     private void Update()

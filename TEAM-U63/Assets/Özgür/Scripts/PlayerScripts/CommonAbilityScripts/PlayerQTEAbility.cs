@@ -9,6 +9,9 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class PlayerQTEAbility : MonoBehaviour
 {
+    [Header("ASSIGN - BROKEN")]
+    [SerializeField] CrosshairManager cm;
+    
     [Header("Assign - Images")]
     [SerializeField] private Sprite upKeyImage;
     [SerializeField] private Sprite downKeyImage;
@@ -30,14 +33,14 @@ public class PlayerQTEAbility : MonoBehaviour
     
     private PlayerStateData psd;
     private PlayerInputManager pim;
-    private CrosshairManager cm;
+
     private CinemachineFreeLook cam;
     private Rigidbody rb;
     
     private float currentTimer;
     private int randomNumber;
     private int previousRandomNumber;
-    
+
     [Header("Info - No Touch")]
     [SerializeField] private int currentKeyPress;
     private int hackDoneLimit = 6;
@@ -51,7 +54,7 @@ public class PlayerQTEAbility : MonoBehaviour
         
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
-        cm = GetComponentInChildren<CrosshairManager>();
+        //cm = GetComponentInChildren<CrosshairManager>();
         cam = GetComponentInChildren<CinemachineFreeLook>();
         rb = GetComponent<Rigidbody>();
     }
