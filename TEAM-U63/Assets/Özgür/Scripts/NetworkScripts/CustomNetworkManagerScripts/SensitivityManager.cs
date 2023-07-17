@@ -28,7 +28,7 @@ public class SensitivityManager : MonoBehaviour
         {
             currentSceneName = currentScene.name;
 
-            if (currentSceneName != "MAIN_MENU")
+            if (currentSceneName is not "MAIN_MENU" or "IntroCutscene" or "OutroCutscene")
             {
                 coderCam = GameObject.Find("CoderPlayer").GetComponentInChildren<CinemachineFreeLook>();
                 artistCam = GameObject.Find("ArtistPlayer").GetComponentInChildren<CinemachineFreeLook>();
@@ -40,7 +40,7 @@ public class SensitivityManager : MonoBehaviour
             robotCam = RobotManager.currentControlledRobot.cam;
         };
         
-        if (currentSceneName == "MAIN_MENU") return;
+        if (currentSceneName == "MAIN_MENU")
         {
             sensSliderMM.onValueChanged.AddListener((value) =>
             {
@@ -58,7 +58,7 @@ public class SensitivityManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentSceneName == "MAIN_MENU") return;
+        if (currentSceneName is "MAIN_MENU" or "IntroCutscene" or "OutroCutscene") return;
 
         coderCam.m_YAxis.m_MaxSpeed = sensValue / 10;
         coderCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;

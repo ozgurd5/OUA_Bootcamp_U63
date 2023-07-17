@@ -19,7 +19,6 @@ public class LobbyUI : NetworkBehaviour
     {
         npd = NetworkPlayerData.Singleton;
         
-        //TODO: CBB
         startGameButton.onClick.AddListener(() => 
         {
             NetworkManager.Singleton.SceneManager.LoadScene("IntroCutscene", LoadSceneMode.Single);

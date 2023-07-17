@@ -25,9 +25,7 @@ public class PauseMenuManager : MonoBehaviour
 
      private void Update()
      {
-          if (currentSceneName == "MAIN_MENU") return;
-          
-          if (currentSceneName == "MAIN_MENU") return;
+          if (currentSceneName is "MAIN_MENU" or "IntroCutscene" or "OutroCutscene") return;
 
           coder = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
           artist = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();

@@ -45,7 +45,7 @@ public class PortalSceneManager : NetworkBehaviour
     {
         if (requiredPlayers != numberOfPlayers) return;
 
-        if (toMainIsland) NetworkManager.Singleton.SceneManager.LoadScene("Main Island", LoadSceneMode.Single);
+        if (toMainIsland) NetworkManager.Singleton.SceneManager.LoadScene("OutroScene", LoadSceneMode.Single);
         else if (toFirstIsland)
             NetworkManager.Singleton.SceneManager.LoadScene("Island 1", LoadSceneMode.Single);
         else if (toSecondIsland)
