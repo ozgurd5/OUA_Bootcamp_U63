@@ -15,10 +15,10 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {r: 0.5754717, g: 0.5021805, b: 0.5650205, a: 1}
+    m_Value: {r: 0.35230508, g: 0.25858846, b: 0.3679245, a: 1}
   highlights:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_OverrideState: 1
+    m_Value: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
   balance:
     m_OverrideState: 0
     m_Value: 0
@@ -40,10 +40,10 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 72.56
+    m_Value: 50.94
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 34
+    m_Value: 0
   gaussianMaxRadius:
     m_OverrideState: 1
     m_Value: 0.742
@@ -51,14 +51,14 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   focusDistance:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 10
   aperture:
     m_OverrideState: 0
     m_Value: 5.6
   focalLength:
-    m_OverrideState: 0
-    m_Value: 50
+    m_OverrideState: 1
+    m_Value: 18
   bladeCount:
     m_OverrideState: 0
     m_Value: 5
@@ -68,31 +68,6 @@ MonoBehaviour:
   bladeRotation:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-5203586708895673735
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 0
-  mode:
-    m_OverrideState: 0
-    m_Value: 0
-  quality:
-    m_OverrideState: 1
-    m_Value: 0
-  intensity:
-    m_OverrideState: 0
-    m_Value: 0
-  clamp:
-    m_OverrideState: 0
-    m_Value: 0.05
 --- !u!114 &-1986450489105156108
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -111,10 +86,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.23
+    m_Value: 1.13
   intensity:
     m_OverrideState: 1
-    m_Value: 8.74
+    m_Value: 4.49
   scatter:
     m_OverrideState: 1
     m_Value: 0.107
@@ -150,14 +125,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Island1GlobalVolume
+  m_Name: Island2GlobalVolume
   m_EditorClassIdentifier: 
   components:
   - {fileID: -1986450489105156108}
   - {fileID: 5139237643370268497}
   - {fileID: 6069171367416828093}
   - {fileID: -6213827415217026685}
-  - {fileID: -5203586708895673735}
   - {fileID: 849432175413530559}
   - {fileID: -7453713300512506571}
   - {fileID: 5482518133313956028}
@@ -215,10 +189,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: -0
   tint:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
 --- !u!114 &6055911072761609765
 MonoBehaviour:
   m_ObjectHideFlags: 3
