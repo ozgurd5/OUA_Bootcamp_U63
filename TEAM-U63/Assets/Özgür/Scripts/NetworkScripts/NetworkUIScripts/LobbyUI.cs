@@ -21,7 +21,7 @@ public class LobbyUI : NetworkBehaviour
         
         startGameButton.onClick.AddListener(() => 
         {
-            NetworkManager.Singleton.SceneManager.LoadScene("Island 1", LoadSceneMode.Single);
+            NetworkManager.Singleton.SceneManager.LoadScene("Island 2", LoadSceneMode.Single);
         });
         
         switchPlayerButton.onClick.AddListener(() => { npd.UpdateIsHostCoder(!npd.isHostCoder); });

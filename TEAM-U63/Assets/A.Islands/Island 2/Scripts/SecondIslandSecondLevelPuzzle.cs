@@ -44,7 +44,7 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
         if (IsRobot && col.CompareTag("robot"))
         {
             robotNumber++;
-            isCompleted = robotNumber > 1;
+            isCompleted = robotNumber >= 1;
             
             completionStatus[ID] = isCompleted;
             CheckAllCompletion();
@@ -65,7 +65,7 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
         if (IsRobot && col.CompareTag("robot"))
         {
             robotNumber--;
-            isCompleted = robotNumber > 1;
+            isCompleted = robotNumber >= 1;
             
             completionStatus[ID] = isCompleted;
             CheckAllCompletion();
