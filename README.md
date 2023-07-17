@@ -1,3 +1,5 @@
+
+
 ---
 # **Takım İsmi**
 
@@ -195,10 +197,6 @@ https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/20402efa-3
 
 
 
----
-[Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
-
----
 
 ![değerlendirme](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/ae65f9e5-732c-4d9e-94fc-106d6b79a4e3)
 
@@ -225,4 +223,89 @@ Sprint Review katılımcıları: Bütün ekip sprint review sürecindeki kararla
   - Takım içindeki görevler güncellenmiştir, öncelikli görevler belirlenmiştir. Görevi biten arkadaşlarımız yeni görevlerini almışlardır.
   - Takım üyelerinin birbirlerini motive etmesi ve çalışmaya davet etmesi belirtilmiştir. Yardımlaşmaktan çekinmemelerine vurgu yapılmıştır.
  
+---
+
+# Sprint 3
+
+- **Sprint Notları**: Sprint Board Screenshot'larını görüntülerken sorun yaşıyorsanız lütfen **Miro Backlog Board**'u  kullanınız. Miro Backlog Board üzerinde, Discord sunucumuzdan örnekler, Game Design dökümanı, SMART hedeflerimiz, To Do List Kanban listesi ve Game Road Map yer almaktadır. User Story'ler product backlog'ların içine yazılmıştır. Product backlog item'lara tıklandığında hikayelerin detaylarını inceleyebilirsiniz.
+
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan 
+
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 300 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 100 ile başlaması gerektiğine karar verilmiştir. Yani 17 tane görevin tamamlanması gerekmektedir. Yapılacaklar listesinde bütün görevler yer almaktadır. Sağda bulunan sütuna "Done" kısmına alınan görevler tamamlanmış görevlerdir. İlk tabloda 4, ikinci tabloda güncelleme ile 9 ve son tabloda ise güncelleme ile 17 görev tamamlanmış gözükmektedir.
+
+
+
+- **Daily Scrum**: Daily Scrum toplantılarının, kullanım kolaylığından dolayı Discord üzerinden sesli şekilde yapılmasına karar verilmiştir. Daily Scrum toplantı özetleri **Miro Backlog Board** linkinde de yer almaktadır.
+İlk Hafta Her 3 günde bir sonraki hafta her gün Discord sesli kanalarında yapılacaklarla ilgili toplantılar yapılmıştır.
+![scrum](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/dec73a48-20ce-427e-b086-22801f5cd23c)
+![Scrum2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/69853a10-f2f3-407a-9823-dc60f8f4f37f)
+![Ekran görüntüsü 2023-07-06 202438](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/2a6467d3-99c5-4b1b-b0b5-6f36c0ba1ec0)
+
+
+
+- Sprint Update screenshotları: [Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
+![Sprint3 1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/c38575b0-f129-4861-bd61-0bf5f80ce0ed)
+![Sprint3 2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/43d5d56c-0be2-4d22-873c-ebf1426e9495)
+![Sprint 3 3](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/962194dd-6a07-49b2-8fa4-ef1f51726b2f)
+
+
+- Sprint board screenshotları: [Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
+![fb6](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/f2672c0d-1d6e-4d13-a8c7-1d7c4cfaa135)
+![fb5](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/77d52168-45a4-401e-a5e1-035a4bb4dc05)
+![fb3](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/0ab90f62-4a95-453b-ba78-3673c8df8b35)
+![fb2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/2608736f-2772-451f-b034-21462f474141)
+![feedback](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/38e1ccb6-af13-4104-85fe-203afc160e7d)
+
+## Ürün Durumu
+![analitik](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/26ef5e77-e634-4441-9e8c-6cd1bfbdb262)
+![analitik (2)](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/ecf5d756-1677-420b-913a-6aa6798f179f)
+![npc](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/687e2124-193b-4636-b423-568b80cf6bbf)
+![ana ada](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/a81366dc-0334-4682-b337-2ac2262e8ad9)
+![vfx](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/26cb98f8-ad7b-4840-8ab0-6d10708d7455)
+![level1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/965269f7-54bd-4f7a-a398-e7fba02fe2a5)
+![level1 1](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/1c789d47-a35c-45f2-a4e8-85dbfbce122d)
+![level 2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/7408678a-7d4c-43bf-9bc4-b6629b5ad06e)
+![level2 2](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/48168289-698d-4114-9a70-ce70f9e2815b)
+![image](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/cc22a619-5deb-4106-8566-1f668049fe90)
+![imaagge](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/7400c992-74c6-4e6c-aeb0-a3d3f537ca9a)
+![immage](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/f29ef19c-78e1-4b7e-87e1-217245622b89)
+![imagge](https://github.com/Metbatu/Team.U63-Bootcamp.Project/assets/119634290/61087f60-8308-441f-a5ba-8ba4608cb0c9)
+
+
+- **Sprint Review**:
+
+- Multiplayer sistemi başarılı bir şekilde çalışıyor.
+- Game Analitycs eklemesi yapıldı.
+- NPC karakterler hikaye anlatımıını güçlendirmek adına eklendi.
+- Level 1, level 2 ve ana ada tasarım ve mekanikleriyle tamamlandı.
+- Ara sahneler eklendi.
+- Menüler tamamlandı.
+
+
+Alınan kararlar: 
+    - Oyunun geliştirilmesine Bootcamp sonrası devam edilmesine karar verilmiştir.
+    
+- Hedefler: 
+    - Daha fazla bölüm ve çeşitli mekanikler konulması. 
+    - Network sisteminin güncellenmesi
+    - Steam gibi platformlara satış için hazırlık
+
+
+Sprint Review katılımcıları: Bütün ekip sprint review sürecindeki kararlara katılmıştır ve fikir birliği sağlanmıştır.
+
+
+- **Sprint Retrospective:**
+
+  - Sprint hedefleri başarıyla tamamlanmıştır.
+  - Öncelik sırasıyla yapılacaklar tamamlanmıştır.
+  - Bu takımın devamının sürdürülmesine vurgu yapılmıştır.
+ 
+---
+
+# Product Backlog URL
+
+[Unity Team 63 Miro Backlog Board](https://miro.com/app/board/uXjVMALtnmE=/?share_link_id=685709752228)
+
 ---
