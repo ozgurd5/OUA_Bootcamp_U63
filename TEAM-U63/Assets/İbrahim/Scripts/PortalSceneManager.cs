@@ -13,10 +13,6 @@ public class PortalSceneManager : NetworkBehaviour
     [SerializeField] private bool toSecondIsland;
     [SerializeField] private bool toMainMenu;
     [SerializeField] private bool toTEST;
-
-    [Header("Info - No touch")]
-    [SerializeField] private string previousSceneName;
-    [SerializeField] private string currentSceneName;
     
     private int requiredPlayers = 2;
     private int numberOfPlayers;
@@ -26,6 +22,9 @@ public class PortalSceneManager : NetworkBehaviour
     private void Awake()
     {
         gam = GameObject.Find("CustomNetworkManager").GetComponent<GameAnalyticsManager>();
+        
+        Debug.Log((bool)gam);
+        Debug.Log(gam.isFirstIslandCompleted);
         
         if (toSecondIsland)
         {

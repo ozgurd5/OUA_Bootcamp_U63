@@ -122,8 +122,11 @@ MonoBehaviour:
   ID: 3
   IsRobot: 0
   neededRed: 2
-  neededGreen: 2
-  neededBlue: 1
+  neededGreen: 1
+  neededBlue: 2
+  redNumber: 0
+  greenNumber: 0
+  blueNumber: 0
   isCompleted: 0
 --- !u!82 &7463042646410812614
 AudioSource:
@@ -343,8 +346,11 @@ MonoBehaviour:
   ID: 1
   IsRobot: 0
   neededRed: 2
-  neededGreen: 1
-  neededBlue: 2
+  neededGreen: 2
+  neededBlue: 1
+  redNumber: 0
+  greenNumber: 0
+  blueNumber: 0
   isCompleted: 0
 --- !u!82 &8147569003331782970
 AudioSource:
@@ -566,6 +572,9 @@ MonoBehaviour:
   neededRed: 0
   neededGreen: 0
   neededBlue: 0
+  redNumber: 0
+  greenNumber: 0
+  blueNumber: 0
   isCompleted: 0
 --- !u!82 &2262874638318185120
 AudioSource:
@@ -787,6 +796,9 @@ MonoBehaviour:
   neededRed: 0
   neededGreen: 0
   neededBlue: 0
+  redNumber: 0
+  greenNumber: 0
+  blueNumber: 0
   isCompleted: 0
 --- !u!82 &5919400541931258899
 AudioSource:
