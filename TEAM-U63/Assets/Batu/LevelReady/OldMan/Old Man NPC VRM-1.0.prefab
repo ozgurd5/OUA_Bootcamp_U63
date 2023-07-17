@@ -2063,6 +2063,7 @@ GameObject:
   - component: {fileID: 4278067098659863111}
   - component: {fileID: 1599029531454699313}
   - component: {fileID: 7191749283626934031}
+  - component: {fileID: 6230239993795565188}
   m_Layer: 0
   m_Name: Old Man NPC VRM-1.0
   m_TagString: Untagged
@@ -2087,7 +2088,7 @@ Transform:
   - {fileID: 4965988243218820253}
   - {fileID: 1230223298106367288}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1340884885279604096
 MonoBehaviour:
@@ -2256,7 +2257,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2275,6 +2276,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToOpen: {fileID: 0}
+--- !u!135 &6230239993795565188
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168912917549709420}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.1641867
+  m_Center: {x: 0, y: 0.54, z: 0}
 --- !u!1 &5830119329599698166
 GameObject:
   m_ObjectHideFlags: 0

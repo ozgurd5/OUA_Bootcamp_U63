@@ -11,4 +11,9 @@ public class SecondIslandFirstDoorControl : MonoBehaviour
     {
         gameObject.SetActive(!isCompleted);
     }
+    
+    private void OnDestroy()
+    {
+        SecondIslandFirstLevelPuzzle.OnLevelCompleted -= HandleForceField;
+    }
 }

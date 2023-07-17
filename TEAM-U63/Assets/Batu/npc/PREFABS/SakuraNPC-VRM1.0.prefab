@@ -2420,6 +2420,7 @@ GameObject:
   - component: {fileID: 2135164790945658699}
   - component: {fileID: 1805623138132691985}
   - component: {fileID: 8486442557039977517}
+  - component: {fileID: 4598157902757414041}
   m_Layer: 0
   m_Name: SakuraNPC-VRM1.0
   m_TagString: Untagged
@@ -2445,7 +2446,7 @@ Transform:
   - {fileID: 2875749822145863913}
   - {fileID: 442506074042201408}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5164014653706479475
 MonoBehaviour:
@@ -2524,7 +2525,7 @@ Animator:
   m_GameObject: {fileID: 4646580339835604393}
   m_Enabled: 1
   m_Avatar: {fileID: -7015762578403652589, guid: 4cb8d96286af9354686201dd424b3548, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f78f4986e13ef63498b6d718b7ded26b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2646,12 +2647,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.2280428, y: 2.2359657, z: 1.8394126}
-  m_Center: {x: -0.17073023, y: 0.61798275, z: 0.41970628}
+  m_Size: {x: 4.5015798, y: 2.2359657, z: 2.9715347}
+  m_Center: {x: -0.8074987, y: 0.61798275, z: 0.43117142}
 --- !u!114 &8486442557039977517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2665,6 +2666,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToOpen: {fileID: 0}
+--- !u!136 &4598157902757414041
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4646580339835604393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.24144745
+  m_Height: 1.7503815
+  m_Direction: 1
+  m_Center: {x: -0.01524353, y: 0.80106354, z: 0}
 --- !u!1 &4829731404060179428
 GameObject:
   m_ObjectHideFlags: 0

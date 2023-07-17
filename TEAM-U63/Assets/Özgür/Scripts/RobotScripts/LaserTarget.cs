@@ -44,9 +44,13 @@ public class LaserTarget : MonoBehaviour
         
         else if (!isSoundPlayed)
         {
-            Debug.Log("log");
             aus.Play();
             isSoundPlayed = true;
         }
+    }
+
+    private void OnDestroy()
+    {
+        OnLaserTargetHit -= HandleCompletionSound;
     }
 }

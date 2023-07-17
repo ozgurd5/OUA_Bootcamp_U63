@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -22,5 +23,10 @@ public class FirstIslandDoorControl : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player")) door.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        ScaleController.OnScaleCompleted -= HandleForceField;
     }
 }

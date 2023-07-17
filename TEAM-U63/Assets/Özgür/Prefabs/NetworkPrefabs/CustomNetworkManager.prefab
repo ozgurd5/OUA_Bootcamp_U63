@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 6180186444850669996}
   - component: {fileID: 908466851537452187}
   - component: {fileID: 8611354420042703519}
+  - component: {fileID: 7297610775662520016}
   m_Layer: 0
   m_Name: CustomNetworkManager
   m_TagString: Untagged
@@ -820,6 +821,19 @@ MonoBehaviour:
   psd: {fileID: 0}
   currentSceneName: 
   previousState: 0
+--- !u!114 &7297610775662520016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490374942038371068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b635310a313909f49b9167c19e0666dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuCanvas: {fileID: 151967328654265195}
 --- !u!1 &1858508628383306630
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,4 +11,9 @@ public class SecondIslandThirdDoorControl : MonoBehaviour
     {
         gameObject.SetActive(!isCompleted);
     }
+
+    private void OnDestroy()
+    {
+        LaserTarget.OnLaserTargetHit -= HandleForceField;
+    }
 }
