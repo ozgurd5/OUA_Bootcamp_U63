@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class PlayerGrabbing : NetworkBehaviour
 {
+    [Header("ASSIGN - BROKEN")]
+    [SerializeField] private CrosshairManager cm;
+    
     [Header("Assign - NetworkParentListID")]
     [SerializeField] private int grabPointNetworkParentListID;
 
@@ -21,7 +24,6 @@ public class PlayerGrabbing : NetworkBehaviour
 
     private PlayerInputManager pim;
     private PlayerStateData psd;
-    private CrosshairManager cm;
     
     private Transform grabPointTransform;
     private GameObject grabbedCube;
@@ -34,7 +36,7 @@ public class PlayerGrabbing : NetworkBehaviour
     {
         pim = GetComponent<PlayerInputManager>();
         psd = GetComponent<PlayerStateData>();
-        cm = GetComponentInChildren<CrosshairManager>();
+        //cm = GetComponentInChildren<CrosshairManager>();
         grabPointTransform = Camera.main!.transform.Find("GrabPoint"); 
     }
     

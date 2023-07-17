@@ -32,8 +32,7 @@ public class PlayerCoderVisionAbility : NetworkBehaviour
         {
             isCoderVisionActive = false;
             coderVisionCanvas.gameObject.SetActive(false);
-            aus.Play();
-            
+
             return;
         }
         
