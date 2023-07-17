@@ -54,8 +54,7 @@ public class PauseMenuManager : MonoBehaviour
 
                else
                {
-                    settings.SetActive(false);
-                    psd.currentMainState = previousState;
+                    Close();
                }
           }
      }
@@ -63,5 +62,11 @@ public class PauseMenuManager : MonoBehaviour
      public void ExitGame()
      {
           Application.Quit();
+     }
+
+     public void Close()
+     {
+          settings.SetActive(false);
+          psd.currentMainState = previousState;
      }
 }
