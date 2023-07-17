@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
+    m_Value: {r: 0.5754717, g: 0.5021805, b: 0.5650205, a: 1}
   highlights:
     m_OverrideState: 0
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -40,7 +40,7 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 5.6
+    m_Value: 3.11
   gaussianEnd:
     m_OverrideState: 1
     m_Value: 34
@@ -111,15 +111,15 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.37
+    m_Value: 1.23
   intensity:
     m_OverrideState: 1
-    m_Value: 9.98
+    m_Value: 8.74
   scatter:
     m_OverrideState: 1
-    m_Value: 0.257
+    m_Value: 0.107
   clamp:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 65472
   tint:
     m_OverrideState: 1
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Global Volume Profile
+  m_Name: Island1GlobalVolume
   m_EditorClassIdentifier: 
   components:
   - {fileID: -1986450489105156108}
@@ -177,7 +177,7 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.999919, z: 0.9969658, w: 0.01635323}
+    m_Value: {x: 0.99007124, y: 0.9548943, z: 1, w: 0.01635323}
   gamma:
     m_OverrideState: 1
     m_Value: {x: 1, y: 0.9987344, z: 0.994937, w: 0}
@@ -199,7 +199,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.102
+    m_Value: 0.06
 --- !u!114 &5482518133313956028
 MonoBehaviour:
   m_ObjectHideFlags: 3

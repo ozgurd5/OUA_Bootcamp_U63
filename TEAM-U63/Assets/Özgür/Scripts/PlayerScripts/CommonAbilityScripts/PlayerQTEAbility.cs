@@ -30,7 +30,8 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private AudioClip coderFailClip;
 
     private bool IsHackQTE;
-    
+
+    private PlayerData pd;
     private PlayerStateData psd;
     private PlayerInputManager pim;
 
@@ -51,7 +52,8 @@ public class PlayerQTEAbility : MonoBehaviour
     private void Awake()
     {
         IsHackQTE = name == "CoderPlayer";
-        
+
+        pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         //cm = GetComponentInChildren<CrosshairManager>();
@@ -61,6 +63,8 @@ public class PlayerQTEAbility : MonoBehaviour
 
     private void Update()
     {
+        if (!pd.isLocal) return;
+        
         if (pim.isPrimaryAbilityKeyDown && cm.isLookingAtRobot)
         {
             rm = cm.crosshairHit.collider.GetComponent<RobotManager>();
