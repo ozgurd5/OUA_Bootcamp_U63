@@ -36,7 +36,7 @@ Bölümleri geçmek için birbirlerinin bölümlerindeki bilgilere ihtiyaçları
 
 - **Oyunun birincil fonksiyonu**: Oyuncular birbirleriyle bağlantı kurarak oyunun hikayesini öğrenirler ve beraber görevleri yapmaya başlarlar. Bu görevlerin aşama aşama olacak şekilde ilerleme gösterir. Her aşamada farklı bir meydan okuma bizi beklemektedir ve her aşama yapay zekanın bir katmanını temsil eder.
 
-- **Oyunun ikincil fonksiyonu**: İlerleme devam ederken oyuncular kendilerine yönelik oyun mekaniklerini keşfederler. Bununla beraber hikayemiz de ara sahneler ve diyaloglarla giderek daha da derinleşir. Oyunun sonuna doğru oyuncular beklemedikleri bir şeyle karşılaşacaklardır. Bu son ile beraber oyunun kullanıcılara verdiği mesaj da oyunculara aktarılır. 
+- **Oyunun ikincil fonksiyonu**: İlerleme devam ederken oyuncular kendilerine yönelik oyun mekaniklerini keşfederler. Bununla beraber hikayemiz de ara sahneler ve diyaloglarla giderek daha da derinleşir. Oyunun sonuna doğru oyuncular beklemedikleri bir şeyle karşılaşacaklardır. Bu son ile beraber oyunun kullanıcılara verdiği mesaj da oyunculara aktarılır. (Oyunun son sahnesi tam sürümde eklenecektir bootcamp sürümünde bu ekleme yapılmamıştır.)
 
 - (! Spoiler Alert ! Oyunun sonuna geldiğimiz alanda oyuncular bir yapay zeka beklerken insanlarla karşılaşır ve aslında suçun yapay zekada değil de onu yanlış ve etik olmayan çıkarları için değiştiren insanlarda olduğunu anlarlar.) Bu bölüm oyunun tam sürümünde olacaktır.
 
