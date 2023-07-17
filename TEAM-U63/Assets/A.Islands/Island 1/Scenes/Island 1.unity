@@ -133681,7 +133681,19 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3482290423078177738, guid: 53448d2ade6a85d48acfb70a85340785, type: 3}
+      propertyPath: vortex
+      value: 
+      objectReference: {fileID: 4522948656513547009}
+    - target: {fileID: 3482290423078177738, guid: 53448d2ade6a85d48acfb70a85340785, type: 3}
       propertyPath: toMainIsland
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482290423078177738, guid: 53448d2ade6a85d48acfb70a85340785, type: 3}
+      propertyPath: toSecondIsland
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616500048821088693, guid: 53448d2ade6a85d48acfb70a85340785, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3956305813207747232, guid: 53448d2ade6a85d48acfb70a85340785, type: 3}
@@ -133741,6 +133753,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53448d2ade6a85d48acfb70a85340785, type: 3}
+--- !u!1 &4522948656513547009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3616500048821088693, guid: 53448d2ade6a85d48acfb70a85340785, type: 3}
+  m_PrefabInstance: {fileID: 4522948656513547008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &4593385616688262915
 MeshRenderer:
   m_ObjectHideFlags: 0
