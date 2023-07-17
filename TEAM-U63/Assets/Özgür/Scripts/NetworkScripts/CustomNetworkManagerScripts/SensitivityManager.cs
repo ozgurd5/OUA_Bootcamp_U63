@@ -24,45 +24,50 @@ public class SensitivityManager : MonoBehaviour
     
     private void Awake()
     {
-        sensSliderIG.onValueChanged.AddListener((value) =>
-        {
-            sensValue = (float)Math.Round(value, 2) * 10;
-            sensTextIG.text = sensValue.ToString("0.0");
-        });
-        
         SceneManager.activeSceneChanged += (a, currentScene) =>
         {
             currentSceneName = currentScene.name;
 
-            if (currentSceneName != "MAIN_MENU") return;
-            
-            sensSliderMM.onValueChanged.AddListener((value) =>
+            if (currentSceneName != "MAIN_MENU")
             {
-                sensValue = (float)Math.Round(value, 2) * 10;
-                sensTextMM.text = sensValue.ToString("0.0");
-            });
+                coderCam = GameObject.Find("CoderPlayer").GetComponentInChildren<CinemachineFreeLook>();
+                artistCam = GameObject.Find("ArtistPlayer").GetComponentInChildren<CinemachineFreeLook>();
+            }
         };
 
         RobotManager.OnCurrentControlledRobotChanged += () =>
         {
             robotCam = RobotManager.currentControlledRobot.cam;
-            
-            robotCam.m_YAxis.m_MaxSpeed = sensValue / 10;
-            robotCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;
         };
+        
+        if (currentSceneName == "MAIN_MENU") return;
+        {
+            sensSliderMM.onValueChanged.AddListener((value) =>
+            {
+                sensValue = (float)Math.Round(value, 2) * 10;
+                sensTextMM.text = sensValue.ToString("0.0");
+            });
+        }
+        
+        sensSliderIG.onValueChanged.AddListener((value) =>
+        {
+            sensValue = (float)Math.Round(value, 2) * 10;
+            sensTextIG.text = sensValue.ToString("0.0");
+        });
     }
 
     private void Update()
     {
         if (currentSceneName == "MAIN_MENU") return;
-        
-        coderCam = GameObject.Find("CoderPlayer").GetComponentInChildren<CinemachineFreeLook>();
-        artistCam = GameObject.Find("ArtistPlayer").GetComponentInChildren<CinemachineFreeLook>();
 
         coderCam.m_YAxis.m_MaxSpeed = sensValue / 10;
         coderCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;
 
         artistCam.m_YAxis.m_MaxSpeed = sensValue / 10;
         artistCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;
+
+        if (robotCam == null) return;
+        robotCam.m_YAxis.m_MaxSpeed = sensValue / 10;
+        robotCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;
     }
 }
