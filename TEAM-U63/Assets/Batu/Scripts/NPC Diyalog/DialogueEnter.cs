@@ -6,7 +6,7 @@ public class DialogueEnter : MonoBehaviour
     private bool isOpen;
     private Dialogue dialogue;
     private NPCTalk npcTalk;
-
+    private Transform currentPlayerCrosshairCanvas;
 
     private void Start()
     {
@@ -20,6 +20,12 @@ public class DialogueEnter : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            //crosshair canvas disable
+            if (!collision.gameObject.GetComponent<PlayerData>().isLocal) return;
+
+            currentPlayerCrosshairCanvas = collision.gameObject.GetComponent<CrosshairManager>().crosshairCanvas;
+            currentPlayerCrosshairCanvas.gameObject.SetActive(false); //crosshair canvas disable
+            
             isOpen = true;
 
             objectToOpen.SetActive(isOpen);
@@ -40,6 +46,10 @@ public class DialogueEnter : MonoBehaviour
             dialogue.ResetDialogue(); // Reset the dialogue state
             
             npcTalk.StopTalking();
+            
+            //crosshair canvas enable
+            currentPlayerCrosshairCanvas.gameObject.SetActive(true); //crosshair canvas enable
+
         }
     }
 }
