@@ -19,20 +19,19 @@ public class TestScript : MonoBehaviour
             artist = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
         };
     }
-
-    //TODO: CBB
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            npd.UpdateIsHostCoder(!npd.isHostCoder);
-            coder.DecideControlSource();
-            artist.DecideControlSource();
-        }
-        
-        else if (Input.GetKeyDown(KeyCode.N))
-        {
-            NetworkManager.Singleton.SceneManager.LoadScene("TEST", LoadSceneMode.Single);
-        }
+        //if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    npd.UpdateIsHostCoder(!npd.isHostCoder);
+        //    coder.DecideControlSource();
+        //    artist.DecideControlSource();
+        //}
+        //
+        //else if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    NetworkManager.Singleton.SceneManager.LoadScene("TEST", LoadSceneMode.Single);
+        //}
     }
 }

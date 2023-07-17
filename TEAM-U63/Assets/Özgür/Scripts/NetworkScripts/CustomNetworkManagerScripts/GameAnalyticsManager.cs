@@ -31,7 +31,7 @@ public class GameAnalyticsManager : MonoBehaviour
             if (previousSceneName == "Island 2") SendPlayTime("secondIslandGeneralPlayTime", secondIslandGeneralPlayTime);
 
             //TODO: CBB
-            if (currentSceneName == "TEST")
+            if (currentSceneName == "Main Island")
             {
                 GameObject.Find("AnalyticsBoard").GetComponentInChildren<TextMeshPro>().text = 
                 $"First Island Play Time: {(int)firstIslandGeneralPlayTime} seconds\nSecond Island Play Time: " +
