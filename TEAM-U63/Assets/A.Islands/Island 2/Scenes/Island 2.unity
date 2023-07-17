@@ -17287,7 +17287,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 05d75389c271387408f4f25b616b2aed, type: 2}
+  sharedProfile: {fileID: 11400000, guid: a70c3a9196975a943b93c060e9479c92, type: 2}
 --- !u!4 &742092405
 Transform:
   m_ObjectHideFlags: 0
@@ -19441,15 +19441,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 540.283
+      value: 540.5
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 196
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19457,11 +19457,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.z
@@ -34811,6 +34811,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 278c9ebe216e1d447b2b80b88b3c8c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  artistPlayerStateData: {fileID: 0}
+  aus: {fileID: 0}
+  defaultVolume: 0
 --- !u!1 &1486454093
 GameObject:
   m_ObjectHideFlags: 0
@@ -41010,6 +41013,10 @@ PrefabInstance:
     - target: {fileID: 94665800369204615, guid: 7242434401952b44aab961cca48496f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881715379720992713, guid: 7242434401952b44aab961cca48496f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2843577368527791566, guid: 7242434401952b44aab961cca48496f4, type: 3}
       propertyPath: m_LocalRotation.x
