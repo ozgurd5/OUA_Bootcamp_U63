@@ -19,13 +19,11 @@ public class PortalSceneManager : NetworkBehaviour
 
     private GameAnalyticsManager gam;
 
-    private void Awake()
+    //Must be at start because of the execution order
+    private void Start()
     {
         gam = GameObject.Find("CustomNetworkManager").GetComponent<GameAnalyticsManager>();
-        
-        Debug.Log((bool)gam);
-        Debug.Log(gam.isFirstIslandCompleted);
-        
+
         if (toSecondIsland)
         {
             vortex.SetActive(gam.isFirstIslandCompleted);
