@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class NPCDialogeManager : MonoBehaviour
@@ -21,11 +20,11 @@ public class NPCDialogeManager : MonoBehaviour
 
         if (col.name == "ArtistPlayer")
             col.transform.Find("ArtistCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(false);
-        else
-            col.transform.Find("CoderCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(false);
+        else col.transform.Find("CoderCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(false);
+        
         
         objectToOpen.SetActive(true);
-        dialogue.StartDialogue();
+        dialogue.StartDialogue(col.gameObject);
         animator.SetBool("isTalking", true);
     }
 
@@ -38,6 +37,7 @@ public class NPCDialogeManager : MonoBehaviour
         else
             col.transform.Find("CoderCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(true);
         
+        Debug.Log("reset dialogue");
         objectToOpen.SetActive(false);
         dialogue.ResetDialogue();
         animator.SetBool("isTalking", false);

@@ -1,11 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
+    private PlayerInputManager pim;
+    
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
@@ -23,7 +23,10 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if (dialogueInProgress && Input.GetMouseButtonDown(0))
+        if (pim == null) return;
+        
+        Debug.Log(dialogueInProgress);
+        if (pim.isSkipDialogueKeyDown) //dialogueInProgress && 
         {
             if (textComponent.text == lines[index])
             {
@@ -34,12 +37,13 @@ public class Dialogue : MonoBehaviour
                 StopCoroutine(typingCoroutine); // Stop the current typing coroutine
                 textComponent.text = lines[index];
             }
-            
         }
     }
 
-    public void StartDialogue()
+    public void StartDialogue(GameObject talkingPlayer)
     {
+        pim = talkingPlayer.GetComponent<PlayerInputManager>();
+        
         if (!dialogueInProgress)
         {
             index = 0;
