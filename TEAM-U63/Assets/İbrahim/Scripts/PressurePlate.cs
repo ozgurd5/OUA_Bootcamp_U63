@@ -4,6 +4,8 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     [Header("Assign")]
+    [SerializeField] private GameObject yellowPlane;
+    [SerializeField] private GameObject greenPlane;
     [SerializeField] private string activationTag = "Player";
 
     [Header("Info - No touch")]
@@ -21,6 +23,9 @@ public class PressurePlate : MonoBehaviour
     {
         if (col.CompareTag(activationTag) && !isPressed)
         {
+            yellowPlane.SetActive(false);
+            greenPlane.SetActive(true);
+            
             isPressed = true;
             aus.Play();
             OnPressurePlateInteraction?.Invoke(isPressed);
@@ -30,6 +35,9 @@ public class PressurePlate : MonoBehaviour
     private void OnTriggerExit(Collider col)
     {
         if (!col.CompareTag(activationTag)) return;
+        
+        yellowPlane.SetActive(true);
+        greenPlane.SetActive(false);
         
         isPressed = false;
         aus.Play();
