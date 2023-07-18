@@ -37,7 +37,6 @@ public class NPCDialogeManager : MonoBehaviour
         else
             col.transform.Find("CoderCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(true);
         
-        Debug.Log("reset dialogue");
         objectToOpen.SetActive(false);
         dialogue.ResetDialogue();
         animator.SetBool("isTalking", false);

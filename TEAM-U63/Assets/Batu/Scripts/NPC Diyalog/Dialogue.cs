@@ -25,7 +25,6 @@ public class Dialogue : MonoBehaviour
     {
         if (pim == null) return;
         
-        Debug.Log(dialogueInProgress);
         if (pim.isSkipDialogueKeyDown) //dialogueInProgress && 
         {
             if (textComponent.text == lines[index])
