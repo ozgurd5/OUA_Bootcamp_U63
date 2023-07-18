@@ -81663,7 +81663,7 @@ GameObject:
   - component: {fileID: 1179879810}
   - component: {fileID: 1179879809}
   m_Layer: 0
-  m_Name: elevotor button yellow light
+  m_Name: elevator button yellow light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129496,12 +129496,12 @@ GameObject:
   - component: {fileID: 2014349308}
   - component: {fileID: 2014349307}
   m_Layer: 0
-  m_Name: elevator button red light
+  m_Name: elevator button green light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2014349306
 Transform:
   m_ObjectHideFlags: 0
@@ -129510,7 +129510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014349305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66.25549, y: -5.039, z: -80.358795}
+  m_LocalPosition: {x: 66.25549, y: -5.029, z: -80.358795}
   m_LocalScale: {x: 0.26819456, y: 1, z: 0.26544574}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129559,7 +129559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3d8394fe672c8a040ad1028a7093a0bc, type: 2}
+  - {fileID: 2100000, guid: 3144cdc85d8846b4eaaeb69f022102c8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
