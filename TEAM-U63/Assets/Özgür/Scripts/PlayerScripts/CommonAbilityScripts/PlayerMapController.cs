@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMapController : MonoBehaviour
 {
     [Header("Assign")]
+    [SerializeField] private AudioSource mapSound;
     [SerializeField] private GameObject mapCanvas;
     
     private PlayerData pd;
@@ -21,7 +22,11 @@ public class PlayerMapController : MonoBehaviour
         //Auto destroyer
         SceneManager.activeSceneChanged += (a, currentScene) =>
         {
-            if (currentScene.name != "Island 1") Destroy(this);
+            if (currentScene.name != "Island 1")
+            {
+                Destroy(this);
+                Destroy(mapSound);
+            }
         };
         
         //TODO: find out why it is not working
@@ -41,6 +46,7 @@ public class PlayerMapController : MonoBehaviour
         {
             isMapActive = !isMapActive;
             mapCanvas.SetActive(isMapActive);
+            mapSound.Play();
         }
     }
 
@@ -56,7 +62,7 @@ public class PlayerMapController : MonoBehaviour
             
         mapCollected = true;
         isMapActive = true;
-            
+        mapSound.Play();
         mapCanvas.SetActive(true);
     }
     
