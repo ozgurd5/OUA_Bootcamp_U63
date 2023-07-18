@@ -20,7 +20,7 @@ public class NPCDialogeManager : MonoBehaviour
     {
         if (!col.CompareTag("Player")) return;
         pd = col.GetComponent<PlayerData>();
-        if (!pd.isLocal) return; //
+        if (!pd.isLocal) return;
         
         if (col.name == "ArtistPlayer")
             col.transform.Find("ArtistCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(false);
