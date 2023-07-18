@@ -8,6 +8,8 @@ public class NPCDialogeManager : MonoBehaviour
     private Dialogue dialogue;
     private Animator animator;
 
+    private PlayerData pd;
+
     private void Start()
     {
         dialogue = objectToOpen.GetComponentInChildren<Dialogue>();
@@ -17,12 +19,13 @@ public class NPCDialogeManager : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         if (!col.CompareTag("Player")) return;
-
+        pd = col.GetComponent<PlayerData>();
+        if (!pd.isLocal) return; //
+        
         if (col.name == "ArtistPlayer")
             col.transform.Find("ArtistCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(false);
         else col.transform.Find("CoderCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(false);
-        
-        
+
         objectToOpen.SetActive(true);
         dialogue.StartDialogue(col.gameObject);
         animator.SetBool("isTalking", true);

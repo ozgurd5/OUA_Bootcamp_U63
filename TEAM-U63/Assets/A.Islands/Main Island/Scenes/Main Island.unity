@@ -654,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 184.69
+      value: 183.16
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -662,7 +662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.01
+      value: 162.62
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -674,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5331472332759358784, guid: d1fa3535f584845438480c56413750ba, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7007,6 +7007,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1419911576431983111, guid: 03aacddfd81af5649b2f283a21492f59, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419911576431983111, guid: 03aacddfd81af5649b2f283a21492f59, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 2046739015596262996, guid: 03aacddfd81af5649b2f283a21492f59, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -10027,7 +10035,7 @@ MonoBehaviour:
   - ' I can''t do it. After all, this place is more peaceful for me; I am a man with
     borrowed days.'
   - ' But you, you are young, maybe you can make a difference, right?'
-  textSpeed: 0.12
+  textSpeed: 0.1
 --- !u!224 &3151175414041003529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12221,7 +12229,7 @@ MonoBehaviour:
   - 'So, you see, everyone who comes here has some connection to artificial intelligence. '
   - I couldn't help but be curious about your story, but first, you should rest.
     Be careful of the portals ahead; we were not this few once...
-  textSpeed: 0.12
+  textSpeed: 0.1
 --- !u!224 &9205896073435616964
 RectTransform:
   m_ObjectHideFlags: 0
