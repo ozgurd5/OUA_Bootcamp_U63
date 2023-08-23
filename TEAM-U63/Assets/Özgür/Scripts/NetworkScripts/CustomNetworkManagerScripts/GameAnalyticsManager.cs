@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using Unity.Services.Core;
-using Unity.Services.Analytics;
 using UnityEngine.SceneManagement;
 
 public class GameAnalyticsManager : MonoBehaviour
@@ -26,10 +23,7 @@ public class GameAnalyticsManager : MonoBehaviour
             
             previousSceneName = currentSceneName;
             currentSceneName = currentScene.name;
-            
-            if (previousSceneName == "Island 1") SendPlayTime("firstIslandGeneralPlayTime", firstIslandGeneralPlayTime);
-            if (previousSceneName == "Island 2") SendPlayTime("secondIslandGeneralPlayTime", secondIslandGeneralPlayTime);
-            
+
             if (currentSceneName == "Main Island")
             {
                 GameObject.Find("AnalyticsBoard").GetComponentInChildren<TextMeshPro>().text = 
@@ -42,22 +36,6 @@ public class GameAnalyticsManager : MonoBehaviour
         };
     }
 
-    private async void Start()
-    {
-        try
-        {
-            await UnityServices.InitializeAsync();
-            
-            //IDK why we need this list
-            List<string> consentIdentifiers = await AnalyticsService.Instance.CheckForRequiredConsents();
-        }
-        
-        catch (ConsentCheckException e)
-        {
-            Debug.Log(e);
-        }
-    }
-
     private void Update()
     {
         if (currentSceneName == "Island 1") IncreasePlayTime(ref firstIslandGeneralPlayTime);
@@ -68,16 +46,5 @@ public class GameAnalyticsManager : MonoBehaviour
     private void IncreasePlayTime(ref float playTime)
     {
         playTime += Time.deltaTime;
-    }
-    
-    private void SendPlayTime(string eventName, float playTime)
-    {
-        Dictionary<string, object> playtimeParameters = new Dictionary<string, object>()
-        {
-            { "playTime", playTime }
-        };
-        
-        AnalyticsService.Instance.CustomData(eventName, playtimeParameters);
-        AnalyticsService.Instance.Flush();
     }
 }
