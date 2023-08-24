@@ -9,15 +9,14 @@ public class PlayerInputManager : MonoBehaviour
 {
     private PlayerInputActions pia;
     private PlayerData pd;
-    private Transform cameraTransform;
     
     public bool qteUp;
     public bool qteDown;
     public bool qteLeft;
     public bool qteRight;
-    
+
+    public Vector2 lookInput;
     public Vector2 moveInput;
-    public Vector3 lookingDirectionForward;
     public bool isRunKey;
     public bool isGrabKeyDown;
     public bool isPrimaryAbilityKeyDown;
@@ -33,7 +32,6 @@ public class PlayerInputManager : MonoBehaviour
         pia = new PlayerInputActions();
         pia.Player.Enable();
         pd = GetComponent<PlayerData>();
-        cameraTransform = Camera.main!.transform;
     }
 
     private void Update()
@@ -45,8 +43,9 @@ public class PlayerInputManager : MonoBehaviour
         qteDown = pia.Player.QTEDown.WasPressedThisFrame();
         qteLeft = pia.Player.QTELeft.WasPressedThisFrame();
         qteRight = pia.Player.QTERight.WasPressedThisFrame();
-        
-        moveInput = pia.Player.Movement.ReadValue<Vector2>();
+
+        lookInput = pia.Player.Look.ReadValue<Vector2>() * 0.2f;
+        moveInput = pia.Player.Movement.ReadValue<Vector2>() * 0.2f;
         isRunKey = pia.Player.Run.IsPressed();
         isGrabKeyDown = pia.Player.Grab.WasPressedThisFrame();
         isPrimaryAbilityKeyDown = pia.Player.PrimaryAbility.WasPressedThisFrame();
@@ -56,13 +55,5 @@ public class PlayerInputManager : MonoBehaviour
         isEasterEggKeyUp = pia.Player.EasterEgg.WasReleasedThisFrame();
         isPauseKeyDown = pia.Player.PauseMenu.WasPressedThisFrame();
         isSkipDialogueKeyDown = pia.Player.SkipDialogue.WasPressedThisFrame();
-    }
-    
-    //Methods that depend lookingDirectionForward in PlayerController.cs are working in FixedUpdate, so we can calculate..
-    //..and sync lookingDirectionForward in FixedUpdate
-    private void FixedUpdate()
-    {
-        lookingDirectionForward = cameraTransform.forward;
-        lookingDirectionForward.y = 0f;
     }
 }

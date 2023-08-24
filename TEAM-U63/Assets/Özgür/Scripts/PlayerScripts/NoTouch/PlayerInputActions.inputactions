@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "ce58b954-762b-4ea4-b09c-8a22dc4e5208",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Run",
                     "type": "Button",
                     "id": "fdbea76b-3538-4849-88a2-88d8c3a3f5f7",
@@ -127,7 +136,7 @@
                 {
                     "name": "Keyboard",
                     "id": "7c336175-d76e-4ff6-a397-0a422b28d0cf",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -182,7 +191,7 @@
                 {
                     "name": "Gamepad",
                     "id": "aa656a7c-1421-4cba-b959-bfb2ee9ac98a",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -528,6 +537,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SkipDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec33498c-8636-4d8a-a640-5aad43293ecf",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -58,19 +58,4 @@ public class SensitivityManager : MonoBehaviour
             });
         }
     }
-
-    private void Update()
-    {
-        if (currentSceneName is "MAIN_MENU" or "IntroCutscene" or "OutroCutscene") return;
-
-        coderCam.m_YAxis.m_MaxSpeed = sensValue / 10;
-        coderCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;
-
-        artistCam.m_YAxis.m_MaxSpeed = sensValue / 10;
-        artistCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;
-
-        if (robotCam == null) return;
-        robotCam.m_YAxis.m_MaxSpeed = sensValue / 10;
-        robotCam.m_XAxis.m_MaxSpeed = sensValue / 10 * 180;
-    }
 }

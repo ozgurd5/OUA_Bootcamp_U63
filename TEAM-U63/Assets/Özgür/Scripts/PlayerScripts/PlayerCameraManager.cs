@@ -8,12 +8,12 @@ using UnityEngine;
 public class PlayerCameraManager : MonoBehaviour
 {
     private PlayerData pd;
-    private CinemachineFreeLook cinemachineCamera;
+    private CinemachineVirtualCamera cinemachineCamera;
 
     private void Awake()
     {
         pd = GetComponent<PlayerData>();
-        cinemachineCamera = GetComponentInChildren<CinemachineFreeLook>();
+        cinemachineCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         
         pd.OnLocalStatusChanged += UpdateCurrentCamera;   //Needed for island 3 mechanics
     }

@@ -20,7 +20,11 @@ public class PlayerController : NetworkBehaviour
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private Rigidbody rb;
-    private CinemachineFreeLook cam;
+
+    private Transform cameraFollowTransform;
+    private Transform cameraLookAtTransform;
+    private float currentYRotation;
+    private Vector3 defaultCameraFollowLocalPosition;
 
     public float rotatingSpeed;
     private Vector3 movingDirection;
@@ -39,35 +43,45 @@ public class PlayerController : NetworkBehaviour
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
-        cam = GetComponentInChildren<CinemachineFreeLook>();
+
+        cameraFollowTransform = transform.GetChild(2);
+        cameraLookAtTransform = transform.GetChild(3);
+        defaultCameraFollowLocalPosition = cameraFollowTransform.localPosition;
+    }
+
+    public bool flag;
+    private void HandleLooking()
+    {
+        cameraFollowTransform.RotateAround(cameraLookAtTransform.position, cameraFollowTransform.right, -pim.lookInput.y);
+        currentYRotation += pim.lookInput.x;
+        
+        if (psd.isMoving)
+        {
+            Vector3 temp = cameraFollowTransform.position;
+
+            Vector3 rotationEuler = transform.localRotation.eulerAngles;
+            transform.localRotation = Quaternion.Euler(new Vector3(rotationEuler.x, currentYRotation, rotationEuler.z));
+            
+            if (!flag)
+            {
+                cameraFollowTransform.position = temp;
+                flag = true;
+            }
+        }
+
+        else
+        {
+            cameraFollowTransform.RotateAround(cameraLookAtTransform.position, Vector3.up, pim.lookInput.x);
+            flag = false;
+        }
     }
     
-    /// <summary>
-    /// <para>Calculates moving direction</para>
-    /// <para>Should work in FixedUpdate</para>
-    /// </summary>
     private void CalculateMovingDirection()
     {
-        Vector3 lookingDirectionRight = Vector3.Cross(Vector3.up, pim.lookingDirectionForward);
-        
-        movingDirection = lookingDirectionRight * pim.moveInput.x + pim.lookingDirectionForward * pim.moveInput.y;
+        movingDirection = transform.right * pim.moveInput.x + transform.forward * pim.moveInput.y;
         movingDirection.y = 0f;
     }
     
-    /// <summary>
-    /// <para>Turns the player to looking direction</para>
-    /// <para>Must work in FixedUpdate, because Update stutters, idk why</para>
-    /// </summary>
-    private void TurnLookingDirection()
-    {
-        if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
-        else if (psd.isGrabbing && psd.isIdle) transform.forward = Vector3.Slerp(transform.forward, pim.lookingDirectionForward, rotatingSpeed);
-    }
-
-    /// <summary>
-    /// <para>Switches between idle and moving via rigidbody velocity x and z</para>
-    /// <para>Must work in Update since it must work before DecideWalkingOrRunningStates</para>
-    /// </summary>
     private void DecideIdleOrMovingStates()
     {
         Vector2 velocityXZ = new Vector2(rb.velocity.x, rb.velocity.z);
@@ -76,10 +90,6 @@ public class PlayerController : NetworkBehaviour
         psd.isIdle = !psd.isMoving;
     }
     
-    /// <summary>
-    /// <para>Switches between walking and running state via input, sets moving and rotating speeds according to it</para>
-    /// <para>Must work Update since it has input check</para>
-    /// </summary>
     private void DecideWalkingOrRunningStates()
     {
         if (!psd.isMoving)
@@ -104,10 +114,6 @@ public class PlayerController : NetworkBehaviour
         }
     }
     
-    /// <summary>
-    /// <para>Makes player move</para>
-    /// <para>Must work in FixedUpdate</para>
-    /// </summary>
     private void HandleMovement()
     {
         movingDirection *= movingSpeed;
@@ -126,15 +132,16 @@ public class PlayerController : NetworkBehaviour
         //1.b Player - RobotControllingState Enter - PlayerQTEAbility.cs
         //2.a Robot - Hacked Exit to Sleeping - RobotManager.cs
         //2.b Player - RobotControllingState Exit to NormalState - PlayerController.cs
-        
+
         //2.b
         if (pim.isPrimaryAbilityKeyDown && psd.currentMainState == PlayerStateData.PlayerMainState.RobotControllingState)
         {
             psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
-            cam.enabled = true;
+            //cam.enabled = true;
         }
         
+        HandleLooking();
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
     }
@@ -145,16 +152,9 @@ public class PlayerController : NetworkBehaviour
         if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
         
         CalculateMovingDirection();
-        TurnLookingDirection();
-        
         HandleMovement();
     }
     
-    /// <summary>
-    /// <para>Invokes events that controls entering and exiting easter egg state</para>
-    /// <para>Don't and must not work in ability state</para>
-    /// <para>Must work in Update since it has input check</para>
-    /// </summary>
     private void HandleEasterEgg()
     {
         if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) return;
