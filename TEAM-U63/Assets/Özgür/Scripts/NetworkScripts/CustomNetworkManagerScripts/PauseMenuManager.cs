@@ -1,71 +1,94 @@
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
      [Header("Assign")]
-     [SerializeField] private GameObject pauseMenuCanvas;
      [SerializeField] private GameObject settings;
+     private Canvas pauseMenuCanvas;
      
-     [Header("INFO")]
-     [SerializeField] private PlayerData coder;
-     [SerializeField] private PlayerData artist;
-     [SerializeField] private PlayerInputManager pim;
-     [SerializeField] private PlayerStateData psd;
-     [SerializeField] private string currentSceneName;
-     [SerializeField] private PlayerStateData.PlayerMainState previousState;
-
+     private PlayerData coderPlayerData;
+     private PlayerData artistPlayerData;
+     private PlayerInputManager pim;
+     private PlayerStateData psd;
+     private PlayerStateData.PlayerMainState previousState;
+     
+     private bool isPlayerDataSet; //We can get it one frame after start
+     
      private void Awake()
      {
-          SceneManager.activeSceneChanged += (a, currentScene) =>
-          {
-               currentSceneName = currentScene.name;
-          };
+          pauseMenuCanvas = GetComponent<Canvas>();
+          
+          CloseCursor();
      }
 
      private void Update()
      {
-          if (currentSceneName is "MAIN_MENU" or "IntroCutscene" or "OutroCutscene") return;
-
-          coder = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
-          artist = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
-          
-          if (coder.isLocal)
+          if (!isPlayerDataSet) //We can get it one frame after start
           {
-               pim = coder.GetComponent<PlayerInputManager>();
-               psd = coder.GetComponent<PlayerStateData>();
-          }
-          else if (artist.isLocal)
-          {
-               pim = artist.GetComponent<PlayerInputManager>();
-               psd = artist.GetComponent<PlayerStateData>();
+               GetPlayerData();
+               isPlayerDataSet = pim && psd;
           }
           
           if (pim.isPauseKeyDown)
           {
-               pauseMenuCanvas.SetActive(!pauseMenuCanvas.activeSelf);
+               pauseMenuCanvas.enabled = !pauseMenuCanvas.enabled;
                
-               //TODO: BETTER SOLUTION
-               if (pauseMenuCanvas.activeSelf)
+               if (pauseMenuCanvas.enabled)
                {
+                    OpenCursor();
+                    
                     previousState = psd.currentMainState;
-                    psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
+                    psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState; //Player freezes in this state
                }
 
                else
                {
-                    Close();
+                    CloseCursor();
+                    CloseMainMenu();
                }
           }
      }
 
+     private void GetPlayerData()
+     {
+          coderPlayerData = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
+          artistPlayerData = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
+          
+          if (coderPlayerData.isLocal)
+          {
+               pim = coderPlayerData.GetComponent<PlayerInputManager>();
+               psd = coderPlayerData.GetComponent<PlayerStateData>();
+          }
+          
+          else if (artistPlayerData.isLocal)
+          {
+               pim = artistPlayerData.GetComponent<PlayerInputManager>();
+               psd = artistPlayerData.GetComponent<PlayerStateData>();
+          }
+     }
+
+     private void OpenCursor()
+     {
+          Cursor.visible = true;
+          Cursor.lockState = CursorLockMode.None;
+     }
+
+     private void CloseCursor()
+     {
+          Cursor.visible = false;
+          Cursor.lockState = CursorLockMode.Locked;
+     }
+
+     
      public void ExitGame()
      {
           Application.Quit();
      }
 
-     public void Close()
+     public void CloseMainMenu()
      {
+          pauseMenuCanvas.enabled = false;
           settings.SetActive(false);
           psd.currentMainState = previousState;
      }
