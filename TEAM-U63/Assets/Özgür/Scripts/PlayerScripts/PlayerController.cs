@@ -1,5 +1,4 @@
 using System;
-using Cinemachine;
 using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
@@ -10,11 +9,12 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : NetworkBehaviour
 {
+    public event Action OnEasterEggEnter;
+    public event Action OnEasterEggExit;
+    
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 10f;
-    [SerializeField] [Range(0,1)] private float walkingRotatingSpeed = 0.2f;
-    [SerializeField] [Range(0,1)] private float runningRotatingSpeed = 0.4f;
 
     private PlayerData pd;
     private PlayerStateData psd;
@@ -24,20 +24,15 @@ public class PlayerController : NetworkBehaviour
     private Transform cameraFollowTransform;
     private Transform cameraLookAtTransform;
     private float currentYRotation;
-    private Vector3 defaultCameraFollowLocalPosition;
+    private bool cameraFlag;
 
-    public float rotatingSpeed;
     private Vector3 movingDirection;
     private float movingSpeed;
-
-    public event Action OnEasterEggEnter;
-    public event Action OnEasterEggExit;
 
     private void Awake()
     {
         //Moving and rotating speed defaults must be walking speeds
         movingSpeed = walkingSpeed;
-        rotatingSpeed = walkingRotatingSpeed;
 
         pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
@@ -46,10 +41,8 @@ public class PlayerController : NetworkBehaviour
 
         cameraFollowTransform = transform.GetChild(2);
         cameraLookAtTransform = transform.GetChild(3);
-        defaultCameraFollowLocalPosition = cameraFollowTransform.localPosition;
     }
-
-    public bool flag;
+    
     private void HandleLooking()
     {
         cameraFollowTransform.RotateAround(cameraLookAtTransform.position, cameraFollowTransform.right, -pim.lookInput.y);
@@ -62,17 +55,17 @@ public class PlayerController : NetworkBehaviour
             Vector3 rotationEuler = transform.localRotation.eulerAngles;
             transform.localRotation = Quaternion.Euler(new Vector3(rotationEuler.x, currentYRotation, rotationEuler.z));
             
-            if (!flag)
+            if (!cameraFlag)
             {
                 cameraFollowTransform.position = temp;
-                flag = true;
+                cameraFlag = true;
             }
         }
 
         else
         {
             cameraFollowTransform.RotateAround(cameraLookAtTransform.position, Vector3.up, pim.lookInput.x);
-            flag = false;
+            cameraFlag = false;
         }
     }
     
@@ -84,9 +77,7 @@ public class PlayerController : NetworkBehaviour
     
     private void DecideIdleOrMovingStates()
     {
-        Vector2 velocityXZ = new Vector2(rb.velocity.x, rb.velocity.z);
-        
-        psd.isMoving = math.abs(velocityXZ.magnitude) > 0.01f;  //It's never 0, idk why
+        psd.isMoving = pim.moveInput != Vector2.zero;
         psd.isIdle = !psd.isMoving;
     }
     
@@ -102,16 +93,8 @@ public class PlayerController : NetworkBehaviour
         psd.isRunning = pim.isRunKey;
         psd.isWalking = !psd.isRunning;
 
-        if (psd.isRunning)
-        {
-            movingSpeed = runningSpeed;
-            rotatingSpeed = runningRotatingSpeed;
-        }
-        else
-        {
-            movingSpeed = walkingSpeed;
-            rotatingSpeed = walkingRotatingSpeed;
-        }
+        if (psd.isRunning) movingSpeed = runningSpeed;
+        else movingSpeed = walkingSpeed;
     }
     
     private void HandleMovement()
