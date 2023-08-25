@@ -15,64 +15,52 @@ public class PlayerController : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 10f;
+    [SerializeField] [Range(0,1)] private float walkingRotatingSpeed = 0.2f;
+    [SerializeField] [Range(0,1)] private float runningRotatingSpeed = 0.4f;
 
     private PlayerData pd;
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private Rigidbody rb;
 
-    private Transform cameraFollowTransform;
+    private Transform cameraTransform;
     private Transform cameraLookAtTransform;
-    private float currentYRotation;
-    private bool cameraFlag;
 
     private Vector3 movingDirection;
     private float movingSpeed;
+    [Header("Info - No Touch")] public float rotatingSpeed;
 
     private void Awake()
     {
         //Moving and rotating speed defaults must be walking speeds
         movingSpeed = walkingSpeed;
+        rotatingSpeed = walkingRotatingSpeed;
 
         pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
 
-        cameraFollowTransform = transform.GetChild(2);
+        cameraTransform = GameObject.Find("ArtistCamera").transform;
         cameraLookAtTransform = transform.GetChild(3);
     }
     
     private void HandleLooking()
     {
-        cameraFollowTransform.RotateAround(cameraLookAtTransform.position, cameraFollowTransform.right, -pim.lookInput.y);
-        currentYRotation += pim.lookInput.x;
-        
-        if (psd.isMoving)
-        {
-            Vector3 temp = cameraFollowTransform.position;
-
-            Vector3 rotationEuler = transform.localRotation.eulerAngles;
-            transform.localRotation = Quaternion.Euler(new Vector3(rotationEuler.x, currentYRotation, rotationEuler.z));
-            
-            if (!cameraFlag)
-            {
-                cameraFollowTransform.position = temp;
-                cameraFlag = true;
-            }
-        }
-
-        else
-        {
-            cameraFollowTransform.RotateAround(cameraLookAtTransform.position, Vector3.up, pim.lookInput.x);
-            cameraFlag = false;
-        }
+        cameraTransform.RotateAround(cameraLookAtTransform.position, cameraTransform.right, -pim.lookInput.y);
+        cameraTransform.RotateAround(cameraLookAtTransform.position, Vector3.up, pim.lookInput.x);
     }
     
     private void CalculateMovingDirection()
     {
-        movingDirection = transform.right * pim.moveInput.x + transform.forward * pim.moveInput.y;
+        movingDirection = cameraTransform.right * pim.moveInput.x + cameraTransform.forward * pim.moveInput.y;
         movingDirection.y = 0f;
+    }
+
+    private void TurnTowardsMovingDirection()
+    {
+        if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
+        else if (psd.isGrabbing && psd.isIdle) transform.forward = Vector3.Slerp(transform.forward, cameraTransform.forward, rotatingSpeed);
     }
     
     private void DecideIdleOrMovingStates()
@@ -93,8 +81,16 @@ public class PlayerController : NetworkBehaviour
         psd.isRunning = pim.isRunKey;
         psd.isWalking = !psd.isRunning;
 
-        if (psd.isRunning) movingSpeed = runningSpeed;
-        else movingSpeed = walkingSpeed;
+        if (psd.isRunning)
+        {
+            movingSpeed = runningSpeed;
+            rotatingSpeed = runningRotatingSpeed;
+        }
+        else
+        {
+            movingSpeed = walkingSpeed;
+            rotatingSpeed = walkingRotatingSpeed;
+        }
     }
     
     private void HandleMovement()
@@ -102,11 +98,11 @@ public class PlayerController : NetworkBehaviour
         movingDirection *= movingSpeed;
         rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
     }
-
+    
     private void Update()
     {
         if (!pd.isLocal) return;
-        
+
         //TODO: easter egg
         //HandleEasterEgg();
         
@@ -135,9 +131,10 @@ public class PlayerController : NetworkBehaviour
         if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
         
         CalculateMovingDirection();
+        TurnTowardsMovingDirection();
         HandleMovement();
     }
-    
+
     private void HandleEasterEgg()
     {
         if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) return;

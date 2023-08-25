@@ -59,6 +59,12 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
         //transform.position in this line must be states in the client side and it is
         if (!IsHost) SyncHostPositionWithInterpolationServerRpc(transform.position);
 
+        //Player's rotating speed is changes according to walking or running, other objects are constant
+        if (CompareTag("Player"))
+            rotatingSpeed = pc.rotatingSpeed;
+        else
+            rotatingSpeed = defaultRotationSpeed;
+        
         //transform.forward in this line is the position in the host side because client can't call ClientRpc
         SyncClientRotationWithInterpolationClientRpc(transform.forward, rotatingSpeed);
             

@@ -45,7 +45,7 @@ public class PlayerInputManager : MonoBehaviour
         qteRight = pia.Player.QTERight.WasPressedThisFrame();
 
         lookInput = pia.Player.Look.ReadValue<Vector2>() * PlayerPrefs.GetFloat("Sensitivity");
-        moveInput = pia.Player.Movement.ReadValue<Vector2>() * PlayerPrefs.GetFloat("Sensitivity");
+        moveInput = pia.Player.Movement.ReadValue<Vector2>();
         isRunKey = pia.Player.Run.IsPressed();
         isGrabKeyDown = pia.Player.Grab.WasPressedThisFrame();
         isPrimaryAbilityKeyDown = pia.Player.PrimaryAbility.WasPressedThisFrame();
