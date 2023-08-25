@@ -556,7 +556,7 @@ Transform:
   - {fileID: 744021700190715061}
   - {fileID: 5033737620989920126}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3371696646887994366
 Rigidbody:
@@ -620,6 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a85d586cbd55f44ea1e77f7de2bffa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 0}
 --- !u!114 &5630695906611296981
 MonoBehaviour:
   m_ObjectHideFlags: 0
