@@ -2,56 +2,65 @@ using UnityEngine;
 
 public class PauseMenuManager : MonoBehaviour
 {
-     [Header("Assign")]
-     [SerializeField] private GameObject settings;
+     private GameObject settings;
      private Canvas pauseMenuCanvas;
      
      private PlayerData coderPlayerData;
      private PlayerData artistPlayerData;
+     private PlayerInputManager coderPim;
+     private PlayerInputManager artistPim;
+     private PlayerStateData coderPsd;
+     private PlayerStateData artistPsd;
+     
      private PlayerInputManager pim;
      private PlayerStateData psd;
      private PlayerStateData.PlayerMainState previousState;
-     
-     private bool isPlayerDataSet; //We can get it one frame after start
-     
+
      private void Awake()
      {
+          settings = transform.Find("SETTINGS").gameObject;
           pauseMenuCanvas = GetComponent<Canvas>();
           
           Cursor.visible = false;
           Cursor.lockState = CursorLockMode.Locked;
+
+          GetPlayerComponents();
+          coderPlayerData.OnLocalStatusChanged += UpdatePimAndPsd;
+     }
+
+     private void GetPlayerComponents()
+     {
+          coderPlayerData = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
+          artistPlayerData = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
+
+          coderPim = coderPlayerData.GetComponent<PlayerInputManager>();
+          coderPsd = coderPlayerData.GetComponent<PlayerStateData>();
+
+          artistPim = artistPlayerData.GetComponent<PlayerInputManager>();
+          artistPsd = artistPlayerData.GetComponent<PlayerStateData>();
+     }
+
+     private void UpdatePimAndPsd()
+     {
+          if (coderPlayerData.isLocal)
+          {
+               pim = coderPim;
+               psd = coderPsd;
+          }
+          
+          else
+          {
+               pim = artistPim;
+               psd = artistPsd;
+          }
      }
 
      private void Update()
      {
-          if (!isPlayerDataSet) //We can get it one frame after start
-          {
-               GetPlayerData();
-               isPlayerDataSet = pim && psd;
-          }
-          
           if (pim.isPauseKeyDown)
           {
                if (!pauseMenuCanvas.enabled) OpenMainMenu();
                else CloseMainMenu();
-          }
-     }
-
-     private void GetPlayerData()
-     {
-          coderPlayerData = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
-          artistPlayerData = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
-          
-          if (coderPlayerData.isLocal)
-          {
-               pim = coderPlayerData.GetComponent<PlayerInputManager>();
-               psd = coderPlayerData.GetComponent<PlayerStateData>();
-          }
-          
-          else if (artistPlayerData.isLocal)
-          {
-               pim = artistPlayerData.GetComponent<PlayerInputManager>();
-               psd = artistPlayerData.GetComponent<PlayerStateData>();
           }
      }
 

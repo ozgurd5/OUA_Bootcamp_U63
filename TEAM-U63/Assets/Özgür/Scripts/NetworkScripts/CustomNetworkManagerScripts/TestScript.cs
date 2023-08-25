@@ -1,6 +1,5 @@
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TestScript : MonoBehaviour
 {
@@ -13,14 +12,11 @@ public class TestScript : MonoBehaviour
     private void Start()
     {
         npd = NetworkPlayerData.Singleton;
-        SceneManager.activeSceneChanged += (a, currentScene) =>
-        {
-            if (currentScene.name == "MAIN_MENU") return;
-            coder = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
-            artist = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
-            coderPsd = coder.GetComponent<PlayerStateData>();
-            artistPsd = artist.GetComponent<PlayerStateData>();
-        };
+       
+        coder = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
+        artist = GameObject.Find("ArtistPlayer").GetComponent<PlayerData>();
+        coderPsd = coder.GetComponent<PlayerStateData>();
+        artistPsd = artist.GetComponent<PlayerStateData>();
 
         NetworkManager.Singleton.StartHost();
     }

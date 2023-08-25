@@ -11,6 +11,7 @@ public class NetworkPlayerData : NetworkBehaviour
 {
     public static NetworkPlayerData Singleton;
 
+    //USE IT ONLY FOR MAIN MENU - USE OnLocalStatusChanged IN PlayerData.cs INSTEAD
     public event Action OnIsHostCoderChanged;
 
     /// <summary>
