@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PauseMenuManager : MonoBehaviour
@@ -89,5 +90,10 @@ public class PauseMenuManager : MonoBehaviour
      public void ExitGame()
      {
           Application.Quit();
+     }
+
+     private void OnDestroy()
+     {
+          coderPlayerData.OnLocalStatusChanged -= UpdatePimAndPsd;
      }
 }

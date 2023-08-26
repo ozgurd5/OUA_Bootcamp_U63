@@ -36,27 +36,29 @@ public class RobotManager : NetworkBehaviour
     private RobotController rc;
     private MeshRenderer mr;
     private Rigidbody rb;
-    public CinemachineFreeLook cam;
+    public CinemachineVirtualCamera cam;
     
     private int robotMaterialIndex;  //PlayerArtistPaintAbility.cs
 
     private void Awake()
     {
-        currentState = RobotState.Routing;
-        
         coderPlayerPd = GameObject.Find("CoderPlayer").GetComponent<PlayerData>();
         coderPlayerPim = coderPlayerPd.GetComponent<PlayerInputManager>();
         
         rc = GetComponent<RobotController>();
         mr = transform.Find("BODY").GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
-        cam = GetComponentInChildren<CinemachineFreeLook>();
+        cam = GameObject.Find("RobotCamera").GetComponent<CinemachineVirtualCamera>();
 
         //Robot must be local where the coder player is local
         coderPlayerPd.OnLocalStatusChanged += UpdateRobotLocalStatus;   //Needed for island 3 mechanics
         UpdateRobotLocalStatus();
 
         OnRobotStateChanged += HandleHackedStateTransition;
+        
+        //Default Values
+        if (!currentControlledRobot) currentControlledRobot = this;
+        currentState = RobotState.Routing;
     }
 
     private void Update()
@@ -146,7 +148,7 @@ public class RobotManager : NetworkBehaviour
         if (currentState == RobotState.Hacked)
         {
             //Robot can only move in it's own side when hacked
-            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
             cam.enabled = true;
             
             currentControlledRobot = this;

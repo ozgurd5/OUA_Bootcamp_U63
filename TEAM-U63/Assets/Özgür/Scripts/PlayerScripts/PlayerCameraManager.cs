@@ -7,10 +7,11 @@ using UnityEngine;
 /// </summary>
 public class PlayerCameraManager : MonoBehaviour
 {
-    [Header("Info - No Touch")] public Transform cameraTransform;
+    [Header("Info - No Touch")]
+    public Transform cameraTransform;
+    public CinemachineVirtualCamera cam;
     
     private PlayerData pd;
-    private CinemachineVirtualCamera cinemachineCamera;
 
     private void Awake()
     {
@@ -19,13 +20,13 @@ public class PlayerCameraManager : MonoBehaviour
         if (name == "CoderPlayer") cameraTransform = GameObject.Find("CoderCamera").transform;
         else cameraTransform = GameObject.Find("ArtistCamera").transform;
         
-        cinemachineCamera = cameraTransform.GetComponent<CinemachineVirtualCamera>();
+        cam = cameraTransform.GetComponent<CinemachineVirtualCamera>();
         
         pd.OnLocalStatusChanged += UpdateCurrentCamera;   //Needed for island 3 mechanics
     }
 
     private void UpdateCurrentCamera()
     {
-        cinemachineCamera.enabled = pd.isLocal;
+        cam.enabled = pd.isLocal;
     }
 }

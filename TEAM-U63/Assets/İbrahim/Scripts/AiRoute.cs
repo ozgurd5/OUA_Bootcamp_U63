@@ -70,8 +70,11 @@ public class AiRoute : MonoBehaviour
         }
     }
 
+    
     private void OnDrawGizmos()
     {
+        if (!enabled) return;
+        
         Vector3 startPosition = routeHolder.GetChild(0).position;
         Vector3 previousPosition = startPosition;
 

@@ -77,7 +77,7 @@ public class RobotLaserManager : MonoBehaviour
             lr.SetPosition(1, laserSourceHit.point);
             
             //If we hit robot
-            if (laserSourceHit.collider.CompareTag("robot") && isGettingLaser)
+            if (laserSourceHit.collider.CompareTag("Robot") && isGettingLaser)
             {
                 connectedRobotRlm = laserSourceHit.collider.gameObject.GetComponent<RobotLaserManager>();
                 

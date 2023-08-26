@@ -1,5 +1,4 @@
 using System;
-using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -60,9 +59,10 @@ public class PlayerController : NetworkBehaviour
         {
             psd.currentMainState = PlayerStateData.PlayerMainState.NormalState;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
-            //cam.enabled = true; //TODO: fix
+            pcm.cam.enabled = true;
         }
-        
+
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
     }

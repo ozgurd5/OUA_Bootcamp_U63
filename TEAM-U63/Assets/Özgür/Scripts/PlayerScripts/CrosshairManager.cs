@@ -99,6 +99,6 @@ public class CrosshairManager : MonoBehaviour
             return;
         }
         
-        isLookingAtRobot = crosshairHit.collider.CompareTag("robot");
+        isLookingAtRobot = crosshairHit.collider.CompareTag("Robot");
     }
 }

@@ -38,7 +38,7 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
             isObjectLocal = cm.isLocal;
         }
         
-        else if (CompareTag("robot"))
+        else if (CompareTag("Robot"))
         {
             rm = GetComponent<RobotManager>();
             rm.OnLocalStatusChanged += () => { isObjectLocal = rm.isLocal; };

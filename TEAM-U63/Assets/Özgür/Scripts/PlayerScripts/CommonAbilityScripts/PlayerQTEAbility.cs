@@ -34,8 +34,7 @@ public class PlayerQTEAbility : MonoBehaviour
     private PlayerData pd;
     private PlayerStateData psd;
     private PlayerInputManager pim;
-
-    private CinemachineFreeLook cam;
+    private PlayerCameraManager pcm;
     private Rigidbody rb;
     
     private float currentTimer;
@@ -57,7 +56,7 @@ public class PlayerQTEAbility : MonoBehaviour
         psd = GetComponent<PlayerStateData>();
         pim = GetComponent<PlayerInputManager>();
         //cm = GetComponentInChildren<CrosshairManager>();
-        cam = GetComponentInChildren<CinemachineFreeLook>();
+        pcm = GetComponent<PlayerCameraManager>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -132,7 +131,7 @@ public class PlayerQTEAbility : MonoBehaviour
                 //1.b
                 psd.currentMainState = PlayerStateData.PlayerMainState.RobotControllingState;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
-                cam.enabled = false;
+                pcm.cam.enabled = false;
             }
             
             //Only artist returns to normal state after success

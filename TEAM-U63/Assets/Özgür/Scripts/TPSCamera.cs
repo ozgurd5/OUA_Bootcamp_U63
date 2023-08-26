@@ -14,15 +14,13 @@ public class TPSCamera : MonoBehaviour
     
     private void Start()
     {
-        //TODO: that wont work on robots, fix it
         FindComponents();
         
         //Default values
         transform.position = followTargetTransform.position + offset;
         followTargetPreviousPosition = followTargetTransform.position;
     }
-
-    //TODO: that wont work on robots, fix it
+    
     private void FindComponents()
     {
         if (name == "CoderCamera")
@@ -31,13 +29,27 @@ public class TPSCamera : MonoBehaviour
             lookAtTargetTransform = followTargetTransform.Find("CoderCameraLookAt");
         }
 
-        else
+        else if (name == "ArtistCamera")
         {
             followTargetTransform = GameObject.Find("ArtistPlayer").transform;
             lookAtTargetTransform = followTargetTransform.Find("ArtistCameraLookAt");
         }
         
+        else if (name == "RobotCamera")
+        {
+            UpdateRobot();
+            RobotManager.OnCurrentControlledRobotChanged += UpdateRobot;
+        }
+        
+        else Debug.Log("NAME THE CAMERA CORRECTLY: CoderCamera - ArtistCamera - RobotCamera");
+        
         pim = followTargetTransform.GetComponent<PlayerInputManager>();
+    }
+
+    private void UpdateRobot()
+    {
+        followTargetTransform = RobotManager.currentControlledRobot.transform;
+        lookAtTargetTransform = followTargetTransform.Find("RobotCameraLookAt");
     }
 
     private void Update()
@@ -54,5 +66,10 @@ public class TPSCamera : MonoBehaviour
         transform.LookAt(lookAtTargetTransform);
         
         followTargetPreviousPosition = followTargetTransform.position;
+    }
+
+    private void OnDestroy()
+    {
+        if (name == "RobotCamera") RobotManager.OnCurrentControlledRobotChanged -= UpdateRobot;
     }
 }

@@ -574,6 +574,226 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Robot"",
+            ""id"": ""39ea7f7c-0223-42d3-bef1-f1a3d7353f6a"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""4e04fe6f-4640-44c2-9a37-1464de068271"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""bd19def6-f230-439f-9277-6ebc5a48b7b8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Descend"",
+                    ""type"": ""Value"",
+                    ""id"": ""986357ca-cb2d-486a-9abe-53e99e492e77"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Ascend"",
+                    ""type"": ""Value"",
+                    ""id"": ""3355536c-e502-4542-b89a-9a6403831d5c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""59077cd2-7378-4ba7-8562-a10d8232f8d1"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""0d4c0a41-846e-42f3-a4d7-a78a74c82209"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""45a0fd40-2324-4c7a-a7ee-a4b235e579c7"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""54cc9812-a80d-483f-80e2-2d3c862f70d6"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""015de348-0174-4853-b6be-54c5fc34ade7"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""GamepadLeftStick"",
+                    ""id"": ""af4e359d-7eae-44fe-bfc1-9afce01b19d1"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""abe8bae5-4912-4975-b629-32b20bcbd670"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f6d1e9e0-df2c-4d12-8799-8750af4105d6"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""fbb1ab93-65d9-4398-8ac4-f587fd0ab947"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""62343dab-2bee-48de-bd5c-b830eb2afb04"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82a522a3-4e8b-4697-9932-9ce0842a657b"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Descend"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02a4f608-1326-4ba7-ad47-f81cef7e516b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Descend"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d489a158-91d9-4ec3-a01d-b3def4daab84"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ascend"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa839274-cf8c-4784-88bb-f0bd18ae7c80"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ascend"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e79c3f1d-8c73-4ef1-860d-6ddb79198495"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f3374fa-87d2-462e-9bde-18b806169947"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -594,6 +814,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_QTELeft = m_Player.FindAction("QTELeft", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_SkipDialogue = m_Player.FindAction("SkipDialogue", throwIfNotFound: true);
+        // Robot
+        m_Robot = asset.FindActionMap("Robot", throwIfNotFound: true);
+        m_Robot_Movement = m_Robot.FindAction("Movement", throwIfNotFound: true);
+        m_Robot_Look = m_Robot.FindAction("Look", throwIfNotFound: true);
+        m_Robot_Descend = m_Robot.FindAction("Descend", throwIfNotFound: true);
+        m_Robot_Ascend = m_Robot.FindAction("Ascend", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -801,6 +1027,76 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Robot
+    private readonly InputActionMap m_Robot;
+    private List<IRobotActions> m_RobotActionsCallbackInterfaces = new List<IRobotActions>();
+    private readonly InputAction m_Robot_Movement;
+    private readonly InputAction m_Robot_Look;
+    private readonly InputAction m_Robot_Descend;
+    private readonly InputAction m_Robot_Ascend;
+    public struct RobotActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public RobotActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Robot_Movement;
+        public InputAction @Look => m_Wrapper.m_Robot_Look;
+        public InputAction @Descend => m_Wrapper.m_Robot_Descend;
+        public InputAction @Ascend => m_Wrapper.m_Robot_Ascend;
+        public InputActionMap Get() { return m_Wrapper.m_Robot; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RobotActions set) { return set.Get(); }
+        public void AddCallbacks(IRobotActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RobotActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RobotActionsCallbackInterfaces.Add(instance);
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @Descend.started += instance.OnDescend;
+            @Descend.performed += instance.OnDescend;
+            @Descend.canceled += instance.OnDescend;
+            @Ascend.started += instance.OnAscend;
+            @Ascend.performed += instance.OnAscend;
+            @Ascend.canceled += instance.OnAscend;
+        }
+
+        private void UnregisterCallbacks(IRobotActions instance)
+        {
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @Descend.started -= instance.OnDescend;
+            @Descend.performed -= instance.OnDescend;
+            @Descend.canceled -= instance.OnDescend;
+            @Ascend.started -= instance.OnAscend;
+            @Ascend.performed -= instance.OnAscend;
+            @Ascend.canceled -= instance.OnAscend;
+        }
+
+        public void RemoveCallbacks(IRobotActions instance)
+        {
+            if (m_Wrapper.m_RobotActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRobotActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RobotActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RobotActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RobotActions @Robot => new RobotActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -817,5 +1113,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnQTELeft(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnSkipDialogue(InputAction.CallbackContext context);
+    }
+    public interface IRobotActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnDescend(InputAction.CallbackContext context);
+        void OnAscend(InputAction.CallbackContext context);
     }
 }
