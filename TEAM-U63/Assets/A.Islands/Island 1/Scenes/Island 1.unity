@@ -1497,19 +1497,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1382378830991039662, guid: 6e58b24060d5e35479878405a7f0ad32, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9233779
+      value: 0.79181737
       objectReference: {fileID: 0}
     - target: {fileID: 1382378830991039662, guid: 6e58b24060d5e35479878405a7f0ad32, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0042472687
+      value: -0.0020946336
       objectReference: {fileID: 0}
     - target: {fileID: 1382378830991039662, guid: 6e58b24060d5e35479878405a7f0ad32, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.3838648
+      value: 0.6107522
       objectReference: {fileID: 0}
     - target: {fileID: 1382378830991039662, guid: 6e58b24060d5e35479878405a7f0ad32, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0017656661
+      value: 0.0016156528
       objectReference: {fileID: 0}
     - target: {fileID: 1382378830991039662, guid: 6e58b24060d5e35479878405a7f0ad32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1527,6 +1527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArtistCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 2562406060805356174, guid: 6e58b24060d5e35479878405a7f0ad32, type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 411670236}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30316,6 +30320,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408889564}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &411670236 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 34810015599537381, guid: 03aacddfd81af5649b2f283a21492f59, type: 3}
+  m_PrefabInstance: {fileID: 1357680710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &411913062
 GameObject:
   m_ObjectHideFlags: 0
