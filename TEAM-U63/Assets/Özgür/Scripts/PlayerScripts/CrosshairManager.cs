@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,8 @@ using UnityEngine.UI;
 public class CrosshairManager : MonoBehaviour
 {
     [Header("Assign")]
-    [SerializeField] private float cubeRange = 7f;
-    [SerializeField] private float robotRange = 25f;
+    [SerializeField] private float cubeRange = 10f;
+    [SerializeField] private float robotRange = 30f;
     [SerializeField] [Range(0, 1)] private float opacity = 0.3f;
 
     [Header("Info - No Touch")]
@@ -37,10 +38,7 @@ public class CrosshairManager : MonoBehaviour
         pd.OnLocalStatusChanged += ToggleCanvas;
         ToggleCanvas();
     }
-
-    /// <summary>
-    /// <para>Toggles crosshair on or of according to local status</para>
-    /// </summary>
+    
     private void ToggleCanvas()
     {
         crosshairCanvas.gameObject.SetActive(pd.isLocal);
@@ -48,9 +46,12 @@ public class CrosshairManager : MonoBehaviour
 
     private void Update()
     {
-        //TODO: fix this and make it one raycast
+        
+        #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.H)) Debug.Log(crosshairHit.collider.name);
+        #endif
+        
         //The reason why we have two methods is their ranges are different
-
         CastRayForCubes();
         CastRayForRobots();
 
@@ -66,10 +67,6 @@ public class CrosshairManager : MonoBehaviour
         crosshairImage.color = temporaryColor;
     }
     
-    /// <summary>
-    /// <para>Casts ray for cubes</para>
-    /// </summary>
-    /// <returns>True if a ray hits a cube</returns>
     private void CastRayForCubes()
     {
         crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);
@@ -85,10 +82,6 @@ public class CrosshairManager : MonoBehaviour
                           crosshairHit.collider.CompareTag("BluePuzzle");
     }
     
-    /// <summary>
-    /// <para>Casts ray for robots</para>
-    /// </summary>
-    /// <returns>True if a ray hits a robot</returns>
     private void CastRayForRobots()
     {
         crosshairRay = cam.ScreenPointToRay(crosshairImage.rectTransform.position);

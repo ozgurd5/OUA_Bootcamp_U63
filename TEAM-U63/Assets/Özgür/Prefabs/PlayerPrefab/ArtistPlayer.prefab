@@ -209,7 +209,7 @@ Transform:
   - {fileID: 34810015599537381}
   - {fileID: 1138921840477374215}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2508607668870857403
 Rigidbody:
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!114 &3947129095402758445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +315,8 @@ MonoBehaviour:
   isMapKeyDown: 0
   isPauseKeyDown: 0
   isSkipDialogueKeyDown: 0
+  isAscendKey: 0
+  isDescendKey: 0
 --- !u!114 &7646102185792994304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,8 +1748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445d5a32af5e77a4e96cdf63d33b636d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeRange: 7
-  robotRange: 25
+  cubeRange: 10
+  robotRange: 30
   opacity: 0.3
   isLookingAtCube: 0
   isLookingAtRobot: 0

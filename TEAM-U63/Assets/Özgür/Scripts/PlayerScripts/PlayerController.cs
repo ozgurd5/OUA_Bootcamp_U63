@@ -25,8 +25,8 @@ public class PlayerController : NetworkBehaviour
     private PlayerCameraManager pcm;
     private Rigidbody rb;
 
-    private Vector3 movingDirection;
-    private float movingSpeed;
+    public Vector3 movingDirection;
+    public float movingSpeed;
 
     private void Awake()
     {
@@ -86,7 +86,15 @@ public class PlayerController : NetworkBehaviour
     private void TurnTowardsMovingDirection()
     {
         if (psd.isMoving) transform.forward = Vector3.Slerp(transform.forward, movingDirection, rotatingSpeed);
-        else if (psd.isGrabbing && psd.isIdle) transform.forward = Vector3.Slerp(transform.forward, pcm.cameraTransform.forward, rotatingSpeed);
+        
+        else if (psd.isGrabbing && psd.isIdle)
+        {
+            //To prevent player rotation in x axis
+            Vector3 target = pcm.cameraTransform.forward;
+            target.y = 0f;
+            
+            transform.forward = Vector3.Slerp(transform.forward,target , rotatingSpeed);
+        }
     }
     
     private void DecideIdleOrMovingStates()
@@ -121,7 +129,13 @@ public class PlayerController : NetworkBehaviour
     
     private void HandleMovement()
     {
-        movingDirection *= movingSpeed;
+        //We have to make the moving directions magnitude equal to moving speed
+        if (movingDirection.magnitude != 0f)
+        {
+            float multiplier = movingSpeed / movingDirection.magnitude;
+            movingDirection *= multiplier;
+        }
+
         rb.velocity = new Vector3(movingDirection.x, rb.velocity.y, movingDirection.z);
     }
 

@@ -18,7 +18,7 @@ public class CubeManager : NetworkBehaviour
     private MeshRenderer mr;
     private Rigidbody rb;
     
-    private int cubeMaterialAndTagIndex;    //PlayerArtistPaintAbility.cs
+    private int cubeMaterialAndTagIndex; //PlayerArtistPaintAbility.cs
     
     public bool isGrabbed { get; private set; } //PlayerGrabbing.cs
     public bool isLocal { get; private set; }   //This script //PlayerGrabbing.cs
