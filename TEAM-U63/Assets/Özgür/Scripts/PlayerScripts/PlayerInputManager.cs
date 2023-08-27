@@ -52,7 +52,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void Update()
     {
-        if (CompareTag("Robot") && rm.isLocal)
+        if (CompareTag("Robot") && rm.isLocal && rm.currentState == RobotManager.RobotState.Hacked)
         {
             lookInput = pia.Robot.Look.ReadValue<Vector2>() * PlayerPrefs.GetFloat("Sensitivity");
             moveInput = pia.Robot.Movement.ReadValue<Vector2>();

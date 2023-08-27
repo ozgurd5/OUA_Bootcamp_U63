@@ -36,7 +36,7 @@ public class RobotManager : NetworkBehaviour
     private RobotController rc;
     private MeshRenderer mr;
     private Rigidbody rb;
-    public CinemachineVirtualCamera cam;
+    private CinemachineVirtualCamera cam;
     
     private int robotMaterialIndex;  //PlayerArtistPaintAbility.cs
 

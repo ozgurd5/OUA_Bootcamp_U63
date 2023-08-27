@@ -41,7 +41,7 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (IsRobot && col.CompareTag("robot"))
+        if (IsRobot && col.CompareTag("Robot"))
         {
             robotNumber++;
             isCompleted = robotNumber >= 1;
@@ -62,7 +62,7 @@ public class SecondIslandSecondLevelPuzzle : MonoBehaviour
     
     private void OnTriggerExit(Collider col)
     {
-        if (IsRobot && col.CompareTag("robot"))
+        if (IsRobot && col.CompareTag("Robot"))
         {
             robotNumber--;
             isCompleted = robotNumber >= 1;

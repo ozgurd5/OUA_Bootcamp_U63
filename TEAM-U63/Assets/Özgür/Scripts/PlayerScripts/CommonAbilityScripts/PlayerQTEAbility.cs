@@ -17,8 +17,10 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private Sprite downKeyImage;
     [SerializeField] private Sprite rightKeyImage;
     [SerializeField] private Sprite leftKeyImage;
-    
+
     [Header("Assign")]
+    [SerializeField] private int artistQTELimit = 15;
+    [SerializeField] private int coderQTELimit = 6;
     [SerializeField] private float keyTimerLimit = 2f;
     [SerializeField] private Image keyImage;
     [SerializeField] private GameObject abilityCanvas;
@@ -28,6 +30,9 @@ public class PlayerQTEAbility : MonoBehaviour
     [SerializeField] private AudioClip artistFailClip;
     [SerializeField] private AudioClip coderCorrectClip;
     [SerializeField] private AudioClip coderFailClip;
+    
+    [Header("Info - No Touch")]
+    [SerializeField] private int currentKeyPress;
 
     private bool IsHackQTE;
 
@@ -41,15 +46,21 @@ public class PlayerQTEAbility : MonoBehaviour
     private int randomNumber;
     private int previousRandomNumber;
 
-    [Header("Info - No Touch")]
-    [SerializeField] private int currentKeyPress;
-    private int hackDoneLimit = 6;
-    private int lullabyDoneLimit = 15;
-
+    private int hackDoneLimit;
+    private int lullabyDoneLimit;
+    
     private RobotManager rm;
 
     private void Awake()
     {
+        #if UNITY_EDITOR
+            hackDoneLimit = 1;
+            lullabyDoneLimit = 1;
+        #else
+            hackDoneLimit = coderQTELimit;
+            lullabyDoneLimit = artistQTELimit;
+        #endif
+
         IsHackQTE = name == "CoderPlayer";
 
         pd = GetComponent<PlayerData>();

@@ -40,11 +40,6 @@ public class PlayerGrabbing : NetworkBehaviour
         grabPointTransform = Camera.main!.transform.Find("GrabPoint"); 
     }
     
-    
-    /// <summary>
-    /// <para>Picks the object up</para>
-    /// <para>Must work in Update</para>
-    /// </summary>
     private void PickUpObject()
     {
         aus.Play();
@@ -52,6 +47,9 @@ public class PlayerGrabbing : NetworkBehaviour
         grabbedCube = cm.crosshairHit.collider.gameObject;
         grabbedCubeRb = grabbedCube.GetComponent<Rigidbody>();
         grabbedCubeManager = grabbedCube.GetComponent<CubeManager>();
+        
+        //Prevent other player's pick up when the cube is already picked
+        if (grabbedCubeManager.isGrabbed) return;
         
         grabbedCubeManager.UpdateIsGrabbed(true);
         grabbedCubeManager.ChangeCubeLocalStatus(true);
@@ -64,11 +62,7 @@ public class PlayerGrabbing : NetworkBehaviour
         grabbedCubeManager.UpdateParentUsingNetworkParentListID(grabPointNetworkParentListID);
         psd.isGrabbing = true;
     }
-     
-    /// <summary>
-    /// <para>Drops the object and basically do opposite of what PickUpObject method does</para>
-    /// <para>Must work in Update</para>
-    /// </summary>
+    
     private void DropObject()
     {
         aus.Play();
@@ -86,11 +80,8 @@ public class PlayerGrabbing : NetworkBehaviour
         grabbedCubeRb = null;
         grabbedCube = null;
     }
-    
-    /// <summary>
-    /// <para>Moves the object with the crosshair while holding the cube</para>
-    /// <para>Must work in FixedUpdate</para>
-    /// </summary>
+
+    //Must work in FixedUpdate
     private void MoveObject()
     {
         if (!psd.isGrabbing) return;
@@ -112,10 +103,11 @@ public class PlayerGrabbing : NetworkBehaviour
 
     private void Update()
     {
-        if (!pim.isGrabKeyDown) return;
-
-        if (psd.isGrabbing) DropObject();
-        else if (cm.isLookingAtCube) PickUpObject();
+        if (pim.isGrabKeyDown)
+        {
+            if (psd.isGrabbing) DropObject();
+            else if (cm.isLookingAtCube) PickUpObject();
+        }
     }
 
     private void FixedUpdate()

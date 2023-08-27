@@ -80,7 +80,7 @@ public class RobotLaserManager : MonoBehaviour
             if (laserSourceHit.collider.CompareTag("Robot") && isGettingLaser)
             {
                 connectedRobotRlm = laserSourceHit.collider.gameObject.GetComponent<RobotLaserManager>();
-                
+
                 //Red (0) robot can only activate green (1) robot, green (1) robot can only activate blue (2) robot..
                 //..and blue (2) robot can only activate red (0) robot
                 if (robotMaterialIndex + 1 == connectedRobotRlm.robotMaterialIndex) //R -> G -> B

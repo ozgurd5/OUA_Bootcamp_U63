@@ -6,6 +6,7 @@ public class RobotController : MonoBehaviour
     [SerializeField] private float verticalSpeed = 4f;
     [SerializeField] private float rotatingSpeed = 0.4f;
 
+    private RobotManager rm;
     private PlayerInputManager pim;
     private Rigidbody rb;
     private Transform cameraTransform;
@@ -15,6 +16,7 @@ public class RobotController : MonoBehaviour
 
     private void Awake()
     {
+        rm = GetComponent<RobotManager>();
         pim = GetComponent<PlayerInputManager>();
         rb = GetComponent<Rigidbody>();
         cameraTransform = GameObject.Find("RobotCamera").transform;
@@ -22,12 +24,16 @@ public class RobotController : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (rm.currentState != RobotManager.RobotState.Hacked) return;
+        
         CalculateMovingAndVerticalDirection();
         HandleMovement();
     }
 
     private void Update()
     {
+        if (rm.currentState != RobotManager.RobotState.Hacked) return;
+        
         TurnTowardsLookingDirection();
     }
 

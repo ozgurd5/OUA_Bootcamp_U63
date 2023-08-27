@@ -22,10 +22,12 @@ public class TPSCamera : MonoBehaviour
     
     private void Start()
     {
+        //3.1 //UpdateRobot in FindComponents need cinemachineCam
+        cinemachineCam = GetComponent<CinemachineVirtualCamera>();
+        
         FindComponents();
         
-        //3
-        cinemachineCam = GetComponent<CinemachineVirtualCamera>();
+        //3.2 //lookAtTargetTransform is coming from FindComponents
         cinemachineCam.LookAt = lookAtTargetTransform;
         
         //Default values
@@ -39,12 +41,14 @@ public class TPSCamera : MonoBehaviour
         {
             followTargetTransform = GameObject.Find("CoderPlayer").transform;
             lookAtTargetTransform = followTargetTransform.Find("CoderCameraLookAt");
+            pim = followTargetTransform.GetComponent<PlayerInputManager>();
         }
 
         else if (name == "ArtistCamera")
         {
             followTargetTransform = GameObject.Find("ArtistPlayer").transform;
             lookAtTargetTransform = followTargetTransform.Find("ArtistCameraLookAt");
+            pim = followTargetTransform.GetComponent<PlayerInputManager>();
         }
         
         else if (name == "RobotCamera")
@@ -54,18 +58,20 @@ public class TPSCamera : MonoBehaviour
         }
         
         else Debug.Log("NAME THE CAMERA CORRECTLY: CoderCamera - ArtistCamera - RobotCamera");
-        
-        pim = followTargetTransform.GetComponent<PlayerInputManager>();
     }
 
     private void UpdateRobot()
     {
         followTargetTransform = RobotManager.currentControlledRobot.transform;
         lookAtTargetTransform = followTargetTransform.Find("RobotCameraLookAt");
+        cinemachineCam.LookAt = lookAtTargetTransform;
+        pim = followTargetTransform.GetComponent<PlayerInputManager>();
     }
 
     private void Update()
     {
+        if (!cinemachineCam.enabled) return;
+        
         transform.RotateAround(lookAtTargetTransform.position, transform.right, -pim.lookInput.y);
         transform.RotateAround(lookAtTargetTransform.position, Vector3.up, pim.lookInput.x);
 
@@ -76,7 +82,6 @@ public class TPSCamera : MonoBehaviour
     private void LateUpdate()
     {
         followTargetPositionDifference = followTargetTransform.position - followTargetPreviousPosition;
-
         transform.position += followTargetPositionDifference;
         
         //5
