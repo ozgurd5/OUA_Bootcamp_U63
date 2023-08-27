@@ -33,7 +33,7 @@ public class NPCDialogeManager : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (!col.CompareTag("Player")) return;
+        if (!col.CompareTag("Player") && !pd.isLocal) return;
 
         if (col.name == "ArtistPlayer")
             col.transform.Find("ArtistCrosshairCanvas").Find("TalentIcons").gameObject.SetActive(true);

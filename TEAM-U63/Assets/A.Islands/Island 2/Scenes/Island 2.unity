@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 2668599}
   - component: {fileID: 2668601}
   - component: {fileID: 2668600}
+  - component: {fileID: 2668602}
   m_Layer: 0
   m_Name: MetalBridgeCenter (19)
   m_TagString: Untagged
@@ -205,6 +206,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2668598}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &2668602
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2668598}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &4565932
 GameObject:
@@ -520,6 +543,7 @@ GameObject:
   - component: {fileID: 10838469}
   - component: {fileID: 10838471}
   - component: {fileID: 10838470}
+  - component: {fileID: 10838472}
   m_Layer: 0
   m_Name: MetalBridgeLeg (3)
   m_TagString: Untagged
@@ -591,6 +615,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10838468}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &10838472
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10838468}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1001 &11006287
 PrefabInstance:
@@ -779,6 +825,7 @@ GameObject:
   - component: {fileID: 26860835}
   - component: {fileID: 26860837}
   - component: {fileID: 26860836}
+  - component: {fileID: 26860838}
   m_Layer: 0
   m_Name: MetalBridgeSide (9)
   m_TagString: Untagged
@@ -851,6 +898,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26860834}
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &26860838
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26860834}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &28393467
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +931,7 @@ GameObject:
   - component: {fileID: 28393468}
   - component: {fileID: 28393470}
   - component: {fileID: 28393469}
+  - component: {fileID: 28393471}
   m_Layer: 0
   m_Name: MetalBridgeCenter (52)
   m_TagString: Untagged
@@ -934,6 +1004,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28393467}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &28393471
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28393467}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &45656200
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +1037,7 @@ GameObject:
   - component: {fileID: 45656201}
   - component: {fileID: 45656203}
   - component: {fileID: 45656202}
+  - component: {fileID: 45656204}
   m_Layer: 0
   m_Name: MetalBridgeLeg (27)
   m_TagString: Untagged
@@ -1016,6 +1109,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45656200}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &45656204
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45656200}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &50008857
 GameObject:
@@ -1134,6 +1249,7 @@ GameObject:
   - component: {fileID: 50872977}
   - component: {fileID: 50872979}
   - component: {fileID: 50872978}
+  - component: {fileID: 50872980}
   m_Layer: 0
   m_Name: MetalBridgeCenter (64)
   m_TagString: Untagged
@@ -1206,6 +1322,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50872976}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &50872980
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50872976}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &57883511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1355,7 @@ GameObject:
   - component: {fileID: 57883512}
   - component: {fileID: 57883514}
   - component: {fileID: 57883513}
+  - component: {fileID: 57883515}
   m_Layer: 0
   m_Name: MetalBridgeLeg (19)
   m_TagString: Untagged
@@ -1288,6 +1427,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57883511}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &57883515
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57883511}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &58663976
 GameObject:
@@ -1535,6 +1696,7 @@ GameObject:
   - component: {fileID: 71462023}
   - component: {fileID: 71462025}
   - component: {fileID: 71462024}
+  - component: {fileID: 71462026}
   m_Layer: 0
   m_Name: MetalBridgeSide (3)
   m_TagString: Untagged
@@ -1606,6 +1768,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71462022}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &71462026
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71462022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &73369712
 GameObject:
@@ -1829,6 +2013,7 @@ GameObject:
   - component: {fileID: 74744898}
   - component: {fileID: 74744900}
   - component: {fileID: 74744899}
+  - component: {fileID: 74744901}
   m_Layer: 0
   m_Name: MetalBridgeLeg (20)
   m_TagString: Untagged
@@ -1901,6 +2086,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74744897}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &74744901
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74744897}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &84820051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +2119,7 @@ GameObject:
   - component: {fileID: 84820052}
   - component: {fileID: 84820054}
   - component: {fileID: 84820053}
+  - component: {fileID: 84820055}
   m_Layer: 0
   m_Name: MetalBridgeCenter (88)
   m_TagString: Untagged
@@ -1983,6 +2191,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84820051}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &84820055
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84820051}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &85492955
 GameObject:
@@ -2313,6 +2543,7 @@ GameObject:
   - component: {fileID: 92148985}
   - component: {fileID: 92148987}
   - component: {fileID: 92148986}
+  - component: {fileID: 92148988}
   m_Layer: 0
   m_Name: MetalBridgeCenter (84)
   m_TagString: Untagged
@@ -2384,6 +2615,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92148984}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &92148988
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92148984}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &103484472
 GameObject:
@@ -2502,6 +2755,7 @@ GameObject:
   - component: {fileID: 104202128}
   - component: {fileID: 104202130}
   - component: {fileID: 104202129}
+  - component: {fileID: 104202131}
   m_Layer: 0
   m_Name: MetalBridgeCenter (69)
   m_TagString: Untagged
@@ -2574,6 +2828,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104202127}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &104202131
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104202127}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &105362185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,6 +2861,7 @@ GameObject:
   - component: {fileID: 105362186}
   - component: {fileID: 105362188}
   - component: {fileID: 105362187}
+  - component: {fileID: 105362189}
   m_Layer: 0
   m_Name: MetalBridgeCenter (20)
   m_TagString: Untagged
@@ -2657,6 +2934,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105362185}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &105362189
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105362185}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &108942986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,6 +2967,7 @@ GameObject:
   - component: {fileID: 108942987}
   - component: {fileID: 108942989}
   - component: {fileID: 108942988}
+  - component: {fileID: 108942990}
   m_Layer: 0
   m_Name: MetalBridgeLeg (23)
   m_TagString: Untagged
@@ -2740,6 +3040,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108942986}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &108942990
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108942986}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &110556344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +3073,7 @@ GameObject:
   - component: {fileID: 110556345}
   - component: {fileID: 110556347}
   - component: {fileID: 110556346}
+  - component: {fileID: 110556348}
   m_Layer: 0
   m_Name: MetalBridgeSide (11)
   m_TagString: Untagged
@@ -2823,6 +3146,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110556344}
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &110556348
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110556344}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &111887551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,6 +3179,7 @@ GameObject:
   - component: {fileID: 111887552}
   - component: {fileID: 111887554}
   - component: {fileID: 111887553}
+  - component: {fileID: 111887555}
   m_Layer: 0
   m_Name: MetalBridgeCenter (37)
   m_TagString: Untagged
@@ -2905,6 +3251,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111887551}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &111887555
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111887551}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &112336046
 GameObject:
@@ -3236,6 +3604,7 @@ GameObject:
   - component: {fileID: 119143332}
   - component: {fileID: 119143334}
   - component: {fileID: 119143333}
+  - component: {fileID: 119143335}
   m_Layer: 0
   m_Name: MetalBridgeCenter (6)
   m_TagString: Untagged
@@ -3308,6 +3677,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119143331}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &119143335
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119143331}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &119215939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,6 +3710,7 @@ GameObject:
   - component: {fileID: 119215940}
   - component: {fileID: 119215942}
   - component: {fileID: 119215941}
+  - component: {fileID: 119215943}
   m_Layer: 0
   m_Name: MetalBridgeCenter (3)
   m_TagString: Untagged
@@ -3391,6 +3783,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119215939}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &119215943
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119215939}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &119959822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3402,6 +3816,7 @@ GameObject:
   - component: {fileID: 119959823}
   - component: {fileID: 119959825}
   - component: {fileID: 119959824}
+  - component: {fileID: 119959826}
   m_Layer: 0
   m_Name: MetalBridgeLeg (26)
   m_TagString: Untagged
@@ -3473,6 +3888,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119959822}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &119959826
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119959822}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &133965876
 GameObject:
@@ -3591,6 +4028,7 @@ GameObject:
   - component: {fileID: 139259038}
   - component: {fileID: 139259040}
   - component: {fileID: 139259039}
+  - component: {fileID: 139259041}
   m_Layer: 0
   m_Name: MetalBridgeCenter (82)
   m_TagString: Untagged
@@ -3663,6 +4101,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 139259037}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &139259041
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139259037}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &145720119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3674,6 +4134,7 @@ GameObject:
   - component: {fileID: 145720120}
   - component: {fileID: 145720122}
   - component: {fileID: 145720121}
+  - component: {fileID: 145720123}
   m_Layer: 0
   m_Name: MetalBridgeCenter (56)
   m_TagString: Untagged
@@ -3745,6 +4206,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145720119}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &145720123
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145720119}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &148026036
 GameObject:
@@ -4005,6 +4488,7 @@ GameObject:
   - component: {fileID: 155412037}
   - component: {fileID: 155412039}
   - component: {fileID: 155412038}
+  - component: {fileID: 155412040}
   m_Layer: 0
   m_Name: MetalBridgeCenter (11)
   m_TagString: Untagged
@@ -4076,6 +4560,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155412036}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &155412040
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155412036}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &160818204
 GameObject:
@@ -4299,6 +4805,7 @@ GameObject:
   - component: {fileID: 163258111}
   - component: {fileID: 163258113}
   - component: {fileID: 163258112}
+  - component: {fileID: 163258114}
   m_Layer: 0
   m_Name: MetalBridgeCenter (5)
   m_TagString: Untagged
@@ -4370,6 +4877,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163258110}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &163258114
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163258110}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &163843539
 GameObject:
@@ -4488,6 +5017,7 @@ GameObject:
   - component: {fileID: 164228302}
   - component: {fileID: 164228304}
   - component: {fileID: 164228303}
+  - component: {fileID: 164228305}
   m_Layer: 0
   m_Name: MetalBridgeCenter (42)
   m_TagString: Untagged
@@ -4559,6 +5089,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164228301}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &164228305
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164228301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &165947469
 GameObject:
@@ -4677,6 +5229,7 @@ GameObject:
   - component: {fileID: 170364807}
   - component: {fileID: 170364809}
   - component: {fileID: 170364808}
+  - component: {fileID: 170364810}
   m_Layer: 0
   m_Name: MetalBridgeLeg (37)
   m_TagString: Untagged
@@ -4749,6 +5302,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170364806}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &170364810
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170364806}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &173055046
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,6 +5335,7 @@ GameObject:
   - component: {fileID: 173055047}
   - component: {fileID: 173055049}
   - component: {fileID: 173055048}
+  - component: {fileID: 173055050}
   m_Layer: 0
   m_Name: MetalBridgeLeg (39)
   m_TagString: Untagged
@@ -4831,6 +5407,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173055046}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &173055050
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173055046}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &188747392
 GameObject:
@@ -5162,6 +5760,7 @@ GameObject:
   - component: {fileID: 198681848}
   - component: {fileID: 198681850}
   - component: {fileID: 198681849}
+  - component: {fileID: 198681851}
   m_Layer: 0
   m_Name: MetalBridgeCenter (81)
   m_TagString: Untagged
@@ -5233,6 +5832,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198681847}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &198681851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198681847}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &199349448
 GameObject:
@@ -5826,6 +6447,7 @@ GameObject:
   - component: {fileID: 233298564}
   - component: {fileID: 233298566}
   - component: {fileID: 233298565}
+  - component: {fileID: 233298567}
   m_Layer: 0
   m_Name: MetalBridgeSide (17)
   m_TagString: Untagged
@@ -5897,6 +6519,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233298563}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &233298567
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233298563}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &235269452
 GameObject:
@@ -6186,6 +6830,7 @@ GameObject:
   - component: {fileID: 250037776}
   - component: {fileID: 250037778}
   - component: {fileID: 250037777}
+  - component: {fileID: 250037779}
   m_Layer: 0
   m_Name: MetalBridgeLeg (15)
   m_TagString: Untagged
@@ -6257,6 +6902,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250037775}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &250037779
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250037775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &250966415
 GameObject:
@@ -6332,6 +6999,7 @@ GameObject:
   - component: {fileID: 256180573}
   - component: {fileID: 256180575}
   - component: {fileID: 256180574}
+  - component: {fileID: 256180576}
   m_Layer: 0
   m_Name: MetalBridgeCenter (1)
   m_TagString: Untagged
@@ -6404,6 +7072,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256180572}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &256180576
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256180572}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &263638582
 GameObject:
   m_ObjectHideFlags: 0
@@ -6415,6 +7105,7 @@ GameObject:
   - component: {fileID: 263638583}
   - component: {fileID: 263638585}
   - component: {fileID: 263638584}
+  - component: {fileID: 263638586}
   m_Layer: 0
   m_Name: MetalBridgeCenter (59)
   m_TagString: Untagged
@@ -6487,6 +7178,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263638582}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &263638586
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263638582}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &277375459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6498,6 +7211,7 @@ GameObject:
   - component: {fileID: 277375460}
   - component: {fileID: 277375462}
   - component: {fileID: 277375461}
+  - component: {fileID: 277375463}
   m_Layer: 0
   m_Name: MetalBridgeSide (12)
   m_TagString: Untagged
@@ -6569,6 +7283,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277375459}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &277375463
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277375459}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &279648452
 GameObject:
@@ -6880,6 +7616,7 @@ GameObject:
   - component: {fileID: 283068764}
   - component: {fileID: 283068766}
   - component: {fileID: 283068765}
+  - component: {fileID: 283068767}
   m_Layer: 0
   m_Name: MetalBridgeLeg (31)
   m_TagString: Untagged
@@ -6952,6 +7689,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283068763}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &283068767
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283068763}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &285995318
 GameObject:
   m_ObjectHideFlags: 0
@@ -6963,6 +7722,7 @@ GameObject:
   - component: {fileID: 285995319}
   - component: {fileID: 285995321}
   - component: {fileID: 285995320}
+  - component: {fileID: 285995322}
   m_Layer: 0
   m_Name: MetalBridgeCenter (50)
   m_TagString: Untagged
@@ -7035,6 +7795,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285995318}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &285995322
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285995318}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &287095952
 GameObject:
   m_ObjectHideFlags: 0
@@ -7046,6 +7828,7 @@ GameObject:
   - component: {fileID: 287095953}
   - component: {fileID: 287095955}
   - component: {fileID: 287095954}
+  - component: {fileID: 287095956}
   m_Layer: 0
   m_Name: MetalBridgeLeg (29)
   m_TagString: Untagged
@@ -7117,6 +7900,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287095952}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &287095956
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287095952}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &288353195
 GameObject:
@@ -7236,6 +8041,7 @@ GameObject:
   - component: {fileID: 289674736}
   - component: {fileID: 289674738}
   - component: {fileID: 289674737}
+  - component: {fileID: 289674739}
   m_Layer: 0
   m_Name: MetalBridgeLeg (1)
   m_TagString: Untagged
@@ -7307,6 +8113,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289674735}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &289674739
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289674735}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &290689219
 GameObject:
@@ -7744,6 +8572,7 @@ GameObject:
   - component: {fileID: 309168743}
   - component: {fileID: 309168745}
   - component: {fileID: 309168744}
+  - component: {fileID: 309168746}
   m_Layer: 0
   m_Name: MetalBridgeCenter (2)
   m_TagString: Untagged
@@ -7815,6 +8644,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309168742}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &309168746
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309168742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &318550631
 GameObject:
@@ -8146,6 +8997,7 @@ GameObject:
   - component: {fileID: 340345186}
   - component: {fileID: 340345188}
   - component: {fileID: 340345187}
+  - component: {fileID: 340345189}
   m_Layer: 0
   m_Name: MetalBridgeCenter (38)
   m_TagString: Untagged
@@ -8217,6 +9069,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340345185}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &340345189
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340345185}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &343773927
 GameObject:
@@ -8441,6 +9315,7 @@ GameObject:
   - component: {fileID: 363028968}
   - component: {fileID: 363028970}
   - component: {fileID: 363028969}
+  - component: {fileID: 363028971}
   m_Layer: 0
   m_Name: MetalBridgeLeg (9)
   m_TagString: Untagged
@@ -8512,6 +9387,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363028967}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &363028971
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363028967}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &364777349
 GameObject:
@@ -9120,6 +10017,7 @@ GameObject:
   - component: {fileID: 379510945}
   - component: {fileID: 379510947}
   - component: {fileID: 379510946}
+  - component: {fileID: 379510948}
   m_Layer: 0
   m_Name: MetalBridgeCenter (72)
   m_TagString: Untagged
@@ -9192,6 +10090,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379510944}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &379510948
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379510944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &380147079
 GameObject:
   m_ObjectHideFlags: 0
@@ -9203,6 +10123,7 @@ GameObject:
   - component: {fileID: 380147080}
   - component: {fileID: 380147082}
   - component: {fileID: 380147081}
+  - component: {fileID: 380147083}
   m_Layer: 0
   m_Name: MetalBridgeCenter (26)
   m_TagString: Untagged
@@ -9274,6 +10195,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380147079}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &380147083
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380147079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &382883634
 GameObject:
@@ -10247,6 +11190,7 @@ GameObject:
   - component: {fileID: 426626700}
   - component: {fileID: 426626702}
   - component: {fileID: 426626701}
+  - component: {fileID: 426626703}
   m_Layer: 0
   m_Name: MetalBridgeCenter (90)
   m_TagString: Untagged
@@ -10318,6 +11262,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426626699}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &426626703
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426626699}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &426660610
 GameObject:
@@ -10578,6 +11544,7 @@ GameObject:
   - component: {fileID: 439140390}
   - component: {fileID: 439140392}
   - component: {fileID: 439140391}
+  - component: {fileID: 439140393}
   m_Layer: 0
   m_Name: MetalBridgeCenter (66)
   m_TagString: Untagged
@@ -10649,6 +11616,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439140389}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &439140393
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439140389}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &450708334
 GameObject:
@@ -11531,6 +12520,7 @@ GameObject:
   - component: {fileID: 481176808}
   - component: {fileID: 481176810}
   - component: {fileID: 481176809}
+  - component: {fileID: 481176811}
   m_Layer: 0
   m_Name: MetalBridgeCenter (46)
   m_TagString: Untagged
@@ -11602,6 +12592,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481176807}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &481176811
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481176807}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &497041411
 GameObject:
@@ -11719,6 +12731,7 @@ GameObject:
   - component: {fileID: 499200566}
   - component: {fileID: 499200568}
   - component: {fileID: 499200567}
+  - component: {fileID: 499200569}
   m_Layer: 0
   m_Name: MetalBridgeLeg (40)
   m_TagString: Untagged
@@ -11791,6 +12804,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499200565}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &499200569
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499200565}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &500809903
 GameObject:
   m_ObjectHideFlags: 0
@@ -11802,6 +12837,7 @@ GameObject:
   - component: {fileID: 500809904}
   - component: {fileID: 500809906}
   - component: {fileID: 500809905}
+  - component: {fileID: 500809907}
   m_Layer: 0
   m_Name: MetalBridgeCenter (74)
   m_TagString: Untagged
@@ -11873,6 +12909,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500809903}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &500809907
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500809903}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &501059744
 GameObject:
@@ -11991,6 +13049,7 @@ GameObject:
   - component: {fileID: 503102771}
   - component: {fileID: 503102773}
   - component: {fileID: 503102772}
+  - component: {fileID: 503102774}
   m_Layer: 0
   m_Name: MetalBridgeLeg (7)
   m_TagString: Untagged
@@ -12063,6 +13122,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503102770}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &503102774
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503102770}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &507938431
 GameObject:
   m_ObjectHideFlags: 0
@@ -12074,6 +13155,7 @@ GameObject:
   - component: {fileID: 507938432}
   - component: {fileID: 507938434}
   - component: {fileID: 507938433}
+  - component: {fileID: 507938435}
   m_Layer: 0
   m_Name: MetalBridgeLeg (34)
   m_TagString: Untagged
@@ -12146,6 +13228,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507938431}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &507938435
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507938431}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &518214765
 GameObject:
   m_ObjectHideFlags: 0
@@ -12157,6 +13261,7 @@ GameObject:
   - component: {fileID: 518214766}
   - component: {fileID: 518214768}
   - component: {fileID: 518214767}
+  - component: {fileID: 518214769}
   m_Layer: 0
   m_Name: MetalBridgeLeg (36)
   m_TagString: Untagged
@@ -12228,6 +13333,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518214765}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &518214769
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518214765}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &519822364
 GameObject:
@@ -12345,6 +13472,7 @@ GameObject:
   - component: {fileID: 522339226}
   - component: {fileID: 522339228}
   - component: {fileID: 522339227}
+  - component: {fileID: 522339229}
   m_Layer: 0
   m_Name: MetalBridgeCenter (58)
   m_TagString: Untagged
@@ -12416,6 +13544,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522339225}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &522339229
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522339225}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &525667086
 PrefabInstance:
@@ -12493,6 +13643,7 @@ GameObject:
   - component: {fileID: 534058897}
   - component: {fileID: 534058899}
   - component: {fileID: 534058898}
+  - component: {fileID: 534058900}
   m_Layer: 0
   m_Name: MetalBridgeCenter (63)
   m_TagString: Untagged
@@ -12564,6 +13715,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534058896}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &534058900
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534058896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &535327976
 GameObject:
@@ -12704,6 +13877,7 @@ GameObject:
   - component: {fileID: 536897255}
   - component: {fileID: 536897257}
   - component: {fileID: 536897256}
+  - component: {fileID: 536897258}
   m_Layer: 0
   m_Name: MetalBridgeLeg (45)
   m_TagString: Untagged
@@ -12776,6 +13950,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536897254}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &536897258
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536897254}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &538141230
 GameObject:
   m_ObjectHideFlags: 0
@@ -12787,6 +13983,7 @@ GameObject:
   - component: {fileID: 538141231}
   - component: {fileID: 538141233}
   - component: {fileID: 538141232}
+  - component: {fileID: 538141234}
   m_Layer: 0
   m_Name: MetalBridgeCenter (93)
   m_TagString: Untagged
@@ -12859,6 +14056,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538141230}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &538141234
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538141230}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &541840540
 GameObject:
   m_ObjectHideFlags: 0
@@ -12870,6 +14089,7 @@ GameObject:
   - component: {fileID: 541840541}
   - component: {fileID: 541840543}
   - component: {fileID: 541840542}
+  - component: {fileID: 541840544}
   m_Layer: 0
   m_Name: MetalBridgeLeg (13)
   m_TagString: Untagged
@@ -12942,6 +14162,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541840540}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &541840544
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541840540}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &546792121
 GameObject:
   m_ObjectHideFlags: 0
@@ -12984,6 +14226,7 @@ GameObject:
   - component: {fileID: 551904893}
   - component: {fileID: 551904895}
   - component: {fileID: 551904894}
+  - component: {fileID: 551904896}
   m_Layer: 0
   m_Name: MetalBridgeCenter (31)
   m_TagString: Untagged
@@ -13055,6 +14298,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551904892}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &551904896
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551904892}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &554883170
 PrefabInstance:
@@ -13366,6 +14631,7 @@ GameObject:
   - component: {fileID: 560928733}
   - component: {fileID: 560928735}
   - component: {fileID: 560928734}
+  - component: {fileID: 560928736}
   m_Layer: 0
   m_Name: MetalBridgeLeg (17)
   m_TagString: Untagged
@@ -13438,6 +14704,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560928732}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &560928736
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560928732}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &568651990
 GameObject:
   m_ObjectHideFlags: 0
@@ -13449,6 +14737,7 @@ GameObject:
   - component: {fileID: 568651991}
   - component: {fileID: 568651993}
   - component: {fileID: 568651992}
+  - component: {fileID: 568651994}
   m_Layer: 0
   m_Name: MetalBridgeCenter (44)
   m_TagString: Untagged
@@ -13521,6 +14810,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568651990}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &568651994
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568651990}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &569622576
 GameObject:
   m_ObjectHideFlags: 0
@@ -13532,6 +14843,7 @@ GameObject:
   - component: {fileID: 569622577}
   - component: {fileID: 569622579}
   - component: {fileID: 569622578}
+  - component: {fileID: 569622580}
   m_Layer: 0
   m_Name: MetalBridgeCenter (9)
   m_TagString: Untagged
@@ -13603,6 +14915,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569622576}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &569622580
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569622576}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &579137678
 GameObject:
@@ -13848,6 +15182,7 @@ GameObject:
   - component: {fileID: 612794450}
   - component: {fileID: 612794452}
   - component: {fileID: 612794451}
+  - component: {fileID: 612794453}
   m_Layer: 0
   m_Name: MetalBridgeCenter (62)
   m_TagString: Untagged
@@ -13920,6 +15255,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612794449}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &612794453
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612794449}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &613822120
 GameObject:
   m_ObjectHideFlags: 0
@@ -13931,6 +15288,7 @@ GameObject:
   - component: {fileID: 613822121}
   - component: {fileID: 613822123}
   - component: {fileID: 613822122}
+  - component: {fileID: 613822124}
   m_Layer: 0
   m_Name: MetalBridgeLeg (11)
   m_TagString: Untagged
@@ -14003,6 +15361,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613822120}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &613822124
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613822120}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &615399707
 GameObject:
   m_ObjectHideFlags: 0
@@ -14014,6 +15394,7 @@ GameObject:
   - component: {fileID: 615399708}
   - component: {fileID: 615399710}
   - component: {fileID: 615399709}
+  - component: {fileID: 615399711}
   m_Layer: 0
   m_Name: MetalBridgeCenter (70)
   m_TagString: Untagged
@@ -14085,6 +15466,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615399707}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &615399711
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615399707}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &620146214
 GameObject:
@@ -14274,6 +15677,7 @@ GameObject:
   - component: {fileID: 622920648}
   - component: {fileID: 622920650}
   - component: {fileID: 622920649}
+  - component: {fileID: 622920651}
   m_Layer: 0
   m_Name: MetalBridgeLeg (5)
   m_TagString: Untagged
@@ -14345,6 +15749,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622920647}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &622920651
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622920647}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &623803166
 GameObject:
@@ -14780,6 +16206,7 @@ GameObject:
   - component: {fileID: 642680602}
   - component: {fileID: 642680604}
   - component: {fileID: 642680603}
+  - component: {fileID: 642680605}
   m_Layer: 0
   m_Name: ColliderMetalBrideSide5
   m_TagString: Untagged
@@ -14852,6 +16279,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642680601}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &642680605
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642680601}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &647281601
 GameObject:
   m_ObjectHideFlags: 0
@@ -14900,6 +16349,7 @@ GameObject:
   - component: {fileID: 655587400}
   - component: {fileID: 655587402}
   - component: {fileID: 655587401}
+  - component: {fileID: 655587403}
   m_Layer: 0
   m_Name: MetalBridgeCenter (4)
   m_TagString: Untagged
@@ -14971,6 +16421,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655587399}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &655587403
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655587399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &657347501
 GameObject:
@@ -15197,6 +16669,7 @@ GameObject:
   - component: {fileID: 667798401}
   - component: {fileID: 667798403}
   - component: {fileID: 667798402}
+  - component: {fileID: 667798404}
   m_Layer: 0
   m_Name: MetalBridgeLeg (4)
   m_TagString: Untagged
@@ -15268,6 +16741,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667798400}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &667798404
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667798400}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &668594784
 GameObject:
@@ -15492,6 +16987,7 @@ GameObject:
   - component: {fileID: 679304176}
   - component: {fileID: 679304178}
   - component: {fileID: 679304177}
+  - component: {fileID: 679304179}
   m_Layer: 0
   m_Name: MetalBridgeCenter (77)
   m_TagString: Untagged
@@ -15563,6 +17059,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679304175}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &679304179
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679304175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &681034290
 GameObject:
@@ -15818,6 +17336,7 @@ GameObject:
   - component: {fileID: 700108080}
   - component: {fileID: 700108082}
   - component: {fileID: 700108081}
+  - component: {fileID: 700108083}
   m_Layer: 0
   m_Name: MetalBridgeCenter (86)
   m_TagString: Untagged
@@ -15889,6 +17408,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700108079}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &700108083
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700108079}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &700826196
 GameObject:
@@ -16221,6 +17762,7 @@ GameObject:
   - component: {fileID: 708869827}
   - component: {fileID: 708869829}
   - component: {fileID: 708869828}
+  - component: {fileID: 708869830}
   m_Layer: 0
   m_Name: MetalBridgeCenter (23)
   m_TagString: Untagged
@@ -16292,6 +17834,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708869826}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &708869830
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708869826}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &712630373
 GameObject:
@@ -18069,6 +19633,7 @@ GameObject:
   - component: {fileID: 800152404}
   - component: {fileID: 800152406}
   - component: {fileID: 800152405}
+  - component: {fileID: 800152407}
   m_Layer: 0
   m_Name: MetalBridgeCenter (67)
   m_TagString: Untagged
@@ -18140,6 +19705,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800152403}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &800152407
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800152403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &804050796
 GameObject:
@@ -18752,6 +20339,7 @@ GameObject:
   - component: {fileID: 827266948}
   - component: {fileID: 827266950}
   - component: {fileID: 827266949}
+  - component: {fileID: 827266951}
   m_Layer: 0
   m_Name: MetalBridgeCenter (94)
   m_TagString: Untagged
@@ -18824,6 +20412,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827266947}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &827266951
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827266947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &829394694
 GameObject:
   m_ObjectHideFlags: 0
@@ -18866,6 +20476,7 @@ GameObject:
   - component: {fileID: 835795819}
   - component: {fileID: 835795821}
   - component: {fileID: 835795820}
+  - component: {fileID: 835795822}
   m_Layer: 0
   m_Name: MetalBridgeCenter (55)
   m_TagString: Untagged
@@ -18937,6 +20548,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835795818}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &835795822
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835795818}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &836636351
 GameObject:
@@ -19266,6 +20899,7 @@ GameObject:
   - component: {fileID: 850057095}
   - component: {fileID: 850057097}
   - component: {fileID: 850057096}
+  - component: {fileID: 850057098}
   m_Layer: 0
   m_Name: MetalBridgeLeg (22)
   m_TagString: Untagged
@@ -19338,6 +20972,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850057094}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &850057098
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850057094}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &853298049
 GameObject:
   m_ObjectHideFlags: 0
@@ -19349,6 +21005,7 @@ GameObject:
   - component: {fileID: 853298050}
   - component: {fileID: 853298052}
   - component: {fileID: 853298051}
+  - component: {fileID: 853298053}
   m_Layer: 0
   m_Name: MetalBridgeLeg (44)
   m_TagString: Untagged
@@ -19420,6 +21077,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853298049}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &853298053
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853298049}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1001 &858396859
 PrefabInstance:
@@ -19514,6 +21193,7 @@ GameObject:
   - component: {fileID: 860654953}
   - component: {fileID: 860654955}
   - component: {fileID: 860654954}
+  - component: {fileID: 860654956}
   m_Layer: 0
   m_Name: MetalBridgeCenter (65)
   m_TagString: Untagged
@@ -19585,6 +21265,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860654952}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &860654956
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860654952}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &867321552
 GameObject:
@@ -19773,6 +21475,7 @@ GameObject:
   - component: {fileID: 868694996}
   - component: {fileID: 868694998}
   - component: {fileID: 868694997}
+  - component: {fileID: 868694999}
   m_Layer: 0
   m_Name: MetalBridgeCenter (36)
   m_TagString: Untagged
@@ -19844,6 +21547,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868694995}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &868694999
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868694995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &872134258
 GameObject:
@@ -20074,6 +21799,7 @@ GameObject:
   - component: {fileID: 915081234}
   - component: {fileID: 915081236}
   - component: {fileID: 915081235}
+  - component: {fileID: 915081237}
   m_Layer: 0
   m_Name: MetalBridgeCenter (61)
   m_TagString: Untagged
@@ -20145,6 +21871,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915081233}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &915081237
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915081233}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &927269048
 GameObject:
@@ -20370,6 +22118,7 @@ GameObject:
   - component: {fileID: 930895850}
   - component: {fileID: 930895852}
   - component: {fileID: 930895851}
+  - component: {fileID: 930895853}
   m_Layer: 0
   m_Name: MetalBridgeLeg (24)
   m_TagString: Untagged
@@ -20442,6 +22191,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930895849}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &930895853
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930895849}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &935374235
 GameObject:
   m_ObjectHideFlags: 0
@@ -20453,6 +22224,7 @@ GameObject:
   - component: {fileID: 935374236}
   - component: {fileID: 935374238}
   - component: {fileID: 935374237}
+  - component: {fileID: 935374239}
   m_Layer: 0
   m_Name: MetalBridgeCenter (14)
   m_TagString: Untagged
@@ -20524,6 +22296,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935374235}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &935374239
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935374235}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &943718755
 GameObject:
@@ -20733,6 +22527,7 @@ GameObject:
   - component: {fileID: 946349885}
   - component: {fileID: 946349887}
   - component: {fileID: 946349886}
+  - component: {fileID: 946349888}
   m_Layer: 0
   m_Name: MetalBridgeCenter (60)
   m_TagString: Untagged
@@ -20804,6 +22599,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946349884}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &946349888
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946349884}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &947205312
 PrefabInstance:
@@ -21210,6 +23027,7 @@ GameObject:
   - component: {fileID: 959244960}
   - component: {fileID: 959244962}
   - component: {fileID: 959244961}
+  - component: {fileID: 959244963}
   m_Layer: 0
   m_Name: MetalBridgeCenter (18)
   m_TagString: Untagged
@@ -21282,6 +23100,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959244959}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &959244963
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959244959}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &964910796
 GameObject:
   m_ObjectHideFlags: 0
@@ -21293,6 +23133,7 @@ GameObject:
   - component: {fileID: 964910797}
   - component: {fileID: 964910799}
   - component: {fileID: 964910798}
+  - component: {fileID: 964910800}
   m_Layer: 0
   m_Name: MetalBridgeCenter (51)
   m_TagString: Untagged
@@ -21364,6 +23205,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964910796}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &964910800
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964910796}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &966544148
 GameObject:
@@ -21483,6 +23346,7 @@ GameObject:
   - component: {fileID: 970483837}
   - component: {fileID: 970483839}
   - component: {fileID: 970483838}
+  - component: {fileID: 970483840}
   m_Layer: 0
   m_Name: MetalBridgeCenter (24)
   m_TagString: Untagged
@@ -21554,6 +23418,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970483836}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &970483840
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970483836}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &973519102
 PrefabInstance:
@@ -22267,6 +24153,7 @@ GameObject:
   - component: {fileID: 1004353542}
   - component: {fileID: 1004353544}
   - component: {fileID: 1004353543}
+  - component: {fileID: 1004353545}
   m_Layer: 0
   m_Name: MetalBridgeCenter (76)
   m_TagString: Untagged
@@ -22339,6 +24226,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004353541}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1004353545
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004353541}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1004383874
 GameObject:
   m_ObjectHideFlags: 0
@@ -22350,6 +24259,7 @@ GameObject:
   - component: {fileID: 1004383875}
   - component: {fileID: 1004383877}
   - component: {fileID: 1004383876}
+  - component: {fileID: 1004383878}
   m_Layer: 0
   m_Name: MetalBridgeCenter (10)
   m_TagString: Untagged
@@ -22422,6 +24332,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004383874}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1004383878
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004383874}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1009326393
 GameObject:
   m_ObjectHideFlags: 0
@@ -22433,6 +24365,7 @@ GameObject:
   - component: {fileID: 1009326394}
   - component: {fileID: 1009326396}
   - component: {fileID: 1009326395}
+  - component: {fileID: 1009326397}
   m_Layer: 0
   m_Name: MetalBridgeCenter (34)
   m_TagString: Untagged
@@ -22504,6 +24437,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009326393}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1009326397
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009326393}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1009808141
 GameObject:
@@ -22622,6 +24577,7 @@ GameObject:
   - component: {fileID: 1013347158}
   - component: {fileID: 1013347160}
   - component: {fileID: 1013347159}
+  - component: {fileID: 1013347161}
   m_Layer: 0
   m_Name: MetalBridgeCenter (16)
   m_TagString: Untagged
@@ -22693,6 +24649,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013347157}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1013347161
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013347157}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1018841323
 GameObject:
@@ -22767,6 +24745,7 @@ GameObject:
   - component: {fileID: 1020663434}
   - component: {fileID: 1020663436}
   - component: {fileID: 1020663435}
+  - component: {fileID: 1020663437}
   m_Layer: 0
   m_Name: MetalBridgeLeg (2)
   m_TagString: Untagged
@@ -22839,6 +24818,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020663433}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1020663437
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020663433}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1021483074
 GameObject:
   m_ObjectHideFlags: 0
@@ -22850,6 +24851,7 @@ GameObject:
   - component: {fileID: 1021483075}
   - component: {fileID: 1021483077}
   - component: {fileID: 1021483076}
+  - component: {fileID: 1021483078}
   m_Layer: 0
   m_Name: MetalBridgeCenter (54)
   m_TagString: Untagged
@@ -22922,6 +24924,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021483074}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1021483078
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021483074}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1032457931
 GameObject:
   m_ObjectHideFlags: 0
@@ -22933,6 +24957,7 @@ GameObject:
   - component: {fileID: 1032457932}
   - component: {fileID: 1032457934}
   - component: {fileID: 1032457933}
+  - component: {fileID: 1032457935}
   m_Layer: 0
   m_Name: ColliderMetalBrideSide1
   m_TagString: Untagged
@@ -23004,6 +25029,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032457931}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1032457935
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032457931}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1033827477
 GameObject:
@@ -23429,6 +25476,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041477188}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1044919230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2115399574457327219, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_Name
+      value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_RootOrder
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191909389090305282, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dd0303090213314d92496abce08829c, type: 3}
 --- !u!1 &1055951130
 GameObject:
   m_ObjectHideFlags: 0
@@ -23473,6 +25581,7 @@ GameObject:
   - component: {fileID: 1062725754}
   - component: {fileID: 1062725756}
   - component: {fileID: 1062725755}
+  - component: {fileID: 1062725757}
   m_Layer: 0
   m_Name: MetalBridgeCenter (83)
   m_TagString: Untagged
@@ -23544,6 +25653,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062725753}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1062725757
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062725753}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1066751307
 GameObject:
@@ -24340,6 +26471,71 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: b6980a45c06adfc4eaf1e1a8468ea495, type: 3}
+--- !u!1001 &1091329278
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_RootOrder
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 163767913758572685, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490374942038371068, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_Name
+      value: CustomNetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674180382879431101, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1207557721
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
 --- !u!1 &1093101523
 GameObject:
   m_ObjectHideFlags: 0
@@ -24457,6 +26653,7 @@ GameObject:
   - component: {fileID: 1093529611}
   - component: {fileID: 1093529613}
   - component: {fileID: 1093529612}
+  - component: {fileID: 1093529614}
   m_Layer: 0
   m_Name: MetalBridgeCenter (79)
   m_TagString: Untagged
@@ -24528,6 +26725,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093529610}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1093529614
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093529610}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1106061910
 GameObject:
@@ -25433,6 +27652,7 @@ GameObject:
   - component: {fileID: 1137064606}
   - component: {fileID: 1137064608}
   - component: {fileID: 1137064607}
+  - component: {fileID: 1137064609}
   m_Layer: 0
   m_Name: MetalBridgeCenter (28)
   m_TagString: Untagged
@@ -25504,6 +27724,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137064605}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1137064609
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137064605}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1138097297
 GameObject:
@@ -25729,6 +27971,7 @@ GameObject:
   - component: {fileID: 1146217792}
   - component: {fileID: 1146217794}
   - component: {fileID: 1146217793}
+  - component: {fileID: 1146217795}
   m_Layer: 0
   m_Name: MetalBridgeCenter (73)
   m_TagString: Untagged
@@ -25801,6 +28044,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146217791}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1146217795
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146217791}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!4 &1162322495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1024778347559329885, guid: 285c9f647e8844442bb23dd3fd36d7fd, type: 3}
@@ -25817,6 +28082,7 @@ GameObject:
   - component: {fileID: 1162986697}
   - component: {fileID: 1162986699}
   - component: {fileID: 1162986698}
+  - component: {fileID: 1162986700}
   m_Layer: 0
   m_Name: MetalBridgeCenter (92)
   m_TagString: Untagged
@@ -25888,6 +28154,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162986696}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1162986700
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162986696}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1167969694
 GameObject:
@@ -26220,6 +28508,7 @@ GameObject:
   - component: {fileID: 1184107872}
   - component: {fileID: 1184107874}
   - component: {fileID: 1184107873}
+  - component: {fileID: 1184107875}
   m_Layer: 0
   m_Name: MetalBridgeLeg (21)
   m_TagString: Untagged
@@ -26291,6 +28580,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184107871}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1184107875
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184107871}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1186361847
 GameObject:
@@ -27400,6 +29711,7 @@ GameObject:
   - component: {fileID: 1211532694}
   - component: {fileID: 1211532696}
   - component: {fileID: 1211532695}
+  - component: {fileID: 1211532697}
   m_Layer: 0
   m_Name: MetalBridgeLeg (38)
   m_TagString: Untagged
@@ -27472,6 +29784,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211532693}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1211532697
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211532693}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1211750917
 GameObject:
   m_ObjectHideFlags: 0
@@ -27518,6 +29852,7 @@ GameObject:
   - component: {fileID: 1218142752}
   - component: {fileID: 1218142754}
   - component: {fileID: 1218142753}
+  - component: {fileID: 1218142755}
   m_Layer: 0
   m_Name: MetalBridgeCenter (27)
   m_TagString: Untagged
@@ -27589,6 +29924,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218142751}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1218142755
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218142751}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1219427791
 GameObject:
@@ -28803,6 +31160,7 @@ GameObject:
   - component: {fileID: 1270391109}
   - component: {fileID: 1270391111}
   - component: {fileID: 1270391110}
+  - component: {fileID: 1270391112}
   m_Layer: 0
   m_Name: MetalBridgeCenter (25)
   m_TagString: Untagged
@@ -28874,6 +31232,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270391108}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1270391112
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270391108}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &1274588355
 PrefabInstance:
@@ -29504,6 +31884,7 @@ GameObject:
   - component: {fileID: 1288589920}
   - component: {fileID: 1288589922}
   - component: {fileID: 1288589921}
+  - component: {fileID: 1288589923}
   m_Layer: 0
   m_Name: MetalBridgeSide (4)
   m_TagString: Untagged
@@ -29575,6 +31956,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288589919}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &1288589923
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288589919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &1290227436
 GameObject:
@@ -29752,6 +32155,7 @@ GameObject:
   - component: {fileID: 1293019222}
   - component: {fileID: 1293019224}
   - component: {fileID: 1293019223}
+  - component: {fileID: 1293019225}
   m_Layer: 0
   m_Name: MetalBridgeLeg (41)
   m_TagString: Untagged
@@ -29823,6 +32227,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293019221}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1293019225
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293019221}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1301992666
 GameObject:
@@ -30151,6 +32577,7 @@ GameObject:
   - component: {fileID: 1312032856}
   - component: {fileID: 1312032858}
   - component: {fileID: 1312032857}
+  - component: {fileID: 1312032859}
   m_Layer: 0
   m_Name: MetalBridgeCenter (17)
   m_TagString: Untagged
@@ -30222,6 +32649,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312032855}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1312032859
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312032855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1318398984
 GameObject:
@@ -30513,6 +32962,7 @@ GameObject:
   - component: {fileID: 1320331978}
   - component: {fileID: 1320331980}
   - component: {fileID: 1320331979}
+  - component: {fileID: 1320331981}
   m_Layer: 0
   m_Name: MetalBridgeCenter (89)
   m_TagString: Untagged
@@ -30584,6 +33034,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320331977}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1320331981
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320331977}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1333155999
 GameObject:
@@ -31602,6 +34074,7 @@ GameObject:
   - component: {fileID: 1386242173}
   - component: {fileID: 1386242175}
   - component: {fileID: 1386242174}
+  - component: {fileID: 1386242176}
   m_Layer: 0
   m_Name: MetalBridgeCenter (39)
   m_TagString: Untagged
@@ -31674,6 +34147,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386242172}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1386242176
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386242172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1390605772
 GameObject:
   m_ObjectHideFlags: 0
@@ -31685,6 +34180,7 @@ GameObject:
   - component: {fileID: 1390605773}
   - component: {fileID: 1390605775}
   - component: {fileID: 1390605774}
+  - component: {fileID: 1390605776}
   m_Layer: 0
   m_Name: MetalBridgeCenter (47)
   m_TagString: Untagged
@@ -31757,6 +34253,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390605772}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1390605776
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390605772}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1390835484
 GameObject:
   m_ObjectHideFlags: 0
@@ -31768,6 +34286,7 @@ GameObject:
   - component: {fileID: 1390835485}
   - component: {fileID: 1390835487}
   - component: {fileID: 1390835486}
+  - component: {fileID: 1390835488}
   m_Layer: 0
   m_Name: MetalBridgeCenter (75)
   m_TagString: Untagged
@@ -31839,6 +34358,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390835484}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1390835488
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390835484}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1392484891
 GameObject:
@@ -32170,6 +34711,7 @@ GameObject:
   - component: {fileID: 1393487992}
   - component: {fileID: 1393487994}
   - component: {fileID: 1393487993}
+  - component: {fileID: 1393487995}
   m_Layer: 0
   m_Name: MetalBridgeCenter (21)
   m_TagString: Untagged
@@ -32241,6 +34783,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393487991}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1393487995
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393487991}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &1395950003
 PrefabInstance:
@@ -32746,6 +35310,7 @@ GameObject:
   - component: {fileID: 1405163523}
   - component: {fileID: 1405163525}
   - component: {fileID: 1405163524}
+  - component: {fileID: 1405163526}
   m_Layer: 0
   m_Name: MetalBridgeCenter (91)
   m_TagString: Untagged
@@ -32817,6 +35382,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405163522}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1405163526
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405163522}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1405647938
 GameObject:
@@ -33096,6 +35683,7 @@ GameObject:
   - component: {fileID: 1421006713}
   - component: {fileID: 1421006715}
   - component: {fileID: 1421006714}
+  - component: {fileID: 1421006716}
   m_Layer: 0
   m_Name: MetalBridgeLeg (25)
   m_TagString: Untagged
@@ -33167,6 +35755,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421006712}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1421006716
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421006712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1001 &1422219309
 PrefabInstance:
@@ -33480,6 +36090,7 @@ GameObject:
   - component: {fileID: 1425097609}
   - component: {fileID: 1425097611}
   - component: {fileID: 1425097610}
+  - component: {fileID: 1425097612}
   m_Layer: 0
   m_Name: MetalBridgeCenter (30)
   m_TagString: Untagged
@@ -33551,6 +36162,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425097608}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1425097612
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425097608}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1428402029
 GameObject:
@@ -34117,6 +36750,7 @@ GameObject:
   - component: {fileID: 1446571707}
   - component: {fileID: 1446571709}
   - component: {fileID: 1446571708}
+  - component: {fileID: 1446571710}
   m_Layer: 0
   m_Name: MetalBridgeLeg (35)
   m_TagString: Untagged
@@ -34188,6 +36822,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446571706}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1446571710
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446571706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1448878224
 GameObject:
@@ -34370,6 +37026,7 @@ GameObject:
   - component: {fileID: 1454068002}
   - component: {fileID: 1454068004}
   - component: {fileID: 1454068003}
+  - component: {fileID: 1454068005}
   m_Layer: 0
   m_Name: MetalBridgeCenter (12)
   m_TagString: Untagged
@@ -34441,6 +37098,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454068001}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1454068005
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454068001}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!4 &1454341383 stripped
 Transform:
@@ -35679,6 +38358,7 @@ GameObject:
   - component: {fileID: 1498967429}
   - component: {fileID: 1498967431}
   - component: {fileID: 1498967430}
+  - component: {fileID: 1498967432}
   m_Layer: 0
   m_Name: MetalBridgeCenter (13)
   m_TagString: Untagged
@@ -35750,6 +38430,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498967428}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1498967432
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498967428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1500081625
 GameObject:
@@ -36079,6 +38781,7 @@ GameObject:
   - component: {fileID: 1506375457}
   - component: {fileID: 1506375459}
   - component: {fileID: 1506375458}
+  - component: {fileID: 1506375460}
   m_Layer: 0
   m_Name: MetalBridgeCenter (41)
   m_TagString: Untagged
@@ -36150,6 +38853,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506375456}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1506375460
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506375456}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1506526173
 GameObject:
@@ -36375,6 +39100,7 @@ GameObject:
   - component: {fileID: 1510470035}
   - component: {fileID: 1510470037}
   - component: {fileID: 1510470036}
+  - component: {fileID: 1510470038}
   m_Layer: 0
   m_Name: MetalBridgeLeg (10)
   m_TagString: Untagged
@@ -36447,6 +39173,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510470034}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1510470038
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510470034}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1511467876
 GameObject:
   m_ObjectHideFlags: 0
@@ -36458,6 +39206,7 @@ GameObject:
   - component: {fileID: 1511467877}
   - component: {fileID: 1511467879}
   - component: {fileID: 1511467878}
+  - component: {fileID: 1511467880}
   m_Layer: 0
   m_Name: MetalBridgeLeg (32)
   m_TagString: Untagged
@@ -36530,6 +39279,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511467876}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1511467880
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511467876}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1511869756
 GameObject:
   m_ObjectHideFlags: 0
@@ -36541,6 +39312,7 @@ GameObject:
   - component: {fileID: 1511869757}
   - component: {fileID: 1511869759}
   - component: {fileID: 1511869758}
+  - component: {fileID: 1511869760}
   m_Layer: 0
   m_Name: MetalBridgeCenter (68)
   m_TagString: Untagged
@@ -36612,6 +39384,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511869756}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1511869760
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511869756}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1513750249
 GameObject:
@@ -37874,6 +40668,7 @@ GameObject:
   - component: {fileID: 1573662818}
   - component: {fileID: 1573662820}
   - component: {fileID: 1573662819}
+  - component: {fileID: 1573662821}
   m_Layer: 0
   m_Name: MetalBridgeSide (1)
   m_TagString: Untagged
@@ -37945,6 +40740,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573662817}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &1573662821
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573662817}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &1577333170
 GameObject:
@@ -38159,6 +40976,7 @@ GameObject:
   - component: {fileID: 1582582265}
   - component: {fileID: 1582582267}
   - component: {fileID: 1582582266}
+  - component: {fileID: 1582582268}
   m_Layer: 0
   m_Name: MetalBridgeCenter (87)
   m_TagString: Untagged
@@ -38230,6 +41048,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582582264}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1582582268
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582582264}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1584471015
 GameObject:
@@ -38560,6 +41400,7 @@ GameObject:
   - component: {fileID: 1596804752}
   - component: {fileID: 1596804754}
   - component: {fileID: 1596804753}
+  - component: {fileID: 1596804755}
   m_Layer: 0
   m_Name: MetalBridgeCenter (40)
   m_TagString: Untagged
@@ -38631,6 +41472,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596804751}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1596804755
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596804751}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1600409500
 GameObject:
@@ -38975,6 +41838,7 @@ GameObject:
   - component: {fileID: 1618689216}
   - component: {fileID: 1618689218}
   - component: {fileID: 1618689217}
+  - component: {fileID: 1618689219}
   m_Layer: 0
   m_Name: MetalBridgeCenter (33)
   m_TagString: Untagged
@@ -39046,6 +41910,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618689215}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1618689219
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618689215}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1620115406
 GameObject:
@@ -39578,6 +42464,7 @@ GameObject:
   - component: {fileID: 1647644248}
   - component: {fileID: 1647644250}
   - component: {fileID: 1647644249}
+  - component: {fileID: 1647644251}
   m_Layer: 0
   m_Name: MetalBridgeCenter (35)
   m_TagString: Untagged
@@ -39649,6 +42536,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647644247}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1647644251
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647644247}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1653099852
 GameObject:
@@ -40072,6 +42981,7 @@ GameObject:
   - component: {fileID: 1673280082}
   - component: {fileID: 1673280084}
   - component: {fileID: 1673280083}
+  - component: {fileID: 1673280085}
   m_Layer: 0
   m_Name: MetalBridgeLeg (6)
   m_TagString: Untagged
@@ -40143,6 +43053,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673280081}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1673280085
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673280081}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1673371462
 GameObject:
@@ -40472,6 +43404,7 @@ GameObject:
   - component: {fileID: 1678573830}
   - component: {fileID: 1678573832}
   - component: {fileID: 1678573831}
+  - component: {fileID: 1678573833}
   m_Layer: 0
   m_Name: MetalBridgeSide (5)
   m_TagString: Untagged
@@ -40544,6 +43477,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678573829}
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &1678573833
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678573829}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &1684880819
 GameObject:
   m_ObjectHideFlags: 0
@@ -40555,6 +43510,7 @@ GameObject:
   - component: {fileID: 1684880820}
   - component: {fileID: 1684880822}
   - component: {fileID: 1684880821}
+  - component: {fileID: 1684880823}
   m_Layer: 0
   m_Name: MetalBridgeCenter (43)
   m_TagString: Untagged
@@ -40626,6 +43582,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684880819}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1684880823
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684880819}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1685398012
 GameObject:
@@ -41106,6 +44084,7 @@ GameObject:
   - component: {fileID: 1689484928}
   - component: {fileID: 1689484930}
   - component: {fileID: 1689484929}
+  - component: {fileID: 1689484931}
   m_Layer: 0
   m_Name: MetalBridgeCenter (22)
   m_TagString: Untagged
@@ -41177,6 +44156,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689484927}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1689484931
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689484927}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1692085766
 GameObject:
@@ -41459,6 +44460,7 @@ GameObject:
   - component: {fileID: 1726639062}
   - component: {fileID: 1726639064}
   - component: {fileID: 1726639063}
+  - component: {fileID: 1726639065}
   m_Layer: 0
   m_Name: MetalBridgeSide (2)
   m_TagString: Untagged
@@ -41530,6 +44532,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726639061}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &1726639065
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726639061}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &1728304083
 GameObject:
@@ -41825,6 +44849,7 @@ GameObject:
   - component: {fileID: 1736563321}
   - component: {fileID: 1736563323}
   - component: {fileID: 1736563322}
+  - component: {fileID: 1736563324}
   m_Layer: 0
   m_Name: MetalBridgeLeg (18)
   m_TagString: Untagged
@@ -41896,6 +44921,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736563320}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1736563324
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736563320}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1739713091
 GameObject:
@@ -42014,6 +45061,7 @@ GameObject:
   - component: {fileID: 1740375944}
   - component: {fileID: 1740375946}
   - component: {fileID: 1740375945}
+  - component: {fileID: 1740375947}
   m_Layer: 0
   m_Name: MetalBridgeSide (10)
   m_TagString: Untagged
@@ -42085,6 +45133,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740375943}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &1740375947
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740375943}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &1745178257
 GameObject:
@@ -42311,6 +45381,7 @@ GameObject:
   - component: {fileID: 1758541868}
   - component: {fileID: 1758541870}
   - component: {fileID: 1758541869}
+  - component: {fileID: 1758541871}
   m_Layer: 0
   m_Name: MetalBridgeLeg (12)
   m_TagString: Untagged
@@ -42382,6 +45453,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758541867}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1758541871
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758541867}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1762638481
 GameObject:
@@ -42841,6 +45934,7 @@ GameObject:
   - component: {fileID: 1776732715}
   - component: {fileID: 1776732717}
   - component: {fileID: 1776732716}
+  - component: {fileID: 1776732718}
   m_Layer: 0
   m_Name: MetalBridgeCenter (15)
   m_TagString: Untagged
@@ -42913,6 +46007,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776732714}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1776732718
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776732714}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1778932863
 GameObject:
   m_ObjectHideFlags: 0
@@ -42924,6 +46040,7 @@ GameObject:
   - component: {fileID: 1778932864}
   - component: {fileID: 1778932866}
   - component: {fileID: 1778932865}
+  - component: {fileID: 1778932867}
   m_Layer: 0
   m_Name: MetalBridgeCenter (7)
   m_TagString: Untagged
@@ -42995,6 +46112,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1778932863}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1778932867
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778932863}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1783078390
 GameObject:
@@ -43112,6 +46251,7 @@ GameObject:
   - component: {fileID: 1793624769}
   - component: {fileID: 1793624771}
   - component: {fileID: 1793624770}
+  - component: {fileID: 1793624772}
   m_Layer: 0
   m_Name: MetalBridgeCenter (32)
   m_TagString: Untagged
@@ -43183,6 +46323,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793624768}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1793624772
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793624768}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &1806483944
 PrefabInstance:
@@ -43363,6 +46525,7 @@ GameObject:
   - component: {fileID: 1824091385}
   - component: {fileID: 1824091387}
   - component: {fileID: 1824091386}
+  - component: {fileID: 1824091388}
   m_Layer: 0
   m_Name: MetalBridgeLeg (28)
   m_TagString: Untagged
@@ -43434,6 +46597,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824091384}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1824091388
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824091384}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1828062908
 GameObject:
@@ -43998,6 +47183,7 @@ GameObject:
   - component: {fileID: 1842746222}
   - component: {fileID: 1842746224}
   - component: {fileID: 1842746223}
+  - component: {fileID: 1842746225}
   m_Layer: 0
   m_Name: MetalBridgeCenter (29)
   m_TagString: Untagged
@@ -44070,6 +47256,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842746221}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1842746225
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842746221}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1845859365
 GameObject:
   m_ObjectHideFlags: 0
@@ -44081,6 +47289,7 @@ GameObject:
   - component: {fileID: 1845859366}
   - component: {fileID: 1845859368}
   - component: {fileID: 1845859367}
+  - component: {fileID: 1845859369}
   m_Layer: 0
   m_Name: MetalBridgeLeg (42)
   m_TagString: Untagged
@@ -44152,6 +47361,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845859365}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1845859369
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845859365}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1849226569
 GameObject:
@@ -44484,6 +47715,7 @@ GameObject:
   - component: {fileID: 1864179885}
   - component: {fileID: 1864179887}
   - component: {fileID: 1864179886}
+  - component: {fileID: 1864179888}
   m_Layer: 0
   m_Name: MetalBridgeLeg (16)
   m_TagString: Untagged
@@ -44555,6 +47787,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864179884}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1864179888
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864179884}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1874008700
 GameObject:
@@ -44850,6 +48104,7 @@ GameObject:
   - component: {fileID: 1895968325}
   - component: {fileID: 1895968327}
   - component: {fileID: 1895968326}
+  - component: {fileID: 1895968328}
   m_Layer: 0
   m_Name: ColliderMetalBrideSide2
   m_TagString: Untagged
@@ -44922,6 +48177,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895968324}
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &1895968328
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895968324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &1896287212
 GameObject:
   m_ObjectHideFlags: 0
@@ -44933,6 +48210,7 @@ GameObject:
   - component: {fileID: 1896287213}
   - component: {fileID: 1896287215}
   - component: {fileID: 1896287214}
+  - component: {fileID: 1896287216}
   m_Layer: 0
   m_Name: MetalBridgeCenter (57)
   m_TagString: Untagged
@@ -45004,6 +48282,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896287212}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1896287216
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896287212}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &1896715089
 PrefabInstance:
@@ -45221,6 +48521,7 @@ GameObject:
   - component: {fileID: 1907662857}
   - component: {fileID: 1907662859}
   - component: {fileID: 1907662858}
+  - component: {fileID: 1907662860}
   m_Layer: 0
   m_Name: MetalBridgeCenter (48)
   m_TagString: Untagged
@@ -45292,6 +48593,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907662856}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1907662860
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907662856}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1911230103
 GameObject:
@@ -45409,6 +48732,7 @@ GameObject:
   - component: {fileID: 1912987188}
   - component: {fileID: 1912987190}
   - component: {fileID: 1912987189}
+  - component: {fileID: 1912987191}
   m_Layer: 0
   m_Name: MetalBridgeCenter (85)
   m_TagString: Untagged
@@ -45480,6 +48804,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912987187}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1912987191
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912987187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1914369489
 GameObject:
@@ -46998,6 +50344,7 @@ GameObject:
   - component: {fileID: 1963244191}
   - component: {fileID: 1963244193}
   - component: {fileID: 1963244192}
+  - component: {fileID: 1963244194}
   m_Layer: 0
   m_Name: MetalBridgeCenter (45)
   m_TagString: Untagged
@@ -47070,6 +50417,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963244190}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1963244194
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963244190}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1966284057
 GameObject:
   m_ObjectHideFlags: 0
@@ -47081,6 +50450,7 @@ GameObject:
   - component: {fileID: 1966284058}
   - component: {fileID: 1966284060}
   - component: {fileID: 1966284059}
+  - component: {fileID: 1966284061}
   m_Layer: 0
   m_Name: MetalBridgeLeg (8)
   m_TagString: Untagged
@@ -47153,6 +50523,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966284057}
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &1966284061
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966284057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &1966556960
 GameObject:
   m_ObjectHideFlags: 0
@@ -47164,6 +50556,7 @@ GameObject:
   - component: {fileID: 1966556961}
   - component: {fileID: 1966556963}
   - component: {fileID: 1966556962}
+  - component: {fileID: 1966556964}
   m_Layer: 0
   m_Name: MetalBridgeCenter (78)
   m_TagString: Untagged
@@ -47236,6 +50629,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966556960}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1966556964
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966556960}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &1969785555
 GameObject:
   m_ObjectHideFlags: 0
@@ -47281,6 +50696,7 @@ GameObject:
   - component: {fileID: 1970519130}
   - component: {fileID: 1970519132}
   - component: {fileID: 1970519131}
+  - component: {fileID: 1970519133}
   m_Layer: 0
   m_Name: MetalBridgeCenter (53)
   m_TagString: Untagged
@@ -47352,6 +50768,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970519129}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &1970519133
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970519129}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1001 &1973987139
 PrefabInstance:
@@ -47774,6 +51212,7 @@ GameObject:
   - component: {fileID: 1992106812}
   - component: {fileID: 1992106814}
   - component: {fileID: 1992106813}
+  - component: {fileID: 1992106815}
   m_Layer: 0
   m_Name: MetalBridgeSide (6)
   m_TagString: Untagged
@@ -47845,6 +51284,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992106811}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &1992106815
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992106811}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &1997666027
 GameObject:
@@ -47963,6 +51424,7 @@ GameObject:
   - component: {fileID: 2007055353}
   - component: {fileID: 2007055355}
   - component: {fileID: 2007055354}
+  - component: {fileID: 2007055356}
   m_Layer: 0
   m_Name: MetalBridgeCenter (71)
   m_TagString: Untagged
@@ -48035,6 +51497,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007055352}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &2007055356
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007055352}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &2014761632
 GameObject:
   m_ObjectHideFlags: 0
@@ -48046,6 +51530,7 @@ GameObject:
   - component: {fileID: 2014761633}
   - component: {fileID: 2014761635}
   - component: {fileID: 2014761634}
+  - component: {fileID: 2014761636}
   m_Layer: 0
   m_Name: MetalBridgeCenter (8)
   m_TagString: Untagged
@@ -48117,6 +51602,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014761632}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &2014761636
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014761632}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &2021095011
 GameObject:
@@ -48532,6 +52039,7 @@ GameObject:
   - component: {fileID: 2037515835}
   - component: {fileID: 2037515837}
   - component: {fileID: 2037515836}
+  - component: {fileID: 2037515838}
   m_Layer: 0
   m_Name: MetalBridgeCenter (49)
   m_TagString: Untagged
@@ -48604,6 +52112,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037515834}
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &2037515838
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037515834}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &2040108582
 GameObject:
   m_ObjectHideFlags: 0
@@ -48615,6 +52145,7 @@ GameObject:
   - component: {fileID: 2040108583}
   - component: {fileID: 2040108585}
   - component: {fileID: 2040108584}
+  - component: {fileID: 2040108586}
   m_Layer: 0
   m_Name: MetalBridgeCenter (80)
   m_TagString: Untagged
@@ -48686,6 +52217,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040108582}
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
+--- !u!64 &2040108586
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040108582}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!1 &2056442834
 GameObject:
@@ -49727,6 +53280,7 @@ GameObject:
   - component: {fileID: 2118834533}
   - component: {fileID: 2118834535}
   - component: {fileID: 2118834534}
+  - component: {fileID: 2118834536}
   m_Layer: 0
   m_Name: MetalBridgeSide (8)
   m_TagString: Untagged
@@ -49799,6 +53353,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118834532}
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &2118834536
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118834532}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &2128427888
 GameObject:
   m_ObjectHideFlags: 0
@@ -49810,6 +53386,7 @@ GameObject:
   - component: {fileID: 2128427889}
   - component: {fileID: 2128427891}
   - component: {fileID: 2128427890}
+  - component: {fileID: 2128427892}
   m_Layer: 0
   m_Name: MetalBridgeLeg (43)
   m_TagString: Untagged
@@ -49881,6 +53458,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128427888}
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
+--- !u!64 &2128427892
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128427888}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!1 &2129206801
 GameObject:
@@ -50001,6 +53600,7 @@ GameObject:
   - component: {fileID: 2137797157}
   - component: {fileID: 2137797159}
   - component: {fileID: 2137797158}
+  - component: {fileID: 2137797160}
   m_Layer: 0
   m_Name: MetalBridgeSide (18)
   m_TagString: Untagged
@@ -50072,6 +53672,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137797156}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &2137797160
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137797156}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &2139893773
 GameObject:
@@ -50190,6 +53812,7 @@ GameObject:
   - component: {fileID: 2144291460}
   - component: {fileID: 2144291462}
   - component: {fileID: 2144291461}
+  - component: {fileID: 2144291463}
   m_Layer: 0
   m_Name: ColliderMetalBrideSide6
   m_TagString: Untagged
@@ -50262,6 +53885,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144291459}
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &2144291463
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144291459}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &2145087777
 GameObject:
   m_ObjectHideFlags: 0
@@ -50273,6 +53918,7 @@ GameObject:
   - component: {fileID: 2145087778}
   - component: {fileID: 2145087780}
   - component: {fileID: 2145087779}
+  - component: {fileID: 2145087781}
   m_Layer: 0
   m_Name: MetalBridgeSide (14)
   m_TagString: Untagged
@@ -50344,6 +53990,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145087777}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &2145087781
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145087777}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1 &2146602670
 GameObject:
@@ -51049,6 +54717,7 @@ GameObject:
   - component: {fileID: 4537984496594683783}
   - component: {fileID: 4537984496598108071}
   - component: {fileID: 4537984496596976999}
+  - component: {fileID: 4537984496598108072}
   m_Layer: 0
   m_Name: MetalBridgeSide
   m_TagString: Untagged
@@ -51105,6 +54774,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4537984496594983847}
+  m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
+--- !u!64 &4537984496598108072
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537984496594983847}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e03a3bbeb32130b449794906175b8895, type: 3}
 --- !u!1001 &5026663933299505140
 PrefabInstance:
@@ -51757,6 +55448,7 @@ GameObject:
   - component: {fileID: 7629297119961667564}
   - component: {fileID: 7629297119958767564}
   - component: {fileID: 7629297119959766284}
+  - component: {fileID: 7629297119961959373}
   m_Layer: 0
   m_Name: MetalBridgeCenter
   m_TagString: Untagged
@@ -51764,6 +55456,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &7629297119961959373
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629297119961959372}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: f162ff14387389949a3e555898037899, type: 3}
 --- !u!33 &8088521193835414159
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -51840,6 +55554,7 @@ GameObject:
   - component: {fileID: 8088521193838281391}
   - component: {fileID: 8088521193835414159}
   - component: {fileID: 8088521193836380239}
+  - component: {fileID: 8088521193838386832}
   m_Layer: 0
   m_Name: MetalBridgeLeg
   m_TagString: Untagged
@@ -51847,6 +55562,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8088521193838386832
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088521193838386831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 3f1ce6182267820458c93f9722f91b4e, type: 3}
 --- !u!23 &8089513292114406399
 MeshRenderer:
   m_ObjectHideFlags: 0
