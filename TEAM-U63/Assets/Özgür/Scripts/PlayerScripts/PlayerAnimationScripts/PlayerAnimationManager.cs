@@ -12,15 +12,18 @@ public class PlayerAnimationManager : NetworkBehaviour
     [SerializeField] private float idleAcceleration = 5f;
     [SerializeField] private float idleDeceleration = 5f;
     
+    [Header("Info - No Touch")]
+    public float idleAndMovingBlendValue;
+    public float walkingAndRunningBlendValue;
+
+    private PlayerData pd;
     private PlayerStateData psd;
     private PlayerController pc;
     private Animator an;
-    
-    private float idleAndMovingBlendValue;
-    private float walkingAndRunningBlendValue;
 
     private void Awake()
     {
+        pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
         pc = GetComponent<PlayerController>();
         an = GetComponent<Animator>();
@@ -31,8 +34,10 @@ public class PlayerAnimationManager : NetworkBehaviour
     
     private void Update()
     {
+        if (pd.isLocal) walkingAndRunningBlendValue = MovingSpeedToWalkAndRunBlendValue(pc.movingSpeed);
+        
         an.SetFloat("PlayerIdleAndMovingBlendValue", idleAndMovingBlendValue);
-        an.SetFloat("PlayerWalkAndRunBlendValue", MovingSpeedToWalkAndRunBlendValue(pc.movingSpeed));
+        an.SetFloat("PlayerWalkAndRunBlendValue", walkingAndRunningBlendValue);
         
         if (psd.currentMainState == PlayerStateData.PlayerMainState.EasterEggState) an.Play("EasterEgg");
         else if (psd.currentMainState is PlayerStateData.PlayerMainState.AbilityState or PlayerStateData.PlayerMainState.RobotControllingState) an.Play("PlayerIdle");

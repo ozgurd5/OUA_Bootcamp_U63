@@ -18,20 +18,24 @@ public class TestScript : MonoBehaviour
         coderPsd = coder.GetComponent<PlayerStateData>();
         artistPsd = artist.GetComponent<PlayerStateData>();
 
-        NetworkManager.Singleton.StartHost();
+        //NetworkManager.Singleton.StartHost();
     }
     
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.L)) return;
+        if (Input.GetKeyDown(KeyCode.J)) NetworkManager.Singleton.StartHost();
+        else if (Input.GetKeyDown(KeyCode.K)) NetworkManager.Singleton.StartClient();
         
-        if (coderPsd.currentMainState == PlayerStateData.PlayerMainState.NormalState &&
-            artistPsd.currentMainState == PlayerStateData.PlayerMainState.NormalState
-            && !artistPsd.isGrabbing && !coderPsd.isGrabbing) //TODO: allow cube carrying player change
+        else if (Input.GetKeyDown(KeyCode.L))
         {
-            npd.UpdateIsHostCoder(!npd.isHostCoder);
-            coder.DecideControlSource();
-            artist.DecideControlSource();
+            if (coderPsd.currentMainState == PlayerStateData.PlayerMainState.NormalState &&
+                artistPsd.currentMainState == PlayerStateData.PlayerMainState.NormalState
+                && !artistPsd.isGrabbing && !coderPsd.isGrabbing)
+            {
+                npd.UpdateIsHostCoder(!npd.isHostCoder);
+                coder.DecideControlSource();
+                artist.DecideControlSource();
+            }
         }
     }
 }
