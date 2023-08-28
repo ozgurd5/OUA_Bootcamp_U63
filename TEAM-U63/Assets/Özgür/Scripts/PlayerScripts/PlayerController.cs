@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -14,19 +15,21 @@ public class PlayerController : NetworkBehaviour
     [Header("Assign")]
     [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 10f;
+    [SerializeField] private float acceleration = 10f;
     [SerializeField] [Range(0,1)] private float walkingRotatingSpeed = 0.2f;
     [SerializeField] [Range(0,1)] private float runningRotatingSpeed = 0.4f;
     
-    [Header("Info - No Touch")] public float rotatingSpeed;
+    [Header("Info - No Touch")]
+    public float rotatingSpeed;
+    [SerializeField] private Vector3 movingDirection;
+    [SerializeField] private float movingSpeed;
+    [SerializeField] private bool isIncreasingSpeed;
 
     private PlayerData pd;
     private PlayerStateData psd;
     private PlayerInputManager pim;
     private PlayerCameraManager pcm;
     private Rigidbody rb;
-
-    public Vector3 movingDirection;
-    public float movingSpeed;
 
     private void Awake()
     {
@@ -65,6 +68,7 @@ public class PlayerController : NetworkBehaviour
         if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState) return;
         DecideIdleOrMovingStates();
         DecideWalkingOrRunningStates();
+        HandleMovingSpeed();
     }
 
     private void FixedUpdate()
@@ -114,19 +118,65 @@ public class PlayerController : NetworkBehaviour
         
         psd.isRunning = pim.isRunKey;
         psd.isWalking = !psd.isRunning;
-
-        if (psd.isRunning)
+    }
+    
+    private void HandleMovingSpeed()
+    {
+        //TODO: fix repetitive code bellow:
+        //StopAllCoroutines();
+        //isIncreasingSpeed = false;
+        
+        if (psd.isIdle)
         {
-            movingSpeed = runningSpeed;
-            rotatingSpeed = runningRotatingSpeed;
+            StopAllCoroutines();
+            isIncreasingSpeed = false;
+            
+            movingSpeed = 0f;
         }
-        else
+        
+        else if (psd.isWalking)
         {
-            movingSpeed = walkingSpeed;
-            rotatingSpeed = walkingRotatingSpeed;
+            if (movingSpeed > walkingSpeed) //From running to walking
+            {
+                StopAllCoroutines();
+                isIncreasingSpeed = false;
+                
+                movingSpeed = walkingSpeed;
+            }
+            
+            else if (!isIncreasingSpeed && movingSpeed != walkingSpeed)
+            {
+                StopAllCoroutines();
+                isIncreasingSpeed = false;
+                
+                StartCoroutine(IncreaseMovingSpeed(walkingSpeed));
+            }
+        }
+        
+        else if (psd.isRunning && !isIncreasingSpeed && movingSpeed != runningSpeed)
+        {
+            StopAllCoroutines();
+            isIncreasingSpeed = false;
+            
+            StartCoroutine(IncreaseMovingSpeed(runningSpeed));
         }
     }
     
+    private IEnumerator IncreaseMovingSpeed(float movingSpeedToReach)
+    {
+        isIncreasingSpeed = true;
+        
+        while (movingSpeed < movingSpeedToReach)
+        {
+            movingSpeed += acceleration * Time.deltaTime;
+            yield return null;
+        }
+        
+        if (movingSpeed > movingSpeedToReach) movingSpeed = movingSpeedToReach;
+        
+        isIncreasingSpeed = false;
+    }
+
     private void HandleMovement()
     {
         //We have to make the moving directions magnitude equal to moving speed

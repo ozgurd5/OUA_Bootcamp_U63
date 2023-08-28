@@ -651,9 +651,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c567ad82dbccdb74384c3af0e0ea6b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMovingSpeed: 8
+  defaultVerticalSpeed: 4
+  acceleration: 20
+  rotatingSpeed: 0.4
+  isMoving: 0
+  isVerticalMoving: 0
+  isIncreasingMovingSpeed: 0
+  isIncreasingVerticalSpeed: 0
   movingSpeed: 8
   verticalSpeed: 4
-  rotatingSpeed: 0.4
+  movingDirection: {x: 0, y: 0, z: 0}
+  verticalDirection: 0
 --- !u!114 &9206484874387347790
 MonoBehaviour:
   m_ObjectHideFlags: 0

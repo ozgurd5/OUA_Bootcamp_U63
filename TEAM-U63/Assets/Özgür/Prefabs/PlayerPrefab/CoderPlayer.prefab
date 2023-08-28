@@ -678,9 +678,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 3
   runningSpeed: 10
+  acceleration: 10
   walkingRotatingSpeed: 0.2
   runningRotatingSpeed: 0.4
   rotatingSpeed: 0
+  movingDirection: {x: 0, y: 0, z: 0}
+  movingSpeed: 0
+  isIncreasingSpeed: 0
 --- !u!114 &4885421240507298559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,6 +1265,8 @@ MonoBehaviour:
   downKeyImage: {fileID: 21300000, guid: 02d435722f5969d49bc7db64f7587dcb, type: 3}
   rightKeyImage: {fileID: 21300000, guid: 0d60c6d98f1ba7d439e7dd33c1d89021, type: 3}
   leftKeyImage: {fileID: 21300000, guid: 31e7e0c00ad43884ab37cfd23faf9d88, type: 3}
+  artistQTELimit: 15
+  coderQTELimit: 6
   keyTimerLimit: 2
   keyImage: {fileID: 8668277019772018144}
   abilityCanvas: {fileID: 4462082790790241726}
