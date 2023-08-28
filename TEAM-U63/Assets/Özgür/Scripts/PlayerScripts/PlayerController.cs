@@ -13,16 +13,16 @@ public class PlayerController : NetworkBehaviour
     public event Action OnEasterEggExit;
     
     [Header("Assign")]
-    [SerializeField] private float walkingSpeed = 3f;
-    [SerializeField] private float runningSpeed = 10f;
+    public float walkingSpeed = 3f;
+    public float runningSpeed = 10f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] [Range(0,1)] private float walkingRotatingSpeed = 0.2f;
     [SerializeField] [Range(0,1)] private float runningRotatingSpeed = 0.4f;
     
     [Header("Info - No Touch")]
     public float rotatingSpeed;
+    public float movingSpeed;
     [SerializeField] private Vector3 movingDirection;
-    [SerializeField] private float movingSpeed;
     [SerializeField] private bool isIncreasingSpeed;
 
     private PlayerData pd;
