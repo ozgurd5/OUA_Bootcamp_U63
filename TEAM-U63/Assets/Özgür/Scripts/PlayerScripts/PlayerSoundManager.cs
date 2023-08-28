@@ -33,7 +33,13 @@ public class PlayerSoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (psd.isMoving)
+        if (psd.currentMainState != PlayerStateData.PlayerMainState.NormalState)
+        {
+            //Setting loop property to false feels more natural then using aus.Stop();
+            aus.loop = false;
+        }
+        
+        else if (psd.isMoving)
         {
             SelectClip();
             PlaySound();

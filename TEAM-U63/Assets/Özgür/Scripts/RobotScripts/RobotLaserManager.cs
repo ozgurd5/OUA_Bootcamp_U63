@@ -46,9 +46,6 @@ public class RobotLaserManager : MonoBehaviour
 
     public void CloseLaser()
     {
-        //When the robot close it's laser, it must also close the connected robot's laser too
-        if (connectedRobotRlm != null) connectedRobotRlm.CloseLaser();
-        
         isGettingLaser = false;
         lr.enabled = false;
         
@@ -91,6 +88,7 @@ public class RobotLaserManager : MonoBehaviour
                     connectedRobotRlm.CloseLaser();
             }
             
+            //If we hit laser target
             else if (laserSourceHit.collider.CompareTag("LaserTarget") && isGettingLaser)
             {
                 connectedLaserTarget = laserSourceHit.collider.GetComponent<LaserTarget>();

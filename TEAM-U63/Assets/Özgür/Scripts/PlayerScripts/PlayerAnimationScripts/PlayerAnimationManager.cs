@@ -19,7 +19,7 @@ public class PlayerAnimationManager : NetworkBehaviour
     private void Update()
     {
         if (psd.currentMainState == PlayerStateData.PlayerMainState.EasterEggState) an.Play("EasterEgg");
-        else if (psd.currentMainState == PlayerStateData.PlayerMainState.AbilityState) an.Play("PlayerIdle");
+        else if (psd.currentMainState is PlayerStateData.PlayerMainState.AbilityState or PlayerStateData.PlayerMainState.RobotControllingState) an.Play("PlayerIdle");
         else if (psd.isIdle) an.Play("PlayerIdle");
         else if (psd.isWalking) an.Play("PlayerWalking");
         else if (psd.isRunning) an.Play("PlayerRunning");

@@ -26,7 +26,8 @@ public class TestScript : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.L)) return;
         
         if (coderPsd.currentMainState == PlayerStateData.PlayerMainState.NormalState &&
-            artistPsd.currentMainState == PlayerStateData.PlayerMainState.NormalState)
+            artistPsd.currentMainState == PlayerStateData.PlayerMainState.NormalState
+            && !artistPsd.isGrabbing && !coderPsd.isGrabbing) //TODO: allow cube carrying player change
         {
             npd.UpdateIsHostCoder(!npd.isHostCoder);
             coder.DecideControlSource();

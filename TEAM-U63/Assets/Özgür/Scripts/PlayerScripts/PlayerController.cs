@@ -89,11 +89,11 @@ public class PlayerController : NetworkBehaviour
         
         else if (psd.isGrabbing && psd.isIdle)
         {
-            //To prevent player rotation in x axis
+            //To prevent rotation in x axis
             Vector3 target = pcm.cameraTransform.forward;
             target.y = 0f;
             
-            transform.forward = Vector3.Slerp(transform.forward,target , rotatingSpeed);
+            transform.forward = Vector3.Slerp(transform.forward, target, rotatingSpeed);
         }
     }
     
@@ -130,7 +130,7 @@ public class PlayerController : NetworkBehaviour
     private void HandleMovement()
     {
         //We have to make the moving directions magnitude equal to moving speed
-        if (movingDirection.magnitude != 0f)
+        if (movingDirection.magnitude != 0f) //Prevents divide by zero error (which is not the case, it returns NaN)
         {
             float multiplier = movingSpeed / movingDirection.magnitude;
             movingDirection *= multiplier;

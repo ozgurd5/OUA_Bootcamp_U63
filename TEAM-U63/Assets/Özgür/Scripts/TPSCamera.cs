@@ -1,7 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 
-//TODO: CUSTOM CAMERA COLLISION
+//TODO: CUSTOM CAMERA COLLISION: 8 STEP
 public class TPSCamera : MonoBehaviour
 {
     [Header("Assign")]
@@ -78,7 +78,6 @@ public class TPSCamera : MonoBehaviour
         //4
         //CheckForCollision();
     }
-
     private void LateUpdate()
     {
         followTargetPositionDifference = followTargetTransform.position - followTargetPreviousPosition;

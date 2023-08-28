@@ -54,7 +54,13 @@ public class RobotController : MonoBehaviour
 
     private void HandleMovement()
     {
-        movingDirection *= movingSpeed;
+        //We have to make the moving directions magnitude equal to moving speed
+        if (movingDirection.magnitude != 0f) //Prevents divide by zero error (which is not the case, it returns NaN)
+        {
+            float multiplier = movingSpeed / movingDirection.magnitude;
+            movingDirection *= multiplier;
+        }
+        
         verticalDirection *= verticalSpeed;
         
         rb.velocity = new Vector3(movingDirection.x, verticalDirection, movingDirection.z);

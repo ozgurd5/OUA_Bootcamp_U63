@@ -46,7 +46,6 @@ public class CrosshairManager : MonoBehaviour
 
     private void Update()
     {
-        
         #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.H)) Debug.Log(crosshairHit.collider.name);
         #endif
