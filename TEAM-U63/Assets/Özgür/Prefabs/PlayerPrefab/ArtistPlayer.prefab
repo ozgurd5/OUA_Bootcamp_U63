@@ -332,12 +332,11 @@ MonoBehaviour:
   walkingSpeed: 3
   runningSpeed: 10
   acceleration: 20
-  walkingRotatingSpeed: 0.2
-  runningRotatingSpeed: 0.4
-  rotatingSpeed: 0
+  rotatingSpeed: 0.2
   movingSpeed: 0
   movingDirection: {x: 0, y: 0, z: 0}
   isIncreasingSpeed: 0
+  isDecreasingSpeed: 0
 --- !u!114 &7447685417289580300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8b9905fc2e458439cb5f0dfbab142a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idleAcceleration: 5
+  idleDeceleration: 5
 --- !u!114 &7166932460731814293
 MonoBehaviour:
   m_ObjectHideFlags: 0

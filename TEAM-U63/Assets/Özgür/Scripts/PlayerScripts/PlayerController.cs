@@ -11,19 +11,22 @@ public class PlayerController : NetworkBehaviour
 {
     public event Action OnEasterEggEnter;
     public event Action OnEasterEggExit;
+    public event Action OnMovementStarted;
+    public event Action OnMovementStopped;
+    public event Action OnRunningStarted;
+    public event Action OnRunningStopped;
     
     [Header("Assign")]
     public float walkingSpeed = 3f;
     public float runningSpeed = 10f;
-    [SerializeField] private float acceleration = 10f;
-    [SerializeField] [Range(0,1)] private float walkingRotatingSpeed = 0.2f;
-    [SerializeField] [Range(0,1)] private float runningRotatingSpeed = 0.4f;
+    [SerializeField] private float acceleration = 20f;
+    [Range(0,1)] public float rotatingSpeed = 0.2f;
     
     [Header("Info - No Touch")]
-    public float rotatingSpeed;
     public float movingSpeed;
     [SerializeField] private Vector3 movingDirection;
     [SerializeField] private bool isIncreasingSpeed;
+    [SerializeField] private bool isDecreasingSpeed;
 
     private PlayerData pd;
     private PlayerStateData psd;
@@ -35,7 +38,6 @@ public class PlayerController : NetworkBehaviour
     {
         //Moving and rotating speed defaults must be walking speeds
         movingSpeed = walkingSpeed;
-        rotatingSpeed = walkingRotatingSpeed;
 
         pd = GetComponent<PlayerData>();
         psd = GetComponent<PlayerStateData>();
@@ -103,8 +105,13 @@ public class PlayerController : NetworkBehaviour
     
     private void DecideIdleOrMovingStates()
     {
+        bool previousIsMoving = psd.isMoving;
+        
         psd.isMoving = pim.moveInput != Vector2.zero;
         psd.isIdle = !psd.isMoving;
+        
+        if (!previousIsMoving && psd.isMoving) OnMovementStarted?.Invoke();
+        else if (previousIsMoving && !psd.isMoving) OnMovementStopped?.Invoke();
     }
     
     private void DecideWalkingOrRunningStates()
@@ -122,44 +129,39 @@ public class PlayerController : NetworkBehaviour
     
     private void HandleMovingSpeed()
     {
-        //TODO: fix repetitive code bellow:
-        //StopAllCoroutines();
-        //isIncreasingSpeed = false;
-        
-        if (psd.isIdle)
+        if (psd.isIdle && movingSpeed != 0f && !isDecreasingSpeed) //Idle
         {
-            StopAllCoroutines();
-            isIncreasingSpeed = false;
-            
-            movingSpeed = 0f;
+            StopSpeedCoroutines();
+            StartCoroutine(DecreaseMovingSpeed(0f));
         }
         
         else if (psd.isWalking)
         {
-            if (movingSpeed > walkingSpeed) //From running to walking
+            if (movingSpeed > walkingSpeed && !isDecreasingSpeed) //Running to walking
             {
-                StopAllCoroutines();
-                isIncreasingSpeed = false;
-                
-                movingSpeed = walkingSpeed;
+                StopSpeedCoroutines();
+                StartCoroutine(DecreaseMovingSpeed(walkingSpeed));
             }
             
-            else if (!isIncreasingSpeed && movingSpeed != walkingSpeed)
+            else if (movingSpeed != walkingSpeed && !isIncreasingSpeed && !isDecreasingSpeed) //Idle to walking
             {
-                StopAllCoroutines();
-                isIncreasingSpeed = false;
-                
+                StopSpeedCoroutines();
                 StartCoroutine(IncreaseMovingSpeed(walkingSpeed));
             }
         }
         
-        else if (psd.isRunning && !isIncreasingSpeed && movingSpeed != runningSpeed)
+        else if (psd.isRunning && movingSpeed != runningSpeed && !isIncreasingSpeed) //Running
         {
-            StopAllCoroutines();
-            isIncreasingSpeed = false;
-            
+            StopSpeedCoroutines();
             StartCoroutine(IncreaseMovingSpeed(runningSpeed));
         }
+    }
+
+    private void StopSpeedCoroutines()
+    {
+        StopAllCoroutines();
+        isIncreasingSpeed = false;
+        isDecreasingSpeed = false;
     }
     
     private IEnumerator IncreaseMovingSpeed(float movingSpeedToReach)
@@ -175,6 +177,24 @@ public class PlayerController : NetworkBehaviour
         if (movingSpeed > movingSpeedToReach) movingSpeed = movingSpeedToReach;
         
         isIncreasingSpeed = false;
+    }
+
+    //Effects only animations. Input is 0 when the player stops, which makes the movingDirection 0. movingSpeed does..
+    //not effect player movement what that happens. But since the animations are working according to movingSpeed, this..
+    //..coroutine effect only animations
+    private IEnumerator DecreaseMovingSpeed(float movingSpeedToReach)
+    {
+        isDecreasingSpeed = true;
+        
+        while (movingSpeed > movingSpeedToReach)
+        {
+            movingSpeed -= acceleration * Time.deltaTime;
+            yield return null;
+        }
+        
+        if (movingSpeed < movingSpeedToReach) movingSpeed = movingSpeedToReach;
+
+        isDecreasingSpeed = false;
     }
 
     private void HandleMovement()
