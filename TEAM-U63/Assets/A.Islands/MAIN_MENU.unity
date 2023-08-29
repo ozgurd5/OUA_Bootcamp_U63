@@ -8784,6 +8784,14 @@ PrefabInstance:
       propertyPath: m_ProtocolType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 140197484168480057, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: ConnectionData.Address
+      value: 192.168.1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 140197484168480057, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: ConnectionData.ServerListenAddress
+      value: 0.0.0.0
+      objectReference: {fileID: 0}
     - target: {fileID: 2115399574457327219, guid: 6dd0303090213314d92496abce08829c, type: 3}
       propertyPath: m_Name
       value: NetworkManager
