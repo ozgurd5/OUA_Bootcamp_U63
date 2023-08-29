@@ -35,7 +35,7 @@ public class ElevatorParenter : NetworkBehaviour
     {
         foreach (var item in enteredCubes)
         {
-            if (item.isGrabbed || item.isParented || item.isRotationFroze) return;
+            if (item.isGrabbed || item.isParented || item.isRotationFroze) continue;
 
             //Parenting is needed for smooth movement and good looking motion
             item.ToggleFakeParenting(true, transform); //UpdateParentUsingNetworkParentListID(networkParentListID);
