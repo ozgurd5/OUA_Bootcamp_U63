@@ -21,15 +21,14 @@ public class PressurePlate : MonoBehaviour
     
     private void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag(activationTag) && !isPressed)
-        {
-            yellowPlane.SetActive(false);
-            greenPlane.SetActive(true);
+        if (!col.CompareTag(activationTag)) return;
+        
+        yellowPlane.SetActive(false);
+        greenPlane.SetActive(true);
             
-            isPressed = true;
-            aus.Play();
-            OnPressurePlateInteraction?.Invoke(isPressed);
-        }
+        isPressed = true;
+        aus.Play();
+        OnPressurePlateInteraction?.Invoke(isPressed);
     }
     
     private void OnTriggerExit(Collider col)

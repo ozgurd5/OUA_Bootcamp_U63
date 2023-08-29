@@ -18,7 +18,7 @@ public class TestScript : MonoBehaviour
         coderPsd = coder.GetComponent<PlayerStateData>();
         artistPsd = artist.GetComponent<PlayerStateData>();
         
-        NetworkManager.Singleton.StartHost();
+        //NetworkManager.Singleton.StartHost();
     }
     
     private void Update()

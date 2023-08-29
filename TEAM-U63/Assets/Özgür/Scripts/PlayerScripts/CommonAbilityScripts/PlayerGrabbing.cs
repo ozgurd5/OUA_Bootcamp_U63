@@ -56,10 +56,9 @@ public class PlayerGrabbing : NetworkBehaviour
 
         //These settings prevent all kind of stuttering, flickering, shaking, lagging etc.
         grabbedCubeManager.UpdateGravity(false);
+        grabbedCubeManager.UpdateRotationFreeze(true);
         grabbedCubeRb.drag = cubeDrag;
-        grabbedCubeRb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        grabbedCubeManager.UpdateParentUsingNetworkParentListID(grabPointNetworkParentListID);
         psd.isGrabbing = true;
     }
     
@@ -68,10 +67,9 @@ public class PlayerGrabbing : NetworkBehaviour
         aus.Play();
         
         psd.isGrabbing = false;
-        grabbedCubeManager.UpdateParentUsingNetworkParentListID(-1);    //-1 means null
         
-        grabbedCubeRb.constraints = RigidbodyConstraints.None;
         grabbedCubeRb.drag = 0f;
+        grabbedCubeManager.UpdateRotationFreeze(false);
         grabbedCubeManager.UpdateGravity(true);
         
         grabbedCubeManager.UpdateIsGrabbed(false);

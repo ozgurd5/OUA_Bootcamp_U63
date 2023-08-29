@@ -684,6 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   networkParentListID: 4
+  enteredCubeManager: {fileID: 0}
 --- !u!1 &2903405764249366603
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +905,7 @@ MonoBehaviour:
   pressurePlate: {fileID: 5995776885481885020}
   upFloorLocalY: 8
   moveTime: 2.3
+  moveSpeed: 10
 --- !u!82 &7825588685918753947
 AudioSource:
   m_ObjectHideFlags: 0

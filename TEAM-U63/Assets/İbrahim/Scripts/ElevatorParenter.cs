@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,10 +7,9 @@ public class ElevatorParenter : NetworkBehaviour
     [Header("Assign - NetworkParentListID")]
     [SerializeField] private int networkParentListID;
 
-    private CubeManager enteredCubeManager;         //Explanation is in further down where it's being used
-    private bool isEnteredCubeStatesNull = true;    //Comparison to null is expensive
-    private NetworkObject no;
-    
+    private CubeManager enteredCubeManager; //Explanation is in further down where it's being used
+    private bool isEnteredCubeStatesNull = true; //Comparison to null is expensive
+
     private void OnTriggerEnter(Collider col)
     {
         if (!col.CompareTag("RedPuzzle") && !col.CompareTag("GreenPuzzle") && !col.CompareTag("BluePuzzle")) return;
@@ -27,14 +27,15 @@ public class ElevatorParenter : NetworkBehaviour
         isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
     }
     
-    private void FixedUpdate()
+    private void Update()
     {
         if (isEnteredCubeStatesNull) return; 
         if (enteredCubeManager.isGrabbed) return;
         
         //Parenting is needed for smooth movement and good looking motion
-        enteredCubeManager.UpdateParentUsingNetworkParentListID(networkParentListID);
-
+        enteredCubeManager.ToggleFakeParenting(true, transform); //UpdateParentUsingNetworkParentListID(networkParentListID);
+        enteredCubeManager.UpdateRotationFreeze(true);
+        
         enteredCubeManager = null;
         isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
     }

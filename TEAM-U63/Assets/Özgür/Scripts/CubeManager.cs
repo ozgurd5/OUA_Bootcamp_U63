@@ -17,6 +17,7 @@ public class CubeManager : NetworkBehaviour
 
     private MeshRenderer mr;
     private Rigidbody rb;
+    private FakeParenter fp;
     
     private int cubeMaterialAndTagIndex; //PlayerArtistPaintAbility.cs
     
@@ -29,7 +30,21 @@ public class CubeManager : NetworkBehaviour
     {
         mr = GetComponent<MeshRenderer>();
         rb = GetComponent<Rigidbody>();
+        fp = GetComponent<FakeParenter>();
     }
+
+    #region FakeParenting
+
+    //WORKS ONLY LOCALLY TO PREVENT POSITION CONFLICTS
+    public void ToggleFakeParenting(bool willBeChild, Transform fakeParent)
+    {
+        if (!isLocal) return;
+        
+        fp.isChild = willBeChild;
+        if (willBeChild) fp.followTargetTransform = fakeParent;
+    }
+
+    #endregion
 
     #region Parenting
 
@@ -62,6 +77,52 @@ public class CubeManager : NetworkBehaviour
     {
         if (networkParentListID == -1) transform.parent = null;
         else transform.parent = NetworkParentingManager.Singleton.FindTransformUsingID(networkParentListID);
+    }
+
+    #endregion
+
+    #region Rotation
+
+    /// <summary>
+    /// <para>Enables and disables the gravity of the cube and syncs it across the network</para>
+    /// <param name="newRotationFreeze">Will the gravity enabled for the remote after this action?</param>
+    /// </summary>
+    public void UpdateRotationFreeze(bool newRotationFreeze)
+    {
+        if (newRotationFreeze) rb.constraints = RigidbodyConstraints.FreezeRotation;
+        else rb.constraints = RigidbodyConstraints.None;
+        
+        SyncRotationFreezeClientRpc(newRotationFreeze);
+        if (!IsHost) SyncRotationFreezeServerRpc(newRotationFreeze);
+    }
+    
+    /// <summary>
+    /// <para>Sends gravity status in the host to client</para>
+    /// <para>Can't and must not work in host side</para>
+    /// <param name="newRotationFreeze">Will the gravity enabled for the remote after this action?</param>
+    /// </summary>
+    [ClientRpc]
+    private void SyncRotationFreezeClientRpc(bool newRotationFreeze)
+    {
+        //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
+        if (!IsHost)
+        {
+            if (newRotationFreeze) rb.constraints = RigidbodyConstraints.FreezeRotation;
+            else rb.constraints = RigidbodyConstraints.None;
+        }
+    }
+
+    /// <summary>
+    /// <para>Sends gravity status in the client to host</para>
+    /// <para>Must not called by the host, be careful. Since host is also a client, it can call this method. If so,
+    /// that would override client side local status and cause object to not update it's local status</para>
+    /// <param name="newRotationFreeze">Will the gravity enabled for the remote after this action?</param>
+    /// </summary>
+    [ServerRpc(RequireOwnership = false)]
+    private void SyncRotationFreezeServerRpc(bool newRotationFreeze)
+    {
+        if (newRotationFreeze) rb.constraints = RigidbodyConstraints.FreezeRotation;
+        else rb.constraints = RigidbodyConstraints.None;
     }
 
     #endregion

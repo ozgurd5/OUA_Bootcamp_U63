@@ -20,7 +20,7 @@ public class SecondIslandFirstLevelPuzzle : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (!col.CompareTag("robot")) return;
+        if (!col.CompareTag("Robot")) return;
 
         isCompleted = true;
         robotNumber++;
@@ -29,7 +29,7 @@ public class SecondIslandFirstLevelPuzzle : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (!col.CompareTag("robot")) return;
+        if (!col.CompareTag("Robot")) return;
 
         isCompleted = false;
         robotNumber--;
