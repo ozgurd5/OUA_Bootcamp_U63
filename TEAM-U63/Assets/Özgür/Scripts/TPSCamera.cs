@@ -19,6 +19,9 @@ public class TPSCamera : MonoBehaviour
 
     private Vector3 followTargetPreviousPosition;
     private Vector3 followTargetPositionDifference;
+
+    public bool canMoveUp;
+    public bool canMoveDown;
     
     private void Start()
     {
@@ -72,8 +75,13 @@ public class TPSCamera : MonoBehaviour
     {
         if (!cinemachineCam.enabled) return;
         
-        transform.RotateAround(lookAtTargetTransform.position, transform.right, -pim.lookInput.y);
         transform.RotateAround(lookAtTargetTransform.position, Vector3.up, pim.lookInput.x);
+        
+        canMoveUp = transform.rotation.eulerAngles.x is < 85f or > 290f;
+        canMoveDown = transform.rotation.eulerAngles.x is < 90f or > 305f;
+        
+        if ((canMoveDown && pim.lookInput.y > 0f) || canMoveUp && pim.lookInput.y < 0f)
+            transform.RotateAround(lookAtTargetTransform.position, transform.right, -pim.lookInput.y);
 
         //4
         //CheckForCollision();

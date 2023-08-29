@@ -8760,6 +8760,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 140197484168480057, guid: 6dd0303090213314d92496abce08829c, type: 3}
+      propertyPath: m_ProtocolType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2115399574457327219, guid: 6dd0303090213314d92496abce08829c, type: 3}
       propertyPath: m_Name
       value: NetworkManager
@@ -10254,6 +10258,10 @@ PrefabInstance:
     - target: {fileID: 1674180382879431101, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1366080517
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904484241004383852, guid: 7d491972ee3ec4d4bb05f06abca252c6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

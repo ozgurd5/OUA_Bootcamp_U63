@@ -106,7 +106,7 @@ public class NetworkSyncPositionAndRotation : NetworkBehaviour
     private void SyncClientRotationWithInterpolationClientRpc(Vector3 hostForward, float hostRotationSpeed)
     {
         //Since host is also a client, it will also try to run this method. It must not //TODO: what happens if it does?
-        if (!IsHost) transform.forward = Vector3.Lerp(transform.forward , hostForward, hostRotationSpeed);
+        if (!IsHost) transform.forward = Vector3.Slerp(transform.forward , hostForward, hostRotationSpeed);
     }
     
     /// <summary>

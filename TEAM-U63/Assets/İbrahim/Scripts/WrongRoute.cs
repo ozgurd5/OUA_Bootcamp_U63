@@ -14,10 +14,10 @@ public class WrongRoute : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player"))
-        {
-            col.transform.position = respawnPoint.transform.position;
-            aus.Play();
-        }
+        //if (col.CompareTag("Player"))
+        //{
+        //    col.transform.position = respawnPoint.transform.position;
+        //    aus.Play();
+        //}
     }
 }
