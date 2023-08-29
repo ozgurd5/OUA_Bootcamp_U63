@@ -17,8 +17,12 @@ public class CubeManager : NetworkBehaviour
 
     private MeshRenderer mr;
     private Rigidbody rb;
-    private FakeParenter fp;
+    public FakeParenter fp; //TODO: make it private and use another else in ElevatorParenter.cs
     
+    //TODO BETTER
+    public bool isRotationFroze;
+    public bool isParented;
+
     private int cubeMaterialAndTagIndex; //PlayerArtistPaintAbility.cs
     
     public bool isGrabbed { get; private set; } //PlayerGrabbing.cs
@@ -42,6 +46,7 @@ public class CubeManager : NetworkBehaviour
         
         fp.isChild = willBeChild;
         if (willBeChild) fp.followTargetTransform = fakeParent;
+        isParented = willBeChild;
     }
 
     #endregion
@@ -91,6 +96,7 @@ public class CubeManager : NetworkBehaviour
     {
         if (newRotationFreeze) rb.constraints = RigidbodyConstraints.FreezeRotation;
         else rb.constraints = RigidbodyConstraints.None;
+        isRotationFroze = newRotationFreeze;
         
         SyncRotationFreezeClientRpc(newRotationFreeze);
         if (!IsHost) SyncRotationFreezeServerRpc(newRotationFreeze);
@@ -109,6 +115,7 @@ public class CubeManager : NetworkBehaviour
         {
             if (newRotationFreeze) rb.constraints = RigidbodyConstraints.FreezeRotation;
             else rb.constraints = RigidbodyConstraints.None;
+            isRotationFroze = newRotationFreeze;
         }
     }
 
@@ -123,6 +130,7 @@ public class CubeManager : NetworkBehaviour
     {
         if (newRotationFreeze) rb.constraints = RigidbodyConstraints.FreezeRotation;
         else rb.constraints = RigidbodyConstraints.None;
+        isRotationFroze = newRotationFreeze;
     }
 
     #endregion

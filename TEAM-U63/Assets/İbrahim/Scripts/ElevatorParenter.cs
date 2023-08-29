@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -7,8 +8,7 @@ public class ElevatorParenter : NetworkBehaviour
     [Header("Assign - NetworkParentListID")]
     [SerializeField] private int networkParentListID;
 
-    private CubeManager enteredCubeManager; //Explanation is in further down where it's being used
-    private bool isEnteredCubeStatesNull = true; //Comparison to null is expensive
+    [Header("Info - No Touch")] [SerializeField] private List<CubeManager> enteredCubes;
 
     private void OnTriggerEnter(Collider col)
     {
@@ -23,20 +23,23 @@ public class ElevatorParenter : NetworkBehaviour
         
         //To do all of that, we need the CubeManager.cs from the cube that has entered the collider...
         //..and check if it's currently held by player or not
-        enteredCubeManager = col.GetComponent<CubeManager>();
-        isEnteredCubeStatesNull = false;    //Comparison to null is expensive, we will check that variable instead
+        enteredCubes.Add(col.GetComponent<CubeManager>());
     }
-    
+
+    private void OnTriggerExit(Collider col)
+    {
+        enteredCubes.Remove(col.GetComponent<CubeManager>());
+    }
+
     private void Update()
     {
-        if (isEnteredCubeStatesNull) return; 
-        if (enteredCubeManager.isGrabbed) return;
-        
-        //Parenting is needed for smooth movement and good looking motion
-        enteredCubeManager.ToggleFakeParenting(true, transform); //UpdateParentUsingNetworkParentListID(networkParentListID);
-        enteredCubeManager.UpdateRotationFreeze(true);
-        
-        enteredCubeManager = null;
-        isEnteredCubeStatesNull = true; //Comparison to null is expensive, we will check that variable instead
+        foreach (var item in enteredCubes)
+        {
+            if (item.isGrabbed || item.isParented || item.isRotationFroze) return;
+
+            //Parenting is needed for smooth movement and good looking motion
+            item.ToggleFakeParenting(true, transform); //UpdateParentUsingNetworkParentListID(networkParentListID);
+            item.UpdateRotationFreeze(true);
+        }
     }
 }

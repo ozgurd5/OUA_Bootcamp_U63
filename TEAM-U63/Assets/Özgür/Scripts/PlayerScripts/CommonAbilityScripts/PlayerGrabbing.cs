@@ -53,6 +53,7 @@ public class PlayerGrabbing : NetworkBehaviour
         
         grabbedCubeManager.UpdateIsGrabbed(true);
         grabbedCubeManager.ChangeCubeLocalStatus(true);
+        grabbedCubeManager.ToggleFakeParenting(false, null); //One and only
 
         //These settings prevent all kind of stuttering, flickering, shaking, lagging etc.
         grabbedCubeManager.UpdateGravity(false);
