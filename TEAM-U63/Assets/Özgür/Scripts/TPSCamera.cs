@@ -12,16 +12,17 @@ public class TPSCamera : MonoBehaviour
     //[SerializeField] private bool drawCameraSphere;
     //[SerializeField] private bool drawCameraRays;
 
-    private CinemachineVirtualCamera cinemachineCam; //2
-    private Transform followTargetTransform;
-    private Transform lookAtTargetTransform;
-    private PlayerInputManager pim;
+    [Header("Info - No Touch")]
+    [SerializeField] private CinemachineVirtualCamera cinemachineCam; //2
+    [SerializeField] private Transform followTargetTransform;
+    [SerializeField] private Transform lookAtTargetTransform;
+    [SerializeField] private PlayerInputManager pim;
+    [SerializeField] private bool canMoveUp;
+    [SerializeField] private bool canMoveDown;
 
     private Vector3 followTargetPreviousPosition;
     private Vector3 followTargetPositionDifference;
 
-    public bool canMoveUp;
-    public bool canMoveDown;
     
     private void Start()
     {

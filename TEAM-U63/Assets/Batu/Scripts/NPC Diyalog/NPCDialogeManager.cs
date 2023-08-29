@@ -54,7 +54,7 @@ public class NPCDialogeManager : MonoBehaviour
         if (!col.CompareTag("Player")) return;
 
         if (col.name == "ArtistPlayer" && artistPlayerData.isLocal) OpenDialogue(artistPlayerData.gameObject);
-        else if (coderPlayerData.isLocal) OpenDialogue(coderPlayerData.gameObject);
+        else if (col.name == "CoderPlayer" && coderPlayerData.isLocal) OpenDialogue(coderPlayerData.gameObject);
     }
 
     private void OnTriggerExit(Collider col)
@@ -62,6 +62,6 @@ public class NPCDialogeManager : MonoBehaviour
         if (!col.CompareTag("Player")) return;
 
         if (col.name == "ArtistPlayer" && artistPlayerData.isLocal) CloseDialogue(col.gameObject);
-        else if (coderPlayerData.isLocal) CloseDialogue(col.gameObject);
+        else if (col.name == "CoderPlayer" && coderPlayerData.isLocal) CloseDialogue(col.gameObject);
     }
 }
