@@ -88,6 +88,8 @@ public class ScaleController : MonoBehaviour
         UpdateCompletionMaterial();
         
         bottomDetector.OnBottomExit += UpdateScalePosition;
+
+        UpdateWeightText();
     }
 
     private void Update()
@@ -151,7 +153,7 @@ public class ScaleController : MonoBehaviour
     private void UpdateWeightText()
     {
         if (bottomDetector.isTouching) weightText.text = ":(";
-        else weightText.text = $"{(int)(math.abs(weightlessLocalPositionY - transform.localPosition.y + 0.001f) * 10)}";
+        else weightText.text = (math.abs(completionLocalPositionY - transform.localPosition.y + 0.001f) * 10).ToString("F1");
     }
     
     /// <summary>
