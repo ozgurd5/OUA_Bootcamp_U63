@@ -184,7 +184,7 @@ Transform:
   - {fileID: 8387420699453184248}
   - {fileID: 392507219790783177}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3280311500602447263
 Rigidbody:
@@ -399,9 +399,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotMaterials:
-  - {fileID: 2100000, guid: cf297c9cd9a3eef4fb6b2a8936083df5, type: 2}
-  - {fileID: 2100000, guid: dff89c479c1035e46ac9c726d68d9b97, type: 2}
-  - {fileID: 2100000, guid: 71b4162ee72038f4e999d255c36818e4, type: 2}
+  - {fileID: 2100000, guid: 71c670d4637469e4fb5bc78f30fcb77d, type: 2}
+  - {fileID: 2100000, guid: 66c2ceed8b467f947863dd9297e4f587, type: 2}
+  - {fileID: 2100000, guid: 958bbc15227e3c341b1bfaf4197f89f3, type: 2}
 --- !u!114 &6411858261112665233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,7 +757,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cf297c9cd9a3eef4fb6b2a8936083df5, type: 2}
+  - {fileID: 2100000, guid: 71c670d4637469e4fb5bc78f30fcb77d, type: 2}
   - {fileID: 2100000, guid: 704cfd0a9fe963c4fb92a58196af1883, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
