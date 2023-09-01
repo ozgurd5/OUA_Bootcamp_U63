@@ -97,6 +97,18 @@ public class TPSCamera : MonoBehaviour
         //transform.LookAt(lookAtTargetTransform);
         
         followTargetPreviousPosition = followTargetTransform.position;
+
+        BugFix();
+    }
+
+    private void BugFix()
+    {
+        if (Input.GetKeyDown(KeyCode.B) && Input.GetKey(KeyCode.RightShift))
+        {
+            Vector3 temp = transform.position;
+            temp.y = followTargetTransform.position.y + 5f;
+            transform.position = temp;
+        }
     }
 
     //6
